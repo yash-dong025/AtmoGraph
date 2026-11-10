@@ -1,0 +1,9 @@
+# AtmoGraph data acquisition and preprocessing dependencies
+# Python 3.11+ recommended (tested with 3.13).
+
+requests>=2.31
+pandas>=2.0
+numpy>=1.24
+pyarrow>=14.0
+PyYAML>=6.0
+neo4j>=5.0

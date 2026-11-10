@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Personal and assignment PDF documents
+*.pdf
+
+# Raw datasets & embedded downloads (downloadable via scripts/download_datasets.py)
+datasets/raw/
+
+# Execution logs
+*.log

@@ -1,0 +1,18 @@
+{
+  "rows": 1000,
+  "delays_written": 1000,
+  "features_written": 1000,
+  "labels_written": 1000,
+  "label_distribution": {
+    "0": 434,
+    "1": 566
+  },
+  "excluded_features": [
+    "Shipment_Status",
+    "Logistics_Delay_Reason",
+    "Logistics_Delay",
+    "Timestamp"
+  ],
+  "exclusion_reason": "Shipment_Status='Delayed' directly encodes the target; reason is post-hoc; timestamp is not used for advance prediction.",
+  "data_origin": "Supplied locally; provenance not documented. Not assumed to be real or synthetic."
+}
