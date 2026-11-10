@@ -1,0 +1,1552 @@
+{
+  "project": "AtmoGraph",
+  "description": "Supply Chain Ripple Effect Predictor",
+  "generated_at": "2026-11-10T05:42:29Z",
+  "seed": 42,
+  "datasets_dir": "datasets",
+  "summary": {
+    "nodes": 130020,
+    "raw_edges": 175754,
+    "graph_edges": 166690,
+    "news_articles": 847,
+    "event_mentions": 866,
+    "shipment_rows": 156488,
+    "evaluation_scenarios": 30,
+    "benchmark_items": 1117
+  },
+  "datasets": [
+    {
+      "name": "SAMPOQ",
+      "source_url": "https://api.sampoq.com/datasets/supply-chain.csv",
+      "license": "CC BY 4.0",
+      "restricted": false,
+      "raw": [
+        "datasets/raw/sampoq/supply-chain.csv"
+      ],
+      "processed": [
+        "datasets/processed/companies/companies_sampoq.csv",
+        "datasets/processed/relationships/supply_chain_edges_sampoq.csv"
+      ],
+      "rows": {
+        "companies": 13372,
+        "edges": 16102,
+        "input_rows": 16102
+      },
+      "notes": "Real self-reported 10-K relationships; no country/industry/product fields; direction standardised to Supplier -> Customer; confidence 0.9."
+    },
+    {
+      "name": "IC-SPLC-v2",
+      "source_url": "https://data.mendeley.com/datasets/txh3rrsh89/2",
+      "doi": "10.17632/txh3rrsh89.2",
+      "license": "CC BY 4.0",
+      "restricted": false,
+      "raw": [
+        "datasets/raw/ic_splc/txh3rrsh89-v2.zip",
+        "datasets/raw/ic_splc/extracted/IC-SPLC-v2 A Supply Chain Structure Neo4j Data/IC-SPLC.dump"
+      ],
+      "processed": [
+        "datasets/processed/companies/companies_ic_splc.csv",
+        "datasets/processed/relationships/supply_chain_edges_ic_splc.csv",
+        "datasets/raw/ic_splc/extracted_csv/ic_splc_embeddings.parquet"
+      ],
+      "rows": {
+        "companies": 109403,
+        "edges": 115767
+      },
+      "notes": "Anonymised, LLM-extracted structure; 31,182 nodes have 128-d embeddings; 37 duplicate edge IDs; direction confidence 0.7."
+    },
+    {
+      "name": "AnonNet",
+      "source_url": "https://github.com/lx249/anon-network.git",
+      "license": "Not specified (no LICENSE file)",
+      "restricted": false,
+      "raw": [
+        "datasets/raw/anonnet/repo/mim2025_network_challenge/nodes_anon.csv",
+        "datasets/raw/anonnet/repo/mim2025_network_challenge/edges_anon.csv"
+      ],
+      "processed": [
+        "datasets/processed/companies/companies_anonnet.csv",
+        "datasets/processed/relationships/supply_chain_edges_anonnet.csv"
+      ],
+      "rows": {
+        "companies": 7245,
+        "edges": 43922
+      },
+      "notes": "Anonymised real-world network; 4 self-loops dropped; direction not formally documented; confidence 0.8."
+    },
+    {
+      "name": "SynDelay",
+      "source_url": "https://github.com/lx249/syndelay.git",
+      "license": "Not specified (no LICENSE file)",
+      "restricted": false,
+      "raw": [
+        "datasets/raw/syndelay/repo/data/syndelay_v1.csv"
+      ],
+      "processed": [
+        "datasets/processed/logistics/shipment_delays_syndelay.csv",
+        "datasets/processed/logistics/logistics_features_syndelay.csv",
+        "datasets/training/delay_labels_syndelay.csv"
+      ],
+      "rows": {
+        "shipments": 155488,
+        "label_distribution": {
+          "0": 36724,
+          "1": 29055,
+          "2": 89709
+        }
+      },
+      "notes": "Synthetic. Class semantics undocumented and flagged. 41 duplicate order-item pairs resolved with a row suffix."
+    },
+    {
+      "name": "Smart Logistics",
+      "source_url": null,
+      "license": "Not specified (locally supplied)",
+      "restricted": false,
+      "raw": [
+        "datasets/raw/existing_smart_logistics/smart_logistics_dataset.csv"
+      ],
+      "processed": [
+        "datasets/processed/logistics/shipment_delays_smart_logistics.csv",
+        "datasets/processed/logistics/logistics_features_smart_logistics.csv",
+        "datasets/training/delay_labels_smart_logistics.csv"
+      ],
+      "rows": {
+        "shipments": 1000,
+        "label_distribution": {
+          "0": 434,
+          "1": 566
+        }
+      },
+      "notes": "Provenance unknown. Leakage fields excluded. Do not assume real or synthetic."
+    },
+    {
+      "name": "GDELT",
+      "source_url": "https://api.gdeltproject.org/api/v2/doc/doc",
+      "license": "GDELT 2.0 terms of use",
+      "restricted": false,
+      "raw": [
+        "datasets/raw/gdelt/",
+        "datasets/raw/gdelt/gkg_filtered/"
+      ],
+      "processed": [
+        "datasets/processed/disruptions/news_articles.csv",
+        "datasets/processed/disruptions/disruption_events.csv"
+      ],
+      "rows": {
+        "articles": 847,
+        "event_mentions": 866
+      },
+      "notes": "Unverified news mentions. DOC API 7/8 keywords succeeded; factory shutdown rate-limited; GKG fallback used. Date range 2026-11-03 to 2026-11-10."
+    },
+    {
+      "name": "Disruption Monitoring (restricted)",
+      "source_url": "https://github.com/sara-almahri/supply-chain-disruption-monitoring.git",
+      "license": "CC BY-NC 4.0",
+      "restricted": true,
+      "raw": [
+        "datasets/raw/disruption_monitoring/restricted/repo/"
+      ],
+      "processed": [
+        "datasets/processed/restricted/disruption_monitoring/companies.csv",
+        "datasets/processed/restricted/disruption_monitoring/edges.csv",
+        "datasets/evaluation/scenarios/restricted/",
+        "datasets/evaluation/ground_truth/restricted/",
+        "datasets/evaluation/benchmark/restricted/"
+      ],
+      "rows": {
+        "companies": 6222,
+        "edges": 16640,
+        "scenarios": 30,
+        "benchmark_items": 1117
+      },
+      "notes": "Non-commercial. Excluded from main graph and training. Scenarios are synthetic evaluation material."
+    }
+  ],
+  "graph": {
+    "nodes": 130020,
+    "raw_edges": 175754,
+    "graph_edges": 166690,
+    "node_source_counts": {
+      "ic_splc": 109403,
+      "sampoq": 13372,
+      "anonnet": 7245
+    },
+    "edge_source_counts": {
+      "ic_splc": 115730,
+      "anonnet": 43922,
+      "sampoq": 16102
+    },
+    "relationship_type_counts": {
+      "supplies_product_to": 106683,
+      "supply_relationship_anonymised": 43922,
+      "supplier_to_customer": 16085
+    },
+    "components": 23198,
+    "largest_component": 52473,
+    "isolated_nodes": 16,
+    "degree_stats": {
+      "min": 0,
+      "max": 1402,
+      "mean": 2.564,
+      "median": 1.0,
+      "p90": 3.0,
+      "p99": 28.0,
+      "zero_degree_nodes": 16
+    },
+    "embedding": {
+      "dim": 128,
+      "nodes_with_embedding": 31182,
+      "coverage": 0.2398,
+      "source": "IC-SPLC 128-d node embeddings; other nodes are zero-filled with an explicit mask in training/node_embeddings.parquet"
+    },
+    "label_availability": {
+      "company_risk": "not available",
+      "shipment_delay": "available for 156,488 shipments (SynDelay synthetic 3-class, Smart Logistics binary)"
+    }
+  },
+  "training": {
+    "generated_at": "2026-11-10T05:41:04Z",
+    "seed": 42,
+    "tasks": {
+      "link_prediction": {
+        "edge_index": "datasets/training/edge_index.csv",
+        "edge_count": 166690,
+        "splits": {
+          "train": 133352,
+          "val": 16669,
+          "test": 16669
+        }
+      },
+      "node_risk_prediction": {
+        "labels": "datasets/training/risk_labels.csv",
+        "label_status": "not_available",
+        "do_not_train": true,
+        "reason": "No verified company-level risk labels were found."
+      },
+      "shipment_delay_classification": {
+        "labels": "datasets/training/delay_labels.csv",
+        "rows": 6,
+        "tasks": {
+          "delay_classification_3class": {
+            "train": 108841,
+            "val": 23323,
+            "test": 23324
+          },
+          "delay_classification_binary": {
+            "train": 700,
+            "val": 150,
+            "test": 150
+          }
+        },
+        "label_semantics": "SynDelay classes 0/1/2 are undocumented; Smart Logistics binary is direct."
+      }
+    },
+    "features": {
+      "node_features": "datasets/training/node_features.csv",
+      "graph_node_features": "datasets/processed/graph/node_features.csv",
+      "columns": [
+        "node_id",
+        "node_type",
+        "node_type_code",
+        "degree",
+        "in_degree",
+        "out_degree",
+        "raw_degree",
+        "component_id",
+        "component_size",
+        "is_isolated",
+        "source_sampoq",
+        "source_ic_splc",
+        "source_anonnet",
+        "country_code",
+        "industry_code",
+        "product_category_code",
+        "has_country",
+        "has_industry",
+        "has_product_category",
+        "embedding_available",
+        "first_edge_year",
+        "last_edge_year",
+        "is_anonymised"
+      ],
+      "category_mappings": "datasets/training/category_mappings.json",
+      "embeddings": "datasets/training/node_embeddings.parquet"
+    },
+    "node_index": "datasets/training/node_index_mapping.csv",
+    "splits": "datasets/training/dataset_splits.json",
+    "known_limitations": [
+      "Company identities are not cross-source resolved; IC-SPLC and AnonNet entities are anonymised.",
+      "No verified company-level risk labels exist in the acquired sources.",
+      "AnonNet direction is not formally documented.",
+      "SynDelay label semantics are undocumented; do not interpret classes as delay severity.",
+      "Restricted CC BY-NC disruption monitoring data is excluded from this graph and from training.",
+      "GDELT records are unverified news mentions, not confirmed disruptions."
+    ]
+  },
+  "evaluation": {
+    "generated_at": "2026-11-10T05:21:01Z",
+    "restricted": true,
+    "license": "CC BY-NC 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+    "copyright": "Copyright (c) 2025-2026 Sara AlMahri",
+    "source_url": "https://github.com/sara-almahri/supply-chain-disruption-monitoring",
+    "commercial_use": "NOT PERMITTED without separate approval",
+    "included_in_main_graph": false,
+    "included_in_main_training": false,
+    "kg_rows": 16640,
+    "companies": 6222,
+    "edges": 16640,
+    "scenario_count": 30,
+    "scenario_ids": [
+      "TSLA_SC001",
+      "TSLA_SC002",
+      "TSLA_SC003",
+      "TSLA_SC004",
+      "TSLA_SC005",
+      "TSLA_SC006",
+      "TSLA_SC007",
+      "TSLA_SC008",
+      "TSLA_SC009",
+      "TSLA_SC010",
+      "MERC_SC001",
+      "MERC_SC002",
+      "MERC_SC003",
+      "MERC_SC004",
+      "MERC_SC005",
+      "MERC_SC006",
+      "MERC_SC007",
+      "MERC_SC008",
+      "MERC_SC009",
+      "MERC_SC010",
+      "BMW_SC001",
+      "BMW_SC002",
+      "BMW_SC003",
+      "BMW_SC004",
+      "BMW_SC005",
+      "BMW_SC006",
+      "BMW_SC007",
+      "BMW_SC008",
+      "BMW_SC009",
+      "BMW_SC010"
+    ],
+    "ground_truth_files": [
+      "BMW_SC001",
+      "BMW_SC002",
+      "BMW_SC003",
+      "BMW_SC004",
+      "BMW_SC005",
+      "BMW_SC006",
+      "BMW_SC007",
+      "BMW_SC008",
+      "BMW_SC009",
+      "BMW_SC010",
+      "MERC_SC001",
+      "MERC_SC002",
+      "MERC_SC003",
+      "MERC_SC004",
+      "MERC_SC005",
+      "MERC_SC006",
+      "MERC_SC007",
+      "MERC_SC008",
+      "MERC_SC009",
+      "MERC_SC010",
+      "TSLA_SC001",
+      "TSLA_SC002",
+      "TSLA_SC003",
+      "TSLA_SC004",
+      "TSLA_SC005",
+      "TSLA_SC006",
+      "TSLA_SC007",
+      "TSLA_SC008",
+      "TSLA_SC009",
+      "TSLA_SC010"
+    ],
+    "benchmark_items": 1117,
+    "benchmark_description": "The 1,117 items of the relevance benchmark (Chapter 4 and Appendix C): 120 positives and 997 negatives. N4-029, N4-127 and N4-186 failed the checks after regeneration and were not confirmed by the audit, so they were dropped.",
+    "scenario_note": "Scenarios are synthesised news articles with ground-truth references generated by the repository authors. They are not real observed disruptions.",
+    "copied_files": {
+      "scenarios": 2,
+      "ground_truth": 31,
+      "benchmark": 4
+    }
+  },
+  "validation": {
+    "status": "pass",
+    "passed": 40,
+    "failed": 0
+  },
+  "download_log": {
+    "entries": [
+      {
+        "source": "sampoq",
+        "type": "http_file",
+        "started_at": "2026-11-10T04:57:56Z",
+        "restricted": false,
+        "license": "CC BY 4.0",
+        "status": "ok",
+        "path": "datasets/raw/sampoq/supply-chain.csv",
+        "bytes": 2155860,
+        "sha256": "87b11dc7de8512991008bb23686c34b5ef7ac9379258d04319b99f8073656f34",
+        "url": "https://api.sampoq.com/datasets/supply-chain.csv",
+        "finished_at": "2026-11-10T04:57:57Z",
+        "duration_seconds": 1.35
+      },
+      {
+        "source": "ic_splc",
+        "type": "mendeley",
+        "started_at": "2026-11-10T04:57:57Z",
+        "restricted": false,
+        "license": "CC BY 4.0",
+        "status": "failed",
+        "error": "Mendeley sha256 mismatch: 0e261e0507cbab35477f424399cbd0854d59403e19ce94f1f87d3548ee3764ac != 0b11f5d421388a2924ae4c5a7f7fad7b0b754c1f7b6fa7abcaffc36d194c4444",
+        "finished_at": "2026-11-10T04:58:07Z",
+        "duration_seconds": 10.15
+      },
+      {
+        "source": "disruption_monitoring",
+        "type": "git",
+        "started_at": "2026-11-10T04:58:07Z",
+        "restricted": true,
+        "license": "CC BY-NC 4.0",
+        "status": "ok",
+        "path": "datasets/raw/disruption_monitoring/restricted/repo",
+        "commit": "96b13e962919f84c4760e801c8a0c9cbfad34eec",
+        "url": "https://github.com/sara-almahri/supply-chain-disruption-monitoring.git",
+        "finished_at": "2026-11-10T04:58:14Z",
+        "duration_seconds": 7.24
+      },
+      {
+        "source": "syndelay",
+        "type": "git",
+        "started_at": "2026-11-10T04:58:14Z",
+        "restricted": false,
+        "license": "Not specified in repository (no LICENSE file)",
+        "status": "ok",
+        "path": "datasets/raw/syndelay/repo",
+        "commit": "18047cf9ef4192f3cab9d1c532b4ec305a463365",
+        "url": "https://github.com/lx249/syndelay.git",
+        "finished_at": "2026-11-10T04:58:18Z",
+        "duration_seconds": 3.46
+      },
+      {
+        "source": "gdelt",
+        "type": "gdelt",
+        "started_at": "2026-11-10T04:58:18Z",
+        "restricted": false,
+        "license": "GDELT 2.0 terms of use",
+        "finished_at": "2026-11-10T05:05:22Z",
+        "date_range": {
+          "start": "2026-11-03T00:00:00Z",
+          "end": "2026-11-10T00:00:00Z"
+        },
+        "keywords": [
+          "port strike",
+          "port congestion",
+          "factory shutdown",
+          "supply chain disruption",
+          "shipping delay",
+          "logistics disruption",
+          "natural disaster supply chain",
+          "supplier disruption"
+        ],
+        "api": {
+          "method": "doc_api",
+          "ok_queries": 5,
+          "total_queries": 8,
+          "results": [
+            {
+              "keyword": "port strike",
+              "status": "ok",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/port_strike.json",
+              "http_status": 200,
+              "articles": 174
+            },
+            {
+              "keyword": "port congestion",
+              "status": "ok",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/port_congestion.json",
+              "http_status": 200,
+              "articles": 51
+            },
+            {
+              "keyword": "factory shutdown",
+              "status": "failed",
+              "error": "429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=factory+shutdown&mode=artlist&format=json&maxrecords=250&startdatetime=20261103000000&enddatetime=20261110000000",
+              "params": {
+                "query": "factory shutdown",
+                "mode": "artlist",
+                "format": "json",
+                "maxrecords": 250,
+                "startdatetime": "20261103000000",
+                "enddatetime": "20261110000000"
+              }
+            },
+            {
+              "keyword": "supply chain disruption",
+              "status": "failed",
+              "error": "429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=supply+chain+disruption&mode=artlist&format=json&maxrecords=250&startdatetime=20261103000000&enddatetime=20261110000000",
+              "params": {
+                "query": "supply chain disruption",
+                "mode": "artlist",
+                "format": "json",
+                "maxrecords": 250,
+                "startdatetime": "20261103000000",
+                "enddatetime": "20261110000000"
+              }
+            },
+            {
+              "keyword": "shipping delay",
+              "status": "ok",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/shipping_delay.json",
+              "http_status": 200,
+              "articles": 42
+            },
+            {
+              "keyword": "logistics disruption",
+              "status": "ok",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/logistics_disruption.json",
+              "http_status": 200,
+              "articles": 22
+            },
+            {
+              "keyword": "natural disaster supply chain",
+              "status": "failed",
+              "error": "429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=natural+disaster+supply+chain&mode=artlist&format=json&maxrecords=250&startdatetime=20261103000000&enddatetime=20261110000000",
+              "params": {
+                "query": "natural disaster supply chain",
+                "mode": "artlist",
+                "format": "json",
+                "maxrecords": 250,
+                "startdatetime": "20261103000000",
+                "enddatetime": "20261110000000"
+              }
+            },
+            {
+              "keyword": "supplier disruption",
+              "status": "ok",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/supplier_disruption.json",
+              "http_status": 200,
+              "articles": 21
+            }
+          ]
+        },
+        "fallback": null,
+        "notes": [
+          "GDELT DOC API is preferred. The API may return HTTP 429 for shared IPs.",
+          "If the API is unavailable, a small reproducible sample of GDELT 2.0 GKG 15-minute files is filtered by the configured supply-chain keywords.",
+          "GKG records are article metadata only. No full article text is downloaded."
+        ],
+        "status": "ok",
+        "duration_seconds": 424.41
+      },
+      {
+        "source": "anonnet",
+        "type": "git",
+        "started_at": "2026-11-10T05:05:22Z",
+        "restricted": false,
+        "license": "Not specified in repository (no LICENSE file)",
+        "status": "ok",
+        "path": "datasets/raw/anonnet/repo",
+        "commit": "a9cd007c963285bdf95d64fd4be3944fb60ee79d",
+        "url": "https://github.com/lx249/anon-network.git",
+        "finished_at": "2026-11-10T05:05:24Z",
+        "duration_seconds": 2.04
+      },
+      {
+        "source": "existing_smart_logistics",
+        "type": "local_copy",
+        "started_at": "2026-11-10T05:05:24Z",
+        "restricted": false,
+        "license": "Not specified with supplied file",
+        "status": "skipped_exists",
+        "path": "datasets/raw/existing_smart_logistics/smart_logistics_dataset.csv",
+        "bytes": 106483,
+        "sha256": "d9c91a6bd89d9eeb4e5656b1c83df62b15da69d0bbea45afa317379b1e518762",
+        "finished_at": "2026-11-10T05:05:24Z",
+        "duration_seconds": 0.0
+      },
+      {
+        "source": "ic_splc",
+        "type": "mendeley",
+        "started_at": "2026-11-10T05:06:10Z",
+        "restricted": false,
+        "license": "CC BY 4.0",
+        "status": "failed",
+        "error": "type object 'Path' has no attribute 'sep'",
+        "finished_at": "2026-11-10T05:06:10Z",
+        "duration_seconds": 0.03
+      },
+      {
+        "source": "ic_splc",
+        "type": "mendeley",
+        "started_at": "2026-11-10T05:06:23Z",
+        "restricted": false,
+        "license": "CC BY 4.0",
+        "status": "ok",
+        "path": "datasets/raw/ic_splc/txh3rrsh89-v2.zip",
+        "bytes": 48300979,
+        "sha256": "0e261e0507cbab35477f424399cbd0854d59403e19ce94f1f87d3548ee3764ac",
+        "payload_sha256": null,
+        "extracted": [],
+        "metadata": "datasets/raw/ic_splc/mendeley_metadata.json",
+        "dataset_name": "IC-SPLC-v2: A Supply Chain Structure Neo4j Data",
+        "doi": "10.17632/txh3rrsh89.2",
+        "finished_at": "2026-11-10T05:06:23Z",
+        "duration_seconds": 0.03
+      },
+      {
+        "source": "ic_splc",
+        "type": "mendeley",
+        "started_at": "2026-11-10T05:06:37Z",
+        "restricted": false,
+        "license": "CC BY 4.0",
+        "status": "ok",
+        "path": "datasets/raw/ic_splc/txh3rrsh89-v2.zip",
+        "bytes": 48300979,
+        "sha256": "0e261e0507cbab35477f424399cbd0854d59403e19ce94f1f87d3548ee3764ac",
+        "payload_sha256": "0b11f5d421388a2924ae4c5a7f7fad7b0b754c1f7b6fa7abcaffc36d194c4444",
+        "extracted": [
+          "datasets/raw/ic_splc/extracted/IC-SPLC-v2 A Supply Chain Structure Neo4j Data/IC-SPLC.dump"
+        ],
+        "metadata": "datasets/raw/ic_splc/mendeley_metadata.json",
+        "dataset_name": "IC-SPLC-v2: A Supply Chain Structure Neo4j Data",
+        "doi": "10.17632/txh3rrsh89.2",
+        "finished_at": "2026-11-10T05:06:38Z",
+        "duration_seconds": 0.1
+      },
+      {
+        "source": "gdelt",
+        "type": "gdelt",
+        "started_at": "2026-11-10T05:06:41Z",
+        "restricted": false,
+        "license": "GDELT 2.0 terms of use",
+        "finished_at": "2026-11-10T05:09:42Z",
+        "date_range": {
+          "start": "2026-11-03T00:00:00Z",
+          "end": "2026-11-10T00:00:00Z"
+        },
+        "keywords": [
+          "port strike",
+          "port congestion",
+          "factory shutdown",
+          "supply chain disruption",
+          "shipping delay",
+          "logistics disruption",
+          "natural disaster supply chain",
+          "supplier disruption"
+        ],
+        "api": {
+          "method": "doc_api",
+          "ok_queries": 7,
+          "total_queries": 8,
+          "results": [
+            {
+              "keyword": "port strike",
+              "status": "skipped_exists",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/port_strike.json"
+            },
+            {
+              "keyword": "port congestion",
+              "status": "skipped_exists",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/port_congestion.json"
+            },
+            {
+              "keyword": "factory shutdown",
+              "status": "failed",
+              "error": "429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=factory+shutdown&mode=artlist&format=json&maxrecords=250&startdatetime=20261103000000&enddatetime=20261110000000",
+              "params": {
+                "query": "factory shutdown",
+                "mode": "artlist",
+                "format": "json",
+                "maxrecords": 250,
+                "startdatetime": "20261103000000",
+                "enddatetime": "20261110000000"
+              }
+            },
+            {
+              "keyword": "supply chain disruption",
+              "status": "ok",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/supply_chain_disruption.json",
+              "http_status": 200,
+              "articles": 39
+            },
+            {
+              "keyword": "shipping delay",
+              "status": "skipped_exists",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/shipping_delay.json"
+            },
+            {
+              "keyword": "logistics disruption",
+              "status": "skipped_exists",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/logistics_disruption.json"
+            },
+            {
+              "keyword": "natural disaster supply chain",
+              "status": "ok",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/natural_disaster_supply_chain.json",
+              "http_status": 200,
+              "articles": 10
+            },
+            {
+              "keyword": "supplier disruption",
+              "status": "skipped_exists",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/supplier_disruption.json"
+            }
+          ]
+        },
+        "fallback": {
+          "method": "gkg_sample",
+          "ok_files": 0,
+          "total_files": 0,
+          "results": []
+        },
+        "notes": [
+          "GDELT DOC API is preferred. The API may return HTTP 429 for shared IPs.",
+          "If the API is unavailable, a small reproducible sample of GDELT 2.0 GKG 15-minute files is filtered by the configured supply-chain keywords.",
+          "GKG records are article metadata only. No full article text is downloaded."
+        ],
+        "status": "ok",
+        "duration_seconds": 180.49
+      },
+      {
+        "source": "gdelt",
+        "type": "gdelt",
+        "started_at": "2026-11-10T05:09:58Z",
+        "restricted": false,
+        "license": "GDELT 2.0 terms of use",
+        "finished_at": "2026-11-10T05:11:28Z",
+        "date_range": {
+          "start": "2026-11-03T00:00:00Z",
+          "end": "2026-11-10T00:00:00Z"
+        },
+        "keywords": [
+          "port strike",
+          "port congestion",
+          "factory shutdown",
+          "supply chain disruption",
+          "shipping delay",
+          "logistics disruption",
+          "natural disaster supply chain",
+          "supplier disruption"
+        ],
+        "api": {
+          "method": "doc_api",
+          "ok_queries": 7,
+          "total_queries": 8,
+          "results": [
+            {
+              "keyword": "port strike",
+              "status": "skipped_exists",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/port_strike.json"
+            },
+            {
+              "keyword": "port congestion",
+              "status": "skipped_exists",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/port_congestion.json"
+            },
+            {
+              "keyword": "factory shutdown",
+              "status": "failed",
+              "error": "429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=factory+shutdown&mode=artlist&format=json&maxrecords=250&startdatetime=20261103000000&enddatetime=20261110000000",
+              "params": {
+                "query": "factory shutdown",
+                "mode": "artlist",
+                "format": "json",
+                "maxrecords": 250,
+                "startdatetime": "20261103000000",
+                "enddatetime": "20261110000000"
+              }
+            },
+            {
+              "keyword": "supply chain disruption",
+              "status": "skipped_exists",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/supply_chain_disruption.json"
+            },
+            {
+              "keyword": "shipping delay",
+              "status": "skipped_exists",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/shipping_delay.json"
+            },
+            {
+              "keyword": "logistics disruption",
+              "status": "skipped_exists",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/logistics_disruption.json"
+            },
+            {
+              "keyword": "natural disaster supply chain",
+              "status": "skipped_exists",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/natural_disaster_supply_chain.json"
+            },
+            {
+              "keyword": "supplier disruption",
+              "status": "skipped_exists",
+              "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/supplier_disruption.json"
+            }
+          ]
+        },
+        "fallback": {
+          "method": "gkg_sample",
+          "ok_files": 7,
+          "total_files": 7,
+          "results": [
+            {
+              "timestamp": "2026-11-09T04:00:00+00:00",
+              "status": "ok",
+              "url": "https://data.gdeltproject.org/gdeltv2/20261109040000.gkg.csv.zip",
+              "zip": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg/20261109040000.gkg.csv.zip",
+              "filtered": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg_filtered/20261109040000.filtered.csv",
+              "rows": 79,
+              "scanned": 498
+            },
+            {
+              "timestamp": "2026-11-09T04:00:00+00:00",
+              "status": "skipped_exists",
+              "url": "https://data.gdeltproject.org/gdeltv2/20261109040000.gkg.csv.zip",
+              "matched_rows": 79
+            },
+            {
+              "timestamp": "2026-11-08T04:00:00+00:00",
+              "status": "ok",
+              "url": "https://data.gdeltproject.org/gdeltv2/20261108040000.gkg.csv.zip",
+              "zip": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg/20261108040000.gkg.csv.zip",
+              "filtered": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg_filtered/20261108040000.filtered.csv",
+              "rows": 44,
+              "scanned": 420
+            },
+            {
+              "timestamp": "2026-11-07T04:00:00+00:00",
+              "status": "ok",
+              "url": "https://data.gdeltproject.org/gdeltv2/20261107040000.gkg.csv.zip",
+              "zip": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg/20261107040000.gkg.csv.zip",
+              "filtered": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg_filtered/20261107040000.filtered.csv",
+              "rows": 109,
+              "scanned": 682
+            },
+            {
+              "timestamp": "2026-11-06T04:00:00+00:00",
+              "status": "ok",
+              "url": "https://data.gdeltproject.org/gdeltv2/20261106040000.gkg.csv.zip",
+              "zip": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg/20261106040000.gkg.csv.zip",
+              "filtered": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg_filtered/20261106040000.filtered.csv",
+              "rows": 93,
+              "scanned": 813
+            },
+            {
+              "timestamp": "2026-11-05T04:00:00+00:00",
+              "status": "ok",
+              "url": "https://data.gdeltproject.org/gdeltv2/20261105040000.gkg.csv.zip",
+              "zip": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg/20261105040000.gkg.csv.zip",
+              "filtered": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg_filtered/20261105040000.filtered.csv",
+              "rows": 126,
+              "scanned": 889
+            },
+            {
+              "timestamp": "2026-11-04T04:00:00+00:00",
+              "status": "ok",
+              "url": "https://data.gdeltproject.org/gdeltv2/20261104040000.gkg.csv.zip",
+              "zip": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg/20261104040000.gkg.csv.zip",
+              "filtered": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg_filtered/20261104040000.filtered.csv",
+              "rows": 136,
+              "scanned": 1064
+            }
+          ]
+        },
+        "notes": [
+          "GDELT DOC API is preferred. The API may return HTTP 429 for shared IPs.",
+          "If the API is unavailable, a small reproducible sample of GDELT 2.0 GKG 15-minute files is filtered by the configured supply-chain keywords.",
+          "GKG records are article metadata only. No full article text is downloaded."
+        ],
+        "status": "ok",
+        "duration_seconds": 89.55
+      },
+      {
+        "source": "ic_splc",
+        "type": "verification",
+        "started_at": "2026-11-10T05:35:53Z",
+        "finished_at": "2026-11-10T05:35:53Z",
+        "restricted": false,
+        "license": "CC BY 4.0",
+        "status": "ok",
+        "path": "datasets/raw/ic_splc/txh3rrsh89-v2.zip",
+        "bytes": 48300979,
+        "sha256": "0e261e0507cbab35477f424399cbd0854d59403e19ce94f1f87d3548ee3764ac",
+        "payload_path": "datasets/raw/ic_splc/extracted/IC-SPLC-v2 A Supply Chain Structure Neo4j Data/IC-SPLC.dump",
+        "payload_sha256": "0b11f5d421388a2924ae4c5a7f7fad7b0b754c1f7b6fa7abcaffc36d194c4444",
+        "expected_payload_sha256": "0b11f5d421388a2924ae4c5a7f7fad7b0b754c1f7b6fa7abcaffc36d194c4444",
+        "url": "https://data.mendeley.com/public-api/zip/txh3rrsh89/download/2",
+        "note": "The initial Mendeley download check compared the ZIP digest with the payload hash and logged a false failure. The extracted IC-SPLC.dump matches the Mendeley payload hash."
+      }
+    ]
+  },
+  "raw_assets": [
+    {
+      "name": "sampoq_csv",
+      "path": "datasets/raw/sampoq/supply-chain.csv",
+      "bytes": 2155860,
+      "sha256": "87b11dc7de8512991008bb23686c34b5ef7ac9379258d04319b99f8073656f34"
+    },
+    {
+      "name": "ic_splc_zip",
+      "path": "datasets/raw/ic_splc/txh3rrsh89-v2.zip",
+      "bytes": 48300979,
+      "sha256": "0e261e0507cbab35477f424399cbd0854d59403e19ce94f1f87d3548ee3764ac"
+    },
+    {
+      "name": "ic_splc_dump",
+      "path": "datasets/raw/ic_splc/extracted/IC-SPLC-v2 A Supply Chain Structure Neo4j Data/IC-SPLC.dump",
+      "bytes": 48297731,
+      "sha256": "0b11f5d421388a2924ae4c5a7f7fad7b0b754c1f7b6fa7abcaffc36d194c4444"
+    },
+    {
+      "name": "ic_splc_nodes",
+      "path": "datasets/raw/ic_splc/extracted_csv/ic_splc_nodes.csv",
+      "bytes": 2056438,
+      "sha256": "805c1e5b567c8bb464859ad8ad989c38313313c9b6680db622ae2818176d6e88"
+    },
+    {
+      "name": "ic_splc_edges",
+      "path": "datasets/raw/ic_splc/extracted_csv/ic_splc_edges.csv",
+      "bytes": 2004320,
+      "sha256": "a877eace1c0981b57b76bf15fc41d38b570b596da644beedb7419fe6f4673f7c"
+    },
+    {
+      "name": "ic_splc_embeddings",
+      "path": "datasets/raw/ic_splc/extracted_csv/ic_splc_embeddings.parquet",
+      "bytes": 31923710,
+      "sha256": "fc25776abe7770aee4029c7329629b5f2b01962df7aeecedd6657bb71760d163"
+    },
+    {
+      "name": "syndelay_csv",
+      "path": "datasets/raw/syndelay/repo/data/syndelay_v1.csv",
+      "bytes": 56309566,
+      "sha256": "469067d68ae50b8124235243d2619c754c962d0015275c0528f5b0da293660ba"
+    },
+    {
+      "name": "smart_logistics_csv",
+      "path": "datasets/raw/existing_smart_logistics/smart_logistics_dataset.csv",
+      "bytes": 106483,
+      "sha256": "d9c91a6bd89d9eeb4e5656b1c83df62b15da69d0bbea45afa317379b1e518762"
+    },
+    {
+      "name": "anonnet_nodes",
+      "path": "datasets/raw/anonnet/repo/mim2025_network_challenge/nodes_anon.csv",
+      "bytes": 541801,
+      "sha256": "38ef22d13fca6e3950f22748a395d8263fdd2a872e3b61dc776ca1c00b62a693"
+    },
+    {
+      "name": "anonnet_edges",
+      "path": "datasets/raw/anonnet/repo/mim2025_network_challenge/edges_anon.csv",
+      "bytes": 514702,
+      "sha256": "27a141f1ac38588dd30100c362936778248f9fa7cd96163637f81098c46f8088"
+    },
+    {
+      "name": "gdelt_collection_metadata",
+      "path": "datasets/raw/gdelt/collection_metadata.json",
+      "bytes": 5608,
+      "sha256": "90faf8bccdb6652bf57d3b565d5a9ef9803ac138edb19c90a4e8f3611082b92d"
+    },
+    {
+      "name": "restricted_kg",
+      "path": "datasets/raw/disruption_monitoring/restricted/repo/dataset/supplychainKG_clean.csv",
+      "bytes": 2041389,
+      "sha256": "e5192809c1334d46893eea44c53cd2b527c939c2fb88c0e81c9e4e8bf60c784a"
+    },
+    {
+      "name": "restricted_scenarios",
+      "path": "datasets/raw/disruption_monitoring/restricted/repo/evaluation/scenarios/multi_company_scenarios.json",
+      "bytes": 56505,
+      "sha256": "149a448e282cb21037c5e568343c13ab46b16cb4d5e0bb2b12cda2fbb7fe7208"
+    },
+    {
+      "name": "restricted_benchmark",
+      "path": "datasets/raw/disruption_monitoring/restricted/repo/evaluation/benchmark_v2/items/test/test_set.json",
+      "bytes": 13547,
+      "sha256": "e8598e4b5fe04fcda4a5d6974788d98f326727bc461796f60640a0d68042396d"
+    }
+  ],
+  "files": [
+    {
+      "group": "processed",
+      "path": "datasets/processed/companies/companies.csv",
+      "bytes": 13856224,
+      "sha256": "e72a73a45eddc80542aeec3dbb4f334c9505b63f942427c54559f690b60c8eb0"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/companies/companies_anonnet.csv",
+      "bytes": 1225554,
+      "sha256": "3f3b3923031eef7860f2c1e2ac2db9794a27ae9ad435a38caa4e1155c36f7a0f"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/companies/companies_ic_splc.csv",
+      "bytes": 9273724,
+      "sha256": "faeb14e77e1a32037c3b555494e96a345b463d5e460d0a53a692817307e11993"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/companies/companies_sampoq.csv",
+      "bytes": 2391361,
+      "sha256": "2ca2c03a1fe6bdb83bcac86dad96f274f889a8260df43f6a39400abcb5593132"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/companies/sampoq_preprocessing_stats.json",
+      "bytes": 754,
+      "sha256": "8c5137d33cdc54e27785d0216b36fbf043b007ca5b2a3e62c6a89560e9078943"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/disruptions/disruption_events.csv",
+      "bytes": 455875,
+      "sha256": "74d539e992c6e0ca9f30913fdb54fbf32e2848947e876cdf9ac24cdc31cdc48c"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/disruptions/gdelt_preprocessing_stats.json",
+      "bytes": 995,
+      "sha256": "3143728f84a735f7a2d2cb0db23a1235e07c38b79a66b16517af722258083f61"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/disruptions/news_articles.csv",
+      "bytes": 278951,
+      "sha256": "416762975e88115119ae420fb1f8d1f9a37af02c5cad89340bcfe1e6714ddb9c"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/graph/edges.csv",
+      "bytes": 17169567,
+      "sha256": "c5e46c481026939c756ed1a242a90f23e399841a9f6f5a31f416fb472acaf11a"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/graph/graph_metadata.json",
+      "bytes": 2594,
+      "sha256": "24c81f82338a181dacd6a760636be19a4b13831a8484604d1e165f8be3c14a2e"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/graph/node_features.csv",
+      "bytes": 10332500,
+      "sha256": "c2149400eeaf66070a4ebbeb06612d7451d509cae2a66f56ac586395c7a51ac3"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/graph/nodes.csv",
+      "bytes": 16985281,
+      "sha256": "9dbd7c871a4930b2b88b7686530dbac11073eaddc307ba2658ff574e6a1d7e7a"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/logistics/logistics_features.csv",
+      "bytes": 12189683,
+      "sha256": "f50ad8e1f227c429ec0c57b361069ca8828dceec4afad190d60c0be0500aa040"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/logistics/logistics_features_smart_logistics.csv",
+      "bytes": 123360,
+      "sha256": "82b279e7962d8226b43dcb7291e39bff6108e8f887f7e514925149317cf32231"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/logistics/logistics_features_syndelay.csv",
+      "bytes": 27029286,
+      "sha256": "ba63401cc45107256c979b05bc85e0389bb1fcf596644bb801fc307ae314e2a7"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/logistics/shipment_delays.csv",
+      "bytes": 23577551,
+      "sha256": "55824d6c12f8e92d2ff7c7361d74ebae1aa57139717d7cf91a663840fcb4d6a2"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/logistics/shipment_delays_smart_logistics.csv",
+      "bytes": 180954,
+      "sha256": "fd56a401055e62a2541f100b6dd1267e933522f5eaf0a41e581c40c5803c2c89"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/logistics/shipment_delays_syndelay.csv",
+      "bytes": 49149842,
+      "sha256": "e7aa77c6fd896f808b3eef800892c19b3cabcb3509492f6dab0ce7c1674da0fb"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/logistics/smart_logistics_category_mappings.json",
+      "bytes": 279,
+      "sha256": "445da42df8adc15dccd0f4680e433339a7c835f9572df288205285b33551ba98"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/logistics/smart_logistics_preprocessing_stats.json",
+      "bytes": 527,
+      "sha256": "ff8325a357cf3ced0f523fc2c71293ca9a6f837a98bf2085d1b8f25315e9f60a"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/logistics/syndelay_preprocessing_stats.json",
+      "bytes": 782,
+      "sha256": "d50e625c53d53d769a61114a8fcb282a6f1a67d9521faef844f2d1ed1b2f1bb1"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/relationships/supply_chain_edges.csv",
+      "bytes": 28309235,
+      "sha256": "ebe145385b726c226cfbdec27330ef71ee48f03b8891455191bf84daabd635c4"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/relationships/supply_chain_edges.parquet",
+      "bytes": 3588845,
+      "sha256": "346e3c86c94dbcb20016fac28f79a54f11f8e02cba30cd1f339f83d73def1efd"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/relationships/supply_chain_edges_anonnet.csv",
+      "bytes": 8665497,
+      "sha256": "62731064a6e8698ae8f99487e1d0aca9a041752d3ffe47656947ceea25acabd3"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/relationships/supply_chain_edges_ic_splc.csv",
+      "bytes": 15256062,
+      "sha256": "b732274704036f993e8d18a28ca3402ebaffe8dfe2e738502eba161751302291"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/relationships/supply_chain_edges_sampoq.csv",
+      "bytes": 3594546,
+      "sha256": "dcf3080f6a11a5d90b917f20a924b1a0e2ebf5c00efffe3b62555a31818c3406"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/restricted/disruption_monitoring/companies.csv",
+      "bytes": 1303493,
+      "sha256": "ee5834d3202aaaec1f8bc2b049e2d2ea6917d2ea3714a428c70fce8ecac7978e"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/restricted/disruption_monitoring/edges.csv",
+      "bytes": 3790169,
+      "sha256": "f82771440565f36c99eaa3b526e486dc3b262a464fc8c54020d41045abf47391"
+    },
+    {
+      "group": "processed",
+      "path": "datasets/processed/restricted/disruption_monitoring/preprocessing_stats.json",
+      "bytes": 2177,
+      "sha256": "d9af6fb4acc76d399b548c02fefd26d7bec43064c4d12fbbafafc8a059f61289"
+    },
+    {
+      "group": "training",
+      "path": "datasets/training/category_mappings.json",
+      "bytes": 29205,
+      "sha256": "0154e1160644d74e01d59e9c21166a0b8cfd6613b949b516d2afcf7ce4a20d58"
+    },
+    {
+      "group": "training",
+      "path": "datasets/training/dataset_splits.json",
+      "bytes": 15426370,
+      "sha256": "6639d40f95c0531273ecac878a7c45ea9455fa9ac13c646579525fa43bd0c991"
+    },
+    {
+      "group": "training",
+      "path": "datasets/training/delay_labels.csv",
+      "bytes": 19967849,
+      "sha256": "8ce89930bafc2ba6c9191402f3a8c61c2291902a5b9b59a19105ee273543bd3e"
+    },
+    {
+      "group": "training",
+      "path": "datasets/training/delay_labels_smart_logistics.csv",
+      "bytes": 138204,
+      "sha256": "5f6f9fcb2f7e4038fa60fc72332e818a793b14296b7266eb54e3ffeb4e16f153"
+    },
+    {
+      "group": "training",
+      "path": "datasets/training/delay_labels_syndelay.csv",
+      "bytes": 19829744,
+      "sha256": "71957995cd3deddf12dce0e7fae625f3a2b046fdf6b2b4066f8cd2fed2f56dd1"
+    },
+    {
+      "group": "training",
+      "path": "datasets/training/edge_index.csv",
+      "bytes": 16772211,
+      "sha256": "9f0c1581a8faf18f8b7880942dc7fb5ce7602733b5018093cbd88e2e4d4a42bf"
+    },
+    {
+      "group": "training",
+      "path": "datasets/training/node_embeddings.parquet",
+      "bytes": 26658491,
+      "sha256": "c47804cb3bf104aabcaa549062743de752fc7f4e46dc611a780af0f5ac399dcb"
+    },
+    {
+      "group": "training",
+      "path": "datasets/training/node_features.csv",
+      "bytes": 10332500,
+      "sha256": "c2149400eeaf66070a4ebbeb06612d7451d509cae2a66f56ac586395c7a51ac3"
+    },
+    {
+      "group": "training",
+      "path": "datasets/training/node_index_mapping.csv",
+      "bytes": 2982791,
+      "sha256": "343594cc725a2ddaa422695b071d4909a3d9f4fc210409d8dd4c892237338caf"
+    },
+    {
+      "group": "training",
+      "path": "datasets/training/risk_labels.csv",
+      "bytes": 16225970,
+      "sha256": "0b37c1b5ef40e8305a359532c32fe9fdf41d495cdad86c097f7ec57e99510624"
+    },
+    {
+      "group": "training",
+      "path": "datasets/training/syndelay_category_mappings.json",
+      "bytes": 5873,
+      "sha256": "308ef2f589a35aa21e7ec85da0a7a9c1db29c78979641f95f77effdc9fc58c4e"
+    },
+    {
+      "group": "training",
+      "path": "datasets/training/training_metadata.json",
+      "bytes": 2480,
+      "sha256": "b09c4d5409639335e02e68284ddccd774b1d31c74bd4a61add404035704c0260"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/benchmark/restricted/RESTRICTED_NOTICE.md",
+      "bytes": 570,
+      "sha256": "2f0555e58535e2f29841b223cd43dc647cebb4b5acd49a94ce0f477a4bdbf22b"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/benchmark/restricted/generation_summary.json",
+      "bytes": 389,
+      "sha256": "3a26f1e7222e8642bd6bfc501f61765fc8efbe273c702c51a6b3897060fbdd8c"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/benchmark/restricted/ground_truth_summary.json",
+      "bytes": 191,
+      "sha256": "9617e7f06097e588e9788cb9e7733b3e13fc93febdc160c3a5e4b2f8584107db"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/benchmark/restricted/specs.json",
+      "bytes": 553911,
+      "sha256": "0fd97e5b817d5df3b7ad7cc0111299c148fd94a4cf93911222cc0ffd69bcddf8"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/benchmark/restricted/test_set.json",
+      "bytes": 13547,
+      "sha256": "e8598e4b5fe04fcda4a5d6974788d98f326727bc461796f60640a0d68042396d"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/evaluation_metadata.json",
+      "bytes": 2177,
+      "sha256": "d9af6fb4acc76d399b548c02fefd26d7bec43064c4d12fbbafafc8a059f61289"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/BMW_SC001.json",
+      "bytes": 913936,
+      "sha256": "a009d825a542d2ed558b2c69f669e821a50731dc969ddfd9d509fae72dbda915"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/BMW_SC002.json",
+      "bytes": 332279,
+      "sha256": "c33f220f92fd6f2f63ffe679869ebdab9ece25873600d7be62853126de432ddd"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/BMW_SC003.json",
+      "bytes": 5066166,
+      "sha256": "8ebf98604c9755397e427308b336082bd08065a1ebf55f9dbec8720cfe0bfc1d"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/BMW_SC004.json",
+      "bytes": 2332,
+      "sha256": "bdc578df54002407e5c1ce5fdd7efe034dbf2876b60db688ff13f861edc8e04c"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/BMW_SC005.json",
+      "bytes": 1300758,
+      "sha256": "f97af01596e734523bc87da76ecad5d4a73c46f512cc9da74fdb66070f20d686"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/BMW_SC006.json",
+      "bytes": 1065435,
+      "sha256": "55b6d6cdbe7b5413b9f189ea1bd5497f7c7badfab897c817348323ddaea4375b"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/BMW_SC007.json",
+      "bytes": 141838,
+      "sha256": "46336b2f106a7c735a7b9c88d52fc585c3a057ce04fc679c7f0507d97babc68b"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/BMW_SC008.json",
+      "bytes": 2404,
+      "sha256": "fbdc7459bdb859f0caa6aa2109ff2af5c5e43613d29906db518501edf516ba53"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/BMW_SC009.json",
+      "bytes": 781074,
+      "sha256": "4b9a43cb2cb4bc7f94ac13daab4a20cc1556546ddf85fde24e22d3d5844d1e1b"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/BMW_SC010.json",
+      "bytes": 2352,
+      "sha256": "356b9332749bbbb5621eb0b713d0ade18c400ed2edae25355bd8f33bd13dab03"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/MERC_SC001.json",
+      "bytes": 1031728,
+      "sha256": "97d7052f031e702018ffad55aac3be30ee42067bfeeb632173f21960530c3c8a"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/MERC_SC002.json",
+      "bytes": 355801,
+      "sha256": "07fb9449f1ca2bc7a071fc795997288da9a1476f65de56ec99043b46fccd08cd"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/MERC_SC003.json",
+      "bytes": 6419240,
+      "sha256": "1a6fb274ba8cd5a024e70a51b50f1cf5e3959827f76d93ca12b196026ad13f0f"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/MERC_SC004.json",
+      "bytes": 2318,
+      "sha256": "36b6100f94e024f1b96f0b9673d9eb3360d0bfa8bd6d579463fe45ad2b449d4c"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/MERC_SC005.json",
+      "bytes": 1442536,
+      "sha256": "686ed991961db13e448cc9729562f2785efb42ce9c097edc2e772e97ce16c094"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/MERC_SC006.json",
+      "bytes": 1079288,
+      "sha256": "82a0d8dcc4c45ba5df59ba6b7c5864c1a54ea459129a4828b755be74a63fb432"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/MERC_SC007.json",
+      "bytes": 156968,
+      "sha256": "9a2f8e44356e53f02cca260a6793ff48fb97e1ff575e874b6085ceffcb90a5b2"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/MERC_SC008.json",
+      "bytes": 2390,
+      "sha256": "232cd6eaae63289e4179c9602ac2df88b7afd1a6f8b57940a4eb79bd7ccb88c6"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/MERC_SC009.json",
+      "bytes": 878283,
+      "sha256": "d26cf8cc055cfff53d12e5c94fc15946b5bbe705d767fe04a2b036007324f73f"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/MERC_SC010.json",
+      "bytes": 2338,
+      "sha256": "24591ca1c4e37b2aa147e456a3af284d4858c08ea142f5f0d96c75092f09f9e0"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/RESTRICTED_NOTICE.md",
+      "bytes": 570,
+      "sha256": "2f0555e58535e2f29841b223cd43dc647cebb4b5acd49a94ce0f477a4bdbf22b"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/TSLA_SC001.json",
+      "bytes": 353527,
+      "sha256": "e761b8fbfad44cd492c5272e62d8a4b3afb4914048ef464d239f26c306639c60"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/TSLA_SC002.json",
+      "bytes": 110935,
+      "sha256": "87c573dd7c925f9375fd574f61141d148b329f71b593d3604c9b5f12430a103f"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/TSLA_SC003.json",
+      "bytes": 1780588,
+      "sha256": "1a4d0e398370dcf3c141284dafb24aa5f492ef9227fffc13c60b3f86c6768b30"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/TSLA_SC004.json",
+      "bytes": 2279,
+      "sha256": "8bbac085f62f77a8a59d50ff4255e0488cf07de9264736e6199a011f297acc17"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/TSLA_SC005.json",
+      "bytes": 413731,
+      "sha256": "5fb6168a99c5789c682aff6e09f70c58833bf3f70af8b2c7c1215baf95edece2"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/TSLA_SC006.json",
+      "bytes": 398299,
+      "sha256": "2b1c0f23bd4198785d87766955208c330e156a92e5328c791df295fee44d303a"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/TSLA_SC007.json",
+      "bytes": 50682,
+      "sha256": "dcb86c16786aa3632ca9cc23e4b7b22f532b385dd4452513924b541d782db09d"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/TSLA_SC008.json",
+      "bytes": 2351,
+      "sha256": "706c53fb4126769bf13af8957ccc19a99a4a0986eb04c1102dcc99ec618946cd"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/TSLA_SC009.json",
+      "bytes": 286541,
+      "sha256": "ec27471593cee927f4a963636ccb627e6300898cd056e4cbc081c1a233e48000"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/TSLA_SC010.json",
+      "bytes": 2299,
+      "sha256": "f27c628548dc8fc95676831e63126d90a241ff4a43698c3cdb824b056055cd8b"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/ground_truth/restricted/index.json",
+      "bytes": 491,
+      "sha256": "7d355b2a23e866d648b929f81238f6e51898611ac24404ea07875b24a34434fe"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/scenarios/restricted/RESTRICTED_NOTICE.md",
+      "bytes": 570,
+      "sha256": "2f0555e58535e2f29841b223cd43dc647cebb4b5acd49a94ce0f477a4bdbf22b"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/scenarios/restricted/multi_company_scenarios.json",
+      "bytes": 56505,
+      "sha256": "149a448e282cb21037c5e568343c13ab46b16cb4d5e0bb2b12cda2fbb7fe7208"
+    },
+    {
+      "group": "evaluation",
+      "path": "datasets/evaluation/scenarios/restricted/original_templates_v1_2.json",
+      "bytes": 4750,
+      "sha256": "211cddba1d48c8a5977c570aaf02eeb07408a62ad6d871de92649b290df7d639"
+    },
+    {
+      "group": "metadata",
+      "path": "datasets/metadata/data_dictionary.md",
+      "bytes": 11845,
+      "sha256": "c6b856e8d30ef2c882c40806a085f2044a07c84cb9e2830373d7caaa79e90e79"
+    },
+    {
+      "group": "metadata",
+      "path": "datasets/metadata/download_log.json",
+      "bytes": 19766,
+      "sha256": "435a71b3ee1e10c167a53455489336cfa1a5634a8ca82dbcb5554fa7bbfa5f71"
+    },
+    {
+      "group": "metadata",
+      "path": "datasets/metadata/pipeline.log",
+      "bytes": 16491,
+      "sha256": "4bbfb5dc1ae76128b699b4d0c8bcbe9590ff21af28a052c9a6b798cf9c0f7103"
+    },
+    {
+      "group": "metadata",
+      "path": "datasets/metadata/source_licenses.md",
+      "bytes": 2108,
+      "sha256": "21382fac4a7162c911e71e5f924affa9b9338d9b5896795718b092e2f4065c26"
+    },
+    {
+      "group": "reports",
+      "path": "datasets/reports/data_quality_report.md",
+      "bytes": 5517,
+      "sha256": "42600fb0793051ca5934462da252c65df2cb3aa3b9e0ac766d87c5fb97647958"
+    },
+    {
+      "group": "reports",
+      "path": "datasets/reports/dataset_inventory.json",
+      "bytes": 27044,
+      "sha256": "e77f9034b02ed02dc58cde0d939cf375478562a5c76e7d4302323dd4b6c0a697"
+    },
+    {
+      "group": "reports",
+      "path": "datasets/reports/dataset_summary.md",
+      "bytes": 4286,
+      "sha256": "f60d4374d7448b034217d757a985cf250d2ce66daae1d6f5c2ed2e21c2cf1088"
+    },
+    {
+      "group": "reports",
+      "path": "datasets/reports/preprocessing_report.md",
+      "bytes": 4538,
+      "sha256": "9f3b9f1a8c85f7e613e7126885e3e26b6fb808e8c42bb07b08f74482669aad69"
+    },
+    {
+      "group": "reports",
+      "path": "datasets/reports/validation_results.json",
+      "bytes": 5514,
+      "sha256": "543cad8981f44bdd2569ebb2de5af25b3e3e086946a99269063a2058be15fb2d"
+    }
+  ],
+  "environment": {
+    "python": "3.13.15",
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "packages": {
+      "pandas": "3.0.5",
+      "numpy": "2.5.1",
+      "pyarrow": "26.0.1",
+      "requests": "2.34.2",
+      "PyYAML": "6.0.3",
+      "neo4j": "6.4.1"
+    }
+  },
+  "known_limitations": [
+    "Company identities are not cross-source resolved; IC-SPLC and AnonNet entities are anonymised.",
+    "No verified company-level risk labels exist in the acquired sources.",
+    "AnonNet direction is not formally documented.",
+    "SynDelay label semantics are undocumented; do not interpret classes as delay severity.",
+    "Restricted CC BY-NC disruption monitoring data is excluded from this graph and from training.",
+    "GDELT records are unverified news mentions, not confirmed disruptions."
+  ],
+  "reproducibility": {
+    "commands": [
+      "python3 scripts/download_datasets.py",
+      "python3 scripts/preprocess_sampoq.py",
+      "python3 scripts/preprocess_ic_splc.py",
+      "python3 scripts/preprocess_anonnet.py",
+      "python3 scripts/preprocess_syndelay.py",
+      "python3 scripts/preprocess_smart_logistics.py",
+      "python3 scripts/preprocess_gdelt.py",
+      "python3 scripts/preprocess_disruption_monitoring.py --allow-restricted",
+      "python3 scripts/build_graph_dataset.py",
+      "python3 scripts/inspect_datasets.py",
+      "python3 scripts/validate_datasets.py",
+      "python3 scripts/generate_dataset_report.py"
+    ],
+    "note": "IC-SPLC extraction additionally requires a running Neo4j 5.x instance and --extract."
+  }
+}

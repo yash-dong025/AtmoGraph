@@ -1,0 +1,271 @@
+{
+  "generated_at": "2026-11-10T05:41:12Z",
+  "status": "pass",
+  "passed": 40,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "required_files_exist",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "name": "company_ids_unique",
+      "status": "pass",
+      "details": 0
+    },
+    {
+      "name": "graph_edge_endpoints_exist",
+      "status": "pass",
+      "details": null
+    },
+    {
+      "name": "graph_has_no_self_loops",
+      "status": "pass",
+      "details": null
+    },
+    {
+      "name": "graph_edge_ids_unique",
+      "status": "pass",
+      "details": 0
+    },
+    {
+      "name": "raw_edge_ids_unique_after_merge",
+      "status": "pass",
+      "details": 0
+    },
+    {
+      "name": "node_index_covers_all_nodes",
+      "status": "pass",
+      "details": {
+        "mapped": 130020,
+        "nodes": 130020
+      }
+    },
+    {
+      "name": "node_index_unique",
+      "status": "pass",
+      "details": null
+    },
+    {
+      "name": "node_index_contiguous",
+      "status": "pass",
+      "details": null
+    },
+    {
+      "name": "node_features_align",
+      "status": "pass",
+      "details": {
+        "features": 130020,
+        "nodes": 130020
+      }
+    },
+    {
+      "name": "training_node_features_align",
+      "status": "pass",
+      "details": {
+        "rows": 130020,
+        "columns_match": true
+      }
+    },
+    {
+      "name": "edge_index_align",
+      "status": "pass",
+      "details": {
+        "edge_index": 166690,
+        "edges": 166690
+      }
+    },
+    {
+      "name": "edge_index_in_range",
+      "status": "pass",
+      "details": null
+    },
+    {
+      "name": "edge_index_no_self_loops",
+      "status": "pass",
+      "details": 0
+    },
+    {
+      "name": "edge_index_mapping_sample",
+      "status": "pass",
+      "details": "first 2000 edges"
+    },
+    {
+      "name": "risk_labels_not_fabricated",
+      "status": "pass",
+      "details": {
+        "not_available": 130020
+      }
+    },
+    {
+      "name": "risk_labels_cover_nodes",
+      "status": "pass",
+      "details": {
+        "risk_rows": 130020,
+        "nodes": 130020
+      }
+    },
+    {
+      "name": "delay_task_names",
+      "status": "pass",
+      "details": {
+        "delay_classification_3class": [
+          "0",
+          "1",
+          "2"
+        ],
+        "delay_classification_binary": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    {
+      "name": "delay_3class_values",
+      "status": "pass",
+      "details": [
+        "0",
+        "1",
+        "2"
+      ]
+    },
+    {
+      "name": "delay_binary_values",
+      "status": "pass",
+      "details": [
+        "0",
+        "1"
+      ]
+    },
+    {
+      "name": "delay_label_ids_unique_per_task",
+      "status": "pass",
+      "details": 0
+    },
+    {
+      "name": "node_splits_cover_all",
+      "status": "pass",
+      "details": {
+        "covered": 130020,
+        "nodes": 130020
+      }
+    },
+    {
+      "name": "node_splits_disjoint",
+      "status": "pass",
+      "details": null
+    },
+    {
+      "name": "edge_splits_cover_all",
+      "status": "pass",
+      "details": {
+        "covered": 166690,
+        "edges": 166690
+      }
+    },
+    {
+      "name": "edge_splits_disjoint",
+      "status": "pass",
+      "details": null
+    },
+    {
+      "name": "delay_splits_cover_and_disjoint",
+      "status": "pass",
+      "details": {
+        "delay_classification_3class": {
+          "covered": 155488,
+          "expected": 155488,
+          "disjoint": true
+        },
+        "delay_classification_binary": {
+          "covered": 1000,
+          "expected": 1000,
+          "disjoint": true
+        }
+      }
+    },
+    {
+      "name": "embedding_rows_align",
+      "status": "pass",
+      "details": {
+        "rows": 130020,
+        "nodes": 130020
+      }
+    },
+    {
+      "name": "embedding_mask_count",
+      "status": "pass",
+      "details": 31182
+    },
+    {
+      "name": "restricted_excluded_from_graph",
+      "status": "pass",
+      "details": {
+        "overlap": 0
+      }
+    },
+    {
+      "name": "no_restricted_source_in_graph",
+      "status": "pass",
+      "details": null
+    },
+    {
+      "name": "no_restricted_edge_sources",
+      "status": "pass",
+      "details": null
+    },
+    {
+      "name": "gdelt_events_unverified",
+      "status": "pass",
+      "details": {
+        "unverified_news_mention": 866
+      }
+    },
+    {
+      "name": "gdelt_no_fabricated_company",
+      "status": "pass",
+      "details": 0
+    },
+    {
+      "name": "gdelt_source_urls_present",
+      "status": "pass",
+      "details": null
+    },
+    {
+      "name": "no_target_leakage_in_logistics_features",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "name": "no_label_columns_in_graph_features",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "name": "sampoq_confidence",
+      "status": "pass",
+      "details": null
+    },
+    {
+      "name": "ic_splc_confidence",
+      "status": "pass",
+      "details": null
+    },
+    {
+      "name": "anonnet_confidence",
+      "status": "pass",
+      "details": null
+    },
+    {
+      "name": "restricted_eval_not_in_main_graph",
+      "status": "pass",
+      "details": false
+    }
+  ],
+  "notes": [
+    "A pass on label availability does not mean risk labels exist; risk labels are explicitly marked not_available.",
+    "GDELT events are unverified news mentions, not confirmed disruptions.",
+    "Restricted CC BY-NC data is validated only for exclusion from the main graph."
+  ]
+}

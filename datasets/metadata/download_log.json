@@ -1,0 +1,503 @@
+{
+  "entries": [
+    {
+      "source": "sampoq",
+      "type": "http_file",
+      "started_at": "2026-11-10T04:57:56Z",
+      "restricted": false,
+      "license": "CC BY 4.0",
+      "status": "ok",
+      "path": "datasets/raw/sampoq/supply-chain.csv",
+      "bytes": 2155860,
+      "sha256": "87b11dc7de8512991008bb23686c34b5ef7ac9379258d04319b99f8073656f34",
+      "url": "https://api.sampoq.com/datasets/supply-chain.csv",
+      "finished_at": "2026-11-10T04:57:57Z",
+      "duration_seconds": 1.35
+    },
+    {
+      "source": "ic_splc",
+      "type": "mendeley",
+      "started_at": "2026-11-10T04:57:57Z",
+      "restricted": false,
+      "license": "CC BY 4.0",
+      "status": "failed",
+      "error": "Mendeley sha256 mismatch: 0e261e0507cbab35477f424399cbd0854d59403e19ce94f1f87d3548ee3764ac != 0b11f5d421388a2924ae4c5a7f7fad7b0b754c1f7b6fa7abcaffc36d194c4444",
+      "finished_at": "2026-11-10T04:58:07Z",
+      "duration_seconds": 10.15
+    },
+    {
+      "source": "disruption_monitoring",
+      "type": "git",
+      "started_at": "2026-11-10T04:58:07Z",
+      "restricted": true,
+      "license": "CC BY-NC 4.0",
+      "status": "ok",
+      "path": "datasets/raw/disruption_monitoring/restricted/repo",
+      "commit": "96b13e962919f84c4760e801c8a0c9cbfad34eec",
+      "url": "https://github.com/sara-almahri/supply-chain-disruption-monitoring.git",
+      "finished_at": "2026-11-10T04:58:14Z",
+      "duration_seconds": 7.24
+    },
+    {
+      "source": "syndelay",
+      "type": "git",
+      "started_at": "2026-11-10T04:58:14Z",
+      "restricted": false,
+      "license": "Not specified in repository (no LICENSE file)",
+      "status": "ok",
+      "path": "datasets/raw/syndelay/repo",
+      "commit": "18047cf9ef4192f3cab9d1c532b4ec305a463365",
+      "url": "https://github.com/lx249/syndelay.git",
+      "finished_at": "2026-11-10T04:58:18Z",
+      "duration_seconds": 3.46
+    },
+    {
+      "source": "gdelt",
+      "type": "gdelt",
+      "started_at": "2026-11-10T04:58:18Z",
+      "restricted": false,
+      "license": "GDELT 2.0 terms of use",
+      "finished_at": "2026-11-10T05:05:22Z",
+      "date_range": {
+        "start": "2026-11-03T00:00:00Z",
+        "end": "2026-11-10T00:00:00Z"
+      },
+      "keywords": [
+        "port strike",
+        "port congestion",
+        "factory shutdown",
+        "supply chain disruption",
+        "shipping delay",
+        "logistics disruption",
+        "natural disaster supply chain",
+        "supplier disruption"
+      ],
+      "api": {
+        "method": "doc_api",
+        "ok_queries": 5,
+        "total_queries": 8,
+        "results": [
+          {
+            "keyword": "port strike",
+            "status": "ok",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/port_strike.json",
+            "http_status": 200,
+            "articles": 174
+          },
+          {
+            "keyword": "port congestion",
+            "status": "ok",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/port_congestion.json",
+            "http_status": 200,
+            "articles": 51
+          },
+          {
+            "keyword": "factory shutdown",
+            "status": "failed",
+            "error": "429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=factory+shutdown&mode=artlist&format=json&maxrecords=250&startdatetime=20261103000000&enddatetime=20261110000000",
+            "params": {
+              "query": "factory shutdown",
+              "mode": "artlist",
+              "format": "json",
+              "maxrecords": 250,
+              "startdatetime": "20261103000000",
+              "enddatetime": "20261110000000"
+            }
+          },
+          {
+            "keyword": "supply chain disruption",
+            "status": "failed",
+            "error": "429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=supply+chain+disruption&mode=artlist&format=json&maxrecords=250&startdatetime=20261103000000&enddatetime=20261110000000",
+            "params": {
+              "query": "supply chain disruption",
+              "mode": "artlist",
+              "format": "json",
+              "maxrecords": 250,
+              "startdatetime": "20261103000000",
+              "enddatetime": "20261110000000"
+            }
+          },
+          {
+            "keyword": "shipping delay",
+            "status": "ok",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/shipping_delay.json",
+            "http_status": 200,
+            "articles": 42
+          },
+          {
+            "keyword": "logistics disruption",
+            "status": "ok",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/logistics_disruption.json",
+            "http_status": 200,
+            "articles": 22
+          },
+          {
+            "keyword": "natural disaster supply chain",
+            "status": "failed",
+            "error": "429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=natural+disaster+supply+chain&mode=artlist&format=json&maxrecords=250&startdatetime=20261103000000&enddatetime=20261110000000",
+            "params": {
+              "query": "natural disaster supply chain",
+              "mode": "artlist",
+              "format": "json",
+              "maxrecords": 250,
+              "startdatetime": "20261103000000",
+              "enddatetime": "20261110000000"
+            }
+          },
+          {
+            "keyword": "supplier disruption",
+            "status": "ok",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/supplier_disruption.json",
+            "http_status": 200,
+            "articles": 21
+          }
+        ]
+      },
+      "fallback": null,
+      "notes": [
+        "GDELT DOC API is preferred. The API may return HTTP 429 for shared IPs.",
+        "If the API is unavailable, a small reproducible sample of GDELT 2.0 GKG 15-minute files is filtered by the configured supply-chain keywords.",
+        "GKG records are article metadata only. No full article text is downloaded."
+      ],
+      "status": "ok",
+      "duration_seconds": 424.41
+    },
+    {
+      "source": "anonnet",
+      "type": "git",
+      "started_at": "2026-11-10T05:05:22Z",
+      "restricted": false,
+      "license": "Not specified in repository (no LICENSE file)",
+      "status": "ok",
+      "path": "datasets/raw/anonnet/repo",
+      "commit": "a9cd007c963285bdf95d64fd4be3944fb60ee79d",
+      "url": "https://github.com/lx249/anon-network.git",
+      "finished_at": "2026-11-10T05:05:24Z",
+      "duration_seconds": 2.04
+    },
+    {
+      "source": "existing_smart_logistics",
+      "type": "local_copy",
+      "started_at": "2026-11-10T05:05:24Z",
+      "restricted": false,
+      "license": "Not specified with supplied file",
+      "status": "skipped_exists",
+      "path": "datasets/raw/existing_smart_logistics/smart_logistics_dataset.csv",
+      "bytes": 106483,
+      "sha256": "d9c91a6bd89d9eeb4e5656b1c83df62b15da69d0bbea45afa317379b1e518762",
+      "finished_at": "2026-11-10T05:05:24Z",
+      "duration_seconds": 0.0
+    },
+    {
+      "source": "ic_splc",
+      "type": "mendeley",
+      "started_at": "2026-11-10T05:06:10Z",
+      "restricted": false,
+      "license": "CC BY 4.0",
+      "status": "failed",
+      "error": "type object 'Path' has no attribute 'sep'",
+      "finished_at": "2026-11-10T05:06:10Z",
+      "duration_seconds": 0.03
+    },
+    {
+      "source": "ic_splc",
+      "type": "mendeley",
+      "started_at": "2026-11-10T05:06:23Z",
+      "restricted": false,
+      "license": "CC BY 4.0",
+      "status": "ok",
+      "path": "datasets/raw/ic_splc/txh3rrsh89-v2.zip",
+      "bytes": 48300979,
+      "sha256": "0e261e0507cbab35477f424399cbd0854d59403e19ce94f1f87d3548ee3764ac",
+      "payload_sha256": null,
+      "extracted": [],
+      "metadata": "datasets/raw/ic_splc/mendeley_metadata.json",
+      "dataset_name": "IC-SPLC-v2: A Supply Chain Structure Neo4j Data",
+      "doi": "10.17632/txh3rrsh89.2",
+      "finished_at": "2026-11-10T05:06:23Z",
+      "duration_seconds": 0.03
+    },
+    {
+      "source": "ic_splc",
+      "type": "mendeley",
+      "started_at": "2026-11-10T05:06:37Z",
+      "restricted": false,
+      "license": "CC BY 4.0",
+      "status": "ok",
+      "path": "datasets/raw/ic_splc/txh3rrsh89-v2.zip",
+      "bytes": 48300979,
+      "sha256": "0e261e0507cbab35477f424399cbd0854d59403e19ce94f1f87d3548ee3764ac",
+      "payload_sha256": "0b11f5d421388a2924ae4c5a7f7fad7b0b754c1f7b6fa7abcaffc36d194c4444",
+      "extracted": [
+        "datasets/raw/ic_splc/extracted/IC-SPLC-v2 A Supply Chain Structure Neo4j Data/IC-SPLC.dump"
+      ],
+      "metadata": "datasets/raw/ic_splc/mendeley_metadata.json",
+      "dataset_name": "IC-SPLC-v2: A Supply Chain Structure Neo4j Data",
+      "doi": "10.17632/txh3rrsh89.2",
+      "finished_at": "2026-11-10T05:06:38Z",
+      "duration_seconds": 0.1
+    },
+    {
+      "source": "gdelt",
+      "type": "gdelt",
+      "started_at": "2026-11-10T05:06:41Z",
+      "restricted": false,
+      "license": "GDELT 2.0 terms of use",
+      "finished_at": "2026-11-10T05:09:42Z",
+      "date_range": {
+        "start": "2026-11-03T00:00:00Z",
+        "end": "2026-11-10T00:00:00Z"
+      },
+      "keywords": [
+        "port strike",
+        "port congestion",
+        "factory shutdown",
+        "supply chain disruption",
+        "shipping delay",
+        "logistics disruption",
+        "natural disaster supply chain",
+        "supplier disruption"
+      ],
+      "api": {
+        "method": "doc_api",
+        "ok_queries": 7,
+        "total_queries": 8,
+        "results": [
+          {
+            "keyword": "port strike",
+            "status": "skipped_exists",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/port_strike.json"
+          },
+          {
+            "keyword": "port congestion",
+            "status": "skipped_exists",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/port_congestion.json"
+          },
+          {
+            "keyword": "factory shutdown",
+            "status": "failed",
+            "error": "429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=factory+shutdown&mode=artlist&format=json&maxrecords=250&startdatetime=20261103000000&enddatetime=20261110000000",
+            "params": {
+              "query": "factory shutdown",
+              "mode": "artlist",
+              "format": "json",
+              "maxrecords": 250,
+              "startdatetime": "20261103000000",
+              "enddatetime": "20261110000000"
+            }
+          },
+          {
+            "keyword": "supply chain disruption",
+            "status": "ok",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/supply_chain_disruption.json",
+            "http_status": 200,
+            "articles": 39
+          },
+          {
+            "keyword": "shipping delay",
+            "status": "skipped_exists",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/shipping_delay.json"
+          },
+          {
+            "keyword": "logistics disruption",
+            "status": "skipped_exists",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/logistics_disruption.json"
+          },
+          {
+            "keyword": "natural disaster supply chain",
+            "status": "ok",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/natural_disaster_supply_chain.json",
+            "http_status": 200,
+            "articles": 10
+          },
+          {
+            "keyword": "supplier disruption",
+            "status": "skipped_exists",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/supplier_disruption.json"
+          }
+        ]
+      },
+      "fallback": {
+        "method": "gkg_sample",
+        "ok_files": 0,
+        "total_files": 0,
+        "results": []
+      },
+      "notes": [
+        "GDELT DOC API is preferred. The API may return HTTP 429 for shared IPs.",
+        "If the API is unavailable, a small reproducible sample of GDELT 2.0 GKG 15-minute files is filtered by the configured supply-chain keywords.",
+        "GKG records are article metadata only. No full article text is downloaded."
+      ],
+      "status": "ok",
+      "duration_seconds": 180.49
+    },
+    {
+      "source": "gdelt",
+      "type": "gdelt",
+      "started_at": "2026-11-10T05:09:58Z",
+      "restricted": false,
+      "license": "GDELT 2.0 terms of use",
+      "finished_at": "2026-11-10T05:11:28Z",
+      "date_range": {
+        "start": "2026-11-03T00:00:00Z",
+        "end": "2026-11-10T00:00:00Z"
+      },
+      "keywords": [
+        "port strike",
+        "port congestion",
+        "factory shutdown",
+        "supply chain disruption",
+        "shipping delay",
+        "logistics disruption",
+        "natural disaster supply chain",
+        "supplier disruption"
+      ],
+      "api": {
+        "method": "doc_api",
+        "ok_queries": 7,
+        "total_queries": 8,
+        "results": [
+          {
+            "keyword": "port strike",
+            "status": "skipped_exists",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/port_strike.json"
+          },
+          {
+            "keyword": "port congestion",
+            "status": "skipped_exists",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/port_congestion.json"
+          },
+          {
+            "keyword": "factory shutdown",
+            "status": "failed",
+            "error": "429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=factory+shutdown&mode=artlist&format=json&maxrecords=250&startdatetime=20261103000000&enddatetime=20261110000000",
+            "params": {
+              "query": "factory shutdown",
+              "mode": "artlist",
+              "format": "json",
+              "maxrecords": 250,
+              "startdatetime": "20261103000000",
+              "enddatetime": "20261110000000"
+            }
+          },
+          {
+            "keyword": "supply chain disruption",
+            "status": "skipped_exists",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/supply_chain_disruption.json"
+          },
+          {
+            "keyword": "shipping delay",
+            "status": "skipped_exists",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/shipping_delay.json"
+          },
+          {
+            "keyword": "logistics disruption",
+            "status": "skipped_exists",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/logistics_disruption.json"
+          },
+          {
+            "keyword": "natural disaster supply chain",
+            "status": "skipped_exists",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/natural_disaster_supply_chain.json"
+          },
+          {
+            "keyword": "supplier disruption",
+            "status": "skipped_exists",
+            "file": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/api/supplier_disruption.json"
+          }
+        ]
+      },
+      "fallback": {
+        "method": "gkg_sample",
+        "ok_files": 7,
+        "total_files": 7,
+        "results": [
+          {
+            "timestamp": "2026-11-09T04:00:00+00:00",
+            "status": "ok",
+            "url": "https://data.gdeltproject.org/gdeltv2/20261109040000.gkg.csv.zip",
+            "zip": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg/20261109040000.gkg.csv.zip",
+            "filtered": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg_filtered/20261109040000.filtered.csv",
+            "rows": 79,
+            "scanned": 498
+          },
+          {
+            "timestamp": "2026-11-09T04:00:00+00:00",
+            "status": "skipped_exists",
+            "url": "https://data.gdeltproject.org/gdeltv2/20261109040000.gkg.csv.zip",
+            "matched_rows": 79
+          },
+          {
+            "timestamp": "2026-11-08T04:00:00+00:00",
+            "status": "ok",
+            "url": "https://data.gdeltproject.org/gdeltv2/20261108040000.gkg.csv.zip",
+            "zip": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg/20261108040000.gkg.csv.zip",
+            "filtered": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg_filtered/20261108040000.filtered.csv",
+            "rows": 44,
+            "scanned": 420
+          },
+          {
+            "timestamp": "2026-11-07T04:00:00+00:00",
+            "status": "ok",
+            "url": "https://data.gdeltproject.org/gdeltv2/20261107040000.gkg.csv.zip",
+            "zip": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg/20261107040000.gkg.csv.zip",
+            "filtered": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg_filtered/20261107040000.filtered.csv",
+            "rows": 109,
+            "scanned": 682
+          },
+          {
+            "timestamp": "2026-11-06T04:00:00+00:00",
+            "status": "ok",
+            "url": "https://data.gdeltproject.org/gdeltv2/20261106040000.gkg.csv.zip",
+            "zip": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg/20261106040000.gkg.csv.zip",
+            "filtered": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg_filtered/20261106040000.filtered.csv",
+            "rows": 93,
+            "scanned": 813
+          },
+          {
+            "timestamp": "2026-11-05T04:00:00+00:00",
+            "status": "ok",
+            "url": "https://data.gdeltproject.org/gdeltv2/20261105040000.gkg.csv.zip",
+            "zip": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg/20261105040000.gkg.csv.zip",
+            "filtered": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg_filtered/20261105040000.filtered.csv",
+            "rows": 126,
+            "scanned": 889
+          },
+          {
+            "timestamp": "2026-11-04T04:00:00+00:00",
+            "status": "ok",
+            "url": "https://data.gdeltproject.org/gdeltv2/20261104040000.gkg.csv.zip",
+            "zip": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg/20261104040000.gkg.csv.zip",
+            "filtered": "/Users/yash/Desktop/Infotact/datasets/raw/gdelt/gkg_filtered/20261104040000.filtered.csv",
+            "rows": 136,
+            "scanned": 1064
+          }
+        ]
+      },
+      "notes": [
+        "GDELT DOC API is preferred. The API may return HTTP 429 for shared IPs.",
+        "If the API is unavailable, a small reproducible sample of GDELT 2.0 GKG 15-minute files is filtered by the configured supply-chain keywords.",
+        "GKG records are article metadata only. No full article text is downloaded."
+      ],
+      "status": "ok",
+      "duration_seconds": 89.55
+    },
+    {
+      "source": "ic_splc",
+      "type": "verification",
+      "started_at": "2026-11-10T05:35:53Z",
+      "finished_at": "2026-11-10T05:35:53Z",
+      "restricted": false,
+      "license": "CC BY 4.0",
+      "status": "ok",
+      "path": "datasets/raw/ic_splc/txh3rrsh89-v2.zip",
+      "bytes": 48300979,
+      "sha256": "0e261e0507cbab35477f424399cbd0854d59403e19ce94f1f87d3548ee3764ac",
+      "payload_path": "datasets/raw/ic_splc/extracted/IC-SPLC-v2 A Supply Chain Structure Neo4j Data/IC-SPLC.dump",
+      "payload_sha256": "0b11f5d421388a2924ae4c5a7f7fad7b0b754c1f7b6fa7abcaffc36d194c4444",
+      "expected_payload_sha256": "0b11f5d421388a2924ae4c5a7f7fad7b0b754c1f7b6fa7abcaffc36d194c4444",
+      "url": "https://data.mendeley.com/public-api/zip/txh3rrsh89/download/2",
+      "note": "The initial Mendeley download check compared the ZIP digest with the payload hash and logged a false failure. The extracted IC-SPLC.dump matches the Mendeley payload hash."
+    }
+  ]
+}

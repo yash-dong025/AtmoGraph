@@ -1,0 +1,126 @@
+project:
+  name: AtmoGraph
+  description: Supply Chain Ripple Effect Predictor
+  seed: 42
+  datasets_dir: datasets
+
+http:
+  user_agent: "AtmoGraph-research/1.0 (dataset acquisition; contact: data-team@example.com)"
+  connect_timeout: 20
+  read_timeout: 180
+  retries: 4
+  backoff_seconds: 5
+
+sources:
+  sampoq:
+    enabled: true
+    type: http_file
+    url: "https://api.sampoq.com/datasets/supply-chain.csv"
+    dest: "raw/sampoq/supply-chain.csv"
+    license: "CC BY 4.0"
+    license_url: "https://creativecommons.org/licenses/by/4.0/"
+    attribution: "SAMPOQ Supply Chain 10-K dataset, https://huggingface.co/datasets/SAMPOQ/supply-chain-10k"
+    expected_min_bytes: 100000
+    sha256: null
+
+  ic_splc:
+    enabled: true
+    type: mendeley
+    dataset_id: "txh3rrsh89"
+    version: 2
+    metadata_url: "https://data.mendeley.com/public-api/datasets/txh3rrsh89"
+    zip_url: "https://data.mendeley.com/public-api/zip/txh3rrsh89/download/2"
+    dest_dir: "raw/ic_splc"
+    extract: true
+    license: "CC BY 4.0"
+    license_url: "http://creativecommons.org/licenses/by/4.0"
+    attribution: "King, P. (2026). IC-SPLC-v2: A Supply Chain Structure Neo4j Data. Mendeley Data, V2. doi:10.17632/txh3rrsh89.2"
+
+  disruption_monitoring:
+    enabled: true
+    type: git
+    url: "https://github.com/sara-almahri/supply-chain-disruption-monitoring.git"
+    dest_dir: "raw/disruption_monitoring/restricted/repo"
+    depth: 1
+    prune_paths:
+      - "evaluation/results"
+      - "chapter3"
+      - "thesis_figures"
+      - "notebooks"
+      - "agents"
+      - "tools"
+      - "analysis"
+      - "offline"
+      - "config"
+    restricted: true
+    requires_license_approval: true
+    license_approved: false
+    license: "CC BY-NC 4.0"
+    license_url: "https://creativecommons.org/licenses/by-nc/4.0/"
+    attribution: "AlMahri, S. (2025-2026). supply-chain-disruption-monitoring. CC BY-NC 4.0."
+    note: "Non-commercial licence. Kept outside the main processed pipeline until written permission is recorded."
+
+  syndelay:
+    enabled: true
+    type: git
+    url: "https://github.com/lx249/syndelay.git"
+    dest_dir: "raw/syndelay/repo"
+    depth: 1
+    license: "Not specified in repository (no LICENSE file)"
+    license_url: "https://github.com/lx249/syndelay"
+    attribution: "Xu, L., Long, Y., Brintrup, A. (2025). SynDelay: A Synthetic Dataset for Delivery Delay Prediction."
+    note: "Synthetic shipment records. Licence is unspecified; confirm terms before redistribution."
+
+  gdelt:
+    enabled: true
+    type: gdelt
+    api_url: "https://api.gdeltproject.org/api/v2/doc/doc"
+    api_min_interval_seconds: 6
+    api_retries: 3
+    api_max_records: 250
+    date_range:
+      start: "2026-11-03T00:00:00Z"
+      end: "2026-11-10T00:00:00Z"
+    keywords:
+      - "port strike"
+      - "port congestion"
+      - "factory shutdown"
+      - "supply chain disruption"
+      - "shipping delay"
+      - "logistics disruption"
+      - "natural disaster supply chain"
+      - "supplier disruption"
+    gkg_fallback:
+      enabled: true
+      snapshot_hour_utc: 4
+      step_hours: 24
+      max_files: 8
+      base_url: "https://data.gdeltproject.org/gdeltv2"
+      min_keyword_hits: 1
+    license: "GDELT 2.0 terms of use"
+    license_url: "https://www.gdeltproject.org/about.html#termsofuse"
+    attribution: "The GDELT Project, https://www.gdeltproject.org/"
+
+  anonnet:
+    enabled: true
+    type: git
+    url: "https://github.com/lx249/anon-network.git"
+    dest_dir: "raw/anonnet/repo"
+    depth: 1
+    license: "Not specified in repository (no LICENSE file)"
+    license_url: "https://github.com/lx249/anon-network"
+    attribution: "Xu, L., Long, Y., Brintrup, A. (2025). AnonNet: An Anonymised Real-World Network for Supply Network Analysis."
+    note: "Anonymised entity IDs only. Do not merge with identifiable companies."
+
+  existing_smart_logistics:
+    enabled: true
+    type: local_copy
+    search_paths:
+      - "~/Downloads/smart_logistics_dataset.csv"
+      - "~/Desktop/smart_logistics_dataset.csv"
+      - "datasets/raw/existing_smart_logistics/smart_logistics_dataset.csv"
+    dest: "raw/existing_smart_logistics/smart_logistics_dataset.csv"
+    license: "Not specified with supplied file"
+    license_url: null
+    attribution: "Locally supplied smart_logistics_dataset.csv; provenance to be confirmed by project owner."
+    note: "Must be supplied manually if absent. Not merged blindly with other sources."

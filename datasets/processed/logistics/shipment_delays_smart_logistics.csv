@@ -1,0 +1,1001 @@
+shipment_id,asset_id,timestamp,latitude,longitude,shipment_status,traffic_status,waiting_time,logistics_delay,logistics_delay_reason,source_dataset,is_synthetic,data_origin,delay_class,label_semantics
+smartlog:Truck_7:20240320001114,Truck_7,2024-03-20 00:11:14,-65.7383,11.2497,Delayed,Detour,38,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241030075351,Truck_6,2024-10-30 07:53:51,22.2748,-131.7086,In Transit,Heavy,16,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240729184248,Truck_10,2024-07-29 18:42:48,54.9232,79.5455,In Transit,Detour,34,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241028005054,Truck_9,2024-10-28 00:50:54,42.39,-1.4788,Delivered,Heavy,37,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240927155258,Truck_7,2024-09-27 15:52:58,-65.8477,47.9468,Delayed,Clear,56,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240917060215,Truck_7,2024-09-17 06:02:15,73.3312,46.5831,In Transit,Clear,56,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240205083856,Truck_4,2024-02-05 08:38:56,27.9307,147.5317,Delayed,Clear,32,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240928090823,Truck_9,2024-09-28 09:08:23,46.5643,-126.5348,In Transit,Detour,30,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240118082704,Truck_9,2024-01-18 08:27:04,-83.6737,-31.7125,Delivered,Clear,14,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241109004826,Truck_2,2024-11-09 00:48:26,54.1683,-135.2676,In Transit,Clear,52,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240109231943,Truck_9,2024-01-09 23:19:43,82.9633,-154.5274,Delayed,Clear,28,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240202222816,Truck_10,2024-02-02 22:28:16,-25.2768,156.1262,Delivered,Detour,13,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240217211442,Truck_8,2024-02-17 21:14:42,-65.526,-3.0202,In Transit,Detour,38,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240304064450,Truck_2,2024-03-04 06:44:50,-26.1836,-30.3641,Delivered,Detour,30,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240828121914,Truck_3,2024-08-28 12:19:14,2.6709,-80.8879,In Transit,Heavy,54,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240104225243,Truck_5,2024-01-04 22:52:43,-22.4793,-54.5143,Delayed,Clear,45,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241030175203,Truck_4,2024-10-30 17:52:03,-34.5353,-40.8617,Delayed,Clear,58,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240715154202,Truck_7,2024-07-15 15:42:02,-8.7105,-17.8347,Delayed,Detour,23,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240119064230,Truck_5,2024-01-19 06:42:30,14.6629,116.0696,Delayed,Detour,29,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240428212334,Truck_10,2024-04-28 21:23:34,75.7743,108.9425,In Transit,Clear,21,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240306200026,Truck_5,2024-03-06 20:00:26,50.3419,108.5647,Delivered,Detour,31,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241120163807,Truck_8,2024-11-20 16:38:07,-6.6729,132.6727,Delivered,Heavy,20,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240107091328,Truck_6,2024-01-07 09:13:28,-74.1751,-102.7331,Delivered,Detour,57,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240925151212,Truck_10,2024-09-25 15:12:12,-33.2264,169.6187,In Transit,Clear,35,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240211133018,Truck_2,2024-02-11 13:30:18,-34.4469,93.1585,In Transit,Detour,41,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241120112213,Truck_3,2024-11-20 11:22:13,-13.511,141.8454,In Transit,Detour,22,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240625022625,Truck_3,2024-06-25 02:26:25,-22.427,108.2306,Delivered,Heavy,22,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240625000112,Truck_9,2024-06-25 00:01:12,43.3353,-12.0683,Delivered,Heavy,14,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240502023356,Truck_4,2024-05-02 02:33:56,-66.7517,161.45,In Transit,Heavy,26,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240810000440,Truck_8,2024-08-10 00:04:40,-65.7349,-173.3011,Delayed,Heavy,17,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240513032021,Truck_1,2024-05-13 03:20:21,-55.4768,18.2551,Delayed,Clear,41,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241202083247,Truck_8,2024-12-02 08:32:47,5.9179,74.8254,Delayed,Heavy,39,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240212062327,Truck_7,2024-02-12 06:23:27,49.3929,-47.5805,Delivered,Detour,48,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240424061722,Truck_10,2024-04-24 06:17:22,80.3158,70.765,Delayed,Heavy,45,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241206190513,Truck_2,2024-12-06 19:05:13,-19.8847,42.5062,Delivered,Detour,28,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240430115317,Truck_9,2024-04-30 11:53:17,5.4555,-147.5455,In Transit,Detour,54,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240919225351,Truck_8,2024-09-19 22:53:51,-19.2577,66.744,In Transit,Heavy,50,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241222150814,Truck_6,2024-12-22 15:08:14,-79.0792,-16.3423,Delivered,Heavy,14,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240815054504,Truck_5,2024-08-15 05:45:04,-1.6787,3.2441,Delivered,Detour,19,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240316111742,Truck_7,2024-03-16 11:17:42,-8.2431,-12.4959,In Transit,Clear,45,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241228114055,Truck_2,2024-12-28 11:40:55,-30.0701,135.6396,Delayed,Clear,12,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240204185558,Truck_5,2024-02-04 18:55:58,61.8444,107.4835,In Transit,Detour,39,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240709021254,Truck_5,2024-07-09 02:12:54,40.784,77.2346,Delayed,Clear,40,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241201235416,Truck_7,2024-12-01 23:54:16,-68.3515,158.251,Delayed,Clear,15,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240622132602,Truck_6,2024-06-22 13:26:02,-33.8378,73.3221,In Transit,Clear,52,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240727155046,Truck_2,2024-07-27 15:50:46,69.6609,38.4464,Delivered,Heavy,17,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240905141200,Truck_3,2024-09-05 14:12:00,20.8843,1.3947,Delayed,Clear,47,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241111220953,Truck_1,2024-11-11 22:09:53,-14.8081,-177.3003,Delayed,Heavy,35,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240501222611,Truck_6,2024-05-01 22:26:11,0.0414,-130.6505,Delivered,Clear,46,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240726201901,Truck_9,2024-07-26 20:19:01,-79.9146,-3.8554,In Transit,Heavy,47,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240809011643,Truck_3,2024-08-09 01:16:43,76.4465,173.1493,Delayed,Heavy,14,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240129210408,Truck_5,2024-01-29 21:04:08,-15.6005,-92.1974,Delivered,Heavy,39,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240323124734,Truck_2,2024-03-23 12:47:34,67.396,170.1537,Delayed,Clear,55,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241017132231,Truck_8,2024-10-17 13:22:31,33.6179,-67.2758,Delayed,Heavy,16,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240711070727,Truck_8,2024-07-11 07:07:27,-50.8174,-40.3409,In Transit,Clear,12,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241211165748,Truck_5,2024-12-11 16:57:48,50.2709,125.6915,Delayed,Detour,52,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240110010525,Truck_9,2024-01-10 01:05:25,-73.8211,3.187,Delivered,Detour,19,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240617075924,Truck_9,2024-06-17 07:59:24,79.1172,178.4934,Delayed,Heavy,40,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240625015228,Truck_9,2024-06-25 01:52:28,27.4253,90.1386,Delayed,Clear,37,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240417201318,Truck_9,2024-04-17 20:13:18,67.9086,-140.0283,Delivered,Clear,19,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241009182611,Truck_9,2024-10-09 18:26:11,-72.8958,129.8921,In Transit,Heavy,37,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241127171747,Truck_4,2024-11-27 17:17:47,-58.6802,-62.7474,Delayed,Heavy,23,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240612024927,Truck_6,2024-06-12 02:49:27,64.0395,-151.7045,In Transit,Detour,49,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241102211946,Truck_7,2024-11-02 21:19:46,-24.1402,-168.6013,Delivered,Heavy,39,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240229151254,Truck_4,2024-02-29 15:12:54,72.8574,179.01,In Transit,Detour,12,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240317234715,Truck_6,2024-03-17 23:47:15,7.3575,86.6442,Delivered,Detour,32,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241125103909,Truck_5,2024-11-25 10:39:09,68.9594,-123.5048,In Transit,Clear,50,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240704182232,Truck_4,2024-07-04 18:22:32,14.9079,50.1606,Delayed,Heavy,34,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240319052355,Truck_1,2024-03-19 05:23:55,66.2353,10.8345,In Transit,Detour,24,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240320012523,Truck_9,2024-03-20 01:25:23,70.1899,-65.6792,In Transit,Heavy,19,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240718111658,Truck_4,2024-07-18 11:16:58,51.4539,-20.8253,Delivered,Clear,49,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240810084026,Truck_2,2024-08-10 08:40:26,-39.88,55.1792,Delivered,Detour,35,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240220081114,Truck_8,2024-02-20 08:11:14,-17.2355,-130.6915,In Transit,Detour,12,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241218022325,Truck_6,2024-12-18 02:23:25,-44.2576,-86.5073,In Transit,Clear,56,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240820161837,Truck_5,2024-08-20 16:18:37,19.9257,116.0526,Delivered,Heavy,14,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241106074041,Truck_5,2024-11-06 07:40:41,-47.2094,15.6324,Delivered,Clear,22,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241214150901,Truck_6,2024-12-14 15:09:01,-58.4249,-57.6609,In Transit,Clear,51,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240115120125,Truck_1,2024-01-15 12:01:25,-20.0696,-73.2689,Delivered,Clear,21,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240518100052,Truck_10,2024-05-18 10:00:52,-36.8549,164.7618,In Transit,Heavy,57,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241117020228,Truck_4,2024-11-17 02:02:28,-86.6609,-128.0354,Delivered,Clear,59,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240822201157,Truck_5,2024-08-22 20:11:57,-53.3732,-99.637,In Transit,Clear,38,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240912080047,Truck_6,2024-09-12 08:00:47,-58.7963,-150.4122,In Transit,Clear,39,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240809215431,Truck_5,2024-08-09 21:54:31,-46.1616,-46.6401,Delivered,Detour,50,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240419025029,Truck_7,2024-04-19 02:50:29,33.8716,36.8753,Delayed,Heavy,39,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240930111834,Truck_6,2024-09-30 11:18:34,35.7136,-23.1356,In Transit,Clear,51,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240322164342,Truck_5,2024-03-22 16:43:42,36.3858,-107.3894,Delayed,Heavy,39,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241015040256,Truck_7,2024-10-15 04:02:56,26.6125,25.4788,In Transit,Heavy,28,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241218190130,Truck_5,2024-12-18 19:01:30,-84.8915,57.5714,Delayed,Clear,41,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240609171212,Truck_4,2024-06-09 17:12:12,-49.6846,-63.2892,Delayed,Clear,56,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241030020146,Truck_5,2024-10-30 02:01:46,14.7474,-2.5245,In Transit,Detour,25,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240623030518,Truck_7,2024-06-23 03:05:18,-8.6011,-63.1274,In Transit,Clear,59,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240819171342,Truck_2,2024-08-19 17:13:42,67.2149,117.9203,Delayed,Heavy,23,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240430123949,Truck_1,2024-04-30 12:39:49,-11.3392,-69.3395,Delayed,Heavy,53,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241215035336,Truck_10,2024-12-15 03:53:36,26.3763,157.0905,Delayed,Clear,19,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240321145642,Truck_8,2024-03-21 14:56:42,-13.469,75.3408,Delayed,Heavy,26,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240927180816,Truck_4,2024-09-27 18:08:16,-11.2424,-4.5638,Delivered,Detour,21,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241117083502,Truck_6,2024-11-17 08:35:02,62.6559,18.8474,Delayed,Detour,29,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240503033428,Truck_9,2024-05-03 03:34:28,60.8032,-179.5906,In Transit,Heavy,26,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240305005447,Truck_4,2024-03-05 00:54:47,-10.0451,79.8956,Delivered,Detour,35,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240114092240,Truck_2,2024-01-14 09:22:40,17.6483,114.2638,Delivered,Detour,51,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240217210605,Truck_4,2024-02-17 21:06:05,-51.9233,-57.5858,Delayed,Clear,18,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240706111728,Truck_5,2024-07-06 11:17:28,22.3898,3.8948,In Transit,Clear,38,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240510221419,Truck_10,2024-05-10 22:14:19,86.3368,29.4478,Delayed,Detour,41,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241223185611,Truck_5,2024-12-23 18:56:11,-14.6662,-88.3674,In Transit,Heavy,43,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240206082802,Truck_7,2024-02-06 08:28:02,-71.9057,-41.4314,Delivered,Heavy,47,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240916100852,Truck_2,2024-09-16 10:08:52,54.8888,7.4287,In Transit,Clear,31,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240126125630,Truck_5,2024-01-26 12:56:30,-89.7915,85.8036,In Transit,Detour,44,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241129063432,Truck_5,2024-11-29 06:34:32,39.9088,71.9595,Delayed,Heavy,46,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240602191649,Truck_8,2024-06-02 19:16:49,30.7119,111.5767,Delayed,Clear,55,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240208100724,Truck_4,2024-02-08 10:07:24,5.7076,-79.9256,Delayed,Detour,39,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240817070515,Truck_9,2024-08-17 07:05:15,69.0509,91.848,In Transit,Clear,24,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240127040911,Truck_7,2024-01-27 04:09:11,52.7828,176.0671,Delivered,Clear,24,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241213005511,Truck_9,2024-12-13 00:55:11,42.967,146.1358,Delivered,Detour,41,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241026215521,Truck_7,2024-10-26 21:55:21,-11.9943,-126.8743,Delivered,Detour,42,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240319054250,Truck_8,2024-03-19 05:42:50,60.5903,-90.0415,In Transit,Clear,59,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241023141525,Truck_7,2024-10-23 14:15:25,-23.2982,143.8634,In Transit,Clear,49,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240118083425,Truck_2,2024-01-18 08:34:25,-34.2189,-36.6288,Delivered,Heavy,18,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241115114239,Truck_3,2024-11-15 11:42:39,19.545,73.0968,Delayed,Detour,38,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240701163753,Truck_7,2024-07-01 16:37:53,33.3351,-103.926,Delayed,Detour,54,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240611080409,Truck_4,2024-06-11 08:04:09,-63.2064,30.0818,Delayed,Clear,19,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240703150844,Truck_4,2024-07-03 15:08:44,83.2858,-66.1069,Delayed,Detour,60,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240205004130,Truck_6,2024-02-05 00:41:30,-23.2424,18.6206,Delivered,Clear,38,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240312035406,Truck_5,2024-03-12 03:54:06,-89.0793,130.3362,Delayed,Detour,35,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241117063826,Truck_7,2024-11-17 06:38:26,-11.2908,-105.2515,Delayed,Detour,36,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240730102303,Truck_5,2024-07-30 10:23:03,0.3773,-13.6838,Delivered,Detour,46,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241207161100,Truck_10,2024-12-07 16:11:00,-7.77,163.5958,In Transit,Heavy,50,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240315175408,Truck_7,2024-03-15 17:54:08,-80.1222,-56.1497,In Transit,Heavy,53,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241015064932,Truck_3,2024-10-15 06:49:32,-84.8041,57.168,Delivered,Heavy,45,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240827065235,Truck_8,2024-08-27 06:52:35,-13.1475,-1.0702,Delayed,Heavy,32,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240802020125,Truck_1,2024-08-02 02:01:25,-87.5547,113.4629,In Transit,Detour,20,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241127184854,Truck_4,2024-11-27 18:48:54,72.9066,36.1965,Delivered,Heavy,51,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241203052624,Truck_6,2024-12-03 05:26:24,16.1951,-119.4492,In Transit,Clear,30,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240205031943,Truck_5,2024-02-05 03:19:43,28.3461,-1.5547,Delivered,Heavy,18,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241219225809,Truck_1,2024-12-19 22:58:09,-35.5663,47.4028,Delivered,Clear,15,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241123084411,Truck_7,2024-11-23 08:44:11,-33.246,106.3248,In Transit,Heavy,55,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240430144918,Truck_5,2024-04-30 14:49:18,10.2059,98.618,Delivered,Heavy,54,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240607064559,Truck_3,2024-06-07 06:45:59,-6.2311,173.6264,Delivered,Heavy,17,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241124044931,Truck_4,2024-11-24 04:49:31,-78.1094,-52.5435,Delivered,Heavy,25,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240729005610,Truck_5,2024-07-29 00:56:10,-70.3645,-128.8622,Delivered,Detour,40,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240601200016,Truck_4,2024-06-01 20:00:16,18.1183,116.4939,Delayed,Heavy,10,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240718121920,Truck_10,2024-07-18 12:19:20,20.2969,124.1885,In Transit,Detour,41,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241216114834,Truck_6,2024-12-16 11:48:34,-27.7387,19.6189,Delayed,Detour,46,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240415223719,Truck_2,2024-04-15 22:37:19,-31.1328,175.8453,Delivered,Clear,29,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240405102917,Truck_10,2024-04-05 10:29:17,24.8353,-83.7173,In Transit,Clear,43,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241220122619,Truck_4,2024-12-20 12:26:19,-32.724,82.9577,Delayed,Detour,52,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240702030727,Truck_3,2024-07-02 03:07:27,72.122,89.9728,Delivered,Heavy,32,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240128044323,Truck_1,2024-01-28 04:43:23,-7.636,51.0615,In Transit,Clear,59,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240114203914,Truck_2,2024-01-14 20:39:14,-24.0118,111.4726,Delivered,Detour,23,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240806113504,Truck_10,2024-08-06 11:35:04,77.0042,-12.2919,Delayed,Heavy,18,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241208011023,Truck_10,2024-12-08 01:10:23,-38.6867,-19.9939,Delayed,Clear,16,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240227015159,Truck_8,2024-02-27 01:51:59,41.375,77.2949,In Transit,Clear,46,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240214212831,Truck_2,2024-02-14 21:28:31,-68.4651,179.4433,Delayed,Detour,30,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240321114825,Truck_3,2024-03-21 11:48:25,-13.0063,0.5345,Delayed,Heavy,30,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241016225613,Truck_2,2024-10-16 22:56:13,41.3066,161.1462,Delayed,Heavy,39,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240221232041,Truck_6,2024-02-21 23:20:41,-23.1011,-54.5176,Delayed,Detour,44,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240924221710,Truck_10,2024-09-24 22:17:10,-17.6088,-41.4304,Delivered,Detour,26,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240330102210,Truck_4,2024-03-30 10:22:10,-72.4492,131.8524,In Transit,Detour,59,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241215073703,Truck_2,2024-12-15 07:37:03,27.3601,-105.0457,Delayed,Clear,49,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240326222916,Truck_1,2024-03-26 22:29:16,-86.5291,-36.5789,Delivered,Clear,56,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240509184933,Truck_10,2024-05-09 18:49:33,10.2078,36.857,In Transit,Detour,22,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241119095701,Truck_6,2024-11-19 09:57:01,-42.6759,-7.9818,Delayed,Heavy,45,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241126170909,Truck_8,2024-11-26 17:09:09,36.2494,143.1951,In Transit,Detour,28,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240420095418,Truck_2,2024-04-20 09:54:18,28.9964,151.6114,Delayed,Detour,34,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240605191916,Truck_3,2024-06-05 19:19:16,-22.1005,-38.8449,Delivered,Detour,48,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240708042639,Truck_6,2024-07-08 04:26:39,47.2803,32.1356,Delivered,Heavy,23,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240401035641,Truck_10,2024-04-01 03:56:41,-25.4692,-70.7603,Delivered,Detour,24,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240211045258,Truck_4,2024-02-11 04:52:58,20.1451,158.7402,Delivered,Detour,57,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240823000552,Truck_8,2024-08-23 00:05:52,-29.2726,149.6329,Delivered,Detour,21,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241104002920,Truck_1,2024-11-04 00:29:20,-82.3942,179.9237,Delivered,Heavy,24,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240504192430,Truck_4,2024-05-04 19:24:30,37.3932,53.447,Delayed,Detour,34,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241113041912,Truck_4,2024-11-13 04:19:12,-3.4094,-85.8774,Delayed,Clear,60,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240213191718,Truck_1,2024-02-13 19:17:18,-60.2782,-7.5464,Delayed,Clear,20,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240628071735,Truck_9,2024-06-28 07:17:35,-1.8123,-156.207,Delayed,Heavy,26,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241215220659,Truck_6,2024-12-15 22:06:59,45.553,20.9015,Delivered,Detour,27,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240630142240,Truck_2,2024-06-30 14:22:40,-28.382,-47.8231,In Transit,Clear,22,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241205163607,Truck_5,2024-12-05 16:36:07,-71.0852,-12.9187,Delayed,Clear,20,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240613130428,Truck_2,2024-06-13 13:04:28,-35.6424,-106.7595,Delayed,Heavy,18,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240317082011,Truck_9,2024-03-17 08:20:11,-81.622,-152.0754,Delivered,Heavy,41,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240921030939,Truck_8,2024-09-21 03:09:39,-22.9111,-154.3594,In Transit,Clear,49,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240220205203,Truck_4,2024-02-20 20:52:03,-68.7937,-164.3866,Delivered,Heavy,51,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241119180338,Truck_5,2024-11-19 18:03:38,-25.5794,132.2662,Delayed,Clear,51,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241107161640,Truck_10,2024-11-07 16:16:40,49.0465,41.3428,Delivered,Heavy,19,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240218141022,Truck_8,2024-02-18 14:10:22,-81.6677,-40.8327,Delayed,Detour,49,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240303005307,Truck_10,2024-03-03 00:53:07,-69.6887,-34.4563,Delivered,Clear,33,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240602090921,Truck_4,2024-06-02 09:09:21,-49.1811,-94.1515,Delivered,Clear,57,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240125120942,Truck_6,2024-01-25 12:09:42,12.8172,76.1408,In Transit,Clear,30,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241004161917,Truck_9,2024-10-04 16:19:17,20.1146,19.7583,Delivered,Clear,55,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241102120734,Truck_3,2024-11-02 12:07:34,84.1317,-144.784,Delayed,Heavy,46,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240422015659,Truck_4,2024-04-22 01:56:59,-53.9329,30.3236,In Transit,Clear,15,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240415222846,Truck_2,2024-04-15 22:28:46,31.8571,-83.1698,In Transit,Detour,39,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240119142830,Truck_6,2024-01-19 14:28:30,67.7302,-70.1861,In Transit,Heavy,40,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240922121908,Truck_9,2024-09-22 12:19:08,73.3723,93.2464,Delayed,Detour,35,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241101234702,Truck_5,2024-11-01 23:47:02,68.2361,-85.9216,In Transit,Clear,18,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240513141055,Truck_8,2024-05-13 14:10:55,40.5478,147.0261,Delayed,Clear,52,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240217073646,Truck_6,2024-02-17 07:36:46,-36.4299,58.0595,Delayed,Detour,33,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241123193359,Truck_8,2024-11-23 19:33:59,83.2003,-119.0412,In Transit,Clear,18,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240923103215,Truck_9,2024-09-23 10:32:15,74.5816,-19.6986,In Transit,Clear,23,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240825223225,Truck_1,2024-08-25 22:32:25,-64.7094,137.791,Delayed,Clear,10,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240927062353,Truck_1,2024-09-27 06:23:53,-59.602,62.712,Delivered,Clear,60,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240509040220,Truck_7,2024-05-09 04:02:20,-68.3712,-65.9802,Delayed,Heavy,51,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240527105949,Truck_6,2024-05-27 10:59:49,3.8431,91.0078,Delayed,Heavy,57,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240223183932,Truck_4,2024-02-23 18:39:32,76.3946,105.7941,Delayed,Heavy,42,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240728222933,Truck_5,2024-07-28 22:29:33,-46.1871,9.4679,In Transit,Heavy,35,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240305103030,Truck_10,2024-03-05 10:30:30,-10.8849,86.0812,In Transit,Clear,12,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240106211603,Truck_4,2024-01-06 21:16:03,-67.7619,176.4012,Delayed,Clear,15,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240914164531,Truck_2,2024-09-14 16:45:31,-22.1101,-65.135,In Transit,Detour,24,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241103231649,Truck_5,2024-11-03 23:16:49,75.1113,-136.48,Delivered,Clear,50,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240319213622,Truck_6,2024-03-19 21:36:22,-69.343,131.9033,Delivered,Heavy,55,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240201185510,Truck_3,2024-02-01 18:55:10,35.6522,-84.7025,Delivered,Clear,32,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240418120440,Truck_8,2024-04-18 12:04:40,-86.157,-92.4652,Delayed,Detour,13,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240526143007,Truck_1,2024-05-26 14:30:07,25.1355,-2.6802,In Transit,Clear,19,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240729165453,Truck_8,2024-07-29 16:54:53,12.0938,96.8996,In Transit,Detour,31,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241209134126,Truck_3,2024-12-09 13:41:26,-77.0862,137.9042,In Transit,Clear,42,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240914090354,Truck_2,2024-09-14 09:03:54,-17.1205,-47.0657,In Transit,Detour,40,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241201015230,Truck_3,2024-12-01 01:52:30,-52.8874,162.7464,In Transit,Detour,17,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240819170924,Truck_6,2024-08-19 17:09:24,-3.6578,176.299,In Transit,Clear,28,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240415185809,Truck_7,2024-04-15 18:58:09,-7.6641,-25.3717,Delayed,Heavy,55,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240412105821,Truck_6,2024-04-12 10:58:21,-82.1416,-91.8925,Delivered,Clear,24,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240223092919,Truck_3,2024-02-23 09:29:19,87.5079,-125.5319,In Transit,Clear,22,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240227051736,Truck_1,2024-02-27 05:17:36,-76.8771,94.6166,Delayed,Heavy,44,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240726191043,Truck_5,2024-07-26 19:10:43,89.2765,166.6548,Delayed,Heavy,35,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240629052024,Truck_2,2024-06-29 05:20:24,-82.8546,7.876,Delayed,Clear,57,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240415044007,Truck_2,2024-04-15 04:40:07,-40.284,-86.8089,In Transit,Heavy,33,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240724040902,Truck_3,2024-07-24 04:09:02,2.2208,-170.2641,Delivered,Heavy,36,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240719010621,Truck_8,2024-07-19 01:06:21,54.8423,175.5701,Delayed,Heavy,26,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240423165045,Truck_1,2024-04-23 16:50:45,-78.4723,-82.615,Delivered,Detour,23,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240618125705,Truck_6,2024-06-18 12:57:05,4.8496,-60.7988,Delivered,Heavy,24,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241217041119,Truck_5,2024-12-17 04:11:19,54.0342,-98.3083,Delayed,Heavy,33,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241117044118,Truck_8,2024-11-17 04:41:18,41.43,-128.1678,Delivered,Heavy,27,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240620111846,Truck_1,2024-06-20 11:18:46,-56.0674,82.9431,Delivered,Clear,32,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240629111626,Truck_7,2024-06-29 11:16:26,-0.8539,-177.5496,Delayed,Clear,44,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240705091448,Truck_6,2024-07-05 09:14:48,54.5973,-128.4974,Delivered,Clear,12,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240719201054,Truck_8,2024-07-19 20:10:54,-46.1457,161.0254,Delayed,Detour,52,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240827222618,Truck_5,2024-08-27 22:26:18,76.8391,140.3011,Delayed,Detour,24,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240617024331,Truck_4,2024-06-17 02:43:31,-59.1914,-125.4515,Delayed,Detour,42,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240521023018,Truck_1,2024-05-21 02:30:18,-75.6177,-156.976,In Transit,Detour,35,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240508021349,Truck_8,2024-05-08 02:13:49,-24.1694,30.0335,Delayed,Detour,47,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240502094937,Truck_2,2024-05-02 09:49:37,-6.8584,150.6127,Delivered,Clear,18,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240125201513,Truck_2,2024-01-25 20:15:13,-32.2146,166.7941,Delivered,Detour,51,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240107124912,Truck_4,2024-01-07 12:49:12,-46.3051,-93.1541,Delivered,Detour,60,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240308100937,Truck_10,2024-03-08 10:09:37,-85.0859,41.138,In Transit,Clear,47,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241222150119,Truck_8,2024-12-22 15:01:19,89.1858,-159.3242,In Transit,Detour,16,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240121131703,Truck_1,2024-01-21 13:17:03,1.429,-119.0925,Delayed,Detour,10,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240625023514,Truck_9,2024-06-25 02:35:14,78.3252,15.2758,Delayed,Heavy,53,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240527051333,Truck_2,2024-05-27 05:13:33,-9.2287,107.9306,Delivered,Detour,53,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240127010538,Truck_10,2024-01-27 01:05:38,71.4327,127.3664,In Transit,Heavy,16,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240121031155,Truck_2,2024-01-21 03:11:55,-84.0049,111.8327,Delayed,Heavy,23,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240803132627,Truck_5,2024-08-03 13:26:27,7.0779,-165.136,Delivered,Clear,15,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240605180934,Truck_6,2024-06-05 18:09:34,-86.0858,117.8697,In Transit,Detour,43,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241027120917,Truck_3,2024-10-27 12:09:17,59.2432,175.9873,Delayed,Heavy,57,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241022142847,Truck_1,2024-10-22 14:28:47,-39.3003,-121.6771,In Transit,Heavy,51,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240903094158,Truck_8,2024-09-03 09:41:58,-83.672,164.2522,In Transit,Clear,24,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240103112033,Truck_7,2024-01-03 11:20:33,5.9541,-156.4873,Delivered,Detour,15,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240611233853,Truck_2,2024-06-11 23:38:53,-16.3804,-119.0546,In Transit,Heavy,22,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240104233240,Truck_6,2024-01-04 23:32:40,-27.4913,-1.8571,In Transit,Heavy,33,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240802065821,Truck_8,2024-08-02 06:58:21,67.7002,43.853,In Transit,Detour,57,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240829020716,Truck_8,2024-08-29 02:07:16,30.5045,52.2559,Delayed,Clear,22,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240222180200,Truck_10,2024-02-22 18:02:00,4.8619,61.4224,Delivered,Detour,19,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240621203134,Truck_7,2024-06-21 20:31:34,84.0872,85.2383,Delayed,Detour,26,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240127153615,Truck_8,2024-01-27 15:36:15,11.5213,-168.4741,Delivered,Detour,24,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240617124013,Truck_6,2024-06-17 12:40:13,63.7701,163.2651,Delayed,Heavy,29,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240331143018,Truck_2,2024-03-31 14:30:18,57.5757,-35.0439,Delivered,Heavy,24,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240323081019,Truck_9,2024-03-23 08:10:19,-66.6009,-11.7155,Delivered,Clear,58,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241002151200,Truck_6,2024-10-02 15:12:00,18.755,-46.8871,Delayed,Detour,11,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240728183605,Truck_10,2024-07-28 18:36:05,50.3574,128.5618,Delivered,Heavy,20,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240111151953,Truck_5,2024-01-11 15:19:53,46.9009,3.749,Delivered,Detour,31,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241228185331,Truck_9,2024-12-28 18:53:31,17.5319,-65.0765,Delivered,Clear,30,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240907125016,Truck_2,2024-09-07 12:50:16,4.8305,-6.5757,Delayed,Clear,51,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241209111502,Truck_10,2024-12-09 11:15:02,38.8917,-38.8032,Delayed,Detour,24,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241005183400,Truck_4,2024-10-05 18:34:00,-20.0482,-83.6915,Delivered,Heavy,32,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240422105519,Truck_9,2024-04-22 10:55:19,-83.2534,-166.3309,Delayed,Clear,10,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240227214548,Truck_10,2024-02-27 21:45:48,-4.8643,75.4304,Delayed,Clear,23,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240523220343,Truck_5,2024-05-23 22:03:43,46.7637,-146.4348,Delivered,Clear,41,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240102221942,Truck_7,2024-01-02 22:19:42,-68.3909,-122.557,In Transit,Heavy,58,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240929063155,Truck_7,2024-09-29 06:31:55,62.3457,-54.2033,Delivered,Heavy,58,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241218083358,Truck_7,2024-12-18 08:33:58,72.8857,135.9494,Delayed,Heavy,33,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240811102858,Truck_10,2024-08-11 10:28:58,2.2782,-158.4628,Delivered,Heavy,19,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240324225632,Truck_3,2024-03-24 22:56:32,11.7686,154.6043,In Transit,Detour,12,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240602002404,Truck_8,2024-06-02 00:24:04,-75.598,11.134,In Transit,Heavy,53,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240202034654,Truck_3,2024-02-02 03:46:54,23.2931,106.0267,Delivered,Detour,42,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241002125646,Truck_6,2024-10-02 12:56:46,-11.3114,-139.811,In Transit,Clear,20,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240925122007,Truck_2,2024-09-25 12:20:07,9.6491,47.3499,Delivered,Heavy,50,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240224081109,Truck_3,2024-02-24 08:11:09,10.9354,-27.3551,Delivered,Heavy,14,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241028100020,Truck_9,2024-10-28 10:00:20,84.9482,59.5314,Delivered,Clear,51,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240531232031,Truck_2,2024-05-31 23:20:31,49.7212,179.2025,Delivered,Detour,47,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240122003419,Truck_5,2024-01-22 00:34:19,-28.8968,-117.9471,In Transit,Clear,48,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241219110609,Truck_7,2024-12-19 11:06:09,-55.5154,-163.6943,Delivered,Detour,31,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240105224626,Truck_3,2024-01-05 22:46:26,16.7636,29.2783,In Transit,Heavy,12,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240626080913,Truck_7,2024-06-26 08:09:13,-76.307,5.0298,Delivered,Heavy,19,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240731020709,Truck_6,2024-07-31 02:07:09,-22.4693,149.9634,Delayed,Clear,41,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241127042118,Truck_1,2024-11-27 04:21:18,71.8859,93.4464,Delayed,Heavy,50,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240606040208,Truck_1,2024-06-06 04:02:08,-9.7179,-117.0145,In Transit,Detour,31,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240516203406,Truck_9,2024-05-16 20:34:06,-12.2288,-74.7801,Delivered,Clear,41,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240714211408,Truck_4,2024-07-14 21:14:08,5.4618,-179.8202,Delivered,Clear,26,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241122113154,Truck_8,2024-11-22 11:31:54,-54.8317,66.4706,Delivered,Detour,25,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241101213114,Truck_2,2024-11-01 21:31:14,-80.0522,-102.2508,Delivered,Detour,52,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241027153937,Truck_9,2024-10-27 15:39:37,-13.0527,-122.0924,Delayed,Detour,22,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240214122037,Truck_6,2024-02-14 12:20:37,6.3666,136.0794,Delivered,Detour,45,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240502111444,Truck_9,2024-05-02 11:14:44,83.1243,48.4325,Delayed,Detour,52,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240902050325,Truck_7,2024-09-02 05:03:25,51.1898,25.5964,Delayed,Heavy,39,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241208043538,Truck_8,2024-12-08 04:35:38,-76.3987,-68.1922,Delayed,Clear,48,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240123053554,Truck_9,2024-01-23 05:35:54,70.5541,-150.1626,Delivered,Clear,16,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240125112754,Truck_2,2024-01-25 11:27:54,-38.2185,104.1667,Delivered,Detour,19,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241108133156,Truck_1,2024-11-08 13:31:56,39.1411,138.1786,Delivered,Heavy,33,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240530010450,Truck_4,2024-05-30 01:04:50,-68.8006,159.004,Delivered,Clear,43,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240530113034,Truck_3,2024-05-30 11:30:34,51.1598,-170.9311,Delivered,Heavy,14,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240302234921,Truck_8,2024-03-02 23:49:21,-29.5867,41.0612,Delivered,Heavy,49,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240829115235,Truck_8,2024-08-29 11:52:35,-51.3412,-112.1636,Delayed,Clear,21,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240526015303,Truck_1,2024-05-26 01:53:03,-49.5057,174.3533,In Transit,Clear,37,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240724012043,Truck_8,2024-07-24 01:20:43,0.7577,120.0181,Delayed,Heavy,29,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241224102056,Truck_4,2024-12-24 10:20:56,-2.2911,64.2731,Delayed,Detour,36,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240211144004,Truck_2,2024-02-11 14:40:04,78.4324,125.0181,Delivered,Detour,36,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240424005449,Truck_7,2024-04-24 00:54:49,-2.8329,-29.9102,In Transit,Detour,39,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240108102044,Truck_2,2024-01-08 10:20:44,70.0103,-164.1914,Delivered,Detour,25,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241025030144,Truck_2,2024-10-25 03:01:44,11.4885,-172.569,Delayed,Detour,31,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241212150351,Truck_8,2024-12-12 15:03:51,74.5261,123.6828,In Transit,Detour,47,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241130091640,Truck_7,2024-11-30 09:16:40,-12.9509,132.4986,In Transit,Detour,18,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240513090525,Truck_7,2024-05-13 09:05:25,81.79,-52.7516,Delivered,Heavy,58,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241216060657,Truck_4,2024-12-16 06:06:57,47.7175,72.531,Delivered,Detour,34,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240214075459,Truck_7,2024-02-14 07:54:59,-21.5329,-145.2581,Delayed,Heavy,54,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240625121528,Truck_9,2024-06-25 12:15:28,-4.5863,71.7337,Delayed,Detour,23,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240814035900,Truck_9,2024-08-14 03:59:00,-26.6775,-77.2847,Delivered,Clear,56,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240408194353,Truck_8,2024-04-08 19:43:53,-30.6957,29.255,In Transit,Detour,42,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241107142151,Truck_4,2024-11-07 14:21:51,64.5212,-83.2639,In Transit,Detour,35,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240112170133,Truck_9,2024-01-12 17:01:33,68.181,-84.9051,Delayed,Clear,31,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240530082911,Truck_10,2024-05-30 08:29:11,-81.2116,13.9727,Delayed,Clear,36,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240516073411,Truck_2,2024-05-16 07:34:11,-21.308,-14.9017,In Transit,Heavy,11,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241208122638,Truck_5,2024-12-08 12:26:38,77.2059,-132.0473,Delayed,Detour,54,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240328083401,Truck_3,2024-03-28 08:34:01,21.4872,-123.6879,Delayed,Detour,23,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240416213153,Truck_3,2024-04-16 21:31:53,47.7603,-137.0932,Delayed,Detour,53,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241120144430,Truck_1,2024-11-20 14:44:30,-4.7971,56.411,Delivered,Heavy,55,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240620081755,Truck_1,2024-06-20 08:17:55,-11.1333,-40.0454,Delayed,Clear,35,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240811154034,Truck_9,2024-08-11 15:40:34,15.5083,115.4388,In Transit,Detour,56,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241030124431,Truck_10,2024-10-30 12:44:31,-70.6858,54.4683,Delivered,Heavy,36,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240322110020,Truck_10,2024-03-22 11:00:20,-18.4278,101.4997,Delayed,Detour,38,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240512134005,Truck_3,2024-05-12 13:40:05,43.7523,149.8334,In Transit,Detour,42,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241115080817,Truck_7,2024-11-15 08:08:17,18.5151,24.3559,Delayed,Detour,39,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241007061139,Truck_9,2024-10-07 06:11:39,84.6774,61.0153,Delayed,Detour,50,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240909033012,Truck_3,2024-09-09 03:30:12,49.5864,-154.4224,Delivered,Detour,59,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240821200708,Truck_6,2024-08-21 20:07:08,-51.319,-46.5841,Delayed,Heavy,26,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240117033356,Truck_10,2024-01-17 03:33:56,-12.9902,176.1206,Delivered,Heavy,12,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241202120759,Truck_3,2024-12-02 12:07:59,6.8181,52.3685,In Transit,Clear,33,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241118075213,Truck_10,2024-11-18 07:52:13,-3.038,106.5694,In Transit,Clear,48,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240429115426,Truck_2,2024-04-29 11:54:26,35.5141,90.8087,Delayed,Detour,17,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240529064950,Truck_9,2024-05-29 06:49:50,-40.8724,-42.3243,Delayed,Clear,16,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241110054921,Truck_7,2024-11-10 05:49:21,44.6347,-110.6304,In Transit,Detour,47,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241103202138,Truck_1,2024-11-03 20:21:38,76.5468,-13.5249,Delivered,Clear,24,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240904104513,Truck_2,2024-09-04 10:45:13,72.8206,90.5169,In Transit,Detour,32,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240925215309,Truck_8,2024-09-25 21:53:09,81.2554,4.8416,In Transit,Heavy,51,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240724063018,Truck_6,2024-07-24 06:30:18,74.9107,17.8019,Delayed,Clear,40,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240402134306,Truck_5,2024-04-02 13:43:06,20.446,149.3776,Delivered,Clear,12,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240304064340,Truck_3,2024-03-04 06:43:40,-60.7101,-29.4842,Delayed,Heavy,49,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241210123950,Truck_8,2024-12-10 12:39:50,74.2314,-113.7355,In Transit,Detour,21,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240105032306,Truck_9,2024-01-05 03:23:06,16.9737,-7.8198,In Transit,Detour,44,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240118171348,Truck_1,2024-01-18 17:13:48,35.8055,-41.1532,Delivered,Clear,54,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240510060132,Truck_5,2024-05-10 06:01:32,6.7867,-133.6343,Delivered,Clear,25,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241026055954,Truck_3,2024-10-26 05:59:54,6.184,36.1898,Delivered,Detour,24,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240421161353,Truck_8,2024-04-21 16:13:53,-75.0605,-52.5256,Delivered,Clear,56,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240914015127,Truck_2,2024-09-14 01:51:27,-77.891,-96.7804,Delivered,Clear,54,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240512175101,Truck_9,2024-05-12 17:51:01,-47.154,6.9021,In Transit,Heavy,50,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240903090658,Truck_1,2024-09-03 09:06:58,76.1715,-0.0071,Delayed,Heavy,17,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240506091638,Truck_9,2024-05-06 09:16:38,-85.8283,163.4575,Delivered,Clear,41,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240109085244,Truck_7,2024-01-09 08:52:44,6.009,-33.838,Delivered,Heavy,23,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240906030240,Truck_9,2024-09-06 03:02:40,3.8184,139.4876,Delivered,Heavy,25,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240805164446,Truck_6,2024-08-05 16:44:46,66.3417,-154.1243,Delayed,Detour,16,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240816104559,Truck_4,2024-08-16 10:45:59,-61.8623,113.6304,Delivered,Clear,43,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240712024657,Truck_2,2024-07-12 02:46:57,44.502,66.5819,Delayed,Heavy,54,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240124084424,Truck_3,2024-01-24 08:44:24,-12.2885,38.4287,Delivered,Clear,50,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240113214731,Truck_5,2024-01-13 21:47:31,-40.8275,-46.7423,Delayed,Clear,51,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240416080332,Truck_6,2024-04-16 08:03:32,-76.5757,-52.269,Delivered,Clear,16,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240212032204,Truck_2,2024-02-12 03:22:04,-79.279,69.568,Delayed,Heavy,16,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240508035427,Truck_10,2024-05-08 03:54:27,84.3451,-106.877,Delayed,Clear,48,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241207125056,Truck_10,2024-12-07 12:50:56,-19.0721,161.7246,Delivered,Detour,52,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241126003615,Truck_6,2024-11-26 00:36:15,-69.0311,-32.9575,In Transit,Clear,21,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240507081524,Truck_4,2024-05-07 08:15:24,87.7793,-108.9268,Delayed,Detour,23,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241105215832,Truck_9,2024-11-05 21:58:32,-48.3633,-36.2936,Delayed,Clear,58,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240228114848,Truck_7,2024-02-28 11:48:48,-36.4104,-4.335,In Transit,Heavy,20,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240416230414,Truck_2,2024-04-16 23:04:14,-39.225,-156.4228,Delayed,Clear,10,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241128003634,Truck_10,2024-11-28 00:36:34,84.0407,-74.7098,Delayed,Clear,52,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240209064041,Truck_9,2024-02-09 06:40:41,-68.5324,127.5394,Delivered,Detour,49,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240514132522,Truck_6,2024-05-14 13:25:22,-8.4586,44.4779,In Transit,Detour,35,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240828133322,Truck_9,2024-08-28 13:33:22,14.0092,-131.9758,Delayed,Clear,34,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240221025108,Truck_4,2024-02-21 02:51:08,3.6602,107.779,In Transit,Heavy,16,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241025055437,Truck_3,2024-10-25 05:54:37,29.342,-68.5682,In Transit,Clear,36,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240718233052,Truck_9,2024-07-18 23:30:52,-20.6524,-102.5762,Delivered,Heavy,26,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240228232753,Truck_10,2024-02-28 23:27:53,-88.696,117.3902,Delivered,Heavy,37,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240713154100,Truck_10,2024-07-13 15:41:00,-27.0315,40.2451,Delayed,Clear,14,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240621041255,Truck_6,2024-06-21 04:12:55,25.5135,-147.3897,In Transit,Clear,17,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240929175830,Truck_2,2024-09-29 17:58:30,68.4014,-52.0862,Delayed,Clear,54,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240605073241,Truck_8,2024-06-05 07:32:41,-7.1543,-132.8372,Delivered,Clear,25,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241219212831,Truck_9,2024-12-19 21:28:31,-78.2763,151.3943,Delayed,Clear,57,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240423185126,Truck_2,2024-04-23 18:51:26,33.9665,-46.5423,In Transit,Heavy,41,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240217200925,Truck_2,2024-02-17 20:09:25,-59.6899,143.0428,Delayed,Detour,41,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240721061304,Truck_7,2024-07-21 06:13:04,25.7047,150.6302,In Transit,Clear,32,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240403052414,Truck_2,2024-04-03 05:24:14,15.4009,52.3537,In Transit,Heavy,54,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241022104344,Truck_7,2024-10-22 10:43:44,-86.7799,-102.1496,Delayed,Clear,10,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240428123855,Truck_8,2024-04-28 12:38:55,40.3406,159.0723,Delayed,Heavy,35,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240928121117,Truck_8,2024-09-28 12:11:17,40.4005,-149.1521,In Transit,Detour,18,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240909115115,Truck_5,2024-09-09 11:51:15,-85.1352,73.2511,Delayed,Clear,28,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241002214915,Truck_3,2024-10-02 21:49:15,-1.28,1.0168,In Transit,Heavy,12,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240505054210,Truck_10,2024-05-05 05:42:10,45.2617,-152.3952,Delivered,Detour,44,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240521023329,Truck_8,2024-05-21 02:33:29,-14.7713,-117.3565,Delayed,Clear,35,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240315221921,Truck_6,2024-03-15 22:19:21,51.4225,112.3362,Delayed,Detour,50,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240207194550,Truck_3,2024-02-07 19:45:50,-15.2991,-95.0112,In Transit,Heavy,15,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240511051846,Truck_7,2024-05-11 05:18:46,86.6678,-139.6955,Delivered,Detour,47,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240131053137,Truck_5,2024-01-31 05:31:37,44.5442,-73.4346,Delivered,Detour,39,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241101012808,Truck_3,2024-11-01 01:28:08,-48.4503,-99.9978,In Transit,Detour,16,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240303041701,Truck_9,2024-03-03 04:17:01,-37.3934,31.4093,Delivered,Heavy,24,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240309001034,Truck_3,2024-03-09 00:10:34,34.0712,123.0237,In Transit,Clear,58,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240417172832,Truck_10,2024-04-17 17:28:32,-21.5633,-12.8487,Delivered,Heavy,19,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240921103305,Truck_7,2024-09-21 10:33:05,-33.3756,7.8261,In Transit,Detour,41,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240211103150,Truck_10,2024-02-11 10:31:50,-61.849,-123.7835,Delivered,Clear,39,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240615115939,Truck_5,2024-06-15 11:59:39,88.5686,-161.7382,Delayed,Detour,12,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240809030034,Truck_2,2024-08-09 03:00:34,-69.408,-8.1703,Delivered,Detour,28,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240722005620,Truck_4,2024-07-22 00:56:20,-49.1524,14.1164,Delayed,Clear,30,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240817073702,Truck_8,2024-08-17 07:37:02,27.787,8.2288,Delivered,Heavy,51,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241211234730,Truck_7,2024-12-11 23:47:30,-13.8485,119.2071,In Transit,Clear,38,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240912000639,Truck_3,2024-09-12 00:06:39,25.5003,-47.5718,Delivered,Heavy,60,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240708140729,Truck_3,2024-07-08 14:07:29,69.4106,61.7368,Delayed,Heavy,50,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240306131435,Truck_3,2024-03-06 13:14:35,-6.8964,-35.5418,Delivered,Detour,24,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241030045527,Truck_6,2024-10-30 04:55:27,-0.1148,-127.6784,In Transit,Heavy,41,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241007105440,Truck_5,2024-10-07 10:54:40,-41.4279,178.8694,In Transit,Clear,51,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240606225241,Truck_3,2024-06-06 22:52:41,-0.9333,124.8495,Delayed,Clear,34,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240420001434,Truck_3,2024-04-20 00:14:34,-58.2175,7.2699,In Transit,Heavy,58,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240802001054,Truck_2,2024-08-02 00:10:54,83.3287,-84.2738,Delayed,Clear,47,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241003025403,Truck_6,2024-10-03 02:54:03,-33.2637,45.4122,In Transit,Detour,34,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240923223749,Truck_1,2024-09-23 22:37:49,74.3356,112.5528,Delivered,Detour,58,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240217161122,Truck_6,2024-02-17 16:11:22,-53.3015,11.4861,In Transit,Heavy,35,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241123044026,Truck_2,2024-11-23 04:40:26,-22.5519,60.711,Delayed,Detour,57,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240111201914,Truck_10,2024-01-11 20:19:14,61.697,164.5493,In Transit,Clear,40,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241028021722,Truck_5,2024-10-28 02:17:22,-75.2867,-163.4,In Transit,Detour,13,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241226050512,Truck_3,2024-12-26 05:05:12,87.1386,-114.968,Delivered,Detour,31,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240328102432,Truck_5,2024-03-28 10:24:32,51.2486,-41.4882,Delivered,Detour,13,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240416024443,Truck_2,2024-04-16 02:44:43,-19.8201,2.4374,Delayed,Detour,18,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241208061528,Truck_6,2024-12-08 06:15:28,-13.561,-52.5469,In Transit,Detour,24,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240905174356,Truck_3,2024-09-05 17:43:56,51.4883,105.7445,In Transit,Heavy,25,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240202222418,Truck_3,2024-02-02 22:24:18,21.5738,-95.1501,Delivered,Heavy,36,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240430184412,Truck_9,2024-04-30 18:44:12,-31.8174,59.5716,Delayed,Heavy,54,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240501031317,Truck_3,2024-05-01 03:13:17,-76.0304,112.9276,Delivered,Clear,48,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240110200228,Truck_1,2024-01-10 20:02:28,47.5481,-97.4831,Delayed,Heavy,48,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241021111532,Truck_2,2024-10-21 11:15:32,77.8751,144.04,Delayed,Detour,45,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241125025857,Truck_1,2024-11-25 02:58:57,-56.6674,-50.0426,Delivered,Detour,53,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241220080123,Truck_3,2024-12-20 08:01:23,62.0999,-9.5972,In Transit,Detour,59,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240629190717,Truck_9,2024-06-29 19:07:17,57.9908,-117.5288,Delivered,Detour,16,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241213185755,Truck_2,2024-12-13 18:57:55,73.1274,-63.9399,Delivered,Detour,22,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241120052519,Truck_3,2024-11-20 05:25:19,-28.6949,-110.5161,In Transit,Detour,24,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240629095114,Truck_3,2024-06-29 09:51:14,-28.9152,114.375,Delivered,Detour,32,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241222233357,Truck_3,2024-12-22 23:33:57,83.9488,131.1197,Delayed,Detour,46,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240623220831,Truck_6,2024-06-23 22:08:31,52.1635,10.8296,Delivered,Clear,54,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240329051426,Truck_1,2024-03-29 05:14:26,36.5185,-71.9718,Delivered,Heavy,10,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240403141116,Truck_5,2024-04-03 14:11:16,-10.8232,144.0982,In Transit,Heavy,30,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241215140228,Truck_1,2024-12-15 14:02:28,-37.9195,-99.3768,Delayed,Detour,50,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240806132318,Truck_6,2024-08-06 13:23:18,-7.2984,-44.5918,Delivered,Heavy,32,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240314023533,Truck_8,2024-03-14 02:35:33,13.6845,-126.4199,Delivered,Detour,19,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240827003446,Truck_10,2024-08-27 00:34:46,-70.6428,166.3723,In Transit,Detour,35,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240424205047,Truck_4,2024-04-24 20:50:47,-19.3929,-10.2537,In Transit,Heavy,22,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240909214133,Truck_9,2024-09-09 21:41:33,-32.5141,-170.9566,Delivered,Detour,18,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240620135757,Truck_10,2024-06-20 13:57:57,59.3783,74.9628,Delivered,Detour,35,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240602105433,Truck_7,2024-06-02 10:54:33,-36.2517,72.4728,Delivered,Heavy,46,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240709232147,Truck_8,2024-07-09 23:21:47,-55.9854,-149.8958,Delayed,Detour,24,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240703095255,Truck_8,2024-07-03 09:52:55,27.3259,-116.2066,In Transit,Detour,11,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241209203502,Truck_9,2024-12-09 20:35:02,27.7357,-170.5766,Delayed,Detour,11,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240314005534,Truck_4,2024-03-14 00:55:34,23.2023,92.2763,Delivered,Clear,35,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240528062951,Truck_10,2024-05-28 06:29:51,87.5129,-65.0922,Delayed,Clear,20,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241122234918,Truck_9,2024-11-22 23:49:18,81.1975,137.0497,In Transit,Detour,59,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240421034752,Truck_4,2024-04-21 03:47:52,55.919,-39.578,In Transit,Clear,10,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240315070210,Truck_5,2024-03-15 07:02:10,-15.3314,22.397,In Transit,Clear,34,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240322141236,Truck_10,2024-03-22 14:12:36,-55.3603,79.1276,Delayed,Clear,49,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240918163557,Truck_6,2024-09-18 16:35:57,8.3934,-165.2068,Delayed,Detour,25,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241120191202,Truck_7,2024-11-20 19:12:02,27.499,-98.0697,In Transit,Heavy,16,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240408181351,Truck_6,2024-04-08 18:13:51,14.687,-33.9771,In Transit,Detour,21,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240113163547,Truck_9,2024-01-13 16:35:47,19.3645,-149.4523,In Transit,Heavy,27,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241111043537,Truck_7,2024-11-11 04:35:37,38.0858,-149.297,Delayed,Detour,18,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241004160537,Truck_9,2024-10-04 16:05:37,4.379,97.6354,Delivered,Heavy,20,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240512212939,Truck_8,2024-05-12 21:29:39,-28.8542,119.5019,Delivered,Clear,19,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241223045936,Truck_9,2024-12-23 04:59:36,-17.5843,-151.1609,Delivered,Detour,44,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240615004644,Truck_4,2024-06-15 00:46:44,15.5281,-170.3941,Delayed,Heavy,30,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240718172917,Truck_4,2024-07-18 17:29:17,-83.8983,-128.1642,In Transit,Heavy,25,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240210084055,Truck_9,2024-02-10 08:40:55,-25.4823,169.1921,Delayed,Clear,43,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240909104647,Truck_10,2024-09-09 10:46:47,-69.493,-118.9742,Delivered,Heavy,44,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240419081804,Truck_1,2024-04-19 08:18:04,-8.0714,-158.0304,In Transit,Heavy,50,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240805184524,Truck_9,2024-08-05 18:45:24,-59.9919,-162.9143,Delayed,Heavy,40,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240614184007,Truck_3,2024-06-14 18:40:07,-47.5239,58.4771,Delayed,Heavy,22,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241018235028,Truck_10,2024-10-18 23:50:28,-39.8052,-126.4073,Delayed,Detour,25,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240428013158,Truck_3,2024-04-28 01:31:58,54.0537,-145.9922,Delayed,Detour,17,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241111084454,Truck_6,2024-11-11 08:44:54,7.0591,46.7188,Delayed,Heavy,40,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240913105243,Truck_4,2024-09-13 10:52:43,-50.3633,99.5834,In Transit,Detour,54,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240614171420,Truck_4,2024-06-14 17:14:20,51.9327,-102.4309,Delivered,Clear,29,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240102153044,Truck_4,2024-01-02 15:30:44,-36.487,14.5024,Delayed,Clear,29,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241006045842,Truck_5,2024-10-06 04:58:42,27.2654,-34.1042,In Transit,Clear,40,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240604164714,Truck_7,2024-06-04 16:47:14,15.2159,-55.6814,In Transit,Clear,47,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240202121702,Truck_6,2024-02-02 12:17:02,27.4437,43.3224,Delayed,Clear,33,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240622074217,Truck_10,2024-06-22 07:42:17,-58.6928,165.8667,Delayed,Heavy,32,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240301144813,Truck_9,2024-03-01 14:48:13,-38.0737,56.0723,Delayed,Detour,13,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240819013600,Truck_3,2024-08-19 01:36:00,-50.6778,-102.041,Delayed,Heavy,55,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241117022202,Truck_2,2024-11-17 02:22:02,-88.776,-125.1628,Delivered,Heavy,59,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240729001700,Truck_8,2024-07-29 00:17:00,69.691,148.6549,Delayed,Clear,36,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240517210051,Truck_8,2024-05-17 21:00:51,-82.2616,-141.825,In Transit,Clear,31,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240311200954,Truck_1,2024-03-11 20:09:54,2.7286,-99.5442,In Transit,Clear,42,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240718054203,Truck_7,2024-07-18 05:42:03,84.2498,-60.8861,Delayed,Clear,19,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241113113144,Truck_4,2024-11-13 11:31:44,8.7621,-2.9218,Delivered,Clear,58,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240101113757,Truck_4,2024-01-01 11:37:57,-59.0753,68.4886,In Transit,Detour,50,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241007182107,Truck_6,2024-10-07 18:21:07,5.7218,-96.5806,In Transit,Clear,57,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240716163904,Truck_4,2024-07-16 16:39:04,-38.3158,-38.3257,Delivered,Detour,31,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240413173352,Truck_4,2024-04-13 17:33:52,-87.4042,-127.3269,Delivered,Heavy,41,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240811021819,Truck_9,2024-08-11 02:18:19,-77.3648,30.9744,In Transit,Clear,37,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240119001526,Truck_7,2024-01-19 00:15:26,-73.0477,124.7969,In Transit,Clear,23,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241226035018,Truck_7,2024-12-26 03:50:18,-27.576,-111.3158,Delayed,Detour,18,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240110124417,Truck_10,2024-01-10 12:44:17,49.9465,-30.0236,Delivered,Clear,49,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241023131306,Truck_2,2024-10-23 13:13:06,-50.6856,-9.6236,In Transit,Heavy,51,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240731195322,Truck_10,2024-07-31 19:53:22,84.1122,-87.899,Delayed,Detour,47,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240805222607,Truck_8,2024-08-05 22:26:07,49.9197,79.4653,In Transit,Clear,60,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240214004503,Truck_10,2024-02-14 00:45:03,-44.6254,44.0876,Delayed,Detour,26,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241214004510,Truck_6,2024-12-14 00:45:10,-57.3005,-23.6888,In Transit,Clear,12,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240716081229,Truck_6,2024-07-16 08:12:29,-47.5698,-81.3143,Delivered,Heavy,44,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241208095223,Truck_7,2024-12-08 09:52:23,-80.2675,-80.5726,Delayed,Heavy,34,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240508015155,Truck_8,2024-05-08 01:51:55,-70.3213,-61.9179,Delivered,Detour,43,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240720133343,Truck_6,2024-07-20 13:33:43,48.2512,-106.6383,Delayed,Heavy,50,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241024145952,Truck_4,2024-10-24 14:59:52,-74.6749,-159.7164,In Transit,Detour,11,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241123105655,Truck_4,2024-11-23 10:56:55,-46.0132,-8.5335,Delayed,Clear,19,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240418085100,Truck_1,2024-04-18 08:51:00,9.3294,-71.5299,Delivered,Heavy,36,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240811044330,Truck_9,2024-08-11 04:43:30,5.0095,-113.8279,Delayed,Heavy,56,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241009132904,Truck_6,2024-10-09 13:29:04,-70.8094,75.1094,Delivered,Heavy,22,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241221152610,Truck_1,2024-12-21 15:26:10,-43.2472,163.3821,Delivered,Detour,58,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240121231340,Truck_5,2024-01-21 23:13:40,28.1016,167.1982,In Transit,Clear,32,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240328075045,Truck_4,2024-03-28 07:50:45,-56.2187,27.6037,In Transit,Heavy,55,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241202105206,Truck_6,2024-12-02 10:52:06,65.0538,-146.3887,Delivered,Heavy,54,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241230202158,Truck_5,2024-12-30 20:21:58,-30.299,153.4529,Delivered,Detour,20,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240912114211,Truck_5,2024-09-12 11:42:11,72.7626,105.821,Delayed,Detour,49,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241024230349,Truck_8,2024-10-24 23:03:49,61.8446,115.5236,In Transit,Heavy,60,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240307215221,Truck_3,2024-03-07 21:52:21,-31.1792,-46.048,Delayed,Detour,33,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240103130823,Truck_10,2024-01-03 13:08:23,-43.2004,134.8572,In Transit,Clear,51,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241208002442,Truck_2,2024-12-08 00:24:42,-79.6372,-111.7492,Delayed,Detour,10,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240913085809,Truck_5,2024-09-13 08:58:09,66.838,-175.1681,Delayed,Heavy,22,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240731221607,Truck_4,2024-07-31 22:16:07,13.7736,12.9911,In Transit,Detour,51,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241125225958,Truck_8,2024-11-25 22:59:58,-66.2696,-82.0579,Delivered,Heavy,34,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240530154045,Truck_4,2024-05-30 15:40:45,5.1238,-67.8583,Delivered,Detour,41,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240305205912,Truck_3,2024-03-05 20:59:12,-85.8715,-162.7167,Delayed,Clear,46,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240820153004,Truck_3,2024-08-20 15:30:04,86.2679,-50.7895,Delayed,Heavy,49,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240919121909,Truck_6,2024-09-19 12:19:09,21.3104,-80.5292,Delivered,Heavy,54,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240302153745,Truck_3,2024-03-02 15:37:45,-2.2841,23.4152,Delayed,Heavy,54,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240224230205,Truck_4,2024-02-24 23:02:05,-23.4709,54.5265,Delayed,Heavy,43,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240305112037,Truck_8,2024-03-05 11:20:37,44.5052,-178.7281,In Transit,Heavy,16,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240304233451,Truck_9,2024-03-04 23:34:51,-8.1413,92.8681,Delayed,Detour,18,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240630043359,Truck_2,2024-06-30 04:33:59,0.7118,108.5142,Delivered,Heavy,18,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241202101946,Truck_4,2024-12-02 10:19:46,43.2255,-143.0415,Delayed,Heavy,14,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240814110317,Truck_6,2024-08-14 11:03:17,61.8047,-72.1219,Delivered,Clear,50,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240913031129,Truck_9,2024-09-13 03:11:29,-42.6929,46.2525,Delayed,Heavy,16,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241229182159,Truck_1,2024-12-29 18:21:59,-78.0755,-11.8927,In Transit,Detour,34,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241119135315,Truck_5,2024-11-19 13:53:15,65.5547,-128.3673,In Transit,Detour,38,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240527072613,Truck_1,2024-05-27 07:26:13,-19.5574,-65.5493,In Transit,Clear,32,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241119200310,Truck_3,2024-11-19 20:03:10,17.7083,-162.0043,In Transit,Heavy,22,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240918230424,Truck_8,2024-09-18 23:04:24,-52.1686,-175.6269,In Transit,Clear,29,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241216021700,Truck_6,2024-12-16 02:17:00,-84.2375,76.9339,In Transit,Clear,43,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240929190101,Truck_2,2024-09-29 19:01:01,-7.599,-78.7489,In Transit,Heavy,41,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240329012319,Truck_2,2024-03-29 01:23:19,36.621,97.2194,Delayed,Detour,32,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240726100934,Truck_9,2024-07-26 10:09:34,-7.9899,-23.5723,Delayed,Clear,24,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241219103622,Truck_4,2024-12-19 10:36:22,-68.5749,106.2112,Delivered,Detour,53,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240614103032,Truck_6,2024-06-14 10:30:32,-86.6472,76.1641,Delayed,Detour,41,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240106052259,Truck_10,2024-01-06 05:22:59,-20.073,169.5863,Delayed,Detour,37,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240917175629,Truck_2,2024-09-17 17:56:29,8.0303,137.6073,Delivered,Clear,57,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241229171345,Truck_6,2024-12-29 17:13:45,-58.6706,162.7699,In Transit,Clear,44,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241130165331,Truck_10,2024-11-30 16:53:31,63.6092,-40.4852,Delayed,Detour,29,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241020115415,Truck_3,2024-10-20 11:54:15,69.9178,-25.7593,In Transit,Clear,18,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240608164923,Truck_10,2024-06-08 16:49:23,27.3884,-85.6938,Delayed,Clear,16,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240911090201,Truck_6,2024-09-11 09:02:01,5.5363,-6.3698,Delayed,Heavy,11,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241108141944,Truck_10,2024-11-08 14:19:44,-47.9174,-44.4673,Delayed,Heavy,25,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240615142459,Truck_2,2024-06-15 14:24:59,-58.2884,-53.9833,In Transit,Clear,60,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240516015129,Truck_10,2024-05-16 01:51:29,44.4715,61.1203,Delayed,Detour,30,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240326144033,Truck_7,2024-03-26 14:40:33,-73.5735,153.529,Delayed,Detour,24,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240405153659,Truck_8,2024-04-05 15:36:59,-39.3967,15.6452,Delivered,Heavy,29,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241113035913,Truck_9,2024-11-13 03:59:13,-46.8183,81.9142,In Transit,Clear,34,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240613010832,Truck_2,2024-06-13 01:08:32,57.3299,-54.7962,In Transit,Detour,43,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240121090401,Truck_9,2024-01-21 09:04:01,86.1935,59.4987,Delivered,Detour,15,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241005142331,Truck_7,2024-10-05 14:23:31,59.8543,-132.3865,Delivered,Clear,22,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240421072556,Truck_2,2024-04-21 07:25:56,-41.7908,84.2001,Delayed,Detour,33,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240424222728,Truck_6,2024-04-24 22:27:28,-3.7401,43.2693,In Transit,Detour,47,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240210070126,Truck_8,2024-02-10 07:01:26,-27.0196,-24.081,In Transit,Detour,52,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240926165908,Truck_7,2024-09-26 16:59:08,-53.7107,-60.5951,Delivered,Clear,48,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240809142312,Truck_3,2024-08-09 14:23:12,65.9866,135.5421,Delayed,Heavy,50,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240105210652,Truck_4,2024-01-05 21:06:52,-77.8133,-89.1179,Delayed,Detour,33,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241130064013,Truck_3,2024-11-30 06:40:13,22.3036,59.4689,Delayed,Detour,11,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240911081918,Truck_9,2024-09-11 08:19:18,-10.2023,76.7946,Delivered,Clear,10,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241005235735,Truck_2,2024-10-05 23:57:35,-9.1011,102.9819,In Transit,Detour,45,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241015140352,Truck_4,2024-10-15 14:03:52,-85.2973,149.0859,Delivered,Heavy,39,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240704092246,Truck_7,2024-07-04 09:22:46,-13.1977,107.4226,Delivered,Clear,37,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240821172039,Truck_4,2024-08-21 17:20:39,-77.327,-33.6001,Delayed,Detour,16,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240703063235,Truck_1,2024-07-03 06:32:35,-36.3388,69.5488,In Transit,Heavy,60,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240220173742,Truck_6,2024-02-20 17:37:42,-35.4951,105.3877,Delivered,Clear,38,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240525034833,Truck_4,2024-05-25 03:48:33,-50.7255,49.2993,Delivered,Detour,42,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240528162439,Truck_4,2024-05-28 16:24:39,-85.6005,35.8883,In Transit,Clear,30,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240907103729,Truck_3,2024-09-07 10:37:29,-15.3475,13.3516,Delayed,Clear,31,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240820150720,Truck_4,2024-08-20 15:07:20,36.4573,-60.8255,Delayed,Detour,23,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241111191519,Truck_1,2024-11-11 19:15:19,40.9268,-145.299,In Transit,Heavy,50,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240527083806,Truck_6,2024-05-27 08:38:06,-66.0724,48.2597,Delivered,Detour,14,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240405185643,Truck_1,2024-04-05 18:56:43,24.1971,18.693,Delivered,Detour,21,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240723150830,Truck_5,2024-07-23 15:08:30,46.8609,37.8235,Delayed,Detour,33,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240304092445,Truck_10,2024-03-04 09:24:45,-56.7854,25.8691,Delivered,Heavy,22,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240103124948,Truck_10,2024-01-03 12:49:48,-35.4329,9.9153,Delayed,Heavy,19,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240405202025,Truck_7,2024-04-05 20:20:25,63.6965,-131.1519,Delayed,Clear,23,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240508100906,Truck_6,2024-05-08 10:09:06,-43.4171,160.8423,Delayed,Clear,30,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240707194915,Truck_2,2024-07-07 19:49:15,-82.7058,-62.704,Delayed,Clear,51,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241126224524,Truck_6,2024-11-26 22:45:24,-75.3211,-58.7749,Delivered,Detour,47,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240104031231,Truck_4,2024-01-04 03:12:31,-50.7085,-85.4515,In Transit,Heavy,50,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240731145923,Truck_10,2024-07-31 14:59:23,70.7101,-175.9865,Delayed,Detour,23,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240523232337,Truck_5,2024-05-23 23:23:37,-71.1004,-147.757,Delayed,Heavy,15,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240704000502,Truck_3,2024-07-04 00:05:02,-76.8972,-3.6358,Delivered,Detour,37,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240818232547,Truck_6,2024-08-18 23:25:47,39.7998,58.7461,Delivered,Heavy,36,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241023152016,Truck_7,2024-10-23 15:20:16,78.5954,-173.0016,In Transit,Clear,37,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240702164043,Truck_4,2024-07-02 16:40:43,-53.5264,13.0019,Delivered,Heavy,29,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240110165214,Truck_1,2024-01-10 16:52:14,49.3049,-55.6493,Delivered,Heavy,59,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241025160214,Truck_8,2024-10-25 16:02:14,72.9981,12.4029,Delivered,Detour,30,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240227214602,Truck_1,2024-02-27 21:46:02,80.4177,-39.9632,Delayed,Clear,41,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240806042922,Truck_2,2024-08-06 04:29:22,-51.0247,1.8063,Delayed,Clear,55,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240909185420,Truck_4,2024-09-09 18:54:20,5.2922,172.6376,In Transit,Clear,41,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240121125609,Truck_1,2024-01-21 12:56:09,54.3099,-98.941,Delayed,Heavy,43,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241023211100,Truck_5,2024-10-23 21:11:00,-3.8161,-159.7257,Delivered,Detour,58,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240322030623,Truck_3,2024-03-22 03:06:23,-69.8431,-171.5361,In Transit,Detour,35,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240907015848,Truck_2,2024-09-07 01:58:48,9.3528,120.0011,Delivered,Clear,45,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240213052413,Truck_2,2024-02-13 05:24:13,-74.3396,-150.6339,Delayed,Clear,47,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240130153636,Truck_2,2024-01-30 15:36:36,-62.0623,133.8872,Delayed,Heavy,23,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240306061028,Truck_10,2024-03-06 06:10:28,-53.1354,-164.488,In Transit,Detour,32,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241031074612,Truck_4,2024-10-31 07:46:12,85.0389,-138.3248,In Transit,Detour,15,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240621100205,Truck_3,2024-06-21 10:02:05,48.9598,-160.9134,Delayed,Heavy,49,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240725175938,Truck_8,2024-07-25 17:59:38,44.3639,134.3967,Delayed,Clear,36,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240221220035,Truck_8,2024-02-21 22:00:35,-33.1628,143.557,Delivered,Detour,21,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240622065947,Truck_8,2024-06-22 06:59:47,-61.1518,140.8152,In Transit,Heavy,55,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240209210056,Truck_10,2024-02-09 21:00:56,-87.8115,97.0492,Delivered,Clear,45,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241216003052,Truck_10,2024-12-16 00:30:52,-48.3575,115.8351,Delayed,Detour,29,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240322235331,Truck_10,2024-03-22 23:53:31,-59.5674,11.3653,Delayed,Heavy,57,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240726080220,Truck_7,2024-07-26 08:02:20,-37.2055,79.4485,In Transit,Clear,25,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240411045012,Truck_8,2024-04-11 04:50:12,38.1095,164.7654,Delayed,Heavy,10,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240531150716,Truck_1,2024-05-31 15:07:16,-20.0991,20.1825,Delayed,Heavy,34,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240412154447,Truck_10,2024-04-12 15:44:47,89.3898,-93.1034,Delivered,Clear,60,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240314180527,Truck_4,2024-03-14 18:05:27,85.8393,74.4208,Delayed,Heavy,14,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240809211015,Truck_1,2024-08-09 21:10:15,29.5637,-162.339,Delivered,Heavy,59,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240918105943,Truck_1,2024-09-18 10:59:43,13.5274,-108.9153,In Transit,Clear,22,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240313214328,Truck_2,2024-03-13 21:43:28,49.8896,46.7765,Delivered,Heavy,44,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240817043918,Truck_3,2024-08-17 04:39:18,61.9951,28.0639,In Transit,Heavy,10,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240131000135,Truck_1,2024-01-31 00:01:35,88.3545,123.8561,In Transit,Heavy,56,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240227173037,Truck_9,2024-02-27 17:30:37,-1.4258,112.8174,Delayed,Clear,22,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240922003404,Truck_3,2024-09-22 00:34:04,-18.3801,-175.0496,Delivered,Heavy,57,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241003075845,Truck_3,2024-10-03 07:58:45,72.6206,46.1393,In Transit,Heavy,45,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240814192601,Truck_4,2024-08-14 19:26:01,-10.0844,-0.6042,Delivered,Clear,36,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241224213003,Truck_10,2024-12-24 21:30:03,73.6225,125.9589,Delivered,Heavy,35,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240716211402,Truck_4,2024-07-16 21:14:02,-67.5109,-162.0537,Delayed,Clear,15,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241201173854,Truck_1,2024-12-01 17:38:54,-4.42,-44.1619,Delayed,Detour,34,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241008123602,Truck_1,2024-10-08 12:36:02,-31.9299,48.9536,Delivered,Detour,30,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240527192126,Truck_1,2024-05-27 19:21:26,-84.5861,-56.9044,In Transit,Clear,56,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240321222244,Truck_3,2024-03-21 22:22:44,-20.6577,-86.8013,Delivered,Heavy,29,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240504105210,Truck_3,2024-05-04 10:52:10,-56.5959,153.5316,Delivered,Heavy,57,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240511121327,Truck_5,2024-05-11 12:13:27,20.6546,79.9499,In Transit,Clear,11,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241228202519,Truck_5,2024-12-28 20:25:19,-19.7553,54.2697,Delayed,Heavy,25,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240406014836,Truck_3,2024-04-06 01:48:36,68.0702,98.5995,Delivered,Clear,31,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240812101142,Truck_4,2024-08-12 10:11:42,25.964,-133.3578,In Transit,Detour,29,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240208101213,Truck_1,2024-02-08 10:12:13,-86.701,-140.0339,Delayed,Heavy,54,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241002183119,Truck_2,2024-10-02 18:31:19,-35.9441,-133.4183,Delivered,Clear,60,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241125184606,Truck_8,2024-11-25 18:46:06,62.9176,116.017,In Transit,Detour,16,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240328143339,Truck_3,2024-03-28 14:33:39,69.7549,-126.8123,Delayed,Detour,50,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241214124218,Truck_8,2024-12-14 12:42:18,-0.5355,120.9793,In Transit,Detour,33,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240313184710,Truck_9,2024-03-13 18:47:10,57.9277,-106.3278,In Transit,Clear,14,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240228005335,Truck_6,2024-02-28 00:53:35,-86.177,112.1068,In Transit,Clear,36,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241018212627,Truck_2,2024-10-18 21:26:27,-9.2728,-173.0699,In Transit,Clear,24,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240111030935,Truck_3,2024-01-11 03:09:35,-84.3224,76.1163,Delivered,Heavy,20,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240925094450,Truck_7,2024-09-25 09:44:50,-27.8806,-32.4778,Delayed,Heavy,51,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240626204739,Truck_8,2024-06-26 20:47:39,-48.8409,171.332,Delayed,Detour,19,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240224072353,Truck_4,2024-02-24 07:23:53,28.627,162.8857,Delivered,Heavy,16,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240204204118,Truck_2,2024-02-04 20:41:18,-7.2601,52.512,Delayed,Heavy,55,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240228181316,Truck_1,2024-02-28 18:13:16,-16.8576,-8.0033,In Transit,Detour,41,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240427153304,Truck_8,2024-04-27 15:33:04,-42.1652,-40.9587,Delivered,Clear,39,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241027003659,Truck_10,2024-10-27 00:36:59,4.2073,-152.132,Delayed,Detour,52,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240108092332,Truck_9,2024-01-08 09:23:32,7.8031,43.4739,Delivered,Clear,12,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240401183537,Truck_4,2024-04-01 18:35:37,-6.8792,165.0017,Delivered,Heavy,54,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240305123528,Truck_7,2024-03-05 12:35:28,60.6073,74.3625,In Transit,Heavy,34,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240822063815,Truck_9,2024-08-22 06:38:15,-87.2317,143.0006,Delayed,Heavy,24,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240120143855,Truck_10,2024-01-20 14:38:55,38.825,-51.8451,Delayed,Heavy,45,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240706180523,Truck_9,2024-07-06 18:05:23,-53.5255,-1.9486,Delayed,Clear,55,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240512203613,Truck_6,2024-05-12 20:36:13,71.1182,-120.1134,Delayed,Detour,30,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241120152733,Truck_2,2024-11-20 15:27:33,-78.4902,-101.3255,Delayed,Clear,40,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240814185646,Truck_9,2024-08-14 18:56:46,35.0933,-170.9221,In Transit,Clear,51,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241002101230,Truck_3,2024-10-02 10:12:30,67.0296,-18.7078,Delayed,Clear,15,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240404173205,Truck_8,2024-04-04 17:32:05,-29.6573,-37.6029,Delayed,Clear,35,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240108211645,Truck_5,2024-01-08 21:16:45,-9.1109,76.762,Delivered,Detour,35,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240402224427,Truck_7,2024-04-02 22:44:27,50.7076,-21.7653,In Transit,Heavy,19,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240409221214,Truck_5,2024-04-09 22:12:14,48.352,-54.56,In Transit,Clear,17,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240708110123,Truck_4,2024-07-08 11:01:23,-39.7867,81.5636,Delayed,Detour,18,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240321105041,Truck_6,2024-03-21 10:50:41,36.5436,71.7597,Delayed,Clear,56,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241122221841,Truck_6,2024-11-22 22:18:41,32.8663,-79.992,Delayed,Heavy,22,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240424000850,Truck_4,2024-04-24 00:08:50,-0.1019,99.8069,Delivered,Clear,23,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240605085103,Truck_9,2024-06-05 08:51:03,-56.8231,71.5841,In Transit,Clear,10,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240301101016,Truck_3,2024-03-01 10:10:16,-61.9668,113.8899,Delayed,Clear,47,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240706210927,Truck_1,2024-07-06 21:09:27,-63.8035,61.4571,In Transit,Detour,26,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241128160559,Truck_5,2024-11-28 16:05:59,-31.7275,-28.5676,In Transit,Clear,14,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240323212231,Truck_1,2024-03-23 21:22:31,69.9959,-10.5335,Delayed,Detour,51,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240424054405,Truck_10,2024-04-24 05:44:05,-63.1722,145.3756,In Transit,Heavy,27,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240611044707,Truck_8,2024-06-11 04:47:07,35.7913,6.3765,Delivered,Heavy,32,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240812005408,Truck_1,2024-08-12 00:54:08,-58.8531,45.0498,Delayed,Detour,53,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240531030532,Truck_3,2024-05-31 03:05:32,49.4007,-106.1531,Delayed,Detour,44,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240405102633,Truck_2,2024-04-05 10:26:33,8.4222,-69.7522,Delivered,Clear,21,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241212162104,Truck_6,2024-12-12 16:21:04,-6.5166,-143.3822,Delivered,Heavy,32,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240211081806,Truck_3,2024-02-11 08:18:06,-43.1797,-64.4769,Delivered,Heavy,55,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241011152347,Truck_8,2024-10-11 15:23:47,45.047,69.7014,In Transit,Heavy,51,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240627162720,Truck_2,2024-06-27 16:27:20,-15.8011,138.7785,In Transit,Clear,29,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240910194725,Truck_7,2024-09-10 19:47:25,-30.8564,26.7562,Delayed,Detour,28,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240702130651,Truck_9,2024-07-02 13:06:51,16.0296,-36.3349,Delayed,Clear,34,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240831201857,Truck_9,2024-08-31 20:18:57,81.3962,-79.6193,In Transit,Heavy,35,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240713002359,Truck_4,2024-07-13 00:23:59,77.5436,-156.2479,Delayed,Heavy,18,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240709101242,Truck_4,2024-07-09 10:12:42,51.8047,66.0193,In Transit,Clear,52,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240506235814,Truck_4,2024-05-06 23:58:14,37.5523,145.1973,In Transit,Clear,46,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240107150038,Truck_9,2024-01-07 15:00:38,30.5875,132.7309,Delayed,Heavy,31,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240308180246,Truck_8,2024-03-08 18:02:46,-86.9276,120.7534,In Transit,Heavy,53,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240304092619,Truck_8,2024-03-04 09:26:19,-44.6569,129.8625,In Transit,Detour,26,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241012070708,Truck_7,2024-10-12 07:07:08,53.8186,-158.4252,Delayed,Clear,10,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240807051708,Truck_1,2024-08-07 05:17:08,26.0226,103.2098,Delayed,Clear,15,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240327210044,Truck_8,2024-03-27 21:00:44,14.1508,-54.4659,Delivered,Heavy,54,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241003073913,Truck_4,2024-10-03 07:39:13,22.8356,-12.873,In Transit,Detour,56,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240624012510,Truck_7,2024-06-24 01:25:10,79.2334,166.4549,Delivered,Heavy,36,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240130083253,Truck_6,2024-01-30 08:32:53,-9.0289,-69.4256,Delivered,Heavy,29,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240115074838,Truck_10,2024-01-15 07:48:38,71.2228,-86.3993,Delivered,Clear,15,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241230081546,Truck_10,2024-12-30 08:15:46,-29.6864,-88.6901,In Transit,Clear,14,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240801214248,Truck_7,2024-08-01 21:42:48,-19.5759,-39.5531,Delayed,Detour,42,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240517195330,Truck_2,2024-05-17 19:53:30,81.1,113.2247,Delayed,Detour,23,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240204052636,Truck_8,2024-02-04 05:26:36,32.7849,30.955,Delayed,Detour,11,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240718131246,Truck_7,2024-07-18 13:12:46,49.048,4.8896,Delayed,Heavy,49,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240101173448,Truck_10,2024-01-01 17:34:48,-13.9612,89.5342,Delayed,Detour,49,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240908142917,Truck_4,2024-09-08 14:29:17,64.4113,-121.7647,Delivered,Clear,35,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240226032537,Truck_2,2024-02-26 03:25:37,-77.7986,-155.4098,Delayed,Heavy,22,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240416043724,Truck_7,2024-04-16 04:37:24,16.2591,175.1485,Delivered,Detour,49,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241211173951,Truck_10,2024-12-11 17:39:51,30.6749,78.4743,Delivered,Heavy,27,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240916124613,Truck_7,2024-09-16 12:46:13,-18.0675,76.7802,Delivered,Clear,24,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240123185256,Truck_8,2024-01-23 18:52:56,-89.7784,-163.7965,Delayed,Clear,53,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240328072129,Truck_9,2024-03-28 07:21:29,-30.5476,63.5282,Delayed,Detour,50,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240428033613,Truck_6,2024-04-28 03:36:13,-16.8317,-114.4787,In Transit,Clear,31,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240412194526,Truck_2,2024-04-12 19:45:26,42.6126,-69.5408,In Transit,Clear,33,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241230023131,Truck_8,2024-12-30 02:31:31,44.5289,31.1002,Delayed,Detour,27,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240731171119,Truck_2,2024-07-31 17:11:19,84.7161,77.1114,Delivered,Detour,42,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240104195815,Truck_4,2024-01-04 19:58:15,-64.0954,-155.4074,Delayed,Clear,51,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240205004818,Truck_2,2024-02-05 00:48:18,20.3388,-109.3313,In Transit,Heavy,30,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240927172208,Truck_10,2024-09-27 17:22:08,-14.5017,-20.1486,Delayed,Heavy,38,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241007142604,Truck_4,2024-10-07 14:26:04,-35.3643,134.8909,In Transit,Clear,39,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240109231824,Truck_7,2024-01-09 23:18:24,1.3295,83.6357,Delayed,Clear,51,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240101182917,Truck_3,2024-01-01 18:29:17,88.7652,-178.2706,Delayed,Detour,12,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241218082456,Truck_3,2024-12-18 08:24:56,54.493,24.5979,Delivered,Detour,49,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240116094708,Truck_10,2024-01-16 09:47:08,49.7431,156.3216,Delivered,Heavy,10,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240912031424,Truck_4,2024-09-12 03:14:24,-86.9357,-84.9718,In Transit,Heavy,25,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241116014731,Truck_5,2024-11-16 01:47:31,-59.6078,157.02,Delayed,Heavy,33,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240522045014,Truck_1,2024-05-22 04:50:14,-10.9298,-89.0306,Delayed,Heavy,60,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240603201737,Truck_8,2024-06-03 20:17:37,-54.3571,-133.1938,Delivered,Heavy,38,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240317001841,Truck_8,2024-03-17 00:18:41,-82.1754,-169.4219,Delivered,Clear,21,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240721094353,Truck_1,2024-07-21 09:43:53,-11.3631,83.0819,Delivered,Clear,31,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240405064452,Truck_6,2024-04-05 06:44:52,-48.3838,-163.1177,Delivered,Clear,43,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240116172855,Truck_7,2024-01-16 17:28:55,7.0557,-122.6525,Delayed,Clear,23,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241218012354,Truck_5,2024-12-18 01:23:54,-1.0776,51.9075,In Transit,Heavy,33,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241218144009,Truck_1,2024-12-18 14:40:09,-81.5733,-17.3787,Delayed,Heavy,53,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240304090438,Truck_7,2024-03-04 09:04:38,75.2109,170.3371,Delayed,Clear,12,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241108020822,Truck_6,2024-11-08 02:08:22,-21.4288,-164.2915,Delayed,Detour,59,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240522033211,Truck_8,2024-05-22 03:32:11,-49.145,-120.0898,Delayed,Detour,54,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240716022808,Truck_1,2024-07-16 02:28:08,-87.3835,60.4609,Delivered,Detour,53,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240120210605,Truck_1,2024-01-20 21:06:05,69.6413,1.4327,Delayed,Heavy,16,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240416030308,Truck_5,2024-04-16 03:03:08,19.9466,-104.4665,Delivered,Heavy,28,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240207045221,Truck_6,2024-02-07 04:52:21,19.5573,171.8697,In Transit,Heavy,47,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240116041014,Truck_6,2024-01-16 04:10:14,-46.9621,87.6972,In Transit,Detour,25,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240112022039,Truck_4,2024-01-12 02:20:39,-34.4433,-4.0669,Delayed,Detour,12,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241016204523,Truck_9,2024-10-16 20:45:23,-7.8199,-78.215,In Transit,Heavy,11,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240801091616,Truck_8,2024-08-01 09:16:16,11.6611,44.7505,Delivered,Heavy,30,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240113210739,Truck_1,2024-01-13 21:07:39,-12.4175,135.9866,Delayed,Clear,58,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240327043358,Truck_10,2024-03-27 04:33:58,-79.3451,-52.5151,Delivered,Heavy,17,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240315144846,Truck_10,2024-03-15 14:48:46,24.4216,-7.0649,Delayed,Clear,17,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240425100709,Truck_8,2024-04-25 10:07:09,71.7196,-107.3427,Delayed,Clear,47,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240820012808,Truck_4,2024-08-20 01:28:08,-69.6585,23.6323,In Transit,Heavy,16,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240702135019,Truck_1,2024-07-02 13:50:19,67.365,71.5047,Delayed,Detour,36,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240706130543,Truck_9,2024-07-06 13:05:43,-31.9611,-75.8092,In Transit,Heavy,56,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240616113707,Truck_4,2024-06-16 11:37:07,-82.4812,139.058,Delivered,Detour,34,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240612094435,Truck_5,2024-06-12 09:44:35,25.3254,132.6264,Delivered,Heavy,32,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240720200339,Truck_5,2024-07-20 20:03:39,40.7401,110.4737,Delivered,Detour,11,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241016144108,Truck_1,2024-10-16 14:41:08,-53.779,30.8863,Delivered,Detour,58,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240902031719,Truck_5,2024-09-02 03:17:19,-39.3791,-53.1316,Delayed,Heavy,24,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240720162617,Truck_5,2024-07-20 16:26:17,46.2788,41.3453,In Transit,Detour,56,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240819000512,Truck_7,2024-08-19 00:05:12,-65.9199,-160.2292,In Transit,Detour,53,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240304101951,Truck_5,2024-03-04 10:19:51,-32.2707,98.1472,Delivered,Clear,51,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241001074257,Truck_5,2024-10-01 07:42:57,73.392,-62.3138,Delayed,Heavy,20,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240202125141,Truck_8,2024-02-02 12:51:41,77.7678,-165.1979,Delayed,Clear,12,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241031062427,Truck_5,2024-10-31 06:24:27,-2.8228,75.2804,In Transit,Detour,32,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241201044108,Truck_8,2024-12-01 04:41:08,-74.278,137.456,In Transit,Detour,45,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240315021756,Truck_10,2024-03-15 02:17:56,-21.5797,129.7599,In Transit,Clear,39,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240305225224,Truck_10,2024-03-05 22:52:24,35.9521,5.775,Delivered,Clear,57,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241026234659,Truck_7,2024-10-26 23:46:59,-8.7267,-140.3988,Delivered,Clear,53,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240317171129,Truck_2,2024-03-17 17:11:29,-56.1219,135.4235,In Transit,Detour,29,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240113155127,Truck_1,2024-01-13 15:51:27,23.2259,110.6901,In Transit,Heavy,25,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240530230059,Truck_9,2024-05-30 23:00:59,-53.6993,79.0096,Delayed,Heavy,52,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240731225720,Truck_7,2024-07-31 22:57:20,-3.822,-40.3169,Delivered,Detour,47,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240613044701,Truck_6,2024-06-13 04:47:01,-48.053,-175.0849,In Transit,Clear,32,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240706155922,Truck_3,2024-07-06 15:59:22,68.132,-51.5071,Delayed,Clear,46,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240228123038,Truck_3,2024-02-28 12:30:38,-80.4289,177.558,Delivered,Heavy,52,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240322064528,Truck_8,2024-03-22 06:45:28,42.9526,146.6224,Delivered,Clear,19,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240129192237,Truck_9,2024-01-29 19:22:37,-40.5556,55.0777,Delivered,Detour,20,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240709021105,Truck_4,2024-07-09 02:11:05,-12.7845,-147.2449,Delivered,Clear,35,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240620133009,Truck_6,2024-06-20 13:30:09,-63.6304,164.185,Delayed,Heavy,38,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240601004156,Truck_6,2024-06-01 00:41:56,21.8816,128.7922,Delayed,Detour,24,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240323202730,Truck_4,2024-03-23 20:27:30,-85.9619,103.5733,In Transit,Heavy,44,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240418045013,Truck_5,2024-04-18 04:50:13,-36.6154,-46.3008,Delivered,Heavy,16,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240626092546,Truck_7,2024-06-26 09:25:46,-85.0916,68.3039,Delayed,Detour,30,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240204010826,Truck_10,2024-02-04 01:08:26,-13.6168,-165.0825,In Transit,Heavy,13,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240401162712,Truck_4,2024-04-01 16:27:12,42.6032,146.1485,Delivered,Heavy,13,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240814212850,Truck_2,2024-08-14 21:28:50,86.8195,-21.0786,In Transit,Detour,25,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241003182152,Truck_5,2024-10-03 18:21:52,-82.6294,-72.3332,Delivered,Clear,20,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240325122210,Truck_5,2024-03-25 12:22:10,41.9728,81.4274,Delayed,Detour,48,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240912224647,Truck_10,2024-09-12 22:46:47,-7.3863,-44.8767,Delivered,Heavy,11,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240503222453,Truck_10,2024-05-03 22:24:53,-21.2573,12.4574,In Transit,Heavy,17,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240527095634,Truck_6,2024-05-27 09:56:34,-33.9378,-176.3102,In Transit,Clear,46,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240525083536,Truck_8,2024-05-25 08:35:36,23.9115,179.0046,Delayed,Detour,10,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240320085541,Truck_9,2024-03-20 08:55:41,-80.5196,-2.9668,Delivered,Clear,52,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240523153336,Truck_2,2024-05-23 15:33:36,45.8603,148.4775,Delivered,Clear,19,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241019235805,Truck_8,2024-10-19 23:58:05,60.0491,-175.5019,Delayed,Detour,51,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240411043916,Truck_10,2024-04-11 04:39:16,-33.9528,-54.2201,In Transit,Heavy,50,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240310061213,Truck_9,2024-03-10 06:12:13,7.9549,-109.2897,Delivered,Heavy,17,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241228104603,Truck_10,2024-12-28 10:46:03,-6.9237,20.9631,Delayed,Detour,39,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240506072222,Truck_3,2024-05-06 07:22:22,-80.5883,-167.4673,In Transit,Detour,54,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240117042926,Truck_1,2024-01-17 04:29:26,-60.3563,95.7232,Delivered,Clear,42,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240928014147,Truck_6,2024-09-28 01:41:47,-83.3207,19.9119,Delivered,Clear,54,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240306023946,Truck_8,2024-03-06 02:39:46,-54.4964,-93.8603,Delivered,Heavy,43,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240816055539,Truck_7,2024-08-16 05:55:39,66.5399,160.551,Delayed,Detour,28,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240807093953,Truck_8,2024-08-07 09:39:53,16.1144,-24.4118,Delivered,Heavy,41,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240430203622,Truck_8,2024-04-30 20:36:22,-84.9601,17.4992,In Transit,Detour,15,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240703123853,Truck_3,2024-07-03 12:38:53,-62.6441,-34.4446,Delivered,Detour,55,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240427091301,Truck_5,2024-04-27 09:13:01,82.9727,171.1469,Delayed,Heavy,37,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241211162211,Truck_5,2024-12-11 16:22:11,-50.8081,11.3148,In Transit,Detour,43,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240430193145,Truck_8,2024-04-30 19:31:45,67.8612,174.7961,Delayed,Heavy,19,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240326154051,Truck_7,2024-03-26 15:40:51,52.0415,-64.6403,Delivered,Detour,41,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240219232403,Truck_2,2024-02-19 23:24:03,-74.9003,146.0765,In Transit,Clear,39,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240915010822,Truck_5,2024-09-15 01:08:22,-10.7414,-56.5849,Delivered,Heavy,24,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240507124954,Truck_2,2024-05-07 12:49:54,77.436,42.529,Delivered,Heavy,13,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240630045057,Truck_1,2024-06-30 04:50:57,-39.701,158.9084,Delayed,Detour,22,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241108033133,Truck_10,2024-11-08 03:31:33,65.9337,130.6003,In Transit,Detour,28,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240927151609,Truck_8,2024-09-27 15:16:09,-3.7749,-110.6148,In Transit,Heavy,23,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241026224224,Truck_8,2024-10-26 22:42:24,-22.1627,-58.0963,In Transit,Detour,45,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240923145023,Truck_10,2024-09-23 14:50:23,-7.7974,-150.3367,In Transit,Heavy,31,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240819081825,Truck_7,2024-08-19 08:18:25,-47.9015,-121.4183,In Transit,Heavy,27,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241020123247,Truck_1,2024-10-20 12:32:47,64.0594,-102.2596,In Transit,Heavy,34,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240727091620,Truck_9,2024-07-27 09:16:20,38.5127,-17.3878,Delivered,Detour,45,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241126112534,Truck_4,2024-11-26 11:25:34,53.447,-162.7863,Delayed,Heavy,38,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240523202051,Truck_6,2024-05-23 20:20:51,77.998,-97.0043,In Transit,Detour,32,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240826132917,Truck_1,2024-08-26 13:29:17,-83.1143,74.21,Delayed,Clear,18,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240115081304,Truck_6,2024-01-15 08:13:04,14.4593,157.9293,Delayed,Detour,35,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241011102957,Truck_10,2024-10-11 10:29:57,-48.6056,-11.5509,Delayed,Heavy,34,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240517115458,Truck_5,2024-05-17 11:54:58,-11.6172,47.739,Delayed,Heavy,26,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240816222342,Truck_1,2024-08-16 22:23:42,17.7318,-166.4083,In Transit,Detour,19,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240822090038,Truck_2,2024-08-22 09:00:38,-31.4958,-37.5932,Delivered,Clear,29,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240902163648,Truck_6,2024-09-02 16:36:48,79.6896,84.1175,Delivered,Detour,55,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241216120358,Truck_9,2024-12-16 12:03:58,-79.5331,-178.6658,In Transit,Detour,60,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240227155837,Truck_1,2024-02-27 15:58:37,63.9549,-128.7581,In Transit,Heavy,38,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241016122749,Truck_1,2024-10-16 12:27:49,61.1522,5.9286,In Transit,Detour,24,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240427120257,Truck_10,2024-04-27 12:02:57,-26.3913,-155.6326,Delivered,Clear,52,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240807082504,Truck_10,2024-08-07 08:25:04,14.8779,-139.1721,Delayed,Clear,50,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240723231106,Truck_10,2024-07-23 23:11:06,49.6418,-121.3862,In Transit,Heavy,18,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240923023152,Truck_3,2024-09-23 02:31:52,-48.6654,115.3562,Delivered,Detour,29,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241018063456,Truck_6,2024-10-18 06:34:56,38.047,-80.0446,Delayed,Clear,29,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240423080646,Truck_10,2024-04-23 08:06:46,9.8934,13.9028,Delivered,Heavy,45,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240215193956,Truck_4,2024-02-15 19:39:56,-43.0411,-154.0658,In Transit,Clear,52,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240617142756,Truck_6,2024-06-17 14:27:56,-71.8307,-53.6072,Delivered,Heavy,23,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240719130445,Truck_7,2024-07-19 13:04:45,16.1221,79.0279,Delayed,Detour,27,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240930143108,Truck_4,2024-09-30 14:31:08,1.3877,64.0078,In Transit,Detour,58,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240806220254,Truck_10,2024-08-06 22:02:54,30.3691,-111.1134,Delivered,Detour,34,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240304233901,Truck_2,2024-03-04 23:39:01,53.517,152.1576,Delivered,Clear,60,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240609061100,Truck_8,2024-06-09 06:11:00,-20.984,-125.2428,Delayed,Detour,18,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240803203610,Truck_6,2024-08-03 20:36:10,-59.8257,-2.9502,In Transit,Clear,35,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240414081718,Truck_3,2024-04-14 08:17:18,-49.2845,40.5814,Delayed,Clear,48,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240728073303,Truck_10,2024-07-28 07:33:03,88.2246,-148.6037,Delayed,Detour,24,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240913123537,Truck_2,2024-09-13 12:35:37,-13.535,94.6256,Delivered,Detour,39,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240905052816,Truck_6,2024-09-05 05:28:16,57.1287,148.1805,Delivered,Heavy,30,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240102072255,Truck_2,2024-01-02 07:22:55,-61.8546,43.8074,Delivered,Detour,39,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241108050359,Truck_7,2024-11-08 05:03:59,9.0931,-155.6411,In Transit,Clear,13,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241115064217,Truck_7,2024-11-15 06:42:17,-19.6632,-133.2353,Delivered,Detour,51,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241216210929,Truck_9,2024-12-16 21:09:29,43.4429,-106.3154,Delayed,Detour,60,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240327022730,Truck_3,2024-03-27 02:27:30,-24.6226,30.2486,In Transit,Clear,44,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240929140013,Truck_1,2024-09-29 14:00:13,5.6237,177.8639,Delivered,Detour,55,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241008140054,Truck_7,2024-10-08 14:00:54,-49.8421,-83.2963,Delivered,Heavy,50,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241223222448,Truck_1,2024-12-23 22:24:48,22.5359,82.6248,In Transit,Clear,34,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240603094042,Truck_10,2024-06-03 09:40:42,30.8916,173.4833,Delivered,Detour,22,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240626111942,Truck_5,2024-06-26 11:19:42,3.0051,-89.4957,Delivered,Clear,55,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241213172627,Truck_5,2024-12-13 17:26:27,-9.8416,87.3444,Delayed,Heavy,54,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240324120704,Truck_4,2024-03-24 12:07:04,-84.6425,70.457,In Transit,Heavy,36,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240917034824,Truck_7,2024-09-17 03:48:24,1.8375,71.811,Delivered,Clear,45,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240923174336,Truck_6,2024-09-23 17:43:36,-69.8671,-68.073,Delayed,Clear,19,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241119040622,Truck_4,2024-11-19 04:06:22,72.8374,179.4522,In Transit,Heavy,26,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240813014245,Truck_7,2024-08-13 01:42:45,50.8775,-155.5478,Delivered,Detour,45,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240808131148,Truck_5,2024-08-08 13:11:48,23.7118,-92.9098,Delivered,Clear,27,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240909105312,Truck_7,2024-09-09 10:53:12,65.9641,85.9925,In Transit,Detour,50,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241127090544,Truck_9,2024-11-27 09:05:44,41.7285,131.8376,Delivered,Heavy,18,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240429153206,Truck_1,2024-04-29 15:32:06,-79.2933,52.6196,Delayed,Clear,14,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241230192258,Truck_6,2024-12-30 19:22:58,78.1285,162.4365,In Transit,Detour,50,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241219211837,Truck_8,2024-12-19 21:18:37,56.5445,31.2501,Delivered,Heavy,23,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240906125325,Truck_9,2024-09-06 12:53:25,44.2451,-34.2571,Delivered,Clear,35,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241230070849,Truck_7,2024-12-30 07:08:49,-27.8944,104.517,Delivered,Detour,60,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241116163818,Truck_4,2024-11-16 16:38:18,77.0206,0.8221,Delayed,Heavy,11,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240608090910,Truck_4,2024-06-08 09:09:10,72.3311,-105.9002,Delayed,Detour,50,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240424175719,Truck_6,2024-04-24 17:57:19,-30.4204,70.9998,In Transit,Detour,50,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240301203248,Truck_3,2024-03-01 20:32:48,-71.5279,-171.9428,In Transit,Clear,14,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240223184035,Truck_1,2024-02-23 18:40:35,-53.2492,-17.118,Delivered,Detour,12,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240925051438,Truck_7,2024-09-25 05:14:38,-30.8076,-167.4756,Delivered,Detour,48,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240309191105,Truck_10,2024-03-09 19:11:05,-44.764,-118.3579,Delayed,Clear,18,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240129145457,Truck_1,2024-01-29 14:54:57,47.5743,144.998,In Transit,Clear,51,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241007175355,Truck_5,2024-10-07 17:53:55,-23.2761,-88.0696,Delivered,Detour,57,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241017152346,Truck_3,2024-10-17 15:23:46,-18.8295,76.8645,Delayed,Detour,41,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240130005841,Truck_3,2024-01-30 00:58:41,58.3197,0.0698,In Transit,Detour,44,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240815080423,Truck_1,2024-08-15 08:04:23,-84.8788,-37.2609,Delivered,Detour,11,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240206090138,Truck_10,2024-02-06 09:01:38,28.387,33.4827,In Transit,Detour,50,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240108143940,Truck_7,2024-01-08 14:39:40,87.018,-27.3053,Delayed,Clear,30,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240411060056,Truck_8,2024-04-11 06:00:56,-9.7509,-86.2981,Delayed,Detour,30,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240320213229,Truck_2,2024-03-20 21:32:29,79.8212,-21.6975,Delivered,Detour,38,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240429103108,Truck_2,2024-04-29 10:31:08,33.0027,-70.5854,In Transit,Heavy,10,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241220111228,Truck_8,2024-12-20 11:12:28,-12.452,-174.3397,In Transit,Heavy,42,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240705185449,Truck_1,2024-07-05 18:54:49,-19.6171,-163.0539,Delivered,Detour,37,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240227013905,Truck_5,2024-02-27 01:39:05,13.7939,25.2973,In Transit,Heavy,30,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241011193619,Truck_10,2024-10-11 19:36:19,-46.8643,158.7293,In Transit,Detour,25,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241228102337,Truck_4,2024-12-28 10:23:37,-35.2452,78.2544,Delayed,Heavy,37,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240128021852,Truck_3,2024-01-28 02:18:52,17.5448,-68.5291,In Transit,Detour,52,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241011053110,Truck_2,2024-10-11 05:31:10,-87.1408,-147.3922,Delivered,Detour,25,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241007134452,Truck_10,2024-10-07 13:44:52,-73.5498,115.0268,Delivered,Heavy,14,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240607103734,Truck_5,2024-06-07 10:37:34,75.223,158.8602,Delayed,Clear,57,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241220041505,Truck_9,2024-12-20 04:15:05,-40.8267,51.4673,Delivered,Detour,21,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240211210523,Truck_1,2024-02-11 21:05:23,-80.2129,116.4288,In Transit,Detour,49,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240222200747,Truck_1,2024-02-22 20:07:47,18.761,139.9566,Delayed,Clear,13,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240525082212,Truck_8,2024-05-25 08:22:12,9.1346,9.0052,In Transit,Clear,56,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240703122101,Truck_1,2024-07-03 12:21:01,-28.6942,-75.4244,Delayed,Detour,52,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240128232451,Truck_7,2024-01-28 23:24:51,23.9592,-88.7602,Delivered,Clear,36,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240610090008,Truck_7,2024-06-10 09:00:08,68.1545,43.8007,In Transit,Heavy,54,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240308231309,Truck_9,2024-03-08 23:13:09,76.0358,53.043,In Transit,Clear,28,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240727101309,Truck_1,2024-07-27 10:13:09,-30.0307,157.1442,Delivered,Clear,13,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240910194142,Truck_1,2024-09-10 19:41:42,-79.2584,125.5026,Delivered,Heavy,33,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240427030428,Truck_10,2024-04-27 03:04:28,-86.6606,29.6786,Delayed,Detour,35,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240422224746,Truck_2,2024-04-22 22:47:46,-60.0975,-13.7518,In Transit,Heavy,22,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240109033054,Truck_5,2024-01-09 03:30:54,50.475,-168.8578,In Transit,Clear,23,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20241209093515,Truck_3,2024-12-09 09:35:15,20.9244,-59.3367,Delayed,Clear,31,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240307033202,Truck_4,2024-03-07 03:32:02,-8.4784,117.2494,Delivered,Clear,45,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240804031101,Truck_8,2024-08-04 03:11:01,-30.809,-126.7483,In Transit,Clear,31,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241210183852,Truck_8,2024-12-10 18:38:52,17.9831,-135.1026,In Transit,Clear,14,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20241117123532,Truck_8,2024-11-17 12:35:32,-28.2385,-87.7617,Delayed,Heavy,18,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241103001647,Truck_2,2024-11-03 00:16:47,18.1994,40.5771,In Transit,Heavy,33,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241020020747,Truck_7,2024-10-20 02:07:47,-3.5038,21.9533,Delivered,Heavy,39,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240109214929,Truck_2,2024-01-09 21:49:29,88.528,-0.3595,Delayed,Detour,58,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240722114554,Truck_9,2024-07-22 11:45:54,-24.7838,-21.176,In Transit,Clear,51,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240830120418,Truck_10,2024-08-30 12:04:18,56.1373,82.4192,Delayed,Detour,52,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20241120184534,Truck_1,2024-11-20 18:45:34,-13.2882,-171.9473,Delivered,Detour,38,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241124011340,Truck_10,2024-11-24 01:13:40,68.9345,172.152,In Transit,Clear,46,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240126171801,Truck_7,2024-01-26 17:18:01,-80.9601,52.614,In Transit,Heavy,43,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240723235844,Truck_5,2024-07-23 23:58:44,57.2271,59.2588,Delayed,Detour,46,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240421072311,Truck_10,2024-04-21 07:23:11,82.6307,-111.6216,Delivered,Clear,57,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240529194142,Truck_2,2024-05-29 19:41:42,53.0221,110.4363,In Transit,Detour,49,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240215125005,Truck_6,2024-02-15 12:50:05,21.6362,35.7292,Delayed,Clear,20,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240421222002,Truck_8,2024-04-21 22:20:02,-0.5646,175.2938,Delivered,Detour,40,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240907015911,Truck_4,2024-09-07 01:59:11,-53.9744,-52.4536,Delivered,Clear,52,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240426072441,Truck_8,2024-04-26 07:24:41,70.9071,-64.7863,Delivered,Detour,13,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240323135053,Truck_7,2024-03-23 13:50:53,-32.3196,-16.4458,In Transit,Clear,28,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240405135011,Truck_7,2024-04-05 13:50:11,-9.6291,39.6506,Delivered,Detour,39,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240824013622,Truck_8,2024-08-24 01:36:22,-69.5639,-74.6473,Delayed,Clear,20,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20241107040332,Truck_9,2024-11-07 04:03:32,49.043,-4.5352,Delivered,Detour,49,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240920164425,Truck_7,2024-09-20 16:44:25,69.7608,-77.0188,Delivered,Detour,60,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241106215830,Truck_7,2024-11-06 21:58:30,27.4034,-35.8705,In Transit,Clear,26,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240330120551,Truck_10,2024-03-30 12:05:51,-31.4314,-110.7069,Delayed,Detour,21,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240524000216,Truck_6,2024-05-24 00:02:16,63.5554,151.4083,Delayed,Clear,34,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240126082852,Truck_3,2024-01-26 08:28:52,86.6663,-8.1036,Delivered,Detour,38,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240518143450,Truck_3,2024-05-18 14:34:50,62.9549,134.6387,In Transit,Heavy,58,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240519111013,Truck_2,2024-05-19 11:10:13,57.555,179.2349,In Transit,Heavy,55,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20241019160751,Truck_5,2024-10-19 16:07:51,-8.3428,-26.2702,In Transit,Clear,18,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240412192951,Truck_10,2024-04-12 19:29:51,-51.6025,114.3963,In Transit,Heavy,14,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240229233158,Truck_8,2024-02-29 23:31:58,-30.946,-65.5352,Delayed,Heavy,41,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20241003160916,Truck_6,2024-10-03 16:09:16,-47.3503,-100.2211,In Transit,Detour,26,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240712101328,Truck_9,2024-07-12 10:13:28,29.2931,-63.656,Delivered,Clear,17,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241024020439,Truck_2,2024-10-24 02:04:39,-67.4262,-107.5156,Delivered,Clear,34,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240321115545,Truck_5,2024-03-21 11:55:45,82.8116,62.1983,Delivered,Clear,51,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_3:20240714200038,Truck_3,2024-07-14 20:00:38,58.6218,133.4487,Delayed,Clear,60,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20241123191558,Truck_10,2024-11-23 19:15:58,-31.9959,164.6097,In Transit,Heavy,47,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240926103352,Truck_5,2024-09-26 10:33:52,84.8041,86.1533,Delayed,Heavy,37,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240809164819,Truck_5,2024-08-09 16:48:19,-11.147,-97.9335,Delayed,Heavy,54,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241123083537,Truck_4,2024-11-23 08:35:37,-9.8535,-164.784,Delayed,Clear,15,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241016224920,Truck_7,2024-10-16 22:49:20,35.674,177.2099,Delivered,Heavy,35,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240215224100,Truck_7,2024-02-15 22:41:00,87.965,-109.0684,In Transit,Clear,21,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240615025021,Truck_7,2024-06-15 02:50:21,68.1229,9.8155,Delivered,Heavy,10,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240626195852,Truck_2,2024-06-26 19:58:52,84.0215,75.4829,Delivered,Heavy,13,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241201123857,Truck_4,2024-12-01 12:38:57,73.9154,-123.8449,Delayed,Detour,43,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_10:20240731034310,Truck_10,2024-07-31 03:43:10,56.2829,49.0292,In Transit,Heavy,13,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240316132030,Truck_9,2024-03-16 13:20:30,-89.0981,33.8294,In Transit,Heavy,30,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_9:20240617144311,Truck_9,2024-06-17 14:43:11,0.4055,97.6022,Delivered,Heavy,57,1,Traffic,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240126050006,Truck_8,2024-01-26 05:00:06,29.7128,-51.8993,Delivered,Detour,24,0,Mechanical Failure,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20240309095632,Truck_4,2024-03-09 09:56:32,76.8582,-8.4829,In Transit,Heavy,55,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240828072300,Truck_8,2024-08-28 07:23:00,-74.188,-176.0141,Delivered,Clear,51,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240113185902,Truck_6,2024-01-13 18:59:02,14.1533,164.1186,In Transit,Heavy,50,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241221104836,Truck_7,2024-12-21 10:48:36,3.9786,-135.2219,Delayed,Heavy,47,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241228174009,Truck_4,2024-12-28 17:40:09,-40.9216,27.5281,Delayed,Clear,40,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20240818055147,Truck_7,2024-08-18 05:51:47,-58.4321,-90.5118,Delivered,Heavy,20,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240909053317,Truck_6,2024-09-09 05:33:17,41.7679,-95.8135,In Transit,Heavy,20,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_7:20241001092106,Truck_7,2024-10-01 09:21:06,61.9423,34.526,Delayed,Heavy,24,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_4:20241014102117,Truck_4,2024-10-14 10:21:17,46.9729,-36.5198,Delayed,Clear,31,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_1:20240613002904,Truck_1,2024-06-13 00:29:04,44.2477,175.0702,Delivered,Detour,32,0,Traffic,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_6:20240722163000,Truck_6,2024-07-22 16:30:00,89.8701,73.6867,Delivered,Heavy,32,1,Weather,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_5:20240430045858,Truck_5,2024-04-30 04:58:58,-10.4792,-177.1239,Delivered,Detour,56,0,Weather,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20241027220913,Truck_2,2024-10-27 22:09:13,-71.0609,75.3714,In Transit,Detour,35,0,nan,smart_logistics,,local_supplied_unverified,0,binary_Logistics_Delay_0_1
+smartlog:Truck_2:20240418230656,Truck_2,2024-04-18 23:06:56,-76.791,18.3631,Delivered,Heavy,10,1,nan,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
+smartlog:Truck_8:20240918193924,Truck_8,2024-09-18 19:39:24,59.8356,-114.4198,Delayed,Clear,55,1,Mechanical Failure,smart_logistics,,local_supplied_unverified,1,binary_Logistics_Delay_0_1
