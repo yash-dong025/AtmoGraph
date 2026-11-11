@@ -1,0 +1,6 @@
+artifacts/
+saved_models/*.pt
+saved_models/*.pth
+saved_models/*.ckpt
+__pycache__/
+*.py[cod]
