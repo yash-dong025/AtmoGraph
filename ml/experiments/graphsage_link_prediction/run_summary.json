@@ -1,0 +1,35 @@
+{
+  "experiment": "graphsage_link_prediction",
+  "generated_at": "2026-11-17T04:27:53.782294+00:00",
+  "duration_seconds": 53.914833307266235,
+  "command": "/Users/yash/Desktop/Infotact/ml/training/train_graphsage_link_prediction.py --overwrite",
+  "summary": {
+    "num_nodes": 130020,
+    "num_edges": 166690,
+    "train_edges_used": 133352,
+    "validation_positives": 16669,
+    "test_positives": 16669,
+    "validation_negatives": 16669,
+    "test_negatives": 16669,
+    "selected_feature_dim": 136,
+    "excluded_feature_count": 10,
+    "message_passing_edges": 133352,
+    "negative_sampling": "source-matched directed non-edges",
+    "cross_source_negatives": 0,
+    "device": "cpu",
+    "subset_run": false
+  },
+  "model": {
+    "model": "GraphSAGE",
+    "model_class": "AtmoGraphSAGE",
+    "in_channels": 136,
+    "hidden_channels": 64,
+    "out_channels": 32,
+    "dropout": 0.2,
+    "layers": 2,
+    "decoder": "dot_product"
+  },
+  "best_epoch": 164,
+  "best_validation_average_precision": 0.617075616914223,
+  "dataset_version": "atmo_graph_v1_015d0c924af0"
+}

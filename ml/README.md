@@ -8,7 +8,7 @@ This is an inspection and prototyping layer. It is **not** a production GNN, it 
 
 - Member 3 scope: ML/GNN foundation, dataset analysis, graph preprocessing, PyG loading test, baseline feasibility, and documentation.
 - Existing `config/`, `scripts/`, and `datasets/` outputs remain the source of truth.
-- No tracked files were modified; this is additive work under `ml/` plus reports under `datasets/reports/`.
+- Work is additive under `ml/` plus reports under `datasets/reports/`, with a local dashboard under `ml/reports/`.
 - No branch change, commit, or push was performed.
 - No company-level risk model was trained because no verified risk labels exist.
 - No fabricated data, labels, predictions, or metrics are used.
@@ -195,7 +195,7 @@ Recommended:
    - Attention can weight important neighbours.
    - Heavier and more prone to overfitting on small or fragmented components.
 
-Prototypes exist in `ml/models/gcn_model.py`: `AtmoGCN`, `AtmoGraphSAGE`, `AtmoGAT`, and `build_gnn()`. No GNN training metrics are claimed yet; only the forward-pass smoke test has been run.
+Prototypes exist in `ml/models/gcn_model.py`: `AtmoGCN`, `AtmoGraphSAGE`, `AtmoGAT`, and `build_gnn()`. A single experimental GraphSAGE link-prediction run has now been trained under the source-matched protocol in `ml/experiments/graphsage_link_prediction/`; this is not a production risk model.
 
 ## Training and evaluation methodology
 
@@ -206,12 +206,16 @@ Existing splits from `datasets/training/dataset_splits.json`:
 - SynDelay 3-class: train 108,841 / val 23,323 / test 23,324.
 - Smart Logistics binary: train 700 / val 150 / test 150.
 
-Planned link prediction:
+Implemented link prediction:
 
 - Train on train edges, tune on validation edges, evaluate once on test edges.
-- Sample negative edges with the same split discipline.
-- Report AUC, average precision, Hits@K, and MRR.
-- Compare GCN, GraphSAGE, and GAT under the same feature set and splits.
+- Sample **source-matched** directed non-edges; every observed edge is excluded,
+  and the positive source-pair distribution is preserved.
+- Report pooled and per-source ROC-AUC, average precision, precision, recall, F1,
+  confusion matrices, and PR/ROC curves.
+- Compare GraphSAGE against common-neighbor and preferential-attachment baselines
+  on the same seeded validation/test pairs.
+- Results are experimental link prediction, not disruption-risk prediction.
 
 Planned delay modelling:
 
@@ -284,8 +288,8 @@ response: { "company_id": "...", "risk_score": 0.82, "risk_level": "HIGH",
 - GDELT mentions are unverified and cover only a short date range.
 - AnonNet and SynDelay lack a LICENSE file; confirm rights before redistribution.
 - Restricted CC BY-NC disruption data requires permission and remains excluded.
-- No backend, frontend, or NLP implementation exists to integrate with yet.
-- No production GNN has been trained or evaluated.
+- A local dashboard exists under `ml/reports/`; it is not a production backend/frontend.
+- One experimental GraphSAGE link-prediction run has been trained and evaluated; no production GNN exists.
 - The current branch is ahead of `origin/Yash` by one commit; no commit or push was performed for this work.
 
 ## Week 1 deliverables checklist

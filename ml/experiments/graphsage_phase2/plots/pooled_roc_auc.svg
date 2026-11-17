@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="500" viewBox="0 0 980 500">
+<rect width="100%" height="100%" fill="white"/>
+<text x="490.0" y="26" text-anchor="middle" font-family="Arial" font-size="17" font-weight="bold">Pooled ROC-AUC by Protocol and Model</text>
+<text x="490.0" y="45" text-anchor="middle" font-family="Arial" font-size="11" fill="#444">Pooled test metric; balanced 50/50 positives and sampled negatives</text>
+<line x1="74" y1="408.00" x2="952" y2="408.00" stroke="#e6e6e6" stroke-width="1"/>
+<text x="64" y="412.00" text-anchor="end" font-family="Arial" font-size="10" fill="#444">0.00</text>
+<line x1="74" y1="337.60" x2="952" y2="337.60" stroke="#e6e6e6" stroke-width="1"/>
+<text x="64" y="341.60" text-anchor="end" font-family="Arial" font-size="10" fill="#444">0.20</text>
+<line x1="74" y1="267.20" x2="952" y2="267.20" stroke="#e6e6e6" stroke-width="1"/>
+<text x="64" y="271.20" text-anchor="end" font-family="Arial" font-size="10" fill="#444">0.40</text>
+<line x1="74" y1="196.80" x2="952" y2="196.80" stroke="#e6e6e6" stroke-width="1"/>
+<text x="64" y="200.80" text-anchor="end" font-family="Arial" font-size="10" fill="#444">0.60</text>
+<line x1="74" y1="126.40" x2="952" y2="126.40" stroke="#e6e6e6" stroke-width="1"/>
+<text x="64" y="130.40" text-anchor="end" font-family="Arial" font-size="10" fill="#444">0.80</text>
+<line x1="74" y1="56.00" x2="952" y2="56.00" stroke="#e6e6e6" stroke-width="1"/>
+<text x="64" y="60.00" text-anchor="end" font-family="Arial" font-size="10" fill="#444">1.00</text>
+<line x1="74" y1="56" x2="74" y2="408" stroke="#333" stroke-width="1"/>
+<line x1="74" y1="408" x2="952" y2="408" stroke="#333" stroke-width="1"/>
+<text x="183.75" y="432" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">A</text>
+<rect x="93.75" y="182.76" width="22.11" height="225.24" fill="#1f77b4"/>
+<rect x="119.47" y="174.51" width="22.11" height="233.49" fill="#ff7f0e"/>
+<rect x="145.18" y="199.71" width="22.11" height="208.29" fill="#2ca02c"/>
+<rect x="170.89" y="166.89" width="22.11" height="241.11" fill="#d62728"/>
+<rect x="196.61" y="198.35" width="22.11" height="209.65" fill="#9467bd"/>
+<rect x="222.32" y="184.13" width="22.11" height="223.87" fill="#8c564b"/>
+<rect x="248.03" y="224.24" width="22.11" height="183.76" fill="#e377c2"/>
+<text x="403.25" y="432" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">B</text>
+<rect x="313.25" y="185.16" width="22.11" height="222.84" fill="#1f77b4"/>
+<rect x="338.97" y="190.66" width="22.11" height="217.34" fill="#ff7f0e"/>
+<rect x="364.68" y="202.07" width="22.11" height="205.93" fill="#2ca02c"/>
+<rect x="390.39" y="169.40" width="22.11" height="238.60" fill="#d62728"/>
+<rect x="416.11" y="199.69" width="22.11" height="208.31" fill="#9467bd"/>
+<rect x="441.82" y="184.13" width="22.11" height="223.87" fill="#8c564b"/>
+<rect x="467.53" y="225.84" width="22.11" height="182.16" fill="#e377c2"/>
+<text x="622.75" y="432" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">C</text>
+<rect x="532.75" y="183.54" width="22.11" height="224.46" fill="#1f77b4"/>
+<rect x="558.47" y="189.33" width="22.11" height="218.67" fill="#ff7f0e"/>
+<rect x="584.18" y="201.50" width="22.11" height="206.50" fill="#2ca02c"/>
+<rect x="609.89" y="167.24" width="22.11" height="240.76" fill="#d62728"/>
+<rect x="635.61" y="200.33" width="22.11" height="207.67" fill="#9467bd"/>
+<rect x="661.32" y="183.79" width="22.11" height="224.21" fill="#8c564b"/>
+<rect x="687.03" y="225.17" width="22.11" height="182.83" fill="#e377c2"/>
+<text x="842.25" y="432" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">D</text>
+<rect x="752.25" y="165.55" width="22.11" height="242.45" fill="#1f77b4"/>
+<text x="763.31" y="161.55" text-anchor="middle" font-family="Arial" font-size="8" fill="#222">0.689</text>
+<rect x="777.97" y="188.55" width="22.11" height="219.45" fill="#ff7f0e"/>
+<text x="789.02" y="184.55" text-anchor="middle" font-family="Arial" font-size="8" fill="#222">0.623</text>
+<rect x="803.68" y="200.50" width="22.11" height="207.50" fill="#2ca02c"/>
+<text x="814.74" y="196.50" text-anchor="middle" font-family="Arial" font-size="8" fill="#222">0.589</text>
+<rect x="829.39" y="182.25" width="22.11" height="225.75" fill="#d62728"/>
+<text x="840.45" y="178.25" text-anchor="middle" font-family="Arial" font-size="8" fill="#222">0.641</text>
+<rect x="855.11" y="204.48" width="22.11" height="203.52" fill="#9467bd"/>
+<text x="866.16" y="200.48" text-anchor="middle" font-family="Arial" font-size="8" fill="#222">0.578</text>
+<rect x="880.82" y="232.17" width="22.11" height="175.83" fill="#8c564b"/>
+<text x="891.88" y="228.17" text-anchor="middle" font-family="Arial" font-size="8" fill="#222">0.500</text>
+<rect x="906.53" y="285.63" width="22.11" height="122.37" fill="#e377c2"/>
+<text x="917.59" y="281.63" text-anchor="middle" font-family="Arial" font-size="8" fill="#222">0.348</text>
+<rect x="74" y="436" width="12" height="12" fill="#1f77b4"/>
+<text x="91" y="446" font-family="Arial" font-size="10" fill="#222">c1 current 136</text>
+<rect x="299" y="436" width="12" height="12" fill="#ff7f0e"/>
+<text x="316" y="446" font-family="Arial" font-size="10" fill="#222">c2 flags only</text>
+<rect x="524" y="436" width="12" height="12" fill="#2ca02c"/>
+<text x="541" y="446" font-family="Arial" font-size="10" fill="#222">c3 + structural</text>
+<rect x="749" y="436" width="12" height="12" fill="#d62728"/>
+<text x="766" y="446" font-family="Arial" font-size="10" fill="#222">c4 + categorical</text>
+<rect x="74" y="456" width="12" height="12" fill="#9467bd"/>
+<text x="91" y="466" font-family="Arial" font-size="10" fill="#222">c5 + struct + cat</text>
+<rect x="299" y="456" width="12" height="12" fill="#8c564b"/>
+<text x="316" y="466" font-family="Arial" font-size="10" fill="#222">directed PA</text>
+<rect x="524" y="456" width="12" height="12" fill="#e377c2"/>
+<text x="541" y="466" font-family="Arial" font-size="10" fill="#222">undirected PA</text>
+</svg>

@@ -365,7 +365,7 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
     <div class="section-head">
       <div>
         <h1>Graph Explorer</h1>
-        <p>Bounded, reproducible ego-networks from the actual processed graph. The canvas never renders the full 130,020-node graph at once.</p>
+        <p>Bounded, reproducible ego-networks from the actual processed graph. The canvas never renders the full 130,020-node graph at once. Source, degree, relationship, and split filters are applied during traversal, so details and exports match the displayed view.</p>
       </div>
       <span class="pill" id="explorerDataPill">Loading dataset…</span>
     </div>
@@ -623,6 +623,16 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
       <div class="panel">
         <h2>Model comparison</h2>
         <div id="modelComparison"></div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="panel">
+        <h2>Per-source test metrics</h2>
+        <div id="perSourceComparison"></div>
+      </div>
+      <div class="panel">
+        <h2>Evaluation protocol</h2>
+        <div id="evaluationProtocol"></div>
       </div>
     </div>
   </section>
@@ -1007,7 +1017,13 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
       state.edgeLimits = { incoming: 200, outgoing: 200 };
       renderGraph(data);
       updatePairStrip();
-      await selectNode(data.seed.id, true);
+      if (data.seed_in_displayed) {
+        await selectNode(data.seed.id, true);
+      } else {
+        state.nodeDetail = null;
+        $("#detailsPill").textContent = "seed hidden";
+        $("#nodeDetails").innerHTML = emptyState(`Seed ${data.seed.id} is hidden by the active filters. Clear or widen the filters, then load the subgraph again.`);
+      }
     } catch (error) {
       if (token !== state.explorerRequestToken) return;
       state.subgraph = null;
@@ -1036,7 +1052,7 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
       nodes,
       edges: data.edges,
       nodeById,
-      selectedId: data.seed.id,
+      selectedId: data.seed_in_displayed ? data.seed.id : null,
       hoverId: null,
       neighbors: new Set(),
       view: { x: 0, y: 0, k: 1 },
@@ -1052,7 +1068,8 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
     drawGraph();
     updateGraphLegend();
     $("#explorerDataPill").textContent = `Full graph: ${fmtInt(data.full_graph.nodes)} nodes · ${fmtInt(data.full_graph.edges)} edges`;
-    $("#canvasNote").textContent = `Displayed view: ${fmtInt(data.displayed.nodes)} nodes / ${fmtInt(data.displayed.edges)} edges. Neighborhood: ${fmtInt(data.neighborhood.nodes)} nodes / ${fmtInt(data.neighborhood.edges)} edges${data.neighborhood.cap_truncated ? " (node cap reached)" : ""}. Full graph: ${fmtInt(data.full_graph.nodes)} / ${fmtInt(data.full_graph.edges)}.`;
+    const seedHidden = data.seed_in_displayed ? "" : ` Seed ${data.seed.id} is hidden by the active filters.`;
+    $("#canvasNote").textContent = `Displayed view: ${fmtInt(data.displayed.nodes)} nodes / ${fmtInt(data.displayed.edges)} edges. Neighborhood: ${fmtInt(data.neighborhood.nodes)} nodes / ${fmtInt(data.neighborhood.edges)} edges${data.neighborhood.cap_truncated ? " (node cap reached)" : ""}. Full graph: ${fmtInt(data.full_graph.nodes)} / ${fmtInt(data.full_graph.edges)}.${seedHidden}`;
     $("#graphFooterLeft").innerHTML = `Seed <span class="mono">${escapeHtml(data.seed.id)}</span> · ${escapeHtml(data.seed.label)} · hops ${data.params.hops} · cap ${data.params.max_nodes}`;
     const filterParts = [];
     if (data.filters.sources.length) filterParts.push(`sources: ${data.filters.sources.join(", ")}`);
@@ -1069,7 +1086,11 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
     const relationships = Object.entries(RELATIONSHIP_COLORS)
       .map(([key, color]) => `<span><span class="swatch line" style="border-color:${color}"></span>${escapeHtml(key)}</span>`)
       .join("");
-    $("#graphLegend").innerHTML = `${sources}${relationships}`;
+    const splitStyles = `
+      <span><span class="swatch line" style="border-color:#fbbf24;border-top-style:dashed"></span>validation edge</span>
+      <span><span class="swatch line" style="border-color:#38bdf8;border-top-style:dotted"></span>test edge</span>
+      <span class="muted tiny">arrows point supplier → customer</span>`;
+    $("#graphLegend").innerHTML = `${sources}${relationships}${splitStyles}`;
   }
 
   function exportGraph(format) {
@@ -1514,7 +1535,13 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
     $("#detailsPill").textContent = selected ? `${fmtInt(selected.degree)} edges` : "—";
     if (fetchDetail) {
       try {
-        const detail = await fetchJSON(`/api/node?id=${encodeURIComponent(nodeId)}`);
+        const filters = state.subgraph?.filters || {};
+        const query = new URLSearchParams({ id: nodeId });
+        if (filters.sources?.length) query.set("sources", filters.sources.join(","));
+        if (filters.relationships?.length) query.set("relationships", filters.relationships.join(","));
+        if (filters.split && filters.split !== "all") query.set("split", filters.split);
+        if (Number(filters.min_degree) > 0) query.set("min_degree", filters.min_degree);
+        const detail = await fetchJSON(`/api/node?${query.toString()}`);
         state.nodeDetail = detail;
         renderNodeDetails(detail);
       } catch (error) {
@@ -1530,7 +1557,15 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
     return "—";
   }
 
-  function renderEdgeTable(title, edges, total, direction) {
+  function categoryText(display, raw, categoryType) {
+    if (!display || display === "Unknown / Missing") return raw ? escapeHtml(raw) : "—";
+    const label = escapeHtml(display);
+    if (categoryType === "anonymized") return `${label} <span class="badge">anonymized code</span>`;
+    if (categoryType === "unknown") return `${label} <span class="badge">unrecognised</span>`;
+    return label;
+  }
+
+  function renderEdgeTable(title, edges, total, direction, fullTotal = null) {
     const limit = state.edgeLimits[direction] || 200;
     const shown = edges.slice(0, limit);
     const rows = shown.map((edge) => `
@@ -1546,11 +1581,17 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
         <td class="num">${fmtInt(edge.edge_count)}</td>
       </tr>
     `).join("");
+    const countLabel = fullTotal !== null && fullTotal !== total
+      ? `${fmtInt(total)} of ${fmtInt(fullTotal)} filtered`
+      : fmtInt(total);
     const more = total > limit
-      ? `<div class="btn-row"><button class="btn ghost" data-action="show-all-edges" data-direction="${direction}">Show all ${fmtInt(total)}</button><span class="muted tiny">Showing first ${fmtInt(limit)} of ${fmtInt(total)}.</span></div>`
+      ? `<div class="btn-row"><button class="btn ghost" data-action="show-all-edges" data-direction="${direction}">Show all ${fmtInt(total)} matching</button><span class="muted tiny">Showing first ${fmtInt(limit)} of ${fmtInt(total)} matching relationships.</span></div>`
       : "";
-    if (!total) return `<h3>${escapeHtml(title)} <span class="muted">(0)</span></h3><div class="muted small">No ${direction} relationships.</div>`;
-    return `<h3>${escapeHtml(title)} <span class="muted">(${fmtInt(total)})</span></h3>
+    if (!total) {
+      const detail = fullTotal ? `No ${direction} relationships match the active filters (${fmtInt(fullTotal)} total).` : `No ${direction} relationships.`;
+      return `<h3>${escapeHtml(title)} <span class="muted">(${countLabel})</span></h3><div class="muted small">${detail}</div>`;
+    }
+    return `<h3>${escapeHtml(title)} <span class="muted">(${countLabel})</span></h3>
       <div class="table-wrap"><table>
         <thead><tr><th>Neighbor</th><th>Relationship</th><th>Split</th><th class="num">Conf.</th><th class="num">Years</th><th class="num">Count</th></tr></thead>
         <tbody>${rows}</tbody>
@@ -1571,27 +1612,42 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
       ["Entity type", escapeHtml(node.node_type || "—")],
       ["Degree", `${fmtInt(node.degree)} total · ${fmtInt(node.in_degree)} in · ${fmtInt(node.out_degree)} out`],
       ["Component", `${escapeHtml(node.component_id)} · size ${fmtInt(node.component_size)}`],
-      ["Industry", escapeHtml(node.industry || "—")],
-      ["Country", escapeHtml(node.country || "—")],
+      ["Industry", categoryText(node.industry_display, node.industry, node.industry_category_type)],
+      ["Country", categoryText(node.country_display, node.country, node.country_category_type)],
       ["Ticker", escapeHtml(node.ticker || "—")],
-      ["Product category", escapeHtml(node.product_category || "—")],
+      ["Product category", categoryText(node.product_category_display, node.product_category, node.product_category_type)],
       ["ID method", escapeHtml(node.id_method || "—")],
       ["Mentions", fmtInt(node.mention_count)],
       ["Embedding", node.embedding_available ? "available" : "not available"],
       ["Anonymised", node.is_anonymised ? "yes" : "no"],
     ]);
+    const filterParts = [];
+    if (detail.filters?.sources?.length) filterParts.push(`sources: ${detail.filters.sources.join(", ")}`);
+    if (detail.filters?.relationships?.length) filterParts.push(`relationships: ${detail.filters.relationships.join(", ")}`);
+    if (detail.filters?.split && detail.filters.split !== "all") filterParts.push(`split: ${detail.filters.split}`);
+    if (Number(detail.filters?.min_degree) > 0) filterParts.push(`min degree: ${detail.filters.min_degree}`);
+    const warning = detail.node_in_filtered_view
+      ? ""
+      : `<div class="banner warn" style="margin:9px 0">This node is hidden by the active explorer filters.</div>`;
+    const filterNote = filterParts.length
+      ? `<div class="banner info" style="margin:9px 0">Relationships match the active filters — ${escapeHtml(filterParts.join(" · "))}. Full incident-edge counts are shown alongside filtered counts.</div>`
+      : "";
     $("#nodeDetails").innerHTML = `
       <div class="details-header">
         <div class="details-id">${escapeHtml(node.id)}</div>
         <h3>${escapeHtml(node.label)}</h3>
         <div class="btn-row" style="margin-top:6px">${badge(node.source)}<span class="badge">${fmtInt(node.degree)} edges</span></div>
       </div>
-      ${actions}
+      ${warning}${filterNote}${actions}
       ${attributes}
-      ${renderEdgeTable("Outgoing relationships", detail.outgoing, detail.outgoing_count, "outgoing")}
-      ${renderEdgeTable("Incoming relationships", detail.incoming, detail.incoming_count, "incoming")}
+      ${renderEdgeTable("Outgoing relationships", detail.outgoing, detail.outgoing_count, "outgoing", detail.full_outgoing_count)}
+      ${renderEdgeTable("Incoming relationships", detail.incoming, detail.incoming_count, "incoming", detail.full_incoming_count)}
     `;
-    $("#detailsPill").textContent = `${fmtInt(detail.incoming_count + detail.outgoing_count)} relationships`;
+    const filteredTotal = detail.incoming_count + detail.outgoing_count;
+    const fullTotal = detail.full_incoming_count + detail.full_outgoing_count;
+    $("#detailsPill").textContent = filteredTotal === fullTotal
+      ? `${fmtInt(fullTotal)} relationships`
+      : `${fmtInt(filteredTotal)} of ${fmtInt(fullTotal)} relationships`;
   }
 
   function nodeSummaryFromSubgraph(nodeId) {
@@ -1703,6 +1759,7 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
     const rows = [
       ["Country", quality.country],
       ["Industry", quality.industry],
+      ["Product category", quality.product_category],
     ].filter(([, item]) => item);
     if (!rows.length) {
       $("#categoryCoverage").innerHTML = emptyState("Category coverage is unavailable.");
@@ -2052,34 +2109,76 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
     if (baseline) {
       const selected = baseline.baseline || {};
       const test = selected.test || {};
+      const baselineRows = [selected, ...(baseline.alternatives || [])].filter((item) => item && item.name);
       $("#baselineEvaluation").innerHTML = `
-        <div class="banner info"><strong>${escapeHtml(baseline.selected_baseline || "baseline")}</strong> · real structural link-prediction baseline · <strong>not a GNN</strong></div>
+        <div class="banner info"><strong>${escapeHtml(baseline.selected_baseline || "baseline")}</strong> · real structural link-prediction baseline · <strong>not a GNN</strong> · source-matched negatives</div>
         ${metricsCards(test)}
         <div id="baselineMatrix"></div>
         <div class="muted small" style="margin-top:8px">Threshold policy: ${escapeHtml(selected.threshold_selection?.criterion || "validation-selected")} · selected threshold ${fmtNum(test.threshold, 4)}.</div>
-        <h3>Alternative baseline</h3>
-        ${(baseline.alternatives || []).map((alternative) => `<div class="muted small">${escapeHtml(alternative.name)} · test ROC-AUC ${fmtNum(alternative.test?.roc_auc, 4)} · AP ${fmtNum(alternative.test?.average_precision, 4)}</div>`).join("") || `<div class="muted small">No alternative baseline stored.</div>`}
+        <div class="muted small" style="margin-top:5px">Selection: ${escapeHtml(baseline.selection_criterion || "validation AP first")}.</div>
+        <h3>Alternative baselines</h3>
+        ${(baseline.alternatives || []).map((alternative) => `<div class="muted small">${escapeHtml(alternative.name)} · test ROC-AUC ${fmtNum(alternative.test?.roc_auc, 4)} · AP ${fmtNum(alternative.test?.average_precision, 4)} · F1 ${fmtNum(alternative.test?.f1, 4)}</div>`).join("") || `<div class="muted small">No alternative baseline stored.</div>`}
       `;
       renderConfusionMatrix($("#baselineMatrix"), test.confusion_matrix, test.confusion_matrix_labels);
       renderLineChart($("#baselineRoc"), [{ name: baseline.selected_baseline, x: test.curves?.roc?.fpr || [], y: test.curves?.roc?.tpr || [], color: "#4fd1c5" }], { diagonal: true, xLabel: "false positive rate", yLabel: "true positive rate" });
       renderLineChart($("#baselinePr"), [{ name: baseline.selected_baseline, x: test.curves?.pr?.recall || [], y: test.curves?.pr?.precision || [], color: "#38bdf8" }], { xLabel: "recall", yLabel: "precision" });
       renderGroupedBars($("#baselineScores"), test.score_distribution);
+
+      const baselineModelRows = baselineRows.map((item) => {
+        const itemTest = item.test || {};
+        const selectedLabel = item.name === baseline.selected_baseline ? ` <span class="badge">selected</span>` : "";
+        return `<tr><td>${escapeHtml(item.name)} (structural)${selectedLabel}</td><td class="num">${fmtNum(itemTest.roc_auc, 4)}</td><td class="num">${fmtNum(itemTest.average_precision, 4)}</td><td class="num">${fmtNum(itemTest.recall, 4)}</td><td class="num">${fmtNum(itemTest.f1, 4)}</td><td class="num">${fmtNum(itemTest.threshold, 4)}</td></tr>`;
+      }).join("");
       const gnnRow = gnn.available && gnn.metrics
-        ? `<tr><td>GraphSAGE (GNN)</td><td class="num">${fmtNum(gnn.metrics.test.roc_auc, 4)}</td><td class="num">${fmtNum(gnn.metrics.test.average_precision, 4)}</td><td class="num">${fmtNum(gnn.metrics.test.f1, 4)}</td><td class="num">${fmtNum(gnn.metrics.test.threshold, 4)}</td></tr>`
-        : `<tr><td>GraphSAGE (GNN)</td><td colspan="4" class="muted">Not trained — no metrics available</td></tr>`;
+        ? `<tr><td>GraphSAGE (GNN)</td><td class="num">${fmtNum(gnn.metrics.test.roc_auc, 4)}</td><td class="num">${fmtNum(gnn.metrics.test.average_precision, 4)}</td><td class="num">${fmtNum(gnn.metrics.test.recall, 4)}</td><td class="num">${fmtNum(gnn.metrics.test.f1, 4)}</td><td class="num">${fmtNum(gnn.metrics.test.threshold, 4)}</td></tr>`
+        : `<tr><td>GraphSAGE (GNN)</td><td colspan="5" class="muted">Not trained — no metrics available</td></tr>`;
       $("#modelComparison").innerHTML = `<table>
-        <thead><tr><th>Model</th><th class="num">ROC-AUC</th><th class="num">AP</th><th class="num">F1</th><th class="num">Threshold</th></tr></thead>
-        <tbody>
-          <tr><td>${escapeHtml(baseline.selected_baseline)} (structural baseline)</td><td class="num">${fmtNum(test.roc_auc, 4)}</td><td class="num">${fmtNum(test.average_precision, 4)}</td><td class="num">${fmtNum(test.f1, 4)}</td><td class="num">${fmtNum(test.threshold, 4)}</td></tr>
-          ${gnnRow}
-        </tbody>
-      </table>`;
+        <thead><tr><th>Model</th><th class="num">ROC-AUC</th><th class="num">AP</th><th class="num">Recall</th><th class="num">F1</th><th class="num">Threshold</th></tr></thead>
+        <tbody>${baselineModelRows}${gnnRow}</tbody>
+      </table>
+      <p class="muted tiny" style="margin:8px 0 0">All rows use the same seeded validation/test pairs and the same source-matched negative sampler. Pooled metrics weight sources by their test-edge count.</p>`;
+
+      const perSourceRows = [];
+      const addPerSourceRows = (modelName, perSource, marker = "") => {
+        if (!perSource) return;
+        Object.entries(perSource).forEach(([source, item]) => {
+          if (!item) return;
+          perSourceRows.push(`<tr><td>${escapeHtml(modelName)}${marker}</td><td>${escapeHtml(sourceLabel(source))}</td><td class="num">${fmtNum(item.roc_auc, 4)}</td><td class="num">${fmtNum(item.average_precision, 4)}</td><td class="num">${fmtNum(item.recall, 4)}</td><td class="num">${fmtNum(item.f1, 4)}</td><td class="num">${fmtInt(item.counts?.positive)} / ${fmtInt(item.counts?.negative)}</td></tr>`);
+        });
+      };
+      baselineRows.forEach((item) => {
+        const marker = item.name === baseline.selected_baseline ? ` <span class="badge">selected</span>` : "";
+        addPerSourceRows(item.name, item.test?.per_source, marker);
+      });
+      if (gnn.available && gnn.metrics?.test?.per_source) {
+        addPerSourceRows("GraphSAGE", gnn.metrics.test.per_source);
+      }
+      $("#perSourceComparison").innerHTML = perSourceRows.length
+        ? `<div class="table-wrap"><table>
+            <thead><tr><th>Model</th><th>Source</th><th class="num">ROC-AUC</th><th class="num">AP</th><th class="num">Recall</th><th class="num">F1</th><th class="num">Pos / Neg</th></tr></thead>
+            <tbody>${perSourceRows.join("")}</tbody>
+          </table></div>
+          <p class="muted tiny" style="margin:8px 0 0">Per-source metrics reuse the pooled validation-selected threshold. Small source groups are reported without re-tuning.</p>`
+        : emptyState("Per-source metrics are unavailable. Regenerate the baseline artifact with the updated evaluation protocol.");
+
+      const crossSource = baseline.negative_sampling?.cross_source_negatives;
+      $("#evaluationProtocol").innerHTML = `<ul class="list small">
+        <li>Negatives: source-matched directed non-edges; every observed directed edge is excluded.</li>
+        <li>Cross-source negatives in test: <strong>${fmtInt(crossSource)}</strong>.</li>
+        <li>GraphSAGE and structural baselines use the same seeded validation/test pairs.</li>
+        <li>Threshold: selected on pooled validation by maximum F1, then reused for every source.</li>
+        <li>Baseline selection: ${escapeHtml(baseline.selection_criterion || "highest validation average precision, then ROC-AUC")}.</li>
+        <li>Per-source grouping uses the source endpoint of each pair. Source flags remain in the GraphSAGE feature matrix, so this is a source-aware comparison, not a source-blind one.</li>
+        <li>Link prediction is not disruption-risk prediction.</li>
+      </ul>`;
     } else {
       $("#baselineEvaluation").innerHTML = emptyState("No structural baseline artifact available.");
       $("#baselineRoc").innerHTML = chartEmpty("No baseline ROC data.");
       $("#baselinePr").innerHTML = chartEmpty("No baseline PR data.");
       $("#baselineScores").innerHTML = chartEmpty("No baseline score distribution.");
       $("#modelComparison").innerHTML = emptyState("No baseline comparison available.");
+      $("#perSourceComparison").innerHTML = emptyState("No baseline comparison available.");
+      $("#evaluationProtocol").innerHTML = emptyState("No evaluation protocol available.");
     }
   }
 

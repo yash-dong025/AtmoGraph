@@ -1,0 +1,116 @@
+{
+  "source": "ml/experiments/graphsage_link_prediction/metrics.json",
+  "test_predictions": "ml/experiments/graphsage_link_prediction/test_predictions.csv",
+  "reported_threshold": 0.11992187052965164,
+  "reported_test": {
+    "roc_auc": 0.6727078462179852,
+    "average_precision": 0.6094125302461681,
+    "precision": 0.5889223216406683,
+    "recall": 0.8923750674905513,
+    "f1": 0.7095666277100675,
+    "threshold": 0.11992187052965164
+  },
+  "recomputed_test_precision_at_100": 0.5996757048914512,
+  "recomputed_test_precision_at_500": 0.5996757048914512,
+  "test_calibration_raw": {
+    "brier": 0.33536080806547364,
+    "log_loss": 5.952963143540305,
+    "ece_10_bins": 0.3253083720263196,
+    "reliability": [
+      {
+        "bin": 0,
+        "lower": 0.0,
+        "upper": 0.1,
+        "count": 7918,
+        "mean_confidence": 0.010063177978092976,
+        "empirical_positive_rate": 0.2208891134124779,
+        "gap": 0.21082593543438494
+      },
+      {
+        "bin": 1,
+        "lower": 0.1,
+        "upper": 0.2,
+        "count": 614,
+        "mean_confidence": 0.1439563681042345,
+        "empirical_positive_rate": 0.3973941368078176,
+        "gap": 0.2534377687035831
+      },
+      {
+        "bin": 2,
+        "lower": 0.2,
+        "upper": 0.30000000000000004,
+        "count": 612,
+        "mean_confidence": 0.25563702155228757,
+        "empirical_positive_rate": 0.3480392156862745,
+        "gap": 0.09240219413398693
+      },
+      {
+        "bin": 3,
+        "lower": 0.30000000000000004,
+        "upper": 0.4,
+        "count": 325,
+        "mean_confidence": 0.34808184575384615,
+        "empirical_positive_rate": 0.47384615384615386,
+        "gap": 0.1257643080923077
+      },
+      {
+        "bin": 4,
+        "lower": 0.4,
+        "upper": 0.5,
+        "count": 282,
+        "mean_confidence": 0.44732370365248225,
+        "empirical_positive_rate": 0.450354609929078,
+        "gap": 0.003030906276595746
+      },
+      {
+        "bin": 5,
+        "lower": 0.5,
+        "upper": 0.6000000000000001,
+        "count": 215,
+        "mean_confidence": 0.5484600399534885,
+        "empirical_positive_rate": 0.4558139534883721,
+        "gap": 0.09264608646511635
+      },
+      {
+        "bin": 6,
+        "lower": 0.6000000000000001,
+        "upper": 0.7000000000000001,
+        "count": 269,
+        "mean_confidence": 0.6534666982156134,
+        "empirical_positive_rate": 0.5315985130111525,
+        "gap": 0.12186818520446097
+      },
+      {
+        "bin": 7,
+        "lower": 0.7000000000000001,
+        "upper": 0.8,
+        "count": 325,
+        "mean_confidence": 0.7539351651076923,
+        "empirical_positive_rate": 0.48615384615384616,
+        "gap": 0.26778131895384616
+      },
+      {
+        "bin": 8,
+        "lower": 0.8,
+        "upper": 0.9,
+        "count": 430,
+        "mean_confidence": 0.856255575116279,
+        "empirical_positive_rate": 0.49534883720930234,
+        "gap": 0.3609067379069767
+      },
+      {
+        "bin": 9,
+        "lower": 0.9,
+        "upper": 1.0,
+        "count": 22348,
+        "mean_confidence": 0.9932433070064429,
+        "empirical_positive_rate": 0.607213173438339,
+        "gap": 0.3860301335681039
+      }
+    ],
+    "positive_count": 16669,
+    "negative_count": 16669,
+    "clipping": "probabilities clipped to [1e-15, 1-1e-15] for log loss"
+  },
+  "note": "Reported original metrics use the original negative-sample realization; they are not directly pair-identical to Phase 2 Protocol A."
+}

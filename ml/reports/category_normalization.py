@@ -26,7 +26,11 @@ MISSING_TOKENS = {
 }
 CATEGORY_TYPES = ("verified", "anonymized", "missing", "unknown")
 ANONYMIZED_SOURCES = {"ic_splc": {"country", "industry", "product_category"}}
-VERIFIED_SOURCES = {"anonnet": {"country"}, "sampoq": set(), "ic_splc": set()}
+VERIFIED_SOURCES = {
+    "anonnet": {"country", "product_category"},
+    "sampoq": set(),
+    "ic_splc": set(),
+}
 FIELD_LABELS = {
     "country": "Country",
     "industry": "Industry",
@@ -48,6 +52,11 @@ NOTES = {
         "IC-SPLC industry values are anonymized frequency-ranked codes; their mapping to real industries is not published.",
         "AnonNet and SAMPOQ have no industry field in the acquired sources.",
         "No verified industry names exist in the current graph.",
+    ],
+    "product_category": [
+        "IC-SPLC product-category values are anonymized frequency-ranked codes; their mapping to real categories is not published.",
+        "AnonNet product-category values are preserved as source-provided names.",
+        "SAMPOQ has no product-category field in the acquired source.",
     ],
 }
 

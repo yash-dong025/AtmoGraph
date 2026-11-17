@@ -16,7 +16,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
-from ml.reports.category_normalization import aggregate_categories
+from ml.reports.category_normalization import aggregate_categories, classify_category
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATASETS_DIR = PROJECT_ROOT / "datasets"
@@ -256,6 +256,12 @@ class DashboardData:
 
     def node_payload(self, index: int) -> dict[str, Any]:
         payload = self.node_summary(index)
+        source = self.node_sources[index]
+        country = classify_category(self.node_countries[index], "country", source)
+        industry = classify_category(self.node_industries[index], "industry", source)
+        product_category = classify_category(
+            self.node_categories[index], "product_category", source
+        )
         payload.update(
             {
                 "raw_degree": int(self.node_raw_degrees[index]),
@@ -263,6 +269,12 @@ class DashboardData:
                 "country": clean_text(self.node_countries[index]),
                 "ticker": clean_text(self.node_tickers[index]),
                 "product_category": clean_text(self.node_categories[index]),
+                "country_display": country["normalized_value"],
+                "country_category_type": country["category_type"],
+                "industry_display": industry["normalized_value"],
+                "industry_category_type": industry["category_type"],
+                "product_category_display": product_category["normalized_value"],
+                "product_category_type": product_category["category_type"],
                 "id_method": clean_text(self.node_id_methods[index]),
                 "mention_count": int(self.node_mention_counts[index]),
                 "node_type": self.node_types[index],
@@ -317,17 +329,41 @@ class DashboardData:
         hops = max(1, min(int(hops), MAX_HOPS))
         max_nodes = max(1, min(int(max_nodes), MAX_MAX_NODES))
         seed_index = self.node_id_to_index[seed_id]
-        selected: dict[int, int] = {seed_index: 0}
-        frontier = [seed_index]
+        source_filter = set(sources)
+        relationship_filter = set(relationships)
+        split_filter = split if split in {"train", "val", "test"} else "all"
+        min_degree_value = max(0, int(min_degree))
+
+        def node_allowed(index: int) -> bool:
+            return (
+                (not source_filter or self.node_sources[index] in source_filter)
+                and int(self.node_degrees[index]) >= min_degree_value
+            )
+
+        def edge_allowed(index: int) -> bool:
+            return (
+                (not relationship_filter or self.edge_relationships[index] in relationship_filter)
+                and (split_filter == "all" or self.edge_splits[index] == split_filter)
+                and node_allowed(int(self.edge_src[index]))
+                and node_allowed(int(self.edge_dst[index]))
+            )
+
+        selected: dict[int, int] = {}
+        frontier: list[int] = []
         truncated = False
+        if node_allowed(seed_index):
+            selected[seed_index] = 0
+            frontier = [seed_index]
 
         for depth in range(1, hops + 1):
             candidates: set[int] = set()
             for node_index in frontier:
                 for edge_index in self.out_edges[node_index]:
-                    candidates.add(int(self.edge_dst[edge_index]))
+                    if edge_allowed(edge_index):
+                        candidates.add(int(self.edge_dst[edge_index]))
                 for edge_index in self.in_edges[node_index]:
-                    candidates.add(int(self.edge_src[edge_index]))
+                    if edge_allowed(edge_index):
+                        candidates.add(int(self.edge_src[edge_index]))
             candidates.difference_update(selected)
             ordered = sorted(
                 candidates,
@@ -347,30 +383,13 @@ class DashboardData:
                 truncated = len(ordered) > remaining
                 break
 
-        base_edge_indices: list[int] = []
-        for node_index in selected:
-            for edge_index in self.out_edges[node_index]:
-                if int(self.edge_dst[edge_index]) in selected:
-                    base_edge_indices.append(edge_index)
-
-        source_filter = set(sources)
-        relationship_filter = set(relationships)
-        split_filter = split if split in {"train", "val", "test"} else "all"
-        displayed_node_indices = [
-            index
-            for index in selected
-            if (not source_filter or self.node_sources[index] in source_filter)
-            and int(self.node_degrees[index]) >= int(min_degree)
-        ]
+        displayed_node_indices = list(selected)
         displayed_node_set = set(displayed_node_indices)
-        displayed_edge_indices = [
-            index
-            for index in base_edge_indices
-            if (not relationship_filter or self.edge_relationships[index] in relationship_filter)
-            and (split_filter == "all" or self.edge_splits[index] == split_filter)
-            and int(self.edge_src[index]) in displayed_node_set
-            and int(self.edge_dst[index]) in displayed_node_set
-        ]
+        displayed_edge_indices: list[int] = []
+        for node_index in displayed_node_indices:
+            for edge_index in self.out_edges[node_index]:
+                if int(self.edge_dst[edge_index]) in displayed_node_set and edge_allowed(edge_index):
+                    displayed_edge_indices.append(edge_index)
 
         nodes = []
         for index in sorted(displayed_node_indices, key=lambda item: (selected[item], self.node_ids[item])):
@@ -388,12 +407,12 @@ class DashboardData:
                 "sources": sorted(source_filter),
                 "relationships": sorted(relationship_filter),
                 "split": split_filter,
-                "min_degree": int(min_degree),
+                "min_degree": min_degree_value,
             },
             "full_graph": {"nodes": self.num_nodes, "edges": self.num_edges},
             "neighborhood": {
                 "nodes": len(selected),
-                "edges": len(base_edge_indices),
+                "edges": len(displayed_edge_indices),
                 "max_nodes": max_nodes,
                 "cap_truncated": bool(truncated),
             },
@@ -406,39 +425,83 @@ class DashboardData:
                 "sources": sorted(source_filter),
                 "relationships": sorted(relationship_filter),
                 "split": split_filter,
-                "min_degree": int(min_degree),
+                "min_degree": min_degree_value,
             },
             "nodes": nodes,
             "edges": [self.edge_payload(index) for index in displayed_edge_indices],
             "notes": [
                 "The canvas is a bounded, reproducible ego-network, not the full graph.",
                 "Neighbors are added breadth-first, ordered by degree descending and then node id.",
-                "Counts distinguish the full graph, the selected neighborhood, and the filtered view.",
+                "Source, min-degree, relationship, and split filters are applied during traversal.",
+                "Only nodes and edges matching every active filter are returned.",
             ],
         }
 
-    def node_detail(self, node_id: str) -> dict[str, Any]:
+    def node_detail(
+        self,
+        node_id: str,
+        sources: list[str] | None = None,
+        relationships: list[str] | None = None,
+        split: str = "all",
+        min_degree: int = 0,
+    ) -> dict[str, Any]:
         if node_id not in self.node_id_to_index:
             raise KeyError(f"Unknown node id: {node_id}")
         index = self.node_id_to_index[node_id]
+        source_filter = set(sources or [])
+        relationship_filter = set(relationships or [])
+        split_filter = split if split in {"train", "val", "test"} else "all"
+        min_degree_value = max(0, int(min_degree))
+
+        def node_allowed(node_index: int) -> bool:
+            return (
+                (not source_filter or self.node_sources[node_index] in source_filter)
+                and int(self.node_degrees[node_index]) >= min_degree_value
+            )
+
+        def edge_allowed(edge_index: int) -> bool:
+            return (
+                (not relationship_filter or self.edge_relationships[edge_index] in relationship_filter)
+                and (split_filter == "all" or self.edge_splits[edge_index] == split_filter)
+                and node_allowed(int(self.edge_src[edge_index]))
+                and node_allowed(int(self.edge_dst[edge_index]))
+            )
+
         incoming = []
         for edge_index in self.in_edges[index]:
+            if not edge_allowed(edge_index):
+                continue
             payload = self.edge_payload(edge_index)
             payload["direction"] = "incoming"
             payload["neighbor"] = self.node_summary(int(self.edge_src[edge_index]))
             incoming.append(payload)
         outgoing = []
         for edge_index in self.out_edges[index]:
+            if not edge_allowed(edge_index):
+                continue
             payload = self.edge_payload(edge_index)
             payload["direction"] = "outgoing"
             payload["neighbor"] = self.node_summary(int(self.edge_dst[edge_index]))
             outgoing.append(payload)
         return {
             "node": self.node_payload(index),
+            "node_in_filtered_view": node_allowed(index),
             "incoming_count": len(incoming),
             "outgoing_count": len(outgoing),
+            "full_incoming_count": len(self.in_edges[index]),
+            "full_outgoing_count": len(self.out_edges[index]),
+            "filters": {
+                "sources": sorted(source_filter),
+                "relationships": sorted(relationship_filter),
+                "split": split_filter,
+                "min_degree": min_degree_value,
+            },
             "incoming": incoming,
             "outgoing": outgoing,
+            "notes": [
+                "Incoming/outgoing counts include only relationships matching the active explorer filters.",
+                "full_incoming_count and full_outgoing_count include every incident edge in the processed graph.",
+            ],
         }
 
     def _build_analytics(self) -> dict[str, Any]:
@@ -475,6 +538,12 @@ class DashboardData:
             self.node_industries,
             self.node_sources,
             "industry",
+            top_n=15,
+        )
+        product_quality = aggregate_categories(
+            self.node_categories,
+            self.node_sources,
+            "product_category",
             top_n=15,
         )
 
@@ -585,6 +654,7 @@ class DashboardData:
             "category_quality": {
                 "country": country_quality,
                 "industry": industry_quality,
+                "product_category": product_quality,
             },
             "source_labels": SOURCE_LABELS,
             "relationship_labels": RELATIONSHIP_LABELS,

@@ -289,7 +289,15 @@ class DashboardHandler(BaseHTTPRequestHandler):
                 node_id = query_value(params, "id", "") or ""
                 if not node_id:
                     raise ValueError("Missing node id")
-                self._send_json(self.dashboard.node_detail(node_id))
+                self._send_json(
+                    self.dashboard.node_detail(
+                        node_id,
+                        sources=query_list(params, "sources"),
+                        relationships=query_list(params, "relationships"),
+                        split=query_value(params, "split", "all") or "all",
+                        min_degree=int(query_value(params, "min_degree", "0") or "0"),
+                    )
+                )
                 return
             if path == "/api/experiment":
                 self._send_json(self.dashboard.experiment)

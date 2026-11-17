@@ -1,30 +1,36 @@
 # GraphSAGE Link-Prediction Experiment
 
-Status: **not trained**.
+Status: **trained once, source-matched evaluation complete**.
 
-This directory contains the real experiment setup, dataset metadata, and a
-leakage-controlled structural link-prediction baseline. It does **not** contain a
-trained GraphSAGE checkpoint or GNN evaluation metrics.
+This directory contains the real GraphSAGE checkpoint and evaluation metrics for
+directed supplier/customer link prediction, plus the leakage-controlled structural
+baselines evaluated on the same validation/test pairs.
 
-## Available now
+## Artifacts
 
-- `config.json`: planned GraphSAGE architecture and evaluation protocol.
+- `config.json`: GraphSAGE architecture and evaluation protocol.
 - `dataset_metadata.json`: graph counts, split sizes, feature dimensions, and file hashes.
-- `baseline_metrics.json`: actual common-neighbor / preferential-attachment baseline metrics.
-- `baseline_test_predictions.csv`: actual baseline test scores for real positive edges and sampled negatives.
+- `baseline_metrics.json`: real common-neighbor / preferential-attachment metrics.
+- `baseline_test_predictions.csv`: baseline test scores for positives and sampled negatives.
+- `checkpoint.pt`: trained GraphSAGE weights.
+- `history.json`: per-epoch training and validation history.
+- `metrics.json`: pooled and per-source test metrics.
+- `test_predictions.csv`: GraphSAGE test scores for positives and sampled negatives.
+- `run_summary.json`: command, seed, runtime, and run configuration.
+- `experiment.json`: dashboard-facing status and artifact inventory.
 
-## Not available yet
+## Evaluation protocol
 
-The following files are produced only by a successful training run:
-
-- `checkpoint.pt`
-- `history.json`
-- `metrics.json`
-- `test_predictions.csv`
-- `run_summary.json`
-
-Until those files exist, the dashboard must show GNN training and evaluation as
-unavailable. The PyG smoke test is not a training run.
+- Message passing uses **train-split edges only**.
+- Validation/test positives are used only for evaluation; no test edges train the model.
+- Negative pairs are **source-matched directed non-edges**: the positive source-pair
+  distribution is preserved and every observed directed edge is excluded.
+- GraphSAGE and both structural baselines use the same seeded validation/test pairs.
+- Metrics are reported overall and per source dataset.
+- The decision threshold is selected on pooled validation by maximum F1 among
+  non-trivial thresholds, then reused for every source.
+- The structural baseline is selected by validation average precision, then ROC-AUC.
+- Link prediction is not disruption-risk prediction. No verified risk labels exist.
 
 ## Run training
 
@@ -34,17 +40,3 @@ unavailable. The PyG smoke test is not a training run.
 
 The training script refuses to overwrite an existing checkpoint unless
 `--overwrite` is supplied.
-
-## Leakage controls
-
-- Graph message passing uses **train-split edges only**.
-- Validation and test positives are used only for evaluation.
-- Negative pairs are sampled from directed non-edges, excluding every observed edge.
-- Degree, component-size, and edge-year features are excluded from node features.
-- The decision threshold is selected on validation and applied once to test.
-
-## Scope
-
-This is a link-prediction experiment: it scores whether a directed supplier/customer
-edge is likely to exist. It is not a disruption-risk predictor. No verified
-company-level risk labels are available in the current datasets.

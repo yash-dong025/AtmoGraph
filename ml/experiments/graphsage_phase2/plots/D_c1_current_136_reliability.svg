@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="380" viewBox="0 0 520 380">
+<rect width="100%" height="100%" fill="white"/>
+<text x="260.0" y="22" text-anchor="middle" font-family="Arial" font-size="14">D c1_current_136 calibrated reliability</text>
+<line x1="64" y1="316" x2="464" y2="316" stroke="#333" stroke-width="1.5"/>
+<line x1="64" y1="36" x2="64" y2="316" stroke="#333" stroke-width="1.5"/>
+<line x1="64" y1="316" x2="464" y2="36" stroke="#999" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="264.0" y="364" text-anchor="middle" font-family="Arial" font-size="12">Mean predicted probability</text>
+<text x="18" y="176.0" text-anchor="middle" font-family="Arial" font-size="12" transform="rotate(-90 18 176.0)">Empirical positive rate</text>
+<text x="56" y="320" text-anchor="end" font-family="Arial" font-size="10">0</text>
+<text x="56" y="40" text-anchor="end" font-family="Arial" font-size="10">1</text>
+<text x="64" y="334" text-anchor="middle" font-family="Arial" font-size="10">0</text>
+<text x="464" y="334" text-anchor="middle" font-family="Arial" font-size="10">1</text>
+<circle cx="218.32" cy="287.44" r="4.17" fill="#1f77b4" fill-opacity="0.75" stroke="#0b3d66" stroke-width="0.8"/>
+<circle cx="243.33" cy="243.65" r="5.56" fill="#1f77b4" fill-opacity="0.75" stroke="#0b3d66" stroke-width="0.8"/>
+<circle cx="286.33" cy="149.63" r="5.73" fill="#1f77b4" fill-opacity="0.75" stroke="#0b3d66" stroke-width="0.8"/>
+<circle cx="320.23" cy="92.23" r="4.52" fill="#1f77b4" fill-opacity="0.75" stroke="#0b3d66" stroke-width="0.8"/>
+<circle cx="356.38" cy="147.45" r="5.70" fill="#1f77b4" fill-opacity="0.75" stroke="#0b3d66" stroke-width="0.8"/>
+</svg>

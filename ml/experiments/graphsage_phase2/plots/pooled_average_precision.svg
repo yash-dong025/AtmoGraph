@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="500" viewBox="0 0 980 500">
+<rect width="100%" height="100%" fill="white"/>
+<text x="490.0" y="26" text-anchor="middle" font-family="Arial" font-size="17" font-weight="bold">Pooled Average Precision by Protocol and Model</text>
+<text x="490.0" y="45" text-anchor="middle" font-family="Arial" font-size="11" fill="#444">Pooled test metric; balanced 50/50 positives and sampled negatives</text>
+<line x1="74" y1="408.00" x2="952" y2="408.00" stroke="#e6e6e6" stroke-width="1"/>
+<text x="64" y="412.00" text-anchor="end" font-family="Arial" font-size="10" fill="#444">0.00</text>
+<line x1="74" y1="337.60" x2="952" y2="337.60" stroke="#e6e6e6" stroke-width="1"/>
+<text x="64" y="341.60" text-anchor="end" font-family="Arial" font-size="10" fill="#444">0.20</text>
+<line x1="74" y1="267.20" x2="952" y2="267.20" stroke="#e6e6e6" stroke-width="1"/>
+<text x="64" y="271.20" text-anchor="end" font-family="Arial" font-size="10" fill="#444">0.40</text>
+<line x1="74" y1="196.80" x2="952" y2="196.80" stroke="#e6e6e6" stroke-width="1"/>
+<text x="64" y="200.80" text-anchor="end" font-family="Arial" font-size="10" fill="#444">0.60</text>
+<line x1="74" y1="126.40" x2="952" y2="126.40" stroke="#e6e6e6" stroke-width="1"/>
+<text x="64" y="130.40" text-anchor="end" font-family="Arial" font-size="10" fill="#444">0.80</text>
+<line x1="74" y1="56.00" x2="952" y2="56.00" stroke="#e6e6e6" stroke-width="1"/>
+<text x="64" y="60.00" text-anchor="end" font-family="Arial" font-size="10" fill="#444">1.00</text>
+<line x1="74" y1="56" x2="74" y2="408" stroke="#333" stroke-width="1"/>
+<line x1="74" y1="408" x2="952" y2="408" stroke="#333" stroke-width="1"/>
+<text x="183.75" y="432" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">A</text>
+<rect x="93.75" y="205.21" width="22.11" height="202.79" fill="#1f77b4"/>
+<rect x="119.47" y="197.93" width="22.11" height="210.07" fill="#ff7f0e"/>
+<rect x="145.18" y="179.37" width="22.11" height="228.63" fill="#2ca02c"/>
+<rect x="170.89" y="193.24" width="22.11" height="214.76" fill="#d62728"/>
+<rect x="196.61" y="176.02" width="22.11" height="231.98" fill="#9467bd"/>
+<rect x="222.32" y="162.67" width="22.11" height="245.33" fill="#8c564b"/>
+<rect x="248.03" y="162.74" width="22.11" height="245.26" fill="#e377c2"/>
+<text x="403.25" y="432" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">B</text>
+<rect x="313.25" y="206.18" width="22.11" height="201.82" fill="#1f77b4"/>
+<rect x="338.97" y="210.06" width="22.11" height="197.94" fill="#ff7f0e"/>
+<rect x="364.68" y="183.86" width="22.11" height="224.14" fill="#2ca02c"/>
+<rect x="390.39" y="195.41" width="22.11" height="212.59" fill="#d62728"/>
+<rect x="416.11" y="177.21" width="22.11" height="230.79" fill="#9467bd"/>
+<rect x="441.82" y="162.09" width="22.11" height="245.91" fill="#8c564b"/>
+<rect x="467.53" y="162.19" width="22.11" height="245.81" fill="#e377c2"/>
+<text x="622.75" y="432" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">C</text>
+<rect x="532.75" y="205.05" width="22.11" height="202.95" fill="#1f77b4"/>
+<rect x="558.47" y="207.99" width="22.11" height="200.01" fill="#ff7f0e"/>
+<rect x="584.18" y="180.22" width="22.11" height="227.78" fill="#2ca02c"/>
+<rect x="609.89" y="193.52" width="22.11" height="214.48" fill="#d62728"/>
+<rect x="635.61" y="177.15" width="22.11" height="230.85" fill="#9467bd"/>
+<rect x="661.32" y="162.70" width="22.11" height="245.30" fill="#8c564b"/>
+<rect x="687.03" y="163.58" width="22.11" height="244.42" fill="#e377c2"/>
+<text x="842.25" y="432" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">D</text>
+<rect x="752.25" y="192.84" width="22.11" height="215.16" fill="#1f77b4"/>
+<text x="763.31" y="188.84" text-anchor="middle" font-family="Arial" font-size="8" fill="#222">0.611</text>
+<rect x="777.97" y="206.03" width="22.11" height="201.97" fill="#ff7f0e"/>
+<text x="789.02" y="202.03" text-anchor="middle" font-family="Arial" font-size="8" fill="#222">0.574</text>
+<rect x="803.68" y="178.78" width="22.11" height="229.22" fill="#2ca02c"/>
+<text x="814.74" y="174.78" text-anchor="middle" font-family="Arial" font-size="8" fill="#222">0.651</text>
+<rect x="829.39" y="201.05" width="22.11" height="206.95" fill="#d62728"/>
+<text x="840.45" y="197.05" text-anchor="middle" font-family="Arial" font-size="8" fill="#222">0.588</text>
+<rect x="855.11" y="179.17" width="22.11" height="228.83" fill="#9467bd"/>
+<text x="866.16" y="175.17" text-anchor="middle" font-family="Arial" font-size="8" fill="#222">0.650</text>
+<rect x="880.82" y="212.78" width="22.11" height="195.22" fill="#8c564b"/>
+<text x="891.88" y="208.78" text-anchor="middle" font-family="Arial" font-size="8" fill="#222">0.555</text>
+<rect x="906.53" y="211.12" width="22.11" height="196.88" fill="#e377c2"/>
+<text x="917.59" y="207.12" text-anchor="middle" font-family="Arial" font-size="8" fill="#222">0.559</text>
+<rect x="74" y="436" width="12" height="12" fill="#1f77b4"/>
+<text x="91" y="446" font-family="Arial" font-size="10" fill="#222">c1 current 136</text>
+<rect x="299" y="436" width="12" height="12" fill="#ff7f0e"/>
+<text x="316" y="446" font-family="Arial" font-size="10" fill="#222">c2 flags only</text>
+<rect x="524" y="436" width="12" height="12" fill="#2ca02c"/>
+<text x="541" y="446" font-family="Arial" font-size="10" fill="#222">c3 + structural</text>
+<rect x="749" y="436" width="12" height="12" fill="#d62728"/>
+<text x="766" y="446" font-family="Arial" font-size="10" fill="#222">c4 + categorical</text>
+<rect x="74" y="456" width="12" height="12" fill="#9467bd"/>
+<text x="91" y="466" font-family="Arial" font-size="10" fill="#222">c5 + struct + cat</text>
+<rect x="299" y="456" width="12" height="12" fill="#8c564b"/>
+<text x="316" y="466" font-family="Arial" font-size="10" fill="#222">directed PA</text>
+<rect x="524" y="456" width="12" height="12" fill="#e377c2"/>
+<text x="541" y="466" font-family="Arial" font-size="10" fill="#222">undirected PA</text>
+</svg>

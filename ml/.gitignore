@@ -1,6 +1,9 @@
 artifacts/
-saved_models/*.pt
-saved_models/*.pth
-saved_models/*.ckpt
+*.pt
+*.pth
+*.ckpt
+experiments/**/predictions/
+experiments/**/checkpoints/
+experiments/**/logs/
 __pycache__/
 *.py[cod]

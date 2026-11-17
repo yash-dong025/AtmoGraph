@@ -1,0 +1,308 @@
+{
+  "A": {
+    "name": "A",
+    "label": "Existing random/transductive split",
+    "description": "Exact original 80/10/10 random edge split, reproduced with seed 42.",
+    "source_filter": null,
+    "reverse_control": null,
+    "temporal": null,
+    "counts": {
+      "train": 133352,
+      "val": 16669,
+      "test": 16669,
+      "excluded": 0
+    },
+    "source_counts": {
+      "sampoq": {
+        "train": 12891,
+        "val": 1584,
+        "test": 1610,
+        "excluded": 0
+      },
+      "ic_splc": {
+        "train": 85340,
+        "val": 10684,
+        "test": 10659,
+        "excluded": 0
+      },
+      "anonnet": {
+        "train": 35121,
+        "val": 4401,
+        "test": 4400,
+        "excluded": 0
+      }
+    },
+    "reverse_leakage": {
+      "val": {
+        "sampoq": {
+          "positives": 1584,
+          "reverse_in_train": 79,
+          "share": 0.049873737373737376
+        },
+        "ic_splc": {
+          "positives": 10684,
+          "reverse_in_train": 59,
+          "share": 0.005522276301010857
+        },
+        "anonnet": {
+          "positives": 4401,
+          "reverse_in_train": 481,
+          "share": 0.10929334242217678
+        }
+      },
+      "test": {
+        "sampoq": {
+          "positives": 1610,
+          "reverse_in_train": 79,
+          "share": 0.04906832298136646
+        },
+        "ic_splc": {
+          "positives": 10659,
+          "reverse_in_train": 48,
+          "share": 0.004503236701379116
+        },
+        "anonnet": {
+          "positives": 4400,
+          "reverse_in_train": 439,
+          "share": 0.09977272727272728
+        }
+      }
+    }
+  },
+  "B": {
+    "name": "B",
+    "label": "Reverse-edge-aware split",
+    "description": "Reverse-direction edges are grouped and assigned to the same split. No test positive has its reverse in training.",
+    "source_filter": null,
+    "reverse_control": {
+      "method": "group reverse pairs",
+      "removed_train_edges": 0
+    },
+    "temporal": null,
+    "counts": {
+      "train": 133352,
+      "val": 16668,
+      "test": 16670,
+      "excluded": 0
+    },
+    "source_counts": {
+      "sampoq": {
+        "train": 12868,
+        "val": 1608,
+        "test": 1609,
+        "excluded": 0
+      },
+      "ic_splc": {
+        "train": 85346,
+        "val": 10668,
+        "test": 10669,
+        "excluded": 0
+      },
+      "anonnet": {
+        "train": 35138,
+        "val": 4392,
+        "test": 4392,
+        "excluded": 0
+      }
+    },
+    "reverse_leakage": {
+      "val": {
+        "sampoq": {
+          "positives": 1608,
+          "reverse_in_train": 0,
+          "share": 0.0
+        },
+        "ic_splc": {
+          "positives": 10668,
+          "reverse_in_train": 0,
+          "share": 0.0
+        },
+        "anonnet": {
+          "positives": 4392,
+          "reverse_in_train": 0,
+          "share": 0.0
+        }
+      },
+      "test": {
+        "sampoq": {
+          "positives": 1609,
+          "reverse_in_train": 0,
+          "share": 0.0
+        },
+        "ic_splc": {
+          "positives": 10669,
+          "reverse_in_train": 0,
+          "share": 0.0
+        },
+        "anonnet": {
+          "positives": 4392,
+          "reverse_in_train": 0,
+          "share": 0.0
+        }
+      }
+    }
+  },
+  "C": {
+    "name": "C",
+    "label": "Edge-disjoint reverse control on the original split",
+    "description": "Original split and original evaluation positives, but training edges whose reverse is a validation/test positive are excluded from message passing and optimization.",
+    "source_filter": null,
+    "reverse_control": {
+      "removed_train_edges": 1185,
+      "evaluation_reverse_keys": 33338,
+      "rule": "Remove a training edge when its reverse is a validation or test positive.",
+      "removed_train_edge_ids_count": 1185,
+      "removed_train_edge_ids_file": "config/reverse_control_removals.json"
+    },
+    "temporal": null,
+    "counts": {
+      "train": 132167,
+      "val": 16669,
+      "test": 16669,
+      "excluded": 1185
+    },
+    "source_counts": {
+      "sampoq": {
+        "train": 12733,
+        "val": 1584,
+        "test": 1610,
+        "excluded": 158
+      },
+      "ic_splc": {
+        "train": 85233,
+        "val": 10684,
+        "test": 10659,
+        "excluded": 107
+      },
+      "anonnet": {
+        "train": 34201,
+        "val": 4401,
+        "test": 4400,
+        "excluded": 920
+      }
+    },
+    "reverse_leakage": {
+      "val": {
+        "sampoq": {
+          "positives": 1584,
+          "reverse_in_train": 0,
+          "share": 0.0
+        },
+        "ic_splc": {
+          "positives": 10684,
+          "reverse_in_train": 0,
+          "share": 0.0
+        },
+        "anonnet": {
+          "positives": 4401,
+          "reverse_in_train": 0,
+          "share": 0.0
+        }
+      },
+      "test": {
+        "sampoq": {
+          "positives": 1610,
+          "reverse_in_train": 0,
+          "share": 0.0
+        },
+        "ic_splc": {
+          "positives": 10659,
+          "reverse_in_train": 0,
+          "share": 0.0
+        },
+        "anonnet": {
+          "positives": 4400,
+          "reverse_in_train": 0,
+          "share": 0.0
+        }
+      }
+    }
+  },
+  "D": {
+    "name": "D",
+    "label": "Temporal evaluation (IC-SPLC only)",
+    "description": "Chronological IC-SPLC split: train <=2023, validation 2024, test 2025. Reverse counterparts of validation/test positives are removed from training.",
+    "source_filter": "ic_splc",
+    "reverse_control": {
+      "removed_train_edges": 76,
+      "evaluation_reverse_keys": 31275,
+      "rule": "Remove a training edge when its reverse is a validation or test positive.",
+      "removed_train_edge_ids_count": 76,
+      "removed_train_edge_ids_file": "config/reverse_control_removals.json"
+    },
+    "temporal": {
+      "source": "ic_splc",
+      "train_years": "<= 2023",
+      "validation_year": "2024",
+      "test_year": "2025",
+      "reason_for_source_limit": "AnonNet has no edge years. SAMPOQ years are filing-derived and 92% of its edges are from 2026, so a pooled temporal split is not scientifically comparable across sources.",
+      "year_coverage": {
+        "ic_splc": 106683,
+        "anonnet": 0,
+        "sampoq": 16085
+      }
+    },
+    "counts": {
+      "train": 75332,
+      "val": 16761,
+      "test": 14514,
+      "excluded": 60083
+    },
+    "source_counts": {
+      "sampoq": {
+        "train": 0,
+        "val": 0,
+        "test": 0,
+        "excluded": 16085
+      },
+      "ic_splc": {
+        "train": 75332,
+        "val": 16761,
+        "test": 14514,
+        "excluded": 76
+      },
+      "anonnet": {
+        "train": 0,
+        "val": 0,
+        "test": 0,
+        "excluded": 43922
+      }
+    },
+    "reverse_leakage": {
+      "val": {
+        "sampoq": {
+          "positives": 0,
+          "reverse_in_train": 0,
+          "share": 0.0
+        },
+        "ic_splc": {
+          "positives": 16761,
+          "reverse_in_train": 0,
+          "share": 0.0
+        },
+        "anonnet": {
+          "positives": 0,
+          "reverse_in_train": 0,
+          "share": 0.0
+        }
+      },
+      "test": {
+        "sampoq": {
+          "positives": 0,
+          "reverse_in_train": 0,
+          "share": 0.0
+        },
+        "ic_splc": {
+          "positives": 14514,
+          "reverse_in_train": 0,
+          "share": 0.0
+        },
+        "anonnet": {
+          "positives": 0,
+          "reverse_in_train": 0,
+          "share": 0.0
+        }
+      }
+    }
+  }
+}

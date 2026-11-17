@@ -45,12 +45,14 @@
   "graph_protocol": {
     "message_passing_edges": "train split only",
     "positive_edges": "train positives for optimization; validation and test positives only for evaluation",
-    "negative_sampling": "uniform directed non-edges; every observed directed edge is excluded",
+    "negative_sampling": "source-matched directed non-edges; every observed directed edge is excluded",
     "negative_sampling_seed": 42,
     "negative_ratio": 1.0,
+    "cross_source_negatives": 0,
+    "shared_evaluation_pairs": "GraphSAGE and structural baselines use the same seeded validation/test pairs and source-matched sampler",
     "node_features": "transductive static features only; graph-derived features excluded",
     "no_positive_edge_leakage": "validation and test edges are never used for message passing or threshold selection",
-    "threshold_selection": "validation-only maximum F1 among non-trivial thresholds",
+    "threshold_selection": "validation-only maximum F1 among non-trivial thresholds, pooled and reused per source",
     "test_protocol": "evaluate once after early stopping on validation"
   },
   "training": {
@@ -71,13 +73,15 @@
       "precision",
       "recall",
       "f1",
-      "confusion_matrix"
+      "confusion_matrix",
+      "per_source_metrics"
     ],
     "curves": [
       "roc",
       "precision_recall"
     ],
-    "comparison": "structural link-prediction baseline in baseline_metrics.json",
+    "comparison": "all structural link-prediction baselines in baseline_metrics.json",
+    "baseline_selection": "highest validation average precision, then validation ROC-AUC",
     "not_a_risk_model": true
   },
   "paths": {

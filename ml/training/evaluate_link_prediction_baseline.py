@@ -4,7 +4,8 @@ The baseline is deliberately simple and leakage-safe:
 
 - message/score graph uses only train edges,
 - validation/test positives come from their own split,
-- negatives are sampled from directed non-edges and exclude every observed edge,
+- negatives are source-matched directed non-edges and exclude every observed edge,
+- per-source metrics are reported alongside the pooled result,
 - the decision threshold is selected on validation and applied once to test.
 
 This is a link-prediction baseline, not a disruption-risk model.
@@ -65,6 +66,28 @@ def file_record(path: Path) -> dict[str, object]:
     }
 
 
+def load_node_source_labels() -> np.ndarray:
+    node_index = pd.read_csv(NODE_INDEX_PATH, dtype={"node_id": str})
+    node_index = node_index.sort_values("node_index").reset_index(drop=True)
+    nodes = pd.read_csv(
+        NODES_PATH,
+        dtype={"company_id": str, "source_dataset": str},
+        usecols=["company_id", "source_dataset"],
+        low_memory=False,
+    )
+    source_by_id = (
+        nodes.drop_duplicates("company_id")
+        .set_index("company_id")["source_dataset"]
+        .fillna("unknown")
+        .astype(str)
+        .to_dict()
+    )
+    labels = node_index["node_id"].map(source_by_id).fillna("unknown").astype(str).to_numpy()
+    if len(labels) != len(node_index):
+        raise ValueError("Could not map every node to a source dataset")
+    return labels
+
+
 def build_adjacency(
     source_index: np.ndarray, target_index: np.ndarray, num_nodes: int
 ) -> tuple[list[set[int]], np.ndarray]:
@@ -76,20 +99,37 @@ def build_adjacency(
     return adjacency, degrees
 
 
-def sample_negative_pairs(
+def _source_groups(node_sources: np.ndarray) -> dict[str, np.ndarray]:
+    groups: dict[str, np.ndarray] = {}
+    for source in np.unique(node_sources):
+        groups[str(source)] = np.flatnonzero(node_sources == source).astype(np.int64)
+    return groups
+
+
+def _sample_group_pairs(
     rng: np.random.Generator,
+    source_pool: np.ndarray,
+    target_pool: np.ndarray,
     count: int,
     num_nodes: int,
     observed_keys: set[int],
-) -> tuple[np.ndarray, np.ndarray]:
-    chosen: set[int] = set()
+    chosen: set[int],
+) -> tuple[list[int], list[int]]:
+    if count <= 0:
+        return [], []
+    if len(source_pool) == 0 or len(target_pool) == 0:
+        raise ValueError("A source group has no candidate nodes for negative sampling")
+    if len(source_pool) == 1 and len(target_pool) == 1 and source_pool[0] == target_pool[0]:
+        raise ValueError("A source group has too few nodes for source-matched negatives")
+
     sources: list[int] = []
     targets: list[int] = []
-    while len(chosen) < count:
-        remaining = count - len(chosen)
+    attempts = 0
+    while len(sources) < count:
+        remaining = count - len(sources)
         batch = max(1024, remaining * 2)
-        batch_sources = rng.integers(0, num_nodes, size=batch, dtype=np.int64)
-        batch_targets = rng.integers(0, num_nodes, size=batch, dtype=np.int64)
+        batch_sources = rng.choice(source_pool, size=batch, replace=True)
+        batch_targets = rng.choice(target_pool, size=batch, replace=True)
         for src, dst in zip(batch_sources.tolist(), batch_targets.tolist()):
             if src == dst:
                 continue
@@ -99,9 +139,78 @@ def sample_negative_pairs(
             chosen.add(key)
             sources.append(src)
             targets.append(dst)
-            if len(chosen) >= count:
+            if len(sources) >= count:
                 break
-    return np.asarray(sources, dtype=np.int64), np.asarray(targets, dtype=np.int64)
+        attempts += 1
+        if attempts > 100:
+            raise RuntimeError("Could not sample enough source-matched negative pairs")
+    return sources, targets
+
+
+def sample_negative_pairs(
+    rng: np.random.Generator,
+    count: int,
+    num_nodes: int,
+    observed_keys: set[int],
+    positive_sources: np.ndarray | None = None,
+    positive_targets: np.ndarray | None = None,
+    node_sources: np.ndarray | None = None,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Sample directed non-edges while preserving the source-pair distribution."""
+    if count <= 0:
+        return np.empty(0, dtype=np.int64), np.empty(0, dtype=np.int64)
+    if positive_sources is None or positive_targets is None or node_sources is None:
+        raise ValueError(
+            "source-matched negative sampling requires positive pairs and node sources"
+        )
+    if len(positive_sources) != len(positive_targets):
+        raise ValueError("positive_sources and positive_targets must have equal length")
+    if len(positive_sources) == 0:
+        raise ValueError("Cannot sample negatives without positive pairs")
+
+    node_sources = np.asarray(node_sources, dtype=object)
+    groups = _source_groups(node_sources)
+    source_groups: dict[tuple[str, str], list[int]] = {}
+    for position, (src, dst) in enumerate(zip(positive_sources, positive_targets)):
+        key = (str(node_sources[int(src)]), str(node_sources[int(dst)]))
+        source_groups.setdefault(key, []).append(position)
+
+    keys = list(source_groups)
+    raw_allocations = [
+        count * len(source_groups[key]) / len(positive_sources) for key in keys
+    ]
+    allocations = [int(np.floor(value)) for value in raw_allocations]
+    remainder = count - sum(allocations)
+    ranked = sorted(
+        range(len(keys)),
+        key=lambda index: raw_allocations[index] - allocations[index],
+        reverse=True,
+    )
+    for index in ranked[:remainder]:
+        allocations[index] += 1
+
+    chosen: set[int] = set()
+    negative_sources: list[int] = []
+    negative_targets: list[int] = []
+    for key, allocation in zip(keys, allocations):
+        if allocation <= 0:
+            continue
+        group_sources, group_targets = _sample_group_pairs(
+            rng,
+            groups[key[0]],
+            groups[key[1]],
+            allocation,
+            num_nodes,
+            observed_keys,
+            chosen,
+        )
+        negative_sources.extend(group_sources)
+        negative_targets.extend(group_targets)
+
+    return (
+        np.asarray(negative_sources, dtype=np.int64),
+        np.asarray(negative_targets, dtype=np.int64),
+    )
 
 
 def common_neighbor_scores(
@@ -168,6 +277,41 @@ def binary_metrics(labels: np.ndarray, scores: np.ndarray, threshold: float) -> 
             "false_negative": int(false_negative),
         },
     }
+
+
+def metrics_by_source(
+    labels: np.ndarray,
+    scores: np.ndarray,
+    source_labels: np.ndarray,
+    threshold: float,
+) -> dict[str, dict[str, object]]:
+    """Return the same evaluate metrics for each source dataset."""
+    source_labels = np.asarray(source_labels, dtype=object)
+    result: dict[str, dict[str, object]] = {}
+    for source in sorted(set(source_labels.tolist())):
+        mask = source_labels == source
+        source_labels_subset = labels[mask]
+        if len(source_labels_subset) == 0:
+            continue
+        source_scores = scores[mask]
+        positives = int(source_labels_subset.sum())
+        negatives = int(len(source_labels_subset) - positives)
+        if positives == 0 or negatives == 0:
+            result[str(source)] = {
+                "roc_auc": None,
+                "average_precision": None,
+                "precision": None,
+                "recall": None,
+                "f1": None,
+                "threshold": float(threshold),
+                "counts": {"positive": positives, "negative": negatives},
+                "note": "ROC-AUC/AP require both positive and negative examples",
+            }
+        else:
+            result[str(source)] = binary_metrics(
+                source_labels_subset, source_scores, threshold
+            )
+    return result
 
 
 def downsample_curve(x_values: np.ndarray, y_values: np.ndarray, limit: int = 240) -> tuple[list[float], list[float]]:
@@ -239,14 +383,22 @@ def evaluate_baseline(
     name: str,
     validation_scores: np.ndarray,
     validation_labels: np.ndarray,
+    validation_sources: np.ndarray,
     test_scores: np.ndarray,
     test_labels: np.ndarray,
+    test_sources: np.ndarray,
     use_log1p_distribution: bool,
     include_curves: bool,
 ) -> dict[str, object]:
     threshold_info = threshold_from_validation(validation_labels, validation_scores)
     validation = binary_metrics(validation_labels, validation_scores, threshold_info["threshold"])
     test = binary_metrics(test_labels, test_scores, threshold_info["threshold"])
+    validation["per_source"] = metrics_by_source(
+        validation_labels, validation_scores, validation_sources, threshold_info["threshold"]
+    )
+    test["per_source"] = metrics_by_source(
+        test_labels, test_scores, test_sources, threshold_info["threshold"]
+    )
     if include_curves:
         test["curves"] = curve_payload(test_labels, test_scores)
         test["score_distribution"] = score_distribution(
@@ -349,24 +501,41 @@ def main() -> int:
         source_indices[train_mask], target_indices[train_mask], num_nodes
     )
 
+    node_sources = load_node_source_labels()
+    if len(node_sources) != num_nodes:
+        raise ValueError("node source labels are not aligned with node_index_mapping.csv")
+
     rng = np.random.default_rng(args.seed)
-    split_pairs: dict[str, tuple[np.ndarray, np.ndarray, np.ndarray]] = {}
+    split_pairs: dict[str, tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]] = {}
     for split in ("val", "test"):
         mask = split_values == split
         positive_sources = source_indices[mask]
         positive_targets = target_indices[mask]
         negative_sources, negative_targets = sample_negative_pairs(
-            rng, len(positive_sources), num_nodes, observed_keys
+            rng,
+            len(positive_sources),
+            num_nodes,
+            observed_keys,
+            positive_sources=positive_sources,
+            positive_targets=positive_targets,
+            node_sources=node_sources,
         )
         samples_sources = np.concatenate([positive_sources, negative_sources])
         samples_targets = np.concatenate([positive_targets, negative_targets])
         labels = np.concatenate(
             [np.ones(len(positive_sources), dtype=np.int64), np.zeros(len(negative_sources), dtype=np.int64)]
         )
-        split_pairs[split] = (samples_sources, samples_targets, labels)
+        source_labels = node_sources[samples_sources]
+        split_pairs[split] = (samples_sources, samples_targets, labels, source_labels)
 
-    validation_sources, validation_targets, validation_labels = split_pairs["val"]
-    test_sources, test_targets, test_labels = split_pairs["test"]
+    validation_sources, validation_targets, validation_labels, validation_source_labels = split_pairs["val"]
+    test_sources, test_targets, test_labels, test_source_labels = split_pairs["test"]
+    cross_source_negatives = int(
+        np.sum(
+            test_source_labels[test_labels == 0]
+            != node_sources[test_targets[test_labels == 0]]
+        )
+    )
 
     score_functions = {
         "common_neighbors": lambda sources, targets: common_neighbor_scores(
@@ -379,6 +548,7 @@ def main() -> int:
 
     evaluated: dict[str, dict[str, object]] = {}
     validation_aucs: dict[str, float] = {}
+    validation_aps: dict[str, float] = {}
     for name, score_function in score_functions.items():
         validation_scores = score_function(validation_sources, validation_targets)
         test_scores = score_function(test_sources, test_targets)
@@ -386,17 +556,20 @@ def main() -> int:
             name,
             validation_scores,
             validation_labels,
+            validation_source_labels,
             test_scores,
             test_labels,
+            test_source_labels,
             use_log1p_distribution=name == "preferential_attachment",
             include_curves=True,
         )
         evaluated[name] = result
         validation_aucs[name] = float(result["validation"]["roc_auc"])
+        validation_aps[name] = float(result["validation"]["average_precision"])
 
     selected_name = max(
-        validation_aucs,
-        key=lambda name: (validation_aucs[name], evaluated[name]["validation"]["average_precision"]),
+        validation_aps,
+        key=lambda name: (validation_aps[name], validation_aucs[name]),
     )
     selected = evaluated[selected_name]
     alternatives = [
@@ -431,8 +604,11 @@ def main() -> int:
         "task": "directed link prediction",
         "train_graph": "structural scores use only train-split edges",
         "positives": "validation/test positives come from their own split",
-        "negatives": "equal number per positive, sampled uniformly from directed non-edges",
-        "negative_exclusion": "all 166,690 observed directed edges are excluded",
+        "negatives": "equal number per positive, sampled from directed non-edges while matching the positive source-pair distribution",
+        "negative_exclusion": "all observed directed edges are excluded",
+        "cross_source_negatives": cross_source_negatives,
+        "source_matched_negatives": True,
+        "per_source_metrics": "reported for validation and test; threshold is selected on pooled validation and reused for every source",
         "threshold": "selected on validation by maximum F1 among non-trivial thresholds, then applied once to test",
         "threshold_note": "the trivial all-positive threshold is excluded when a higher threshold exists",
         "common_neighbors_graph": "train edges treated as undirected for common-neighbor counting",
@@ -451,8 +627,15 @@ def main() -> int:
         "dataset": dataset_metadata,
         "protocol": protocol,
         "selected_baseline": selected_name,
-        "selection_criterion": "highest validation ROC-AUC, then validation average precision",
+        "selection_criterion": "highest validation average precision, then validation ROC-AUC",
         "validation_aucs": validation_aucs,
+        "validation_average_precisions": validation_aps,
+        "negative_sampling": {
+            "scheme": "source-matched directed non-edges",
+            "source_pair_distribution": "matches positive edges",
+            "cross_source_negatives": cross_source_negatives,
+            "observed_edges_excluded": len(observed_keys),
+        },
         "baseline": selected,
         "alternatives": alternatives,
         "comparison": {
@@ -479,6 +662,7 @@ def main() -> int:
             "target_index": target_indices[split_mask],
             "source_company_id": edge_index.loc[split_mask, "source_company_id"].to_numpy(),
             "target_company_id": edge_index.loc[split_mask, "target_company_id"].to_numpy(),
+            "source": test_source_labels[: int(split_mask.sum())],
             "label": 1,
             "score": selected_test_scores[: int(split_mask.sum())],
         }
@@ -492,6 +676,7 @@ def main() -> int:
             "target_index": test_targets[positive_count:],
             "source_company_id": index_to_node.loc[test_sources[positive_count:]].to_numpy(),
             "target_company_id": index_to_node.loc[test_targets[positive_count:]].to_numpy(),
+            "source": test_source_labels[positive_count:],
             "label": 0,
             "score": selected_test_scores[positive_count:],
         }
@@ -502,10 +687,14 @@ def main() -> int:
 
     print(json.dumps({
         "selected_baseline": selected_name,
+        "selection_criterion": "highest validation average precision, then validation ROC-AUC",
         "validation_aucs": validation_aucs,
+        "validation_average_precisions": validation_aps,
+        "cross_source_negatives": cross_source_negatives,
         "test_roc_auc": selected["test"]["roc_auc"],
         "test_average_precision": selected["test"]["average_precision"],
         "test_f1": selected["test"]["f1"],
+        "test_per_source": selected["test"]["per_source"],
         "threshold": selected["test"]["threshold"],
         "metrics_path": str(metrics_path),
         "predictions_path": str(output_dir / "baseline_test_predictions.csv"),

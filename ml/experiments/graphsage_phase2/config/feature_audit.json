@@ -1,0 +1,2833 @@
+{
+  "node_features": [
+    {
+      "name": "log1p_degree",
+      "type": "full_graph_structural",
+      "source": "datasets/processed/graph/node_features.csv",
+      "raw_columns": "log1p_degree",
+      "missing_rate": 0.0,
+      "cardinality": "continuous",
+      "n_unique": 1,
+      "varies": false,
+      "available_at_prediction": "not used by Phase 2 configs",
+      "leakage_risk": "high if full-graph derived and used for link prediction",
+      "included_in_configs": []
+    },
+    {
+      "name": "log1p_in_degree",
+      "type": "full_graph_structural",
+      "source": "datasets/processed/graph/node_features.csv",
+      "raw_columns": "log1p_in_degree",
+      "missing_rate": 0.0,
+      "cardinality": "continuous",
+      "n_unique": 1,
+      "varies": false,
+      "available_at_prediction": "not used by Phase 2 configs",
+      "leakage_risk": "high if full-graph derived and used for link prediction",
+      "included_in_configs": []
+    },
+    {
+      "name": "log1p_out_degree",
+      "type": "full_graph_structural",
+      "source": "datasets/processed/graph/node_features.csv",
+      "raw_columns": "log1p_out_degree",
+      "missing_rate": 0.0,
+      "cardinality": "continuous",
+      "n_unique": 1,
+      "varies": false,
+      "available_at_prediction": "not used by Phase 2 configs",
+      "leakage_risk": "high if full-graph derived and used for link prediction",
+      "included_in_configs": []
+    },
+    {
+      "name": "log1p_raw_degree",
+      "type": "full_graph_structural",
+      "source": "datasets/processed/graph/node_features.csv",
+      "raw_columns": "log1p_raw_degree",
+      "missing_rate": 0.0,
+      "cardinality": "continuous",
+      "n_unique": 1,
+      "varies": false,
+      "available_at_prediction": "not used by Phase 2 configs",
+      "leakage_risk": "high if full-graph derived and used for link prediction",
+      "included_in_configs": []
+    },
+    {
+      "name": "log1p_component_size",
+      "type": "full_graph_structural",
+      "source": "datasets/processed/graph/node_features.csv",
+      "raw_columns": "log1p_component_size",
+      "missing_rate": 0.0,
+      "cardinality": "continuous",
+      "n_unique": 1,
+      "varies": false,
+      "available_at_prediction": "not used by Phase 2 configs",
+      "leakage_risk": "high if full-graph derived and used for link prediction",
+      "included_in_configs": []
+    },
+    {
+      "name": "first_edge_age",
+      "type": "full_graph_structural",
+      "source": "derived from node_features.csv",
+      "raw_columns": "first_edge_year,last_edge_year",
+      "missing_rate": 0.05584525457621904,
+      "cardinality": "continuous",
+      "n_unique": 1,
+      "varies": false,
+      "available_at_prediction": "not used by Phase 2 configs",
+      "leakage_risk": "high if full-graph derived and used for link prediction",
+      "included_in_configs": []
+    },
+    {
+      "name": "last_edge_age",
+      "type": "full_graph_structural",
+      "source": "derived from node_features.csv",
+      "raw_columns": "first_edge_year,last_edge_year",
+      "missing_rate": 0.05584525457621904,
+      "cardinality": "continuous",
+      "n_unique": 1,
+      "varies": false,
+      "available_at_prediction": "not used by Phase 2 configs",
+      "leakage_risk": "high if full-graph derived and used for link prediction",
+      "included_in_configs": []
+    },
+    {
+      "name": "edge_year_span",
+      "type": "full_graph_structural",
+      "source": "derived from node_features.csv",
+      "raw_columns": "first_edge_year,last_edge_year",
+      "missing_rate": 0.05584525457621904,
+      "cardinality": "continuous",
+      "n_unique": 1,
+      "varies": false,
+      "available_at_prediction": "not used by Phase 2 configs",
+      "leakage_risk": "high if full-graph derived and used for link prediction",
+      "included_in_configs": []
+    },
+    {
+      "name": "is_isolated",
+      "type": "derived_numeric",
+      "source": "datasets/processed/graph/node_features.csv",
+      "raw_columns": "is_isolated",
+      "missing_rate": 0.0,
+      "cardinality": "continuous",
+      "n_unique": 2,
+      "varies": true,
+      "available_at_prediction": "unknown",
+      "leakage_risk": "unknown",
+      "included_in_configs": []
+    },
+    {
+      "name": "source_sampoq",
+      "type": "binary_flag",
+      "source": "datasets/processed/graph/node_features.csv",
+      "raw_columns": "source_sampoq",
+      "missing_rate": 0.0,
+      "cardinality": 2,
+      "n_unique": 2,
+      "varies": true,
+      "available_at_prediction": "yes for existing nodes",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c2_flags8",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "source_ic_splc",
+      "type": "binary_flag",
+      "source": "datasets/processed/graph/node_features.csv",
+      "raw_columns": "source_ic_splc",
+      "missing_rate": 0.0,
+      "cardinality": 2,
+      "n_unique": 2,
+      "varies": true,
+      "available_at_prediction": "yes for existing nodes",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c2_flags8",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "source_anonnet",
+      "type": "binary_flag",
+      "source": "datasets/processed/graph/node_features.csv",
+      "raw_columns": "source_anonnet",
+      "missing_rate": 0.0,
+      "cardinality": 2,
+      "n_unique": 2,
+      "varies": true,
+      "available_at_prediction": "yes for existing nodes",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c2_flags8",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "has_country",
+      "type": "binary_flag",
+      "source": "datasets/processed/graph/node_features.csv",
+      "raw_columns": "has_country",
+      "missing_rate": 0.0,
+      "cardinality": 2,
+      "n_unique": 2,
+      "varies": true,
+      "available_at_prediction": "yes for existing nodes",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c2_flags8",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "has_industry",
+      "type": "binary_flag",
+      "source": "datasets/processed/graph/node_features.csv",
+      "raw_columns": "has_industry",
+      "missing_rate": 0.0,
+      "cardinality": 2,
+      "n_unique": 2,
+      "varies": true,
+      "available_at_prediction": "yes for existing nodes",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c2_flags8",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "has_product_category",
+      "type": "binary_flag",
+      "source": "datasets/processed/graph/node_features.csv",
+      "raw_columns": "has_product_category",
+      "missing_rate": 0.0,
+      "cardinality": 2,
+      "n_unique": 2,
+      "varies": true,
+      "available_at_prediction": "yes for existing nodes",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c2_flags8",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "embedding_available",
+      "type": "binary_flag",
+      "source": "datasets/processed/graph/node_features.csv",
+      "raw_columns": "embedding_available",
+      "missing_rate": 0.0,
+      "cardinality": 2,
+      "n_unique": 2,
+      "varies": true,
+      "available_at_prediction": "yes for existing nodes",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c2_flags8",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "is_anonymised",
+      "type": "binary_flag",
+      "source": "datasets/processed/graph/node_features.csv",
+      "raw_columns": "is_anonymised",
+      "missing_rate": 0.0,
+      "cardinality": 2,
+      "n_unique": 2,
+      "varies": true,
+      "available_at_prediction": "yes for existing nodes",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c2_flags8",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "has_edge_year",
+      "type": "derived_binary",
+      "source": "derived from node_features.csv",
+      "raw_columns": "first_edge_year,last_edge_year",
+      "missing_rate": 0.05584525457621904,
+      "cardinality": 2,
+      "n_unique": 2,
+      "varies": true,
+      "available_at_prediction": "yes at prediction time",
+      "leakage_risk": "medium if year is future information",
+      "included_in_configs": []
+    },
+    {
+      "name": "icsplc_emb_0",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_1",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_2",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_3",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_4",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_5",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_6",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_7",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_8",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_9",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_10",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_11",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_12",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_13",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_14",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_15",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_16",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_17",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_18",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_19",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_20",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_21",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_22",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_23",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_24",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_25",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_26",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_27",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_28",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_29",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_30",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_31",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_32",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_33",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_34",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_35",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_36",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_37",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_38",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_39",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_40",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_41",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_42",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_43",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_44",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_45",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_46",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_47",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_48",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_49",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_50",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_51",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_52",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_53",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_54",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_55",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_56",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_57",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_58",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_59",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_60",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_61",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_62",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_63",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_64",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_65",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_66",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_67",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_68",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_69",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_70",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_71",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_72",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_73",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_74",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_75",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_76",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_77",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_78",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_79",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_80",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_81",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_82",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_83",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_84",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_85",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_86",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_87",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_88",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_89",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_90",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_91",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_92",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_93",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_94",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_95",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_96",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_97",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_98",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_99",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_100",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_101",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_102",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_103",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_104",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_105",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_106",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_107",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_108",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_109",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_110",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_111",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_112",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_113",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_114",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_115",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_116",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_117",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_118",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_119",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_120",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_121",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_122",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_123",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_124",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_125",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_126",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "icsplc_emb_127",
+      "type": "embedding",
+      "source": "datasets/training/node_embeddings.parquet",
+      "missing_rate": 0.7601753576372866,
+      "cardinality": "continuous",
+      "n_unique": null,
+      "varies": true,
+      "available_at_prediction": "yes for nodes with an embedding; zero-filled otherwise",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c1_current_136",
+        "c3_current_struct",
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ]
+    }
+  ],
+  "categorical_features": [
+    {
+      "name": "country_code",
+      "type": "categorical_index",
+      "source": "datasets/processed/graph/node_features.csv",
+      "missing_value": -1,
+      "missing_rate": 0.7625211505922166,
+      "cardinality": 282,
+      "n_unique_including_missing": 282,
+      "available_at_prediction": "yes if the code is known; missing maps to index 0",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ],
+      "source_specific_embeddings": true,
+      "reverse_mapping_performed": false
+    },
+    {
+      "name": "industry_code",
+      "type": "categorical_index",
+      "source": "datasets/processed/graph/node_features.csv",
+      "missing_value": -1,
+      "missing_rate": 0.9187432702661129,
+      "cardinality": 23,
+      "n_unique_including_missing": 23,
+      "available_at_prediction": "yes if the code is known; missing maps to index 0",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ],
+      "source_specific_embeddings": true,
+      "reverse_mapping_performed": false
+    },
+    {
+      "name": "product_category_code",
+      "type": "categorical_index",
+      "source": "datasets/processed/graph/node_features.csv",
+      "missing_value": -1,
+      "missing_rate": 0.9342178126442086,
+      "cardinality": 617,
+      "n_unique_including_missing": 617,
+      "available_at_prediction": "yes if the code is known; missing maps to index 0",
+      "leakage_risk": "low",
+      "included_in_configs": [
+        "c4_current_cat",
+        "c5_current_struct_cat"
+      ],
+      "source_specific_embeddings": true,
+      "reverse_mapping_performed": false
+    }
+  ],
+  "structural_features": [
+    {
+      "name": "train_in_degree",
+      "type": "train_only_structural",
+      "source": "protocol training graph",
+      "missing_rate": 0.0,
+      "cardinality": "continuous",
+      "varies": true,
+      "available_at_prediction": "transductive only; not valid for entirely unseen nodes",
+      "leakage_risk": "low when computed from the protocol training graph only",
+      "included_in_configs": [
+        "c3_current_struct",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "train_out_degree",
+      "type": "train_only_structural",
+      "source": "protocol training graph",
+      "missing_rate": 0.0,
+      "cardinality": "continuous",
+      "varies": true,
+      "available_at_prediction": "transductive only; not valid for entirely unseen nodes",
+      "leakage_risk": "low when computed from the protocol training graph only",
+      "included_in_configs": [
+        "c3_current_struct",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "train_undirected_degree",
+      "type": "train_only_structural",
+      "source": "protocol training graph",
+      "missing_rate": 0.0,
+      "cardinality": "continuous",
+      "varies": true,
+      "available_at_prediction": "transductive only; not valid for entirely unseen nodes",
+      "leakage_risk": "low when computed from the protocol training graph only",
+      "included_in_configs": [
+        "c3_current_struct",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "train_directed_degree",
+      "type": "train_only_structural",
+      "source": "protocol training graph",
+      "missing_rate": 0.0,
+      "cardinality": "continuous",
+      "varies": true,
+      "available_at_prediction": "transductive only; not valid for entirely unseen nodes",
+      "leakage_risk": "low when computed from the protocol training graph only",
+      "included_in_configs": [
+        "c3_current_struct",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "log1p_train_in_degree",
+      "type": "train_only_structural",
+      "source": "protocol training graph",
+      "missing_rate": 0.0,
+      "cardinality": "continuous",
+      "varies": true,
+      "available_at_prediction": "transductive only; not valid for entirely unseen nodes",
+      "leakage_risk": "low when computed from the protocol training graph only",
+      "included_in_configs": [
+        "c3_current_struct",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "log1p_train_out_degree",
+      "type": "train_only_structural",
+      "source": "protocol training graph",
+      "missing_rate": 0.0,
+      "cardinality": "continuous",
+      "varies": true,
+      "available_at_prediction": "transductive only; not valid for entirely unseen nodes",
+      "leakage_risk": "low when computed from the protocol training graph only",
+      "included_in_configs": [
+        "c3_current_struct",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "log1p_train_undirected_degree",
+      "type": "train_only_structural",
+      "source": "protocol training graph",
+      "missing_rate": 0.0,
+      "cardinality": "continuous",
+      "varies": true,
+      "available_at_prediction": "transductive only; not valid for entirely unseen nodes",
+      "leakage_risk": "low when computed from the protocol training graph only",
+      "included_in_configs": [
+        "c3_current_struct",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "log1p_train_directed_degree",
+      "type": "train_only_structural",
+      "source": "protocol training graph",
+      "missing_rate": 0.0,
+      "cardinality": "continuous",
+      "varies": true,
+      "available_at_prediction": "transductive only; not valid for entirely unseen nodes",
+      "leakage_risk": "low when computed from the protocol training graph only",
+      "included_in_configs": [
+        "c3_current_struct",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "log1p_train_component_size",
+      "type": "train_only_structural",
+      "source": "protocol training graph",
+      "missing_rate": 0.0,
+      "cardinality": "continuous",
+      "varies": true,
+      "available_at_prediction": "transductive only; not valid for entirely unseen nodes",
+      "leakage_risk": "low when computed from the protocol training graph only",
+      "included_in_configs": [
+        "c3_current_struct",
+        "c5_current_struct_cat"
+      ]
+    },
+    {
+      "name": "train_is_isolated",
+      "type": "train_only_structural",
+      "source": "protocol training graph",
+      "missing_rate": 0.0,
+      "cardinality": "continuous",
+      "varies": true,
+      "available_at_prediction": "transductive only; not valid for entirely unseen nodes",
+      "leakage_risk": "low when computed from the protocol training graph only",
+      "included_in_configs": [
+        "c3_current_struct",
+        "c5_current_struct_cat"
+      ]
+    }
+  ],
+  "edge_features": [
+    {
+      "name": "log1p_edge_count",
+      "type": "edge_feature",
+      "source": "datasets/processed/graph/edges.csv / build_edge_features",
+      "missing_rate": 0.0,
+      "cardinality": "continuous or one-hot",
+      "available_at_prediction": "only on observed training edges; not for an unseen candidate edge",
+      "leakage_risk": "high if used as a scoring feature; safe for train-edge message passing",
+      "included_in_configs": [],
+      "config_6_status": "not implemented; requires a separate edge-aware architecture"
+    },
+    {
+      "name": "confidence",
+      "type": "edge_feature",
+      "source": "datasets/processed/graph/edges.csv / build_edge_features",
+      "missing_rate": 0.0,
+      "cardinality": "continuous or one-hot",
+      "available_at_prediction": "only on observed training edges; not for an unseen candidate edge",
+      "leakage_risk": "high if used as a scoring feature; safe for train-edge message passing",
+      "included_in_configs": [],
+      "config_6_status": "not implemented; requires a separate edge-aware architecture"
+    },
+    {
+      "name": "first_year",
+      "type": "edge_feature",
+      "source": "datasets/processed/graph/edges.csv / build_edge_features",
+      "missing_rate": 0.26349511068450415,
+      "cardinality": "continuous or one-hot",
+      "available_at_prediction": "only on observed training edges; not for an unseen candidate edge",
+      "leakage_risk": "high if used as a scoring feature; safe for train-edge message passing",
+      "included_in_configs": [],
+      "config_6_status": "not implemented; requires a separate edge-aware architecture"
+    },
+    {
+      "name": "last_year",
+      "type": "edge_feature",
+      "source": "datasets/processed/graph/edges.csv / build_edge_features",
+      "missing_rate": 0.26349511068450415,
+      "cardinality": "continuous or one-hot",
+      "available_at_prediction": "only on observed training edges; not for an unseen candidate edge",
+      "leakage_risk": "high if used as a scoring feature; safe for train-edge message passing",
+      "included_in_configs": [],
+      "config_6_status": "not implemented; requires a separate edge-aware architecture"
+    },
+    {
+      "name": "edge_year_span",
+      "type": "edge_feature",
+      "source": "datasets/processed/graph/edges.csv / build_edge_features",
+      "missing_rate": 0.26349511068450415,
+      "cardinality": "continuous or one-hot",
+      "available_at_prediction": "only on observed training edges; not for an unseen candidate edge",
+      "leakage_risk": "high if used as a scoring feature; safe for train-edge message passing",
+      "included_in_configs": [],
+      "config_6_status": "not implemented; requires a separate edge-aware architecture"
+    },
+    {
+      "name": "has_edge_year",
+      "type": "edge_feature",
+      "source": "datasets/processed/graph/edges.csv / build_edge_features",
+      "missing_rate": 0.0,
+      "cardinality": "continuous or one-hot",
+      "available_at_prediction": "only on observed training edges; not for an unseen candidate edge",
+      "leakage_risk": "high if used as a scoring feature; safe for train-edge message passing",
+      "included_in_configs": [],
+      "config_6_status": "not implemented; requires a separate edge-aware architecture"
+    },
+    {
+      "name": "rel_supplies_product_to",
+      "type": "edge_feature",
+      "source": "datasets/processed/graph/edges.csv / build_edge_features",
+      "missing_rate": 0.0,
+      "cardinality": "continuous or one-hot",
+      "available_at_prediction": "only on observed training edges; not for an unseen candidate edge",
+      "leakage_risk": "high if used as a scoring feature; safe for train-edge message passing",
+      "included_in_configs": [],
+      "config_6_status": "not implemented; requires a separate edge-aware architecture"
+    },
+    {
+      "name": "rel_supply_relationship_anonymised",
+      "type": "edge_feature",
+      "source": "datasets/processed/graph/edges.csv / build_edge_features",
+      "missing_rate": 0.0,
+      "cardinality": "continuous or one-hot",
+      "available_at_prediction": "only on observed training edges; not for an unseen candidate edge",
+      "leakage_risk": "high if used as a scoring feature; safe for train-edge message passing",
+      "included_in_configs": [],
+      "config_6_status": "not implemented; requires a separate edge-aware architecture"
+    },
+    {
+      "name": "rel_supplier_to_customer",
+      "type": "edge_feature",
+      "source": "datasets/processed/graph/edges.csv / build_edge_features",
+      "missing_rate": 0.0,
+      "cardinality": "continuous or one-hot",
+      "available_at_prediction": "only on observed training edges; not for an unseen candidate edge",
+      "leakage_risk": "high if used as a scoring feature; safe for train-edge message passing",
+      "included_in_configs": [],
+      "config_6_status": "not implemented; requires a separate edge-aware architecture"
+    },
+    {
+      "name": "src_sampoq",
+      "type": "edge_feature",
+      "source": "datasets/processed/graph/edges.csv / build_edge_features",
+      "missing_rate": 0.0,
+      "cardinality": "continuous or one-hot",
+      "available_at_prediction": "only on observed training edges; not for an unseen candidate edge",
+      "leakage_risk": "high if used as a scoring feature; safe for train-edge message passing",
+      "included_in_configs": [],
+      "config_6_status": "not implemented; requires a separate edge-aware architecture"
+    },
+    {
+      "name": "src_ic_splc",
+      "type": "edge_feature",
+      "source": "datasets/processed/graph/edges.csv / build_edge_features",
+      "missing_rate": 0.0,
+      "cardinality": "continuous or one-hot",
+      "available_at_prediction": "only on observed training edges; not for an unseen candidate edge",
+      "leakage_risk": "high if used as a scoring feature; safe for train-edge message passing",
+      "included_in_configs": [],
+      "config_6_status": "not implemented; requires a separate edge-aware architecture"
+    },
+    {
+      "name": "src_anonnet",
+      "type": "edge_feature",
+      "source": "datasets/processed/graph/edges.csv / build_edge_features",
+      "missing_rate": 0.0,
+      "cardinality": "continuous or one-hot",
+      "available_at_prediction": "only on observed training edges; not for an unseen candidate edge",
+      "leakage_risk": "high if used as a scoring feature; safe for train-edge message passing",
+      "included_in_configs": [],
+      "config_6_status": "not implemented; requires a separate edge-aware architecture"
+    }
+  ],
+  "source_coverage": {
+    "sampoq": {
+      "nodes": 13372,
+      "unique_current_136_rows": 1,
+      "unique_flag_rows": 1,
+      "embedding_coverage": 0.0,
+      "categorical_coverage": {
+        "country_code": 0.0,
+        "industry_code": 0.0,
+        "product_category_code": 0.0
+      }
+    },
+    "ic_splc": {
+      "nodes": 109403,
+      "unique_current_136_rows": 31187,
+      "unique_flag_rows": 13,
+      "embedding_coverage": 0.28501960640933066,
+      "categorical_coverage": {
+        "country_code": 0.22962807235633392,
+        "industry_code": 0.0965695639059258,
+        "product_category_code": 0.016864254179501475
+      }
+    },
+    "anonnet": {
+      "nodes": 7245,
+      "unique_current_136_rows": 4,
+      "unique_flag_rows": 4,
+      "embedding_coverage": 0.0,
+      "categorical_coverage": {
+        "country_code": 0.7943409247757074,
+        "industry_code": 0.0,
+        "product_category_code": 0.925879917184265
+      }
+    }
+  },
+  "notes": [
+    "The current 136-dimensional model input is 8 static flags plus 128 IC-SPLC embedding dimensions.",
+    "Full-graph structural features are excluded from every Phase 2 model.",
+    "Structural ablation features are recomputed from each protocol training graph only.",
+    "Categorical features use source-specific embedding tables; anonymized codes are not reverse-mapped.",
+    "Edge features are audited but not used in configs 1-5; config 6 is not implemented."
+  ]
+}

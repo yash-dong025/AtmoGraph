@@ -1,0 +1,447 @@
+{
+  "experiment": "graphsage_phase2",
+  "generated_at": "2026-11-17T06:01:03.985305+00:00",
+  "command": "ml/training/run_graphsage_phase2.py --output-dir ml/experiments/graphsage_phase2 --protocols A,B,C,D --configs c1_current_136,c2_flags8,c3_current_struct,c4_current_cat,c5_current_struct_cat --epochs 200 --patience 20 --overwrite",
+  "git": {
+    "branch": "Yash",
+    "commit": "380c8791ab77f330bc2ef8b66744295efc7e86a0",
+    "status_short": [
+      "M ml/README.md",
+      " M ml/experiments/graphsage_link_prediction/README.md",
+      " M ml/experiments/graphsage_link_prediction/baseline_metrics.json",
+      " M ml/experiments/graphsage_link_prediction/baseline_test_predictions.csv",
+      " M ml/experiments/graphsage_link_prediction/config.json",
+      " M ml/experiments/graphsage_link_prediction/dataset_metadata.json",
+      " M ml/experiments/graphsage_link_prediction/experiment.json",
+      " M ml/reports/atmograph_dashboard.html",
+      " M ml/reports/category_normalization.py",
+      " M ml/reports/dashboard_data.py",
+      " M ml/reports/serve_dashboard.py",
+      " M ml/training/evaluate_link_prediction_baseline.py",
+      " M ml/training/train_graphsage_link_prediction.py",
+      "?? ml/experiments/graphsage_link_prediction/checkpoint.pt",
+      "?? ml/experiments/graphsage_link_prediction/history.json",
+      "?? ml/experiments/graphsage_link_prediction/metrics.json",
+      "?? ml/experiments/graphsage_link_prediction/run_summary.json",
+      "?? ml/experiments/graphsage_link_prediction/test_predictions.csv",
+      "?? ml/experiments/graphsage_phase2/",
+      "?? ml/models/phase2_graphsage.py",
+      "?? ml/reports/graphsage_diagnostic_audit.md",
+      "?? ml/training/phase2_utils.py",
+      "?? ml/training/run_graphsage_phase2.py"
+    ]
+  },
+  "environment": {
+    "python": "3.13.15 (v3.13.15:4061bc4c35f, Aug  5 2026, 09:08:51) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "torch": "2.15.0",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "device": "cpu"
+  },
+  "dataset": {
+    "nodes": 130020,
+    "edges": 166690,
+    "node_sources": {
+      "sampoq": 13372,
+      "ic_splc": 109403,
+      "anonnet": 7245
+    },
+    "edge_sources": {
+      "sampoq": 16085,
+      "ic_splc": 106683,
+      "anonnet": 43922
+    },
+    "feature_dim": 146,
+    "current_feature_dim": 136,
+    "categorical_cardinalities": [
+      282,
+      23,
+      617
+    ],
+    "embedding_available": 31182,
+    "split_reproduction": {
+      "seed": 42,
+      "matches_original": true,
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "counts": {
+        "train": 133352,
+        "val": 16669,
+        "test": 16669
+      },
+      "source_counts": {
+        "test": {
+          "anonnet": 4400,
+          "ic_splc": 10659,
+          "sampoq": 1610
+        },
+        "train": {
+          "anonnet": 35121,
+          "ic_splc": 85340,
+          "sampoq": 12891
+        },
+        "val": {
+          "anonnet": 4401,
+          "ic_splc": 10684,
+          "sampoq": 1584
+        }
+      },
+      "generator": "scripts/build_graph_dataset.py:335-346",
+      "note": "The original random edge split is reproducible with seed 42 on edge_index.csv ordering.",
+      "split_assignments_file": "config/protocol_splits.csv"
+    }
+  },
+  "protocols": {
+    "A": {
+      "name": "A",
+      "label": "Existing random/transductive split",
+      "description": "Exact original 80/10/10 random edge split, reproduced with seed 42.",
+      "source_filter": null,
+      "reverse_control": null,
+      "temporal": null,
+      "counts": {
+        "train": 133352,
+        "val": 16669,
+        "test": 16669,
+        "excluded": 0
+      },
+      "source_counts": {
+        "sampoq": {
+          "train": 12891,
+          "val": 1584,
+          "test": 1610,
+          "excluded": 0
+        },
+        "ic_splc": {
+          "train": 85340,
+          "val": 10684,
+          "test": 10659,
+          "excluded": 0
+        },
+        "anonnet": {
+          "train": 35121,
+          "val": 4401,
+          "test": 4400,
+          "excluded": 0
+        }
+      },
+      "reverse_leakage": {
+        "val": {
+          "sampoq": {
+            "positives": 1584,
+            "reverse_in_train": 79,
+            "share": 0.049873737373737376
+          },
+          "ic_splc": {
+            "positives": 10684,
+            "reverse_in_train": 59,
+            "share": 0.005522276301010857
+          },
+          "anonnet": {
+            "positives": 4401,
+            "reverse_in_train": 481,
+            "share": 0.10929334242217678
+          }
+        },
+        "test": {
+          "sampoq": {
+            "positives": 1610,
+            "reverse_in_train": 79,
+            "share": 0.04906832298136646
+          },
+          "ic_splc": {
+            "positives": 10659,
+            "reverse_in_train": 48,
+            "share": 0.004503236701379116
+          },
+          "anonnet": {
+            "positives": 4400,
+            "reverse_in_train": 439,
+            "share": 0.09977272727272728
+          }
+        }
+      }
+    },
+    "B": {
+      "name": "B",
+      "label": "Reverse-edge-aware split",
+      "description": "Reverse-direction edges are grouped and assigned to the same split. No test positive has its reverse in training.",
+      "source_filter": null,
+      "reverse_control": {
+        "method": "group reverse pairs",
+        "removed_train_edges": 0
+      },
+      "temporal": null,
+      "counts": {
+        "train": 133352,
+        "val": 16668,
+        "test": 16670,
+        "excluded": 0
+      },
+      "source_counts": {
+        "sampoq": {
+          "train": 12868,
+          "val": 1608,
+          "test": 1609,
+          "excluded": 0
+        },
+        "ic_splc": {
+          "train": 85346,
+          "val": 10668,
+          "test": 10669,
+          "excluded": 0
+        },
+        "anonnet": {
+          "train": 35138,
+          "val": 4392,
+          "test": 4392,
+          "excluded": 0
+        }
+      },
+      "reverse_leakage": {
+        "val": {
+          "sampoq": {
+            "positives": 1608,
+            "reverse_in_train": 0,
+            "share": 0.0
+          },
+          "ic_splc": {
+            "positives": 10668,
+            "reverse_in_train": 0,
+            "share": 0.0
+          },
+          "anonnet": {
+            "positives": 4392,
+            "reverse_in_train": 0,
+            "share": 0.0
+          }
+        },
+        "test": {
+          "sampoq": {
+            "positives": 1609,
+            "reverse_in_train": 0,
+            "share": 0.0
+          },
+          "ic_splc": {
+            "positives": 10669,
+            "reverse_in_train": 0,
+            "share": 0.0
+          },
+          "anonnet": {
+            "positives": 4392,
+            "reverse_in_train": 0,
+            "share": 0.0
+          }
+        }
+      }
+    },
+    "C": {
+      "name": "C",
+      "label": "Edge-disjoint reverse control on the original split",
+      "description": "Original split and original evaluation positives, but training edges whose reverse is a validation/test positive are excluded from message passing and optimization.",
+      "source_filter": null,
+      "reverse_control": {
+        "removed_train_edges": 1185,
+        "evaluation_reverse_keys": 33338,
+        "rule": "Remove a training edge when its reverse is a validation or test positive.",
+        "removed_train_edge_ids_count": 1185,
+        "removed_train_edge_ids_file": "config/reverse_control_removals.json"
+      },
+      "temporal": null,
+      "counts": {
+        "train": 132167,
+        "val": 16669,
+        "test": 16669,
+        "excluded": 1185
+      },
+      "source_counts": {
+        "sampoq": {
+          "train": 12733,
+          "val": 1584,
+          "test": 1610,
+          "excluded": 158
+        },
+        "ic_splc": {
+          "train": 85233,
+          "val": 10684,
+          "test": 10659,
+          "excluded": 107
+        },
+        "anonnet": {
+          "train": 34201,
+          "val": 4401,
+          "test": 4400,
+          "excluded": 920
+        }
+      },
+      "reverse_leakage": {
+        "val": {
+          "sampoq": {
+            "positives": 1584,
+            "reverse_in_train": 0,
+            "share": 0.0
+          },
+          "ic_splc": {
+            "positives": 10684,
+            "reverse_in_train": 0,
+            "share": 0.0
+          },
+          "anonnet": {
+            "positives": 4401,
+            "reverse_in_train": 0,
+            "share": 0.0
+          }
+        },
+        "test": {
+          "sampoq": {
+            "positives": 1610,
+            "reverse_in_train": 0,
+            "share": 0.0
+          },
+          "ic_splc": {
+            "positives": 10659,
+            "reverse_in_train": 0,
+            "share": 0.0
+          },
+          "anonnet": {
+            "positives": 4400,
+            "reverse_in_train": 0,
+            "share": 0.0
+          }
+        }
+      }
+    },
+    "D": {
+      "name": "D",
+      "label": "Temporal evaluation (IC-SPLC only)",
+      "description": "Chronological IC-SPLC split: train <=2023, validation 2024, test 2025. Reverse counterparts of validation/test positives are removed from training.",
+      "source_filter": "ic_splc",
+      "reverse_control": {
+        "removed_train_edges": 76,
+        "evaluation_reverse_keys": 31275,
+        "rule": "Remove a training edge when its reverse is a validation or test positive.",
+        "removed_train_edge_ids_count": 76,
+        "removed_train_edge_ids_file": "config/reverse_control_removals.json"
+      },
+      "temporal": {
+        "source": "ic_splc",
+        "train_years": "<= 2023",
+        "validation_year": "2024",
+        "test_year": "2025",
+        "reason_for_source_limit": "AnonNet has no edge years. SAMPOQ years are filing-derived and 92% of its edges are from 2026, so a pooled temporal split is not scientifically comparable across sources.",
+        "year_coverage": {
+          "ic_splc": 106683,
+          "anonnet": 0,
+          "sampoq": 16085
+        }
+      },
+      "counts": {
+        "train": 75332,
+        "val": 16761,
+        "test": 14514,
+        "excluded": 60083
+      },
+      "source_counts": {
+        "sampoq": {
+          "train": 0,
+          "val": 0,
+          "test": 0,
+          "excluded": 16085
+        },
+        "ic_splc": {
+          "train": 75332,
+          "val": 16761,
+          "test": 14514,
+          "excluded": 76
+        },
+        "anonnet": {
+          "train": 0,
+          "val": 0,
+          "test": 0,
+          "excluded": 43922
+        }
+      },
+      "reverse_leakage": {
+        "val": {
+          "sampoq": {
+            "positives": 0,
+            "reverse_in_train": 0,
+            "share": 0.0
+          },
+          "ic_splc": {
+            "positives": 16761,
+            "reverse_in_train": 0,
+            "share": 0.0
+          },
+          "anonnet": {
+            "positives": 0,
+            "reverse_in_train": 0,
+            "share": 0.0
+          }
+        },
+        "test": {
+          "sampoq": {
+            "positives": 0,
+            "reverse_in_train": 0,
+            "share": 0.0
+          },
+          "ic_splc": {
+            "positives": 14514,
+            "reverse_in_train": 0,
+            "share": 0.0
+          },
+          "anonnet": {
+            "positives": 0,
+            "reverse_in_train": 0,
+            "share": 0.0
+          }
+        }
+      }
+    }
+  },
+  "configs": {
+    "c1_current_136": {
+      "label": "Current 136-dimensional input",
+      "base": "current",
+      "structural": false,
+      "categorical": false,
+      "description": "8 static flags plus 128 IC-SPLC embedding dimensions."
+    },
+    "c2_flags8": {
+      "label": "Static flags only",
+      "base": "flags",
+      "structural": false,
+      "categorical": false,
+      "description": "The 8 static flags, without embeddings."
+    },
+    "c3_current_struct": {
+      "label": "Current plus train-only structural",
+      "base": "current",
+      "structural": true,
+      "categorical": false,
+      "description": "Current 136 inputs plus train-graph structural features."
+    },
+    "c4_current_cat": {
+      "label": "Current plus categorical embeddings",
+      "base": "current",
+      "structural": false,
+      "categorical": true,
+      "description": "Current 136 inputs plus source-specific categorical embeddings."
+    },
+    "c5_current_struct_cat": {
+      "label": "Current plus structural and categorical",
+      "base": "current",
+      "structural": true,
+      "categorical": true,
+      "description": "Current inputs plus train-only structural and source-specific categorical embeddings."
+    }
+  },
+  "original_experiment_dir": "/Users/yash/Desktop/Infotact/ml/experiments/graphsage_link_prediction",
+  "original_artifacts_read_only": true,
+  "notes": [
+    "Original graphsage_link_prediction artifacts are never overwritten.",
+    "All new outputs are written under ml/experiments/graphsage_phase2/.",
+    "Full protocol split assignments are stored in config/protocol_splits.csv."
+  ]
+}

@@ -33,6 +33,8 @@ from ml.preprocessing.graph_preprocessing import build_pyg_data
 from ml.training.evaluate_link_prediction_baseline import (
     binary_metrics,
     curve_payload,
+    load_node_source_labels,
+    metrics_by_source,
     sample_negative_pairs,
     score_distribution,
     threshold_from_validation,
@@ -100,11 +102,18 @@ def make_samples(
     negative_ratio: float,
     num_nodes: int,
     observed_keys: set[int],
+    node_sources: np.ndarray,
     rng: np.random.Generator,
-) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     negative_count = max(1, int(round(len(positive_sources) * negative_ratio)))
     negative_sources, negative_targets = sample_negative_pairs(
-        rng, negative_count, num_nodes, observed_keys
+        rng,
+        negative_count,
+        num_nodes,
+        observed_keys,
+        positive_sources=positive_sources,
+        positive_targets=positive_targets,
+        node_sources=node_sources,
     )
     sources = np.concatenate([positive_sources, negative_sources])
     targets = np.concatenate([positive_targets, negative_targets])
@@ -114,7 +123,8 @@ def make_samples(
             np.zeros(negative_count, dtype=np.int64),
         ]
     )
-    return sources, targets, labels
+    source_labels = np.asarray(node_sources, dtype=object)[sources]
+    return sources, targets, labels, source_labels
 
 
 def decode_pairs(
@@ -144,18 +154,20 @@ def train_epoch(
     negative_ratio: float,
     num_nodes: int,
     observed_keys: set[int],
+    node_sources: np.ndarray,
     rng: np.random.Generator,
     optimizer: torch.optim.Optimizer,
     device: torch.device,
 ) -> float:
     model.train()
     optimizer.zero_grad()
-    sources, targets, labels = make_samples(
+    sources, targets, labels, _ = make_samples(
         positive_sources,
         positive_targets,
         negative_ratio,
         num_nodes,
         observed_keys,
+        node_sources,
         rng,
     )
     embeddings = model.encode(x, message_edge_index)
@@ -203,14 +215,28 @@ def evaluate_epoch(
 def build_metrics_payload(
     validation_labels: np.ndarray,
     validation_scores: np.ndarray,
+    validation_source_labels: np.ndarray,
     test_labels: np.ndarray,
     test_scores: np.ndarray,
+    test_source_labels: np.ndarray,
 ) -> dict[str, object]:
     threshold_info = threshold_from_validation(validation_labels, validation_scores)
     validation = binary_metrics(
         validation_labels, validation_scores, threshold_info["threshold"]
     )
     test = binary_metrics(test_labels, test_scores, threshold_info["threshold"])
+    validation["per_source"] = metrics_by_source(
+        validation_labels,
+        validation_scores,
+        validation_source_labels,
+        threshold_info["threshold"],
+    )
+    test["per_source"] = metrics_by_source(
+        test_labels,
+        test_scores,
+        test_source_labels,
+        threshold_info["threshold"],
+    )
     test["curves"] = curve_payload(test_labels, test_scores)
     test["score_distribution"] = score_distribution(
         test_scores[test_labels == 1],
@@ -290,6 +316,9 @@ def main() -> int:
             + data.edge_index[1].to(torch.int64)
         ).tolist()
     )
+    node_sources = load_node_source_labels()
+    if len(node_sources) != num_nodes:
+        raise ValueError("node source labels are not aligned with the PyG node index")
 
     rng = np.random.default_rng(args.seed)
     train_sources, train_targets = pairs_from_mask(data.edge_index, data.train_edge_mask)
@@ -314,6 +343,7 @@ def main() -> int:
         1.0,
         num_nodes,
         observed_keys,
+        node_sources,
         rng,
     )
     test_samples = make_samples(
@@ -322,10 +352,21 @@ def main() -> int:
         1.0,
         num_nodes,
         observed_keys,
+        node_sources,
         rng,
     )
     validation_labels = validation_samples[2]
+    validation_source_labels = validation_samples[3]
     test_labels = test_samples[2]
+    test_source_labels = test_samples[3]
+    cross_source_negatives = int(
+        np.sum(
+            test_source_labels[test_labels == 0]
+            != np.asarray(node_sources, dtype=object)[
+                test_samples[1][test_labels == 0]
+            ]
+        )
+    )
 
     summary = {
         "num_nodes": num_nodes,
@@ -338,6 +379,8 @@ def main() -> int:
         "selected_feature_dim": int(len(selected_feature_names)),
         "excluded_feature_count": int(len(excluded_features)),
         "message_passing_edges": int(message_edge_index.shape[1]),
+        "negative_sampling": "source-matched directed non-edges",
+        "cross_source_negatives": cross_source_negatives,
         "device": str(device),
         "subset_run": any(
             value is not None
@@ -378,6 +421,7 @@ def main() -> int:
             args.negatives_per_positive,
             num_nodes,
             observed_keys,
+            node_sources,
             rng,
             optimizer,
             device,
@@ -442,16 +486,38 @@ def main() -> int:
     metrics_payload = build_metrics_payload(
         validation_labels,
         validation_scores,
+        validation_source_labels,
         test_labels,
         test_scores,
+        test_source_labels,
     )
 
     baseline = load_json(output_dir / "baseline_metrics.json", {})
     baseline_comparison = {}
     if baseline:
         selected_baseline = baseline.get("baseline", {})
+        baseline_rows = []
+        if selected_baseline:
+            baseline_rows.append(
+                {
+                    "name": baseline.get("selected_baseline"),
+                    "selected": True,
+                    "validation": selected_baseline.get("validation", {}),
+                    "test": selected_baseline.get("test", {}),
+                }
+            )
+        for alternative in baseline.get("alternatives", []):
+            baseline_rows.append(
+                {
+                    "name": alternative.get("name"),
+                    "selected": False,
+                    "validation": alternative.get("validation", {}),
+                    "test": alternative.get("test", {}),
+                }
+            )
         baseline_comparison = {
             "baseline_name": baseline.get("selected_baseline"),
+            "selection_criterion": baseline.get("selection_criterion"),
             "baseline_test": {
                 key: selected_baseline.get("test", {}).get(key)
                 for key in ("roc_auc", "average_precision", "precision", "recall", "f1", "threshold")
@@ -460,6 +526,7 @@ def main() -> int:
                 key: metrics_payload["test"].get(key)
                 for key in ("roc_auc", "average_precision", "precision", "recall", "f1", "threshold")
             },
+            "baselines": baseline_rows,
         }
 
     model_config = {
@@ -498,7 +565,9 @@ def main() -> int:
         "protocol": {
             "message_passing_edges": "train split only",
             "positive_edges": "train positives for optimization; validation/test positives for evaluation only",
-            "negative_sampling": "uniform directed non-edges; every observed directed edge excluded",
+            "negative_sampling": "source-matched directed non-edges; every observed directed edge excluded",
+            "negative_sampling_cross_source_count": cross_source_negatives,
+            "per_source_metrics": "validation and test; pooled validation threshold reused for every source",
             "threshold_selection": "validation-only maximum F1 among non-trivial thresholds",
             "test_protocol": "single evaluation after early stopping on validation",
             "not_a_risk_model": True,
@@ -556,6 +625,7 @@ def main() -> int:
         "target_index": test_samples[1],
         "source_company_id": [index_to_node[int(index)] for index in test_samples[0]],
         "target_company_id": [index_to_node[int(index)] for index in test_samples[1]],
+        "source": test_source_labels,
         "label": test_labels,
         "score": test_scores,
         "logit": test_logits,
@@ -588,6 +658,12 @@ def main() -> int:
                 "dataset_metadata.json",
             ],
             "best_epoch": best_epoch,
+            "notes": [
+                "GraphSAGE training completed with source-matched negative sampling.",
+                "Message passing uses train-split edges only; validation/test edges are evaluation-only.",
+                "GraphSAGE and structural baselines use the same seeded validation/test pairs.",
+                "Link prediction is not disruption-risk prediction; no verified risk labels are available.",
+            ],
         }
     )
     write_json(output_dir / "experiment.json", experiment)
@@ -601,6 +677,8 @@ def main() -> int:
                 "test_roc_auc": metrics_payload["test"]["roc_auc"],
                 "test_average_precision": metrics_payload["test"]["average_precision"],
                 "test_f1": metrics_payload["test"]["f1"],
+                "test_per_source": metrics_payload["test"]["per_source"],
+                "cross_source_negatives": cross_source_negatives,
                 "threshold": metrics_payload["test"]["threshold"],
             },
             indent=2,
