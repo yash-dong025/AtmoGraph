@@ -1,0 +1,57 @@
+{
+  "version": "atmo_graph_v1_015d0c924af0",
+  "generated_at": "2026-11-12T16:56:04.896393+00:00",
+  "seed": 42,
+  "node_count": 130020,
+  "edge_count": 166690,
+  "node_feature_dim": 146,
+  "raw_node_feature_columns": 22,
+  "edge_feature_dim": 12,
+  "node_split_sizes": {
+    "train": 91014,
+    "val": 19503,
+    "test": 19503
+  },
+  "edge_split_sizes": {
+    "train": 133352,
+    "val": 16669,
+    "test": 16669
+  },
+  "source_counts": {
+    "ic_splc": 109403,
+    "sampoq": 13372,
+    "anonnet": 7245
+  },
+  "relationship_counts": {
+    "supplies_product_to": 106683,
+    "supply_relationship_anonymised": 43922,
+    "supplier_to_customer": 16085
+  },
+  "files": {
+    "nodes": {
+      "path": "datasets/processed/graph/nodes.csv",
+      "bytes": 16985281,
+      "sha256": "9dbd7c871a4930b2b88b7686530dbac11073eaddc307ba2658ff574e6a1d7e7a"
+    },
+    "edges": {
+      "path": "datasets/processed/graph/edges.csv",
+      "bytes": 17169567,
+      "sha256": "c5e46c481026939c756ed1a242a90f23e399841a9f6f5a31f416fb472acaf11a"
+    },
+    "edge_index": {
+      "path": "datasets/training/edge_index.csv",
+      "bytes": 16772211,
+      "sha256": "9f0c1581a8faf18f8b7880942dc7fb5ce7602733b5018093cbd88e2e4d4a42bf"
+    },
+    "node_index_mapping": {
+      "path": "datasets/training/node_index_mapping.csv",
+      "bytes": 2982791,
+      "sha256": "343594cc725a2ddaa422695b071d4909a3d9f4fc210409d8dd4c892237338caf"
+    },
+    "node_features": {
+      "path": "datasets/processed/graph/node_features.csv",
+      "bytes": 10332500,
+      "sha256": "c2149400eeaf66070a4ebbeb06612d7451d509cae2a66f56ac586395c7a51ac3"
+    }
+  }
+}

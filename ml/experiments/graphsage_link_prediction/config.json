@@ -1,0 +1,93 @@
+{
+  "experiment_id": "graphsage_link_prediction",
+  "status": "planned",
+  "task": "directed_link_prediction",
+  "model": "GraphSAGE",
+  "model_class": "AtmoGraphSAGE",
+  "random_seed": 42,
+  "architecture": {
+    "in_channels": 136,
+    "hidden_channels": 64,
+    "out_channels": 32,
+    "dropout": 0.2,
+    "layers": 2,
+    "decoder": "dot_product"
+  },
+  "features": {
+    "source_file": "datasets/processed/graph/node_features.csv",
+    "total_node_feature_dim": 146,
+    "used_node_feature_dim": 136,
+    "excluded_features": [
+      "log1p_degree",
+      "log1p_in_degree",
+      "log1p_out_degree",
+      "log1p_raw_degree",
+      "log1p_component_size",
+      "first_edge_age",
+      "last_edge_age",
+      "edge_year_span",
+      "has_edge_year",
+      "is_isolated"
+    ],
+    "exclusion_reason": "These columns are derived from the full graph or full edge set and can leak validation/test structure into node features.",
+    "retained_external_features": [
+      "source_sampoq",
+      "source_ic_splc",
+      "source_anonnet",
+      "has_country",
+      "has_industry",
+      "has_product_category",
+      "embedding_available",
+      "is_anonymised",
+      "icsplc_emb_0..127"
+    ]
+  },
+  "graph_protocol": {
+    "message_passing_edges": "train split only",
+    "positive_edges": "train positives for optimization; validation and test positives only for evaluation",
+    "negative_sampling": "uniform directed non-edges; every observed directed edge is excluded",
+    "negative_sampling_seed": 42,
+    "negative_ratio": 1.0,
+    "node_features": "transductive static features only; graph-derived features excluded",
+    "no_positive_edge_leakage": "validation and test edges are never used for message passing or threshold selection",
+    "threshold_selection": "validation-only maximum F1 among non-trivial thresholds",
+    "test_protocol": "evaluate once after early stopping on validation"
+  },
+  "training": {
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.00001,
+    "loss": "BCEWithLogitsLoss",
+    "max_epochs": 200,
+    "early_stopping_patience": 20,
+    "early_stopping_metric": "validation average precision",
+    "device": "cpu",
+    "full_batch": true
+  },
+  "evaluation": {
+    "metrics": [
+      "roc_auc",
+      "average_precision",
+      "precision",
+      "recall",
+      "f1",
+      "confusion_matrix"
+    ],
+    "curves": [
+      "roc",
+      "precision_recall"
+    ],
+    "comparison": "structural link-prediction baseline in baseline_metrics.json",
+    "not_a_risk_model": true
+  },
+  "paths": {
+    "checkpoint": "ml/experiments/graphsage_link_prediction/checkpoint.pt",
+    "history": "ml/experiments/graphsage_link_prediction/history.json",
+    "metrics": "ml/experiments/graphsage_link_prediction/metrics.json",
+    "test_predictions": "ml/experiments/graphsage_link_prediction/test_predictions.csv",
+    "run_summary": "ml/experiments/graphsage_link_prediction/run_summary.json",
+    "baseline_metrics": "ml/experiments/graphsage_link_prediction/baseline_metrics.json",
+    "dataset_metadata": "ml/experiments/graphsage_link_prediction/dataset_metadata.json"
+  },
+  "training_command": ".venv/bin/python -m ml.training.train_graphsage_link_prediction"
+}

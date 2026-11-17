@@ -1,0 +1,2245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AtmoGraph ML / GNN Experiment Dashboard</title>
+<style>
+:root {
+  --bg: #060a0f;
+  --bg-soft: #08111a;
+  --panel: #0c141d;
+  --panel-2: #0f1b26;
+  --border: #1e2d3d;
+  --border-soft: #172432;
+  --text: #e6edf5;
+  --muted: #8ba0b5;
+  --muted-2: #62788f;
+  --accent: #4fd1c5;
+  --accent-2: #38bdf8;
+  --violet: #a78bfa;
+  --amber: #fbbf24;
+  --green: #22c55e;
+  --red: #f87171;
+  --pink: #f472b6;
+  --mono: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+  --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --radius: 14px;
+  --shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% -12%, rgba(79,209,197,.10), transparent 34%),
+    radial-gradient(circle at 92% 0%, rgba(167,139,250,.08), transparent 30%),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+code, pre, .mono { font-family: var(--mono); }
+a { color: var(--accent-2); }
+.hidden { display: none !important; }
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+.tiny { font-size: 11px; }
+.nowrap { white-space: nowrap; }
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(16px);
+  background: rgba(6,10,15,.88);
+  border-bottom: 1px solid var(--border-soft);
+}
+.topbar-inner {
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 12px 20px 10px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: 11px; min-width: 250px; }
+.brand-mark {
+  width: 38px; height: 38px; border-radius: 11px;
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, rgba(79,209,197,.24), rgba(56,189,248,.12));
+  border: 1px solid rgba(79,209,197,.35);
+  color: var(--accent);
+  font-family: var(--mono); font-weight: 800; letter-spacing: -.06em;
+}
+.brand strong { display: block; font-size: 15px; letter-spacing: .01em; }
+.brand span { display: block; color: var(--muted); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.header-status { display: flex; gap: 7px; flex-wrap: wrap; margin-left: auto; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 9px; border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(15,27,38,.7);
+  color: var(--muted); font-size: 11px; white-space: nowrap;
+}
+.chip.good { color: #9af0c5; border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.08); }
+.chip.warn { color: #f7d58b; border-color: rgba(251,191,36,.35); background: rgba(251,191,36,.08); }
+.chip.info { color: #a5ddff; border-color: rgba(56,189,248,.35); background: rgba(56,189,248,.08); }
+.chip.bad { color: #ffb4b4; border-color: rgba(248,113,113,.35); background: rgba(248,113,113,.08); }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 10px currentColor; }
+.tabs {
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 0 14px 9px;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tabs button {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  padding: 8px 12px;
+  border-radius: 9px;
+  white-space: nowrap;
+  font-size: 12.5px;
+  transition: .15s ease;
+}
+.tabs button:hover { color: var(--text); background: rgba(255,255,255,.035); }
+.tabs button.active {
+  color: var(--text);
+  background: linear-gradient(180deg, rgba(79,209,197,.12), rgba(79,209,197,.05));
+  border-color: rgba(79,209,197,.24);
+}
+main { max-width: 1680px; margin: 0 auto; padding: 18px 20px 44px; }
+.tab-panel { display: none; animation: fade .18s ease; }
+.tab-panel.active { display: block; }
+@keyframes fade { from { opacity: .55; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin: 5px 0 14px; flex-wrap: wrap; }
+.section-head h1 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+.section-head p { margin: 4px 0 0; color: var(--muted); max-width: 900px; }
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 9px; border-radius: 999px;
+  background: rgba(255,255,255,.035); border: 1px solid var(--border);
+  color: var(--muted); font-size: 11px;
+}
+.panel {
+  background: linear-gradient(180deg, rgba(15,27,38,.82), rgba(10,18,26,.9));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 15px;
+  min-width: 0;
+}
+.panel h2 { margin: 0 0 10px; font-size: 14px; letter-spacing: .01em; }
+.panel h3 { margin: 14px 0 8px; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.panel-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.panel-head h2 { margin: 0; }
+.banner {
+  border: 1px solid var(--border);
+  background: rgba(15,27,38,.82);
+  border-radius: 12px;
+  padding: 11px 13px;
+  margin-bottom: 14px;
+  color: var(--muted);
+}
+.banner strong { color: var(--text); }
+.banner.error { border-color: rgba(248,113,113,.35); background: rgba(248,113,113,.08); color: #ffc8c8; }
+.banner.warn { border-color: rgba(251,191,36,.35); background: rgba(251,191,36,.07); color: #f8df9e; }
+.banner.good { border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.07); color: #aaf3cb; }
+.banner.info { border-color: rgba(56,189,248,.35); background: rgba(56,189,248,.07); color: #b7e6ff; }
+.stats-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 9px; margin-bottom: 14px; }
+.stat-card {
+  background: rgba(12,20,29,.8); border: 1px solid var(--border);
+  border-radius: 11px; padding: 11px 12px; min-width: 0;
+}
+.stat-label { color: var(--muted-2); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+.stat-value { font-size: 20px; font-weight: 700; letter-spacing: -.03em; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.stat-sub { color: var(--muted); font-size: 11px; margin-top: 2px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 12px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 12px; }
+.explorer-grid { display: grid; grid-template-columns: 300px minmax(0, 1fr) 370px; gap: 12px; align-items: start; }
+.controls-panel { position: sticky; top: 116px; max-height: calc(100vh - 132px); overflow: auto; }
+.field { display: block; margin-bottom: 9px; }
+.field > span, .field > label, .field-label { display: block; color: var(--muted); font-size: 11px; margin-bottom: 4px; }
+input[type="text"], input[type="number"], input[type="search"], select {
+  width: 100%; color: var(--text); background: #09131c;
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 7px 9px; outline: none; transition: .15s ease;
+}
+input:focus, select:focus { border-color: rgba(79,209,197,.55); box-shadow: 0 0 0 3px rgba(79,209,197,.09); }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.btn, button.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  border-radius: 8px; border: 1px solid var(--border);
+  background: rgba(255,255,255,.035); color: var(--text);
+  padding: 7px 10px; font-size: 12px; transition: .15s ease;
+}
+.btn:hover, button.btn:hover { border-color: rgba(79,209,197,.35); background: rgba(79,209,197,.07); }
+.btn.primary { background: linear-gradient(180deg, rgba(79,209,197,.2), rgba(79,209,197,.10)); border-color: rgba(79,209,197,.42); color: #c9fff7; }
+.btn.ghost { background: transparent; color: var(--muted); }
+.btn.warn { color: #f8df9e; border-color: rgba(251,191,36,.35); }
+.btn:disabled { opacity: .45; cursor: not-allowed; filter: saturate(.5); }
+.btn-row { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 9px; }
+.preset-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+.preset-row button { padding: 4px 7px; font-size: 10.5px; }
+.checkbox-list { display: grid; gap: 3px; }
+.checkbox-list label {
+  display: flex; align-items: center; gap: 6px;
+  color: var(--text); font-size: 11.5px; padding: 3px 4px; border-radius: 6px;
+}
+.checkbox-list label:hover { background: rgba(255,255,255,.035); }
+.checkbox-list input { width: auto; margin: 0; accent-color: var(--accent); }
+.divider { height: 1px; background: var(--border-soft); margin: 12px 0; }
+.search-results { display: grid; gap: 4px; margin: 5px 0 8px; max-height: 220px; overflow: auto; }
+.search-result {
+  width: 100%; text-align: left; border: 1px solid var(--border-soft);
+  background: rgba(9,19,28,.8); color: var(--text); border-radius: 8px; padding: 6px 8px;
+}
+.search-result:hover { border-color: rgba(79,209,197,.4); background: rgba(79,209,197,.06); }
+.search-result .result-title { display: flex; align-items: center; gap: 6px; justify-content: space-between; }
+.search-result .result-id { color: var(--muted-2); font-family: var(--mono); font-size: 10px; word-break: break-all; }
+</style>
+<style>
+.graph-panel { padding: 10px; }
+.graph-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 3px 3px 8px; flex-wrap: wrap; }
+.legend { display: flex; gap: 9px; flex-wrap: wrap; color: var(--muted); font-size: 10.5px; }
+.legend span { display: inline-flex; align-items: center; gap: 4px; }
+.swatch { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.swatch.line { width: 14px; height: 0; border-top: 2px solid; border-radius: 0; }
+.graph-actions { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; align-items: center; }
+.graph-actions button { width: 28px; height: 28px; padding: 0; font-size: 15px; }
+.graph-actions button.wide { width: auto; padding: 0 8px; font-size: 11px; }
+.export-status { color: var(--muted); font-size: 10px; min-width: 92px; text-align: right; }
+.canvas-wrap {
+  position: relative; height: 620px; min-height: 420px;
+  border: 1px solid var(--border-soft); border-radius: 11px;
+  background: radial-gradient(circle at 50% 45%, rgba(56,189,248,.05), transparent 60%), #071019;
+  overflow: hidden;
+}
+#graphCanvas { display: block; width: 100%; height: 100%; cursor: grab; }
+#graphCanvas.dragging { cursor: grabbing; }
+.canvas-note {
+  position: absolute; left: 10px; bottom: 10px; right: 10px;
+  color: var(--muted-2); font-size: 10.5px; pointer-events: none;
+  text-shadow: 0 1px 8px #000;
+}
+.graph-tooltip {
+  position: absolute; pointer-events: none; z-index: 4;
+  max-width: 300px; padding: 7px 9px; border-radius: 8px;
+  background: rgba(6,12,18,.96); border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,.45); font-size: 11px;
+}
+.graph-tooltip strong { display: block; }
+.graph-footer { display: flex; justify-content: space-between; gap: 8px; padding: 8px 4px 2px; color: var(--muted); font-size: 11px; flex-wrap: wrap; }
+.details-panel { position: sticky; top: 116px; max-height: calc(100vh - 132px); overflow: auto; }
+.details-body { display: grid; gap: 11px; }
+.details-header h3 { margin: 2px 0 0; font-size: 17px; letter-spacing: -.01em; }
+.details-id { color: var(--muted-2); font-family: var(--mono); font-size: 10.5px; word-break: break-all; }
+.badge {
+  display: inline-flex; align-items: center; gap: 4px; padding: 2px 6px;
+  border-radius: 999px; font-size: 10px; border: 1px solid var(--border);
+  color: var(--muted); white-space: nowrap;
+}
+.badge.sampoq { color: #9ff7ee; border-color: rgba(79,209,197,.35); background: rgba(79,209,197,.08); }
+.badge.ic_splc { color: #cabdff; border-color: rgba(167,139,250,.35); background: rgba(167,139,250,.08); }
+.badge.anonnet { color: #f8df9e; border-color: rgba(251,191,36,.35); background: rgba(251,191,36,.08); }
+.badge.good { color: #aaf3cb; border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.08); }
+.badge.bad { color: #ffc8c8; border-color: rgba(248,113,113,.35); background: rgba(248,113,113,.08); }
+.kv { display: grid; grid-template-columns: minmax(90px, 38%) 1fr; gap: 4px 10px; font-size: 11.5px; }
+.kv dt { color: var(--muted-2); }
+.kv dd { margin: 0; color: var(--text); min-width: 0; word-break: break-word; }
+.kv dd.mono { font-family: var(--mono); font-size: 10.5px; }
+.table-wrap { overflow: auto; max-height: 420px; border: 1px solid var(--border-soft); border-radius: 9px; }
+table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid rgba(30,45,61,.55); vertical-align: top; }
+th { position: sticky; top: 0; background: #0b1620; color: var(--muted-2); font-size: 10px; text-transform: uppercase; letter-spacing: .06em; z-index: 1; }
+tr:last-child td { border-bottom: 0; }
+tr.clickable { cursor: pointer; }
+tr.clickable:hover td { background: rgba(79,209,197,.055); }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.node-link { color: var(--accent-2); text-decoration: none; cursor: pointer; }
+.node-link:hover { text-decoration: underline; }
+.empty-state { color: var(--muted); padding: 18px; text-align: center; border: 1px dashed var(--border); border-radius: 10px; background: rgba(255,255,255,.015); }
+.code {
+  margin: 0; padding: 12px; border-radius: 9px; border: 1px solid var(--border-soft);
+  background: #071019; color: #c8e6f5; overflow: auto; font-size: 11px; line-height: 1.55;
+}
+.scroll { max-height: 420px; }
+.chart { min-height: 160px; overflow: hidden; }
+.chart svg { width: 100%; height: auto; display: block; }
+.chart-empty { color: var(--muted); font-size: 12px; padding: 16px; border: 1px dashed var(--border); border-radius: 9px; text-align: center; }
+.hbar-list { display: grid; gap: 7px; }
+.hbar-row { display: grid; grid-template-columns: minmax(90px, 38%) 1fr auto; gap: 8px; align-items: center; font-size: 11.5px; }
+.hbar-label { color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hbar-track { height: 8px; background: rgba(255,255,255,.05); border-radius: 999px; overflow: hidden; }
+.hbar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.hbar-value { color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 7px; margin-bottom: 10px; }
+.metric-card { border: 1px solid var(--border-soft); background: rgba(9,19,28,.7); border-radius: 9px; padding: 8px 9px; }
+.metric-label { color: var(--muted-2); font-size: 9.5px; text-transform: uppercase; letter-spacing: .07em; }
+.metric-value { font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.metric-sub { color: var(--muted); font-size: 10px; }
+.matrix { display: grid; grid-template-columns: 90px 1fr 1fr; gap: 5px; font-size: 10.5px; align-items: stretch; }
+.matrix .head { color: var(--muted-2); display: grid; place-items: center; text-align: center; padding: 4px; }
+.matrix .cell { border: 1px solid var(--border-soft); border-radius: 7px; padding: 9px; display: grid; place-items: center; text-align: center; }
+.matrix .cell strong { font-size: 18px; font-variant-numeric: tabular-nums; }
+.matrix .cell span { color: var(--muted); font-size: 9.5px; }
+.matrix .tp { background: rgba(34,197,94,.14); border-color: rgba(34,197,94,.3); }
+.matrix .tn { background: rgba(56,189,248,.10); border-color: rgba(56,189,248,.24); }
+.matrix .fp { background: rgba(251,191,36,.10); border-color: rgba(251,191,36,.25); }
+.matrix .fn { background: rgba(248,113,113,.10); border-color: rgba(248,113,113,.25); }
+.pair-strip { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; flex-wrap: wrap; }
+.pair-strip .pair-text { color: var(--text); font-size: 12px; }
+.prediction-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+.mini-node { border: 1px solid var(--border-soft); background: rgba(9,19,28,.7); border-radius: 9px; padding: 9px 10px; margin-bottom: 9px; }
+.mini-node .mini-title { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.mini-node .mini-id { color: var(--muted-2); font-family: var(--mono); font-size: 10px; word-break: break-all; margin-top: 2px; }
+.score-big { font-size: 48px; font-weight: 800; letter-spacing: -.06em; line-height: 1; }
+.score-note { color: var(--muted); font-size: 11.5px; margin-top: 6px; }
+.list { margin: 0; padding-left: 18px; color: var(--muted); }
+.list li { margin: 4px 0; }
+.footer { max-width: 1680px; margin: 0 auto; padding: 0 20px 30px; color: var(--muted-2); font-size: 11px; }
+.footer code { color: var(--muted); }
+@media (max-width: 1350px) {
+  .explorer-grid { grid-template-columns: 280px minmax(0, 1fr); }
+  .details-panel { grid-column: 1 / -1; position: static; max-height: none; }
+}
+@media (max-width: 980px) {
+  .grid-2, .grid-3, .prediction-grid { grid-template-columns: 1fr; }
+  .explorer-grid { grid-template-columns: 1fr; }
+  .controls-panel { position: static; max-height: none; }
+  .canvas-wrap { height: 520px; }
+  .header-status { margin-left: 0; }
+}
+@media (max-width: 620px) {
+  main { padding: 14px 12px 34px; }
+  .topbar-inner { padding: 10px 12px 8px; }
+  .tabs { padding: 0 8px 8px; }
+  .section-head h1 { font-size: 20px; }
+  .canvas-wrap { height: 440px; }
+  .stats-strip { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">AG</div>
+      <div>
+        <strong>AtmoGraph</strong>
+        <span>ML / GNN experiment dashboard</span>
+      </div>
+    </div>
+    <div class="header-status" id="headerStatus">
+      <span class="chip"><span class="dot"></span>Connecting to local API</span>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button data-tab="explorer" class="active">Graph Explorer</button>
+    <button data-tab="analytics">Graph Analytics</button>
+    <button data-tab="training">Model Training</button>
+    <button data-tab="evaluation">Model Evaluation</button>
+    <button data-tab="prediction">Prediction Explorer</button>
+    <button data-tab="details">Experiment Details</button>
+  </nav>
+</header>
+
+<main>
+  <div id="connectionBanner" class="banner error hidden">
+    <strong>API unavailable.</strong>
+    Start the local dashboard server with
+    <code>.venv/bin/python ml/reports/serve_dashboard.py</code>
+    and open <code>http://127.0.0.1:8765/</code>.
+  </div>
+
+  <section id="tab-explorer" class="tab-panel active">
+    <div class="section-head">
+      <div>
+        <h1>Graph Explorer</h1>
+        <p>Bounded, reproducible ego-networks from the actual processed graph. The canvas never renders the full 130,020-node graph at once.</p>
+      </div>
+      <span class="pill" id="explorerDataPill">Loading dataset…</span>
+    </div>
+    <div class="stats-strip" id="explorerStats"></div>
+    <div class="explorer-grid">
+      <aside class="panel controls-panel">
+        <h2>Seed &amp; neighborhood</h2>
+        <label class="field">
+          <span>Search actual nodes</span>
+          <input id="seedSearch" type="search" autocomplete="off" placeholder="Walmart, TSM, sampoq:ticker:WMT">
+        </label>
+        <div id="seedResults" class="search-results"></div>
+        <label class="field">
+          <span>Seed node id</span>
+          <input id="seedInput" type="text" value="sampoq:ticker:TSM" spellcheck="false">
+        </label>
+        <div class="field-row">
+          <label class="field">
+            <span>Hops</span>
+            <select id="hopsSelect">
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Max nodes</span>
+            <select id="maxNodesSelect">
+              <option value="100">100</option>
+              <option value="250" selected>250</option>
+              <option value="500">500</option>
+            </select>
+          </label>
+        </div>
+        <div class="preset-row" id="presetSeeds"></div>
+        <div class="divider"></div>
+        <h3>Filters</h3>
+        <div class="field">
+          <span>Source dataset</span>
+          <div id="sourceFilters" class="checkbox-list"></div>
+        </div>
+        <div class="field">
+          <span>Relationship</span>
+          <div id="relationshipFilters" class="checkbox-list"></div>
+        </div>
+        <div class="field-row">
+          <label class="field">
+            <span>Edge split</span>
+            <select id="splitFilter">
+              <option value="all">all</option>
+              <option value="train">train</option>
+              <option value="val">validation</option>
+              <option value="test">test</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Min degree</span>
+            <input id="minDegree" type="number" min="0" value="0">
+          </label>
+        </div>
+        <div class="btn-row">
+          <button id="loadSubgraphButton" class="btn primary">Load subgraph</button>
+          <button id="resetExplorerButton" class="btn ghost">Reset</button>
+        </div>
+      </aside>
+
+      <div class="panel graph-panel">
+        <div class="graph-toolbar">
+          <div class="legend" id="graphLegend"></div>
+          <div class="graph-actions">
+            <button class="btn" data-graph-action="zoom-in" title="Zoom in">+</button>
+            <button class="btn" data-graph-action="zoom-out" title="Zoom out">−</button>
+            <button class="btn wide" data-graph-action="fit" title="Fit graph">Fit</button>
+            <button id="exportJsonButton" class="btn wide" title="Download the current subgraph as JSON">Export JSON</button>
+            <button id="exportNodesButton" class="btn wide" title="Download displayed nodes as CSV">Nodes CSV</button>
+            <button id="exportEdgesButton" class="btn wide" title="Download displayed edges as CSV">Edges CSV</button>
+            <span id="exportStatus" class="export-status"></span>
+          </div>
+        </div>
+        <div class="canvas-wrap" id="canvasWrap">
+          <canvas id="graphCanvas"></canvas>
+          <div id="graphTooltip" class="graph-tooltip hidden"></div>
+          <div id="canvasNote" class="canvas-note">Loading subgraph…</div>
+        </div>
+        <div class="graph-footer">
+          <span id="graphFooterLeft">—</span>
+          <span id="graphFooterRight">—</span>
+        </div>
+      </div>
+
+      <aside class="panel details-panel">
+        <div class="panel-head">
+          <h2>Node details</h2>
+          <span class="pill" id="detailsPill">—</span>
+        </div>
+        <div id="nodeDetails" class="details-body">
+          <div class="empty-state">Select a node in the graph or search for one.</div>
+        </div>
+      </aside>
+    </div>
+    <div class="panel pair-strip">
+      <div>
+        <div class="stat-label">Prediction pair</div>
+        <div class="pair-text" id="pairStripText">No pair selected. Use “Set pair A/B” in node details.</div>
+      </div>
+      <button id="openPredictionButton" class="btn primary" disabled>Open Prediction Explorer</button>
+    </div>
+  </section>
+
+  <section id="tab-analytics" class="tab-panel">
+    <div class="section-head">
+      <div>
+        <h1>Graph Analytics</h1>
+        <p>Computed directly from <code>nodes.csv</code>, <code>edges.csv</code>, and the edge split file. All counts are exact for the current dataset version.</p>
+      </div>
+      <span class="pill" id="analyticsDataPill">—</span>
+    </div>
+    <div class="stats-strip" id="analyticsStats"></div>
+    <div class="grid-2">
+      <div class="panel">
+        <h2>Degree distribution</h2>
+        <div id="degreeChart" class="chart"></div>
+      </div>
+      <div class="panel">
+        <h2>Component size distribution</h2>
+        <div id="componentChart" class="chart"></div>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="panel">
+        <h2>Node sources</h2>
+        <div id="sourceChart" class="chart"></div>
+      </div>
+      <div class="panel">
+        <h2>Edge relationships</h2>
+        <div id="relationshipChart" class="chart"></div>
+      </div>
+      <div class="panel">
+        <h2>Edge splits</h2>
+        <div id="splitChart" class="chart"></div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="panel">
+        <h2>Top components</h2>
+        <div id="topComponents" class="table-wrap"></div>
+      </div>
+      <div class="panel">
+        <h2>Top-degree nodes</h2>
+        <div id="topDegreeNodes" class="table-wrap"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Category coverage</h2>
+      <p class="muted small">Category type is determined by source. IC-SPLC country and industry values are anonymized frequency-ranked codes; they are never decoded or treated as real-world categories.</p>
+      <div id="categoryCoverage"></div>
+    </div>
+    <div class="grid-2">
+      <div class="panel">
+        <h2>Verified countries</h2>
+        <p class="muted small">Source: AnonNet <code>location</code>. Percentages use verified-country nodes as the denominator.</p>
+        <div id="verifiedCountryChart" class="chart"></div>
+      </div>
+      <div class="panel">
+        <h2>Anonymized country codes</h2>
+        <p class="muted small">Source: IC-SPLC <code>country</code>. Codes are preserved, never decoded. Percentages use anonymized-country nodes as the denominator.</p>
+        <div id="anonymizedCountryChart" class="chart"></div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="panel">
+        <h2>Verified industries</h2>
+        <p class="muted small">No source in the current graph provides verified industry names.</p>
+        <div id="verifiedIndustryChart" class="chart"></div>
+      </div>
+      <div class="panel">
+        <h2>Anonymized industry codes</h2>
+        <p class="muted small">Source: IC-SPLC <code>industry_1st</code>. Codes are preserved, never decoded. Percentages use anonymized-industry nodes as the denominator.</p>
+        <div id="anonymizedIndustryChart" class="chart"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tab-training" class="tab-panel">
+    <div class="section-head">
+      <div>
+        <h1>Model Training</h1>
+        <p>GraphSAGE link-prediction training status and the leakage-controlled protocol. No training history is invented when no checkpoint exists.</p>
+      </div>
+      <span class="pill">GraphSAGE · link prediction</span>
+    </div>
+    <div id="trainingStatus"></div>
+    <div class="stats-strip" id="trainingStats"></div>
+    <div class="grid-2">
+      <div class="panel">
+        <h2>Planned experiment</h2>
+        <div id="trainingConfig"></div>
+      </div>
+      <div class="panel">
+        <h2>Dataset splits</h2>
+        <div id="trainingSplits"></div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="panel">
+        <h2>Training history</h2>
+        <div id="trainingHistory" class="chart"></div>
+      </div>
+      <div class="panel">
+        <h2>Artifacts</h2>
+        <div id="trainingArtifacts"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Run training</h2>
+      <p class="muted small">The training script writes a checkpoint and metrics only after a real run. It refuses to overwrite an existing checkpoint unless <code>--overwrite</code> is passed.</p>
+      <pre id="trainingCommand" class="code">Loading…</pre>
+    </div>
+  </section>
+
+  <section id="tab-evaluation" class="tab-panel">
+    <div class="section-head">
+      <div>
+        <h1>Model Evaluation</h1>
+        <p>GraphSAGE metrics are available only from a real training run. The structural baseline below is a real, leakage-controlled link-prediction baseline, not a GNN.</p>
+      </div>
+      <span class="pill">link prediction ≠ disruption risk</span>
+    </div>
+    <div id="evaluationStatus"></div>
+    <div class="grid-2">
+      <div class="panel">
+        <h2>GraphSAGE evaluation</h2>
+        <div id="gnnEvaluation"></div>
+      </div>
+      <div class="panel">
+        <h2>Structural baseline</h2>
+        <div id="baselineEvaluation"></div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="panel">
+        <h2>Baseline ROC</h2>
+        <div id="baselineRoc" class="chart"></div>
+      </div>
+      <div class="panel">
+        <h2>Baseline precision–recall</h2>
+        <div id="baselinePr" class="chart"></div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="panel">
+        <h2>Baseline score distribution</h2>
+        <div id="baselineScores" class="chart"></div>
+      </div>
+      <div class="panel">
+        <h2>Model comparison</h2>
+        <div id="modelComparison"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tab-prediction" class="tab-panel">
+    <div class="section-head">
+      <div>
+        <h1>Prediction Explorer</h1>
+        <p>Link-prediction inference for a selected directed node pair. This is not a disruption-risk score, and inference is disabled until a trained checkpoint exists.</p>
+      </div>
+      <span class="pill" id="predictionModelPill">—</span>
+    </div>
+    <div id="predictionAvailability"></div>
+    <div class="prediction-grid">
+      <div class="panel">
+        <h2>Candidate directed link</h2>
+        <label class="field">
+          <span>Search source node A</span>
+          <input id="predictSearchA" type="search" autocomplete="off" placeholder="Search company or node id">
+        </label>
+        <div id="predictResultsA" class="search-results"></div>
+        <div id="predictNodeA" class="mini-node empty-state">No source node selected.</div>
+        <label class="field">
+          <span>Search target node B</span>
+          <input id="predictSearchB" type="search" autocomplete="off" placeholder="Search company or node id">
+        </label>
+        <div id="predictResultsB" class="search-results"></div>
+        <div id="predictNodeB" class="mini-node empty-state">No target node selected.</div>
+        <div class="btn-row">
+          <button id="runPredictionButton" class="btn primary" disabled>Run link prediction</button>
+          <button id="clearPredictionPair" class="btn ghost">Clear pair</button>
+        </div>
+        <div id="predictionRunStatus" class="muted small" style="margin-top:9px"></div>
+      </div>
+      <div class="panel">
+        <h2>Result</h2>
+        <div id="predictionResult" class="empty-state">No prediction run.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tab-details" class="tab-panel">
+    <div class="section-head">
+      <div>
+        <h1>Experiment Details</h1>
+        <p>Dataset version, file hashes, split sizes, configuration, and artifact paths used by this dashboard.</p>
+      </div>
+      <span class="pill" id="detailsDataPill">—</span>
+    </div>
+    <div class="grid-2">
+      <div class="panel">
+        <h2>Dataset metadata</h2>
+        <div id="datasetDetails"></div>
+      </div>
+      <div class="panel">
+        <h2>Experiment status</h2>
+        <div id="experimentStatusDetails"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Configuration</h2>
+      <pre id="configJson" class="code scroll">Loading…</pre>
+    </div>
+    <div class="panel">
+      <h2>Artifact paths</h2>
+      <div id="artifactTable"></div>
+    </div>
+    <div class="panel">
+      <h2>Integrity notes</h2>
+      <div id="integrityNotes"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  Data source: <code>datasets/processed/graph</code> and <code>datasets/training</code>. No fabricated metrics or risk labels. Link prediction is a structural task, not disruption-risk prediction.
+</footer>
+<script>
+(() => {
+  "use strict";
+
+  const DEFAULT_SEED = "sampoq:ticker:TSM";
+  const PRESET_SEEDS = [
+    ["sampoq:ticker:WMT", "Walmart"],
+    ["sampoq:ticker:TSM", "TSM"],
+    ["sampoq:ticker:AAPL", "Apple"],
+    ["sampoq:ticker:ORGN", "Origin Materials"],
+    ["sampoq:ticker:STRW", "Strawberry Fields"],
+    ["icsplc:5940", "IC-SPLC hub"],
+    ["anonnet:n4859", "AnonNet hub"],
+  ];
+  const SOURCE_COLORS = { sampoq: "#4fd1c5", ic_splc: "#a78bfa", anonnet: "#fbbf24" };
+  const RELATIONSHIP_COLORS = {
+    supplies_product_to: "#38bdf8",
+    supply_relationship_anonymised: "#a78bfa",
+    supplier_to_customer: "#fbbf24",
+  };
+  const SERIES_COLORS = ["#4fd1c5", "#38bdf8", "#a78bfa", "#fbbf24", "#f472b6", "#22c55e"];
+  const API = "";
+  const state = {
+    summary: null,
+    analytics: null,
+    experiment: null,
+    subgraph: null,
+    selectedNodeId: null,
+    nodeDetail: null,
+    pair: { A: null, B: null },
+    edgeLimits: { incoming: 200, outgoing: 200 },
+    graph: null,
+    lastSearchToken: 0,
+    explorerRequestToken: 0,
+  };
+
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function isMissing(value) {
+    return value === null || value === undefined || (typeof value === "number" && Number.isNaN(value));
+  }
+
+  function fmtInt(value) {
+    if (isMissing(value)) return "—";
+    return new Intl.NumberFormat("en-US").format(Number(value));
+  }
+
+  function fmtNum(value, digits = 3) {
+    if (isMissing(value)) return "—";
+    return Number(value).toFixed(digits);
+  }
+
+  function fmtPct(value, digits = 1) {
+    if (isMissing(value)) return "—";
+    return `${(Number(value) * 100).toFixed(digits)}%`;
+  }
+
+  function fmtBytes(value) {
+    if (isMissing(value)) return "—";
+    const units = ["B", "KB", "MB", "GB"];
+    let number = Number(value);
+    let index = 0;
+    while (number >= 1024 && index < units.length - 1) {
+      number /= 1024;
+      index += 1;
+    }
+    return `${number.toFixed(index === 0 ? 0 : 1)} ${units[index]}`;
+  }
+
+  function sourceLabel(source) {
+    const labels = state.analytics?.source_labels || {};
+    return labels[source] || source || "unknown";
+  }
+
+  function badge(source) {
+    return `<span class="badge ${escapeHtml(source)}">${escapeHtml(sourceLabel(source))}</span>`;
+  }
+
+  function debounce(fn, delay = 220) {
+    let timer = null;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => fn(...args), delay);
+    };
+  }
+
+  async function fetchJSON(path, options = {}) {
+    const response = await fetch(API + path, {
+      headers: { "Content-Type": "application/json", ...(options.headers || {}) },
+      ...options,
+    });
+    const text = await response.text();
+    let payload = {};
+    if (text) {
+      try {
+        payload = JSON.parse(text);
+      } catch {
+        payload = { error: text };
+      }
+    }
+    if (!response.ok) {
+      const error = new Error(payload.error || `Request failed (${response.status})`);
+      error.status = response.status;
+      error.payload = payload;
+      throw error;
+    }
+    return payload;
+  }
+
+  function chip(kind, text) {
+    return `<span class="chip ${kind}"><span class="dot"></span>${escapeHtml(text)}</span>`;
+  }
+
+  function statCard(label, value, sub = "") {
+    return `<div class="stat-card">
+      <div class="stat-label">${escapeHtml(label)}</div>
+      <div class="stat-value">${escapeHtml(value)}</div>
+      ${sub ? `<div class="stat-sub">${escapeHtml(sub)}</div>` : ""}
+    </div>`;
+  }
+
+  function kvRows(rows) {
+    return `<dl class="kv">${rows.map(([key, value, mono]) => `
+      <dt>${escapeHtml(key)}</dt>
+      <dd class="${mono ? "mono" : ""}">${value}</dd>
+    `).join("")}</dl>`;
+  }
+
+  function emptyState(message) {
+    return `<div class="empty-state">${escapeHtml(message)}</div>`;
+  }
+
+  function chartEmpty(message) {
+    return `<div class="chart-empty">${escapeHtml(message)}</div>`;
+  }
+
+  function setHeaderStatus() {
+    const header = $("#headerStatus");
+    if (!state.summary) {
+      header.innerHTML = chip("bad", "API offline");
+      return;
+    }
+    const gnn = state.experiment?.gnn;
+    const baseline = state.experiment?.baseline;
+    const parts = [
+      chip("good", "Graph data online"),
+      chip(gnn?.available ? "good" : "warn", gnn?.available ? "GNN checkpoint loaded" : "GNN not trained"),
+    ];
+    if (baseline) parts.push(chip("info", "Structural baseline available"));
+    header.innerHTML = parts.join("");
+  }
+
+  function switchTab(tab) {
+    $$("#tabs button").forEach((button) => button.classList.toggle("active", button.dataset.tab === tab));
+    $$(".tab-panel").forEach((panel) => panel.classList.toggle("active", panel.id === `tab-${tab}`));
+    if (tab === "prediction") renderPredictionTab();
+    if (tab === "training") renderTraining();
+    if (tab === "evaluation") renderEvaluation();
+    if (tab === "details") renderExperimentDetails();
+    if (tab === "analytics") renderAnalytics();
+    if (tab === "explorer") requestAnimationFrame(() => { resizeCanvas(); fitView(); drawGraph(); });
+  }
+
+  function setupTabs() {
+    $$("#tabs button").forEach((button) => {
+      button.addEventListener("click", () => switchTab(button.dataset.tab));
+    });
+  }
+
+  async function init() {
+    setupTabs();
+    setupExplorer();
+    setupExports();
+    setupPrediction();
+    try {
+      const [summary, analytics, experiment] = await Promise.all([
+        fetchJSON("/api/summary"),
+        fetchJSON("/api/analytics"),
+        fetchJSON("/api/experiment"),
+      ]);
+      state.summary = summary;
+      state.analytics = analytics;
+      state.experiment = experiment;
+      $("#connectionBanner").classList.add("hidden");
+      setHeaderStatus();
+      renderExplorerFilters();
+      renderExplorerStats();
+      renderAnalytics();
+      renderTraining();
+      renderEvaluation();
+      renderPredictionTab();
+      renderExperimentDetails();
+      await loadSubgraph();
+    } catch (error) {
+      $("#connectionBanner").classList.remove("hidden");
+      setHeaderStatus();
+      $("#canvasNote").textContent = "API unavailable. Start the dashboard server to load actual graph data.";
+      console.error(error);
+    }
+  }
+
+  function renderExplorerFilters() {
+    const sources = state.analytics?.counts?.sources || {};
+    $("#sourceFilters").innerHTML = Object.entries(sources)
+      .sort((a, b) => b[1] - a[1])
+      .map(([source, count]) => `
+        <label>
+          <input type="checkbox" value="${escapeHtml(source)}">
+          <span class="swatch" style="background:${SOURCE_COLORS[source] || "#94a3b8"}"></span>
+          ${escapeHtml(sourceLabel(source))}
+          <span class="muted tiny">${fmtInt(count)}</span>
+        </label>
+      `).join("");
+    const relationships = state.analytics?.counts?.relationships || {};
+    $("#relationshipFilters").innerHTML = Object.entries(relationships)
+      .sort((a, b) => b[1] - a[1])
+      .map(([relationship, count]) => `
+        <label>
+          <input type="checkbox" value="${escapeHtml(relationship)}">
+          <span class="swatch" style="background:${RELATIONSHIP_COLORS[relationship] || "#94a3b8"}"></span>
+          ${escapeHtml(relationship)}
+          <span class="muted tiny">${fmtInt(count)}</span>
+        </label>
+      `).join("");
+    $("#presetSeeds").innerHTML = PRESET_SEEDS
+      .map(([id, label]) => `<button class="btn ghost" data-preset-seed="${escapeHtml(id)}" title="${escapeHtml(id)}">${escapeHtml(label)}</button>`)
+      .join("");
+    $("#presetSeeds").addEventListener("click", (event) => {
+      const button = event.target.closest("[data-preset-seed]");
+      if (!button) return;
+      loadSubgraph(button.dataset.presetSeed);
+    });
+    $("#sourceFilters").addEventListener("change", () => loadSubgraph());
+    $("#relationshipFilters").addEventListener("change", () => loadSubgraph());
+    $("#splitFilter").addEventListener("change", () => loadSubgraph());
+    $("#minDegree").addEventListener("change", () => loadSubgraph());
+    $("#hopsSelect").addEventListener("change", () => loadSubgraph());
+    $("#maxNodesSelect").addEventListener("change", () => loadSubgraph());
+    $("#loadSubgraphButton").addEventListener("click", () => loadSubgraph());
+    $("#resetExplorerButton").addEventListener("click", () => {
+      $("#seedInput").value = DEFAULT_SEED;
+      $("#seedSearch").value = "";
+      $("#seedResults").innerHTML = "";
+      $("#hopsSelect").value = "2";
+      $("#maxNodesSelect").value = "250";
+      $("#splitFilter").value = "all";
+      $("#minDegree").value = "0";
+      $$("#sourceFilters input, #relationshipFilters input").forEach((input) => { input.checked = false; });
+      loadSubgraph(DEFAULT_SEED);
+    });
+    $("#explorerDataPill").textContent = `Full graph: ${fmtInt(state.summary?.dataset?.node_count)} nodes · ${fmtInt(state.summary?.dataset?.edge_count)} edges`;
+  }
+
+  function renderExplorerStats() {
+    const dataset = state.summary?.dataset || {};
+    const analytics = state.analytics?.counts || {};
+    $("#explorerStats").innerHTML = [
+      statCard("Full graph nodes", fmtInt(dataset.node_count ?? analytics.nodes), "not all rendered"),
+      statCard("Full graph edges", fmtInt(dataset.edge_count ?? analytics.edges), "actual processed edges"),
+      statCard("Edge split", `${fmtInt(dataset.edge_splits?.train)} / ${fmtInt(dataset.edge_splits?.val)} / ${fmtInt(dataset.edge_splits?.test)}`, "train / val / test"),
+      statCard("Source counts", `${fmtInt(analytics.sources?.sampoq)} · ${fmtInt(analytics.sources?.ic_splc)} · ${fmtInt(analytics.sources?.anonnet)}`, "SAMPOQ · IC-SPLC · AnonNet"),
+    ].join("");
+  }
+
+  function currentExplorerParams(seedOverride) {
+    return {
+      seed: seedOverride || $("#seedInput").value.trim() || DEFAULT_SEED,
+      hops: $("#hopsSelect").value,
+      max_nodes: $("#maxNodesSelect").value,
+      sources: $$("#sourceFilters input:checked").map((input) => input.value),
+      relationships: $$("#relationshipFilters input:checked").map((input) => input.value),
+      split: $("#splitFilter").value,
+      min_degree: $("#minDegree").value || "0",
+    };
+  }
+
+  async function loadSubgraph(seedOverride) {
+    const params = currentExplorerParams(seedOverride);
+    $("#seedInput").value = params.seed;
+    const token = ++state.explorerRequestToken;
+    $("#canvasNote").textContent = "Loading bounded ego-network from actual graph data…";
+    const query = new URLSearchParams({
+      seed: params.seed,
+      hops: params.hops,
+      max_nodes: params.max_nodes,
+      split: params.split,
+      min_degree: params.min_degree,
+    });
+    if (params.sources.length) query.set("sources", params.sources.join(","));
+    if (params.relationships.length) query.set("relationships", params.relationships.join(","));
+    try {
+      const data = await fetchJSON(`/api/subgraph?${query.toString()}`);
+      if (token !== state.explorerRequestToken) return;
+      state.subgraph = data;
+      state.edgeLimits = { incoming: 200, outgoing: 200 };
+      renderGraph(data);
+      updatePairStrip();
+      await selectNode(data.seed.id, true);
+    } catch (error) {
+      if (token !== state.explorerRequestToken) return;
+      state.subgraph = null;
+      state.graph = null;
+      $("#canvasNote").textContent = error.message || "Could not load subgraph.";
+      $("#graphFooterLeft").textContent = "No subgraph loaded.";
+      $("#graphFooterRight").textContent = "";
+      $("#nodeDetails").innerHTML = emptyState(error.status === 404 ? "Unknown seed node. Search for an existing node id." : (error.message || "Could not load node details."));
+      const context = $("#graphCanvas").getContext("2d");
+      context.setTransform(1, 0, 0, 1, 0, 0);
+      context.clearRect(0, 0, $("#graphCanvas").width, $("#graphCanvas").height);
+    }
+  }
+
+  function renderGraph(data) {
+    const nodes = data.nodes.map((node) => ({
+      ...node,
+      radius: Math.max(4, Math.min(18, 4 + Math.log1p(Number(node.degree || 0)) * 1.6)),
+      x: 0,
+      y: 0,
+      vx: 0,
+      vy: 0,
+    }));
+    const nodeById = new Map(nodes.map((node) => [node.id, node]));
+    state.graph = {
+      nodes,
+      edges: data.edges,
+      nodeById,
+      selectedId: data.seed.id,
+      hoverId: null,
+      neighbors: new Set(),
+      view: { x: 0, y: 0, k: 1 },
+      panning: false,
+      panStart: null,
+      dpr: window.devicePixelRatio || 1,
+      cssWidth: 0,
+      cssHeight: 0,
+    };
+    layoutGraph();
+    resizeCanvas();
+    fitView();
+    drawGraph();
+    updateGraphLegend();
+    $("#explorerDataPill").textContent = `Full graph: ${fmtInt(data.full_graph.nodes)} nodes · ${fmtInt(data.full_graph.edges)} edges`;
+    $("#canvasNote").textContent = `Displayed view: ${fmtInt(data.displayed.nodes)} nodes / ${fmtInt(data.displayed.edges)} edges. Neighborhood: ${fmtInt(data.neighborhood.nodes)} nodes / ${fmtInt(data.neighborhood.edges)} edges${data.neighborhood.cap_truncated ? " (node cap reached)" : ""}. Full graph: ${fmtInt(data.full_graph.nodes)} / ${fmtInt(data.full_graph.edges)}.`;
+    $("#graphFooterLeft").innerHTML = `Seed <span class="mono">${escapeHtml(data.seed.id)}</span> · ${escapeHtml(data.seed.label)} · hops ${data.params.hops} · cap ${data.params.max_nodes}`;
+    const filterParts = [];
+    if (data.filters.sources.length) filterParts.push(`sources: ${data.filters.sources.join(", ")}`);
+    if (data.filters.relationships.length) filterParts.push(`relationships: ${data.filters.relationships.join(", ")}`);
+    if (data.filters.split !== "all") filterParts.push(`split: ${data.filters.split}`);
+    if (Number(data.filters.min_degree) > 0) filterParts.push(`min degree: ${data.filters.min_degree}`);
+    $("#graphFooterRight").textContent = filterParts.length ? `Filters — ${filterParts.join(" · ")}` : "No attribute filters applied";
+  }
+
+  function updateGraphLegend() {
+    const sources = Object.entries(SOURCE_COLORS)
+      .map(([key, color]) => `<span><span class="swatch" style="background:${color}"></span>${escapeHtml(key)}</span>`)
+      .join("");
+    const relationships = Object.entries(RELATIONSHIP_COLORS)
+      .map(([key, color]) => `<span><span class="swatch line" style="border-color:${color}"></span>${escapeHtml(key)}</span>`)
+      .join("");
+    $("#graphLegend").innerHTML = `${sources}${relationships}`;
+  }
+
+  function exportGraph(format) {
+    if (!state.subgraph) {
+      $("#exportStatus").textContent = "Load a subgraph first.";
+      return;
+    }
+    const data = state.subgraph;
+    const query = new URLSearchParams({
+      format,
+      seed: data.seed.id,
+      hops: data.params.hops,
+      max_nodes: data.params.max_nodes,
+      split: data.params.split,
+      min_degree: data.params.min_degree,
+    });
+    if (data.params.sources.length) query.set("sources", data.params.sources.join(","));
+    if (data.params.relationships.length) query.set("relationships", data.params.relationships.join(","));
+    const link = document.createElement("a");
+    link.href = `${API}/api/export?${query.toString()}`;
+    link.download = "";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    $("#exportStatus").textContent = "Download started";
+    window.setTimeout(() => { $("#exportStatus").textContent = ""; }, 1800);
+  }
+
+  function setupExports() {
+    $("#exportJsonButton").addEventListener("click", () => exportGraph("json"));
+    $("#exportNodesButton").addEventListener("click", () => exportGraph("nodes_csv"));
+    $("#exportEdgesButton").addEventListener("click", () => exportGraph("edges_csv"));
+  }
+
+  function layoutGraph() {
+    const graph = state.graph;
+    const nodes = graph.nodes;
+    if (!nodes.length) return;
+    const depthGroups = new Map();
+    nodes.forEach((node) => {
+      const depth = Number(node.depth || 0);
+      if (!depthGroups.has(depth)) depthGroups.set(depth, []);
+      depthGroups.get(depth).push(node);
+    });
+    depthGroups.forEach((group) => group.sort((a, b) => (b.degree - a.degree) || a.id.localeCompare(b.id)));
+    depthGroups.forEach((group, depth) => {
+      if (depth === 0) {
+        group.forEach((node, index) => { node.x = index * 4; node.y = index * 4; });
+        return;
+      }
+      const radius = 120 + depth * 118;
+      const offset = -Math.PI / 2 + depth * 0.35;
+      group.forEach((node, index) => {
+        const angle = offset + (index / Math.max(1, group.length)) * Math.PI * 2;
+        node.x = Math.cos(angle) * radius;
+        node.y = Math.sin(angle) * radius;
+      });
+    });
+    const byId = graph.nodeById;
+    const edgePairs = graph.edges
+      .map((edge) => [byId.get(edge.source), byId.get(edge.target)])
+      .filter(([source, target]) => source && target);
+    const iterations = 140;
+    for (let iteration = 0; iteration < iterations; iteration += 1) {
+      for (let i = 0; i < nodes.length; i += 1) {
+        const a = nodes[i];
+        for (let j = i + 1; j < nodes.length; j += 1) {
+          const b = nodes[j];
+          let dx = b.x - a.x;
+          let dy = b.y - a.y;
+          let dist2 = dx * dx + dy * dy;
+          if (dist2 < 1) { dx = (i % 7) - 3 + 0.5; dy = (j % 7) - 3 + 0.5; dist2 = dx * dx + dy * dy; }
+          const dist = Math.sqrt(dist2);
+          const force = 950 / (dist2 + 80);
+          const fx = (dx / dist) * force;
+          const fy = (dy / dist) * force;
+          a.vx -= fx;
+          a.vy -= fy;
+          b.vx += fx;
+          b.vy += fy;
+        }
+      }
+      edgePairs.forEach(([a, b]) => {
+        const dx = b.x - a.x;
+        const dy = b.y - a.y;
+        const dist = Math.sqrt(dx * dx + dy * dy) + 0.01;
+        const force = (dist - 92) * 0.012;
+        const fx = (dx / dist) * force;
+        const fy = (dy / dist) * force;
+        a.vx += fx;
+        a.vy += fy;
+        b.vx -= fx;
+        b.vy -= fy;
+      });
+      nodes.forEach((node) => {
+        node.vx -= node.x * 0.0022;
+        node.vy -= node.y * 0.0022;
+        node.vx *= 0.82;
+        node.vy *= 0.82;
+        const speed = Math.sqrt(node.vx * node.vx + node.vy * node.vy);
+        if (speed > 12) {
+          node.vx = (node.vx / speed) * 12;
+          node.vy = (node.vy / speed) * 12;
+        }
+        node.x += node.vx;
+        node.y += node.vy;
+      });
+    }
+  }
+
+  function resizeCanvas() {
+    const canvas = $("#graphCanvas");
+    const wrap = $("#canvasWrap");
+    if (!canvas || !wrap || !state.graph) return;
+    const rect = wrap.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    const width = Math.max(1, Math.floor(rect.width));
+    const height = Math.max(1, Math.floor(rect.height));
+    if (canvas.width !== Math.floor(width * dpr) || canvas.height !== Math.floor(height * dpr)) {
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+    }
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    state.graph.dpr = dpr;
+    state.graph.cssWidth = width;
+    state.graph.cssHeight = height;
+  }
+
+  function fitView() {
+    if (!state.graph) return;
+    const nodes = state.graph.nodes;
+    const width = state.graph.cssWidth || $("#canvasWrap").clientWidth || 800;
+    const height = state.graph.cssHeight || $("#canvasWrap").clientHeight || 620;
+    if (!nodes.length) {
+      state.graph.view = { x: width / 2, y: height / 2, k: 1 };
+      return;
+    }
+    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    nodes.forEach((node) => {
+      minX = Math.min(minX, node.x - node.radius);
+      maxX = Math.max(maxX, node.x + node.radius);
+      minY = Math.min(minY, node.y - node.radius);
+      maxY = Math.max(maxY, node.y + node.radius);
+    });
+    const padding = 64;
+    const spanX = Math.max(1, maxX - minX);
+    const spanY = Math.max(1, maxY - minY);
+    const k = Math.max(0.18, Math.min(2.2, Math.min((width - padding * 2) / spanX, (height - padding * 2) / spanY)));
+    state.graph.view = {
+      k,
+      x: width / 2 - ((minX + maxX) / 2) * k,
+      y: height / 2 - ((minY + maxY) / 2) * k,
+    };
+  }
+
+  function drawGraph() {
+    const graph = state.graph;
+    const canvas = $("#graphCanvas");
+    if (!graph || !canvas) return;
+    const context = canvas.getContext("2d");
+    const dpr = graph.dpr || window.devicePixelRatio || 1;
+    context.setTransform(dpr, 0, 0, dpr, 0, 0);
+    context.clearRect(0, 0, graph.cssWidth, graph.cssHeight);
+    context.fillStyle = "#071019";
+    context.fillRect(0, 0, graph.cssWidth, graph.cssHeight);
+    const view = graph.view;
+    context.save();
+    context.translate(view.x, view.y);
+    context.scale(view.k, view.k);
+
+    const selectedId = graph.selectedId;
+    const selectedNeighbors = new Set();
+    if (selectedId) {
+      graph.edges.forEach((edge) => {
+        if (edge.source === selectedId) selectedNeighbors.add(edge.target);
+        if (edge.target === selectedId) selectedNeighbors.add(edge.source);
+      });
+    }
+    graph.neighbors = selectedNeighbors;
+
+    graph.edges.forEach((edge) => {
+      const source = graph.nodeById.get(edge.source);
+      const target = graph.nodeById.get(edge.target);
+      if (!source || !target) return;
+      const incident = selectedId && (edge.source === selectedId || edge.target === selectedId);
+      const color = RELATIONSHIP_COLORS[edge.relationship] || "#64748b";
+      context.strokeStyle = incident ? color : `${color}66`;
+      context.globalAlpha = incident ? 0.95 : 0.55;
+      context.lineWidth = (incident ? 2.1 : 0.8) / view.k;
+      context.setLineDash(edge.split === "val" ? [5 / view.k, 4 / view.k] : edge.split === "test" ? [1.5 / view.k, 3 / view.k] : []);
+      const dx = target.x - source.x;
+      const dy = target.y - source.y;
+      const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+      const ux = dx / dist;
+      const uy = dy / dist;
+      const startX = source.x + ux * (source.radius + 1);
+      const startY = source.y + uy * (source.radius + 1);
+      const endX = target.x - ux * (target.radius + 2);
+      const endY = target.y - uy * (target.radius + 2);
+      context.beginPath();
+      context.moveTo(startX, startY);
+      context.lineTo(endX, endY);
+      context.stroke();
+      const arrow = 5.5 / view.k;
+      context.setLineDash([]);
+      context.beginPath();
+      context.moveTo(endX, endY);
+      context.lineTo(endX - ux * arrow - uy * arrow * 0.55, endY - uy * arrow + ux * arrow * 0.55);
+      context.lineTo(endX - ux * arrow + uy * arrow * 0.55, endY - uy * arrow - ux * arrow * 0.55);
+      context.closePath();
+      context.fillStyle = context.strokeStyle;
+      context.globalAlpha = incident ? 0.9 : 0.45;
+      context.fill();
+    });
+    context.globalAlpha = 1;
+    context.setLineDash([]);
+
+    const topDegree = new Set(
+      [...graph.nodes].sort((a, b) => b.degree - a.degree).slice(0, 14).map((node) => node.id)
+    );
+    const drawOrder = [...graph.nodes].sort((a, b) => a.degree - b.degree);
+    drawOrder.forEach((node) => {
+      const isSelected = node.id === selectedId;
+      const isNeighbor = selectedNeighbors.has(node.id);
+      const isHover = node.id === graph.hoverId;
+      const color = SOURCE_COLORS[node.source] || "#94a3b8";
+      context.beginPath();
+      context.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+      context.fillStyle = color;
+      context.globalAlpha = isSelected ? 1 : isNeighbor ? 0.98 : 0.8;
+      context.fill();
+      context.globalAlpha = 1;
+      context.lineWidth = (isSelected ? 3 : isNeighbor ? 1.8 : isHover ? 1.6 : 0.8) / view.k;
+      context.strokeStyle = isSelected ? "#22c55e" : isNeighbor ? "#38bdf8" : isHover ? "#f8fafc" : "rgba(230,237,245,.24)";
+      context.stroke();
+      if (isSelected) {
+        context.beginPath();
+        context.arc(node.x, node.y, node.radius + 7 / view.k, 0, Math.PI * 2);
+        context.strokeStyle = "rgba(34,197,94,.45)";
+        context.lineWidth = 1.2 / view.k;
+        context.stroke();
+      }
+    });
+
+    const labelFont = `${Math.max(9, 10.5 / view.k)}px ui-sans-serif, system-ui, sans-serif`;
+    context.font = labelFont;
+    context.textBaseline = "middle";
+    context.fillStyle = "#dbe7f3";
+    graph.nodes.forEach((node) => {
+      const show = node.id === selectedId || node.id === graph.hoverId || selectedNeighbors.has(node.id) || topDegree.has(node.id) || view.k > 1.35;
+      if (!show) return;
+      const label = node.label.length > 28 ? `${node.label.slice(0, 27)}…` : node.label;
+      context.fillText(label, node.x + node.radius + 3 / view.k, node.y);
+    });
+    context.restore();
+
+    if (!graph.nodes.length) {
+      context.fillStyle = "#8ba0b5";
+      context.font = "13px ui-sans-serif, system-ui, sans-serif";
+      context.textAlign = "center";
+      context.fillText("No nodes match the current filters.", graph.cssWidth / 2, graph.cssHeight / 2);
+      context.textAlign = "left";
+    }
+  }
+
+  function screenToWorld(event) {
+    const canvas = $("#graphCanvas");
+    const rect = canvas.getBoundingClientRect();
+    const view = state.graph.view;
+    return {
+      x: (event.clientX - rect.left - view.x) / view.k,
+      y: (event.clientY - rect.top - view.y) / view.k,
+      sx: event.clientX - rect.left,
+      sy: event.clientY - rect.top,
+    };
+  }
+
+  function hitTest(event) {
+    if (!state.graph) return null;
+    const point = screenToWorld(event);
+    let best = null;
+    let bestDistance = Infinity;
+    state.graph.nodes.forEach((node) => {
+      const dx = node.x - point.x;
+      const dy = node.y - point.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      const threshold = Math.max(node.radius + 4 / state.graph.view.k, 7 / state.graph.view.k);
+      if (distance <= threshold && distance < bestDistance) {
+        best = node;
+        bestDistance = distance;
+      }
+    });
+    return best;
+  }
+
+  function setupExplorer() {
+    const searchInput = $("#seedSearch");
+    const search = debounce(async () => {
+      const query = searchInput.value.trim();
+      if (!query) { $("#seedResults").innerHTML = ""; return; }
+      const token = ++state.lastSearchToken;
+      try {
+        const data = await fetchJSON(`/api/search?q=${encodeURIComponent(query)}&limit=20`);
+        if (token !== state.lastSearchToken) return;
+        $("#seedResults").innerHTML = data.results.map((result) => `
+          <button class="search-result" data-search-node="${escapeHtml(result.id)}">
+            <div class="result-title"><span>${escapeHtml(result.label)}</span>${badge(result.source)}</div>
+            <div class="result-id">${escapeHtml(result.id)} · degree ${fmtInt(result.degree)} · component ${fmtInt(result.component_size)}</div>
+          </button>
+        `).join("") || `<div class="muted tiny">No matching nodes.</div>`;
+      } catch (error) {
+        $("#seedResults").innerHTML = `<div class="muted tiny">${escapeHtml(error.message)}</div>`;
+      }
+    });
+    searchInput.addEventListener("input", search);
+    $("#seedResults").addEventListener("click", (event) => {
+      const button = event.target.closest("[data-search-node]");
+      if (!button) return;
+      $("#seedSearch").value = "";
+      $("#seedResults").innerHTML = "";
+      loadSubgraph(button.dataset.searchNode);
+    });
+
+    const canvas = $("#graphCanvas");
+    canvas.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      if (!state.graph) return;
+      const rect = canvas.getBoundingClientRect();
+      const mx = event.clientX - rect.left;
+      const my = event.clientY - rect.top;
+      const view = state.graph.view;
+      const factor = Math.exp(-event.deltaY * 0.0014);
+      const nextK = Math.max(0.15, Math.min(6, view.k * factor));
+      view.x = mx - (mx - view.x) * (nextK / view.k);
+      view.y = my - (my - view.y) * (nextK / view.k);
+      view.k = nextK;
+      drawGraph();
+    }, { passive: false });
+
+    canvas.addEventListener("mousedown", (event) => {
+      if (!state.graph) return;
+      const node = hitTest(event);
+      if (node) {
+        selectNode(node.id, true);
+        return;
+      }
+      state.graph.panning = true;
+      state.graph.panStart = {
+        x: event.clientX,
+        y: event.clientY,
+        viewX: state.graph.view.x,
+        viewY: state.graph.view.y,
+      };
+      canvas.classList.add("dragging");
+    });
+
+    window.addEventListener("mousemove", (event) => {
+      if (!state.graph) return;
+      if (state.graph.panning && state.graph.panStart) {
+        state.graph.view.x = state.graph.panStart.viewX + (event.clientX - state.graph.panStart.x);
+        state.graph.view.y = state.graph.panStart.viewY + (event.clientY - state.graph.panStart.y);
+        drawGraph();
+        return;
+      }
+      if (!canvas.contains(event.target)) {
+        if (state.graph.hoverId) {
+          state.graph.hoverId = null;
+          $("#graphTooltip").classList.add("hidden");
+          drawGraph();
+        }
+        return;
+      }
+      const node = hitTest(event);
+      const nextHover = node ? node.id : null;
+      if (nextHover !== state.graph.hoverId) {
+        state.graph.hoverId = nextHover;
+        drawGraph();
+      }
+      const tooltip = $("#graphTooltip");
+      if (node) {
+        const wrapRect = $("#canvasWrap").getBoundingClientRect();
+        tooltip.innerHTML = `<strong>${escapeHtml(node.label)}</strong>
+          <div class="mono tiny">${escapeHtml(node.id)}</div>
+          <div class="tiny muted">${escapeHtml(sourceLabel(node.source))} · degree ${fmtInt(node.degree)} · component ${fmtInt(node.component_size)}</div>`;
+        tooltip.style.left = `${Math.min(wrapRect.width - 260, Math.max(8, event.clientX - wrapRect.left + 12))}px`;
+        tooltip.style.top = `${Math.max(8, event.clientY - wrapRect.top + 12)}px`;
+        tooltip.classList.remove("hidden");
+      } else {
+        tooltip.classList.add("hidden");
+      }
+    });
+
+    window.addEventListener("mouseup", () => {
+      if (!state.graph) return;
+      state.graph.panning = false;
+      state.graph.panStart = null;
+      canvas.classList.remove("dragging");
+    });
+
+    canvas.addEventListener("mouseleave", () => {
+      if (!state.graph) return;
+      state.graph.hoverId = null;
+      $("#graphTooltip").classList.add("hidden");
+      drawGraph();
+    });
+
+    $$("[data-graph-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!state.graph) return;
+        const action = button.dataset.graphAction;
+        if (action === "fit") {
+          fitView();
+          drawGraph();
+          return;
+        }
+        const factor = action === "zoom-in" ? 1.3 : 0.77;
+        const view = state.graph.view;
+        const cx = state.graph.cssWidth / 2;
+        const cy = state.graph.cssHeight / 2;
+        const nextK = Math.max(0.15, Math.min(6, view.k * factor));
+        view.x = cx - (cx - view.x) * (nextK / view.k);
+        view.y = cy - (cy - view.y) * (nextK / view.k);
+        view.k = nextK;
+        drawGraph();
+      });
+    });
+
+    window.addEventListener("resize", debounce(() => {
+      if (!state.graph) return;
+      resizeCanvas();
+      fitView();
+      drawGraph();
+    }, 120));
+  }
+
+  async function selectNode(nodeId, fetchDetail = true) {
+    if (!state.graph) return;
+    state.graph.selectedId = nodeId;
+    drawGraph();
+    const selected = state.graph.nodeById.get(nodeId);
+    $("#detailsPill").textContent = selected ? `${fmtInt(selected.degree)} edges` : "—";
+    if (fetchDetail) {
+      try {
+        const detail = await fetchJSON(`/api/node?id=${encodeURIComponent(nodeId)}`);
+        state.nodeDetail = detail;
+        renderNodeDetails(detail);
+      } catch (error) {
+        $("#nodeDetails").innerHTML = emptyState(error.message || "Could not load node details.");
+      }
+    }
+  }
+
+  function edgeYears(edge) {
+    if (edge.first_year && edge.last_year) return `${edge.first_year}–${edge.last_year}`;
+    if (edge.first_year) return String(edge.first_year);
+    if (edge.last_year) return String(edge.last_year);
+    return "—";
+  }
+
+  function renderEdgeTable(title, edges, total, direction) {
+    const limit = state.edgeLimits[direction] || 200;
+    const shown = edges.slice(0, limit);
+    const rows = shown.map((edge) => `
+      <tr class="clickable" data-edge-neighbor="${escapeHtml(edge.neighbor.id)}">
+        <td>
+          <div class="node-link">${escapeHtml(edge.neighbor.label)}</div>
+          <div class="mono tiny muted">${escapeHtml(edge.neighbor.id)}</div>
+        </td>
+        <td>${escapeHtml(edge.relationship)}</td>
+        <td><span class="badge ${escapeHtml(edge.split)}">${escapeHtml(edge.split)}</span></td>
+        <td class="num">${edge.confidence === null ? "—" : fmtNum(edge.confidence, 3)}</td>
+        <td class="num">${escapeHtml(edgeYears(edge))}</td>
+        <td class="num">${fmtInt(edge.edge_count)}</td>
+      </tr>
+    `).join("");
+    const more = total > limit
+      ? `<div class="btn-row"><button class="btn ghost" data-action="show-all-edges" data-direction="${direction}">Show all ${fmtInt(total)}</button><span class="muted tiny">Showing first ${fmtInt(limit)} of ${fmtInt(total)}.</span></div>`
+      : "";
+    if (!total) return `<h3>${escapeHtml(title)} <span class="muted">(0)</span></h3><div class="muted small">No ${direction} relationships.</div>`;
+    return `<h3>${escapeHtml(title)} <span class="muted">(${fmtInt(total)})</span></h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Neighbor</th><th>Relationship</th><th>Split</th><th class="num">Conf.</th><th class="num">Years</th><th class="num">Count</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table></div>${more}`;
+  }
+
+  function renderNodeDetails(detail) {
+    const node = detail.node;
+    const actions = `
+      <div class="btn-row">
+        <button class="btn primary" data-action="use-seed" data-node-id="${escapeHtml(node.id)}">Explore as seed</button>
+        <button class="btn" data-action="set-pair-a" data-node-id="${escapeHtml(node.id)}">Set pair A</button>
+        <button class="btn" data-action="set-pair-b" data-node-id="${escapeHtml(node.id)}">Set pair B</button>
+      </div>`;
+    const attributes = kvRows([
+      ["Node id", escapeHtml(node.id), true],
+      ["Source", badge(node.source)],
+      ["Entity type", escapeHtml(node.node_type || "—")],
+      ["Degree", `${fmtInt(node.degree)} total · ${fmtInt(node.in_degree)} in · ${fmtInt(node.out_degree)} out`],
+      ["Component", `${escapeHtml(node.component_id)} · size ${fmtInt(node.component_size)}`],
+      ["Industry", escapeHtml(node.industry || "—")],
+      ["Country", escapeHtml(node.country || "—")],
+      ["Ticker", escapeHtml(node.ticker || "—")],
+      ["Product category", escapeHtml(node.product_category || "—")],
+      ["ID method", escapeHtml(node.id_method || "—")],
+      ["Mentions", fmtInt(node.mention_count)],
+      ["Embedding", node.embedding_available ? "available" : "not available"],
+      ["Anonymised", node.is_anonymised ? "yes" : "no"],
+    ]);
+    $("#nodeDetails").innerHTML = `
+      <div class="details-header">
+        <div class="details-id">${escapeHtml(node.id)}</div>
+        <h3>${escapeHtml(node.label)}</h3>
+        <div class="btn-row" style="margin-top:6px">${badge(node.source)}<span class="badge">${fmtInt(node.degree)} edges</span></div>
+      </div>
+      ${actions}
+      ${attributes}
+      ${renderEdgeTable("Outgoing relationships", detail.outgoing, detail.outgoing_count, "outgoing")}
+      ${renderEdgeTable("Incoming relationships", detail.incoming, detail.incoming_count, "incoming")}
+    `;
+    $("#detailsPill").textContent = `${fmtInt(detail.incoming_count + detail.outgoing_count)} relationships`;
+  }
+
+  function nodeSummaryFromSubgraph(nodeId) {
+    if (!state.graph) return null;
+    return state.graph.nodeById.get(nodeId) || null;
+  }
+
+  function setPair(slot, node) {
+    if (!node) return;
+    state.pair[slot] = {
+      id: node.id,
+      label: node.label,
+      source: node.source,
+      degree: node.degree,
+      component_size: node.component_size,
+      is_anonymised: node.is_anonymised,
+    };
+    updatePairStrip();
+    if (state.experiment) renderPredictionTab();
+  }
+
+  function updatePairStrip() {
+    const a = state.pair.A;
+    const b = state.pair.B;
+    const text = $("#pairStripText");
+    if (!a && !b) {
+      text.textContent = "No pair selected. Use “Set pair A/B” in node details.";
+    } else {
+      text.innerHTML = `A: ${a ? `<strong>${escapeHtml(a.label)}</strong> <span class="mono tiny muted">${escapeHtml(a.id)}</span>` : "<span class='muted'>none</span>"} &nbsp;→&nbsp; B: ${b ? `<strong>${escapeHtml(b.label)}</strong> <span class="mono tiny muted">${escapeHtml(b.id)}</span>` : "<span class='muted'>none</span>"}`;
+    }
+    $("#openPredictionButton").disabled = !(a && b);
+  }
+
+  $("#nodeDetails").addEventListener("click", (event) => {
+    const action = event.target.closest("[data-action]");
+    const neighbor = event.target.closest("[data-edge-neighbor]");
+    if (neighbor) {
+      const nodeId = neighbor.dataset.edgeNeighbor;
+      const node = nodeSummaryFromSubgraph(nodeId);
+      if (node) selectNode(nodeId, true);
+      else loadSubgraph(nodeId);
+      return;
+    }
+    if (!action) return;
+    const kind = action.dataset.action;
+    if (kind === "use-seed") {
+      loadSubgraph(action.dataset.nodeId);
+      switchTab("explorer");
+    } else if (kind === "set-pair-a" || kind === "set-pair-b") {
+      const node = nodeSummaryFromSubgraph(action.dataset.nodeId);
+      if (node) {
+        setPair(kind === "set-pair-a" ? "A" : "B", node);
+        action.textContent = kind === "set-pair-a" ? "Pair A set" : "Pair B set";
+      }
+    } else if (kind === "show-all-edges") {
+      const direction = action.dataset.direction;
+      state.edgeLimits[direction] = Number.MAX_SAFE_INTEGER;
+      if (state.nodeDetail) renderNodeDetails(state.nodeDetail);
+    }
+  });
+
+  $("#openPredictionButton").addEventListener("click", () => switchTab("prediction"));
+
+  function renderAnalytics() {
+    const analytics = state.analytics;
+    if (!analytics) return;
+    const counts = analytics.counts;
+    $("#analyticsDataPill").textContent = `Dataset ${analytics.dataset_version}`;
+    $("#analyticsStats").innerHTML = [
+      statCard("Nodes", fmtInt(counts.nodes), "actual processed nodes"),
+      statCard("Edges", fmtInt(counts.edges), "actual directed edges"),
+      statCard("Components", fmtInt(analytics.component_stats.count), "weakly connected components"),
+      statCard("Largest component", fmtInt(analytics.component_stats.largest), "nodes"),
+      statCard("Mean degree", fmtNum(analytics.degree_stats.mean, 2), `median ${fmtNum(analytics.degree_stats.median, 0)}`),
+      statCard("Max degree", fmtInt(analytics.degree_stats.max), `p99 ${fmtNum(analytics.degree_stats.p99, 1)}`),
+      statCard("Embedding coverage", fmtPct(counts.embedding_coverage), `${fmtInt(counts.embedding_available)} nodes`),
+      statCard("Isolated nodes", fmtInt(counts.isolated_nodes), "degree 0"),
+    ].join("");
+
+    renderBarChart($("#degreeChart"), analytics.degree_histogram.labels, analytics.degree_histogram.counts, {
+      yLabel: "nodes (log scale)",
+      logScale: true,
+      color: "#4fd1c5",
+    });
+    renderBarChart($("#componentChart"), analytics.component_histogram.labels, analytics.component_histogram.counts, {
+      yLabel: "components (log scale)",
+      logScale: true,
+      color: "#a78bfa",
+    });
+    renderHorizontalBars($("#sourceChart"), Object.entries(counts.sources), {
+      total: counts.nodes,
+      color: "#4fd1c5",
+      labelMap: (key) => sourceLabel(key),
+    });
+    renderHorizontalBars($("#relationshipChart"), Object.entries(counts.relationships), {
+      total: counts.edges,
+      color: "#38bdf8",
+    });
+    renderHorizontalBars($("#splitChart"), Object.entries(counts.edge_splits), {
+      total: counts.edges,
+      color: "#fbbf24",
+    });
+    renderCategoryQuality(analytics.category_quality || {});
+    renderTopComponents(analytics.top_components);
+    renderTopDegreeNodes(analytics.top_degree_nodes);
+  }
+
+  function renderCategoryCoverage(quality) {
+    const rows = [
+      ["Country", quality.country],
+      ["Industry", quality.industry],
+    ].filter(([, item]) => item);
+    if (!rows.length) {
+      $("#categoryCoverage").innerHTML = emptyState("Category coverage is unavailable.");
+      return;
+    }
+    const table = `<div class="table-wrap"><table>
+      <thead><tr><th>Field</th><th class="num">Verified nodes</th><th class="num">Anonymized nodes</th><th class="num">Missing nodes</th><th class="num">Unknown nodes</th><th class="num">Verified distinct</th><th class="num">Anonymized distinct</th></tr></thead>
+      <tbody>${rows.map(([label, item]) => `<tr>
+        <td>${escapeHtml(label)}</td>
+        <td class="num">${fmtInt(item.counts.verified)}</td>
+        <td class="num">${fmtInt(item.counts.anonymized)}</td>
+        <td class="num">${fmtInt(item.counts.missing)} <span class="muted tiny">${fmtPct(item.counts.missing / Math.max(1, item.total_nodes))}</span></td>
+        <td class="num">${fmtInt(item.counts.unknown)}</td>
+        <td class="num">${fmtInt(item.distinct.verified)}</td>
+        <td class="num">${fmtInt(item.distinct.anonymized)}</td>
+      </tr>`).join("")}</tbody>
+    </table></div>`;
+    const missing = rows.map(([label, item]) => {
+      const parts = Object.entries(item.missing_by_source || {})
+        .map(([source, count]) => `${escapeHtml(sourceLabel(source))}: ${fmtInt(count)}`)
+        .join(" · ");
+      return `<div class="muted tiny" style="margin-top:5px"><strong>${escapeHtml(label)} missing by source:</strong> ${parts || "none"}</div>`;
+    }).join("");
+    const notes = rows.flatMap(([, item]) => item.notes || []).filter((note, index, all) => all.indexOf(note) === index);
+    $("#categoryCoverage").innerHTML = `${table}${missing}<ul class="list tiny" style="margin-top:8px">${notes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}</ul>`;
+  }
+
+  function renderCategoryChart(container, category, categoryType, emptyMessage, color) {
+    if (!container || !category) return;
+    const entries = category[`top_${categoryType}`] || [];
+    if (!entries.length) {
+      container.innerHTML = emptyState(emptyMessage);
+      return;
+    }
+    const total = category.counts[categoryType] || 0;
+    renderHorizontalBars(container, entries.map((entry) => [entry.normalized_value, entry.count]), {
+      total,
+      color,
+    });
+    container.insertAdjacentHTML(
+      "beforeend",
+      `<div class="muted tiny" style="margin-top:5px">${fmtInt(total)} ${escapeHtml(categoryType)} nodes across ${fmtInt(category.distinct[categoryType])} distinct values.</div>`
+    );
+  }
+
+  function renderCategoryQuality(quality) {
+    if (!quality.country || !quality.industry) {
+      $("#categoryCoverage").innerHTML = emptyState("Category quality data is unavailable.");
+      return;
+    }
+    renderCategoryCoverage(quality);
+    renderCategoryChart($("#verifiedCountryChart"), quality.country, "verified", "No verified country names are present.", "#4fd1c5");
+    renderCategoryChart($("#anonymizedCountryChart"), quality.country, "anonymized", "No anonymized country codes are present.", "#fbbf24");
+    renderCategoryChart($("#verifiedIndustryChart"), quality.industry, "verified", "No verified industry names exist in the current sources.", "#4fd1c5");
+    renderCategoryChart($("#anonymizedIndustryChart"), quality.industry, "anonymized", "No anonymized industry codes are present.", "#f472b6");
+  }
+
+  function renderBarChart(container, labels, values, options = {}) {
+    if (!container) return;
+    if (!labels.length) { container.innerHTML = chartEmpty("No data available."); return; }
+    const width = 520, height = 300, margin = { left: 54, right: 16, top: 16, bottom: 62 };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+    const scaled = values.map((value) => options.logScale ? Math.log10(Number(value) + 1) : Number(value));
+    const maxValue = Math.max(...scaled, options.logScale ? 0.5 : 1);
+    const step = innerWidth / labels.length;
+    const barWidth = Math.min(34, step * 0.62);
+    const ticks = 4;
+    const grid = Array.from({ length: ticks + 1 }, (_, index) => {
+      const value = (maxValue / ticks) * index;
+      const y = margin.top + innerHeight - (value / maxValue) * innerHeight;
+      const label = options.logScale ? fmtInt(Math.round(10 ** value - 1)) : fmtInt(Math.round(value));
+      return `<line x1="${margin.left}" y1="${y}" x2="${width - margin.right}" y2="${y}" stroke="rgba(139,160,181,.16)" stroke-width="1" />
+        <text x="${margin.left - 8}" y="${y + 3}" fill="#62788f" font-size="9" text-anchor="end">${label}</text>`;
+    }).join("");
+    const bars = labels.map((label, index) => {
+      const value = scaled[index];
+      const barHeight = Math.max(0, (value / maxValue) * innerHeight);
+      const x = margin.left + index * step + (step - barWidth) / 2;
+      const y = margin.top + innerHeight - barHeight;
+      const color = options.color || "#4fd1c5";
+      return `<rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="3" fill="${color}" opacity=".8" />
+        <title>${escapeHtml(label)}: ${fmtInt(values[index])}</title>
+        <text x="${x + barWidth / 2}" y="${height - margin.bottom + 13}" fill="#8ba0b5" font-size="9" text-anchor="end" transform="rotate(-38 ${x + barWidth / 2} ${height - margin.bottom + 13})">${escapeHtml(label)}</text>`;
+    }).join("");
+    container.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Bar chart">
+      ${grid}${bars}
+      <line x1="${margin.left}" y1="${margin.top + innerHeight}" x2="${width - margin.right}" y2="${margin.top + innerHeight}" stroke="rgba(139,160,181,.3)" />
+      <line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${margin.top + innerHeight}" stroke="rgba(139,160,181,.3)" />
+      <text x="12" y="${margin.top + innerHeight / 2}" fill="#62788f" font-size="9" transform="rotate(-90 12 ${margin.top + innerHeight / 2})" text-anchor="middle">${escapeHtml(options.yLabel || "count")}</text>
+    </svg>`;
+  }
+
+  function renderHorizontalBars(container, entries, options = {}) {
+    if (!container) return;
+    const sorted = entries.filter(([, value]) => Number(value) > 0).sort((a, b) => Number(b[1]) - Number(a[1]));
+    if (!sorted.length) { container.innerHTML = chartEmpty("No data available."); return; }
+    const maxValue = Math.max(...sorted.map(([, value]) => Number(value)), 1);
+    const total = options.total || sorted.reduce((sum, [, value]) => sum + Number(value), 0);
+    container.innerHTML = `<div class="hbar-list">${sorted.map(([key, value]) => {
+      const label = options.labelMap ? options.labelMap(key) : key;
+      const width = Math.max(2, (Number(value) / maxValue) * 100);
+      return `<div class="hbar-row">
+        <div class="hbar-label" title="${escapeHtml(label)}">${escapeHtml(label)}</div>
+        <div class="hbar-track"><div class="hbar-fill" style="width:${width}%;background:${options.color || "#4fd1c5"}"></div></div>
+        <div class="hbar-value">${fmtInt(value)} <span class="muted tiny">${fmtPct(Number(value) / Math.max(1, total))}</span></div>
+      </div>`;
+    }).join("")}</div>`;
+  }
+
+  function renderTopComponents(components) {
+    const container = $("#topComponents");
+    if (!container) return;
+    if (!components?.length) { container.innerHTML = emptyState("No components available."); return; }
+    container.innerHTML = `<table>
+      <thead><tr><th>Component</th><th class="num">Size</th><th>Source mix</th><th>Sample actual nodes</th></tr></thead>
+      <tbody>${components.map((component) => `
+        <tr>
+          <td class="mono">${escapeHtml(component.component_id)}</td>
+          <td class="num">${fmtInt(component.size)}</td>
+          <td class="tiny">${Object.entries(component.source_mix).map(([source, count]) => `${escapeHtml(source)}: ${fmtInt(count)}`).join("<br>")}</td>
+          <td class="tiny">${component.sample_nodes.map((node) => `<span class="node-link" data-component-node="${escapeHtml(node.id)}">${escapeHtml(node.label)}</span>`).join(" · ")}</td>
+        </tr>
+      `).join("")}</tbody>
+    </table>`;
+    container.querySelectorAll("[data-component-node]").forEach((element) => {
+      element.addEventListener("click", () => loadSubgraph(element.dataset.componentNode));
+    });
+  }
+
+  function renderTopDegreeNodes(nodes) {
+    const container = $("#topDegreeNodes");
+    if (!container) return;
+    if (!nodes?.length) { container.innerHTML = emptyState("No nodes available."); return; }
+    container.innerHTML = `<table>
+      <thead><tr><th>Node</th><th>Source</th><th class="num">Degree</th><th class="num">Component</th></tr></thead>
+      <tbody>${nodes.map((node) => `
+        <tr class="clickable" data-component-node="${escapeHtml(node.id)}">
+          <td><div>${escapeHtml(node.label)}</div><div class="mono tiny muted">${escapeHtml(node.id)}</div></td>
+          <td>${badge(node.source)}</td>
+          <td class="num">${fmtInt(node.degree)}</td>
+          <td class="num">${fmtInt(node.component_size)}</td>
+        </tr>
+      `).join("")}</tbody>
+    </table>`;
+    container.querySelectorAll("[data-component-node]").forEach((element) => {
+      element.addEventListener("click", () => loadSubgraph(element.dataset.componentNode));
+    });
+  }
+
+  function renderLineChart(container, series, options = {}) {
+    if (!container) return;
+    const usable = series.filter((item) => item.x && item.y && item.x.length && item.y.length);
+    if (!usable.length) { container.innerHTML = chartEmpty(options.emptyMessage || "No chart data available."); return; }
+    const width = 520, height = 300, margin = { left: 54, right: 16, top: 18, bottom: 48 };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+    const xMin = options.xMin ?? 0, xMax = options.xMax ?? 1, yMin = options.yMin ?? 0, yMax = options.yMax ?? 1;
+    const sx = (value) => margin.left + ((value - xMin) / Math.max(1e-9, xMax - xMin)) * innerWidth;
+    const sy = (value) => margin.top + innerHeight - ((value - yMin) / Math.max(1e-9, yMax - yMin)) * innerHeight;
+    const ticks = 5;
+    const grid = Array.from({ length: ticks + 1 }, (_, index) => {
+      const value = index / ticks;
+      const x = sx(value);
+      const y = sy(value);
+      return `<line x1="${x}" y1="${margin.top}" x2="${x}" y2="${margin.top + innerHeight}" stroke="rgba(139,160,181,.12)" />
+        <line x1="${margin.left}" y1="${y}" x2="${width - margin.right}" y2="${y}" stroke="rgba(139,160,181,.12)" />
+        <text x="${x}" y="${height - margin.bottom + 15}" fill="#62788f" font-size="9" text-anchor="middle">${value.toFixed(1)}</text>
+        <text x="${margin.left - 8}" y="${y + 3}" fill="#62788f" font-size="9" text-anchor="end">${value.toFixed(1)}</text>`;
+    }).join("");
+    const diagonal = options.diagonal ? `<line x1="${sx(xMin)}" y1="${sy(yMin)}" x2="${sx(xMax)}" y2="${sy(yMax)}" stroke="rgba(139,160,181,.35)" stroke-dasharray="5 5" />` : "";
+    const lines = usable.map((item, index) => {
+      const color = item.color || SERIES_COLORS[index % SERIES_COLORS.length];
+      const points = item.x.map((x, pointIndex) => `${sx(Number(x))},${sy(Number(item.y[pointIndex]))}`).join(" ");
+      return `<polyline points="${points}" fill="none" stroke="${color}" stroke-width="2" vector-effect="non-scaling-stroke" />`;
+    }).join("");
+    const legend = usable.map((item, index) => `<span><span class="swatch" style="background:${item.color || SERIES_COLORS[index % SERIES_COLORS.length]}"></span>${escapeHtml(item.name)}</span>`).join("");
+    container.innerHTML = `<div class="legend" style="margin-bottom:4px">${legend}</div>
+      <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Line chart">
+        ${grid}${diagonal}${lines}
+        <line x1="${margin.left}" y1="${margin.top + innerHeight}" x2="${width - margin.right}" y2="${margin.top + innerHeight}" stroke="rgba(139,160,181,.3)" />
+        <line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${margin.top + innerHeight}" stroke="rgba(139,160,181,.3)" />
+        <text x="${margin.left + innerWidth / 2}" y="${height - 8}" fill="#62788f" font-size="9" text-anchor="middle">${escapeHtml(options.xLabel || "")}</text>
+        <text x="12" y="${margin.top + innerHeight / 2}" fill="#62788f" font-size="9" transform="rotate(-90 12 ${margin.top + innerHeight / 2})" text-anchor="middle">${escapeHtml(options.yLabel || "")}</text>
+      </svg>`;
+  }
+
+  function renderGroupedBars(container, distribution, options = {}) {
+    if (!container) return;
+    if (!distribution?.bin_centers?.length) { container.innerHTML = chartEmpty("No score distribution available."); return; }
+    const centers = distribution.bin_centers;
+    const positive = distribution.positive_counts;
+    const negative = distribution.negative_counts;
+    const width = 620, height = 320, margin = { left: 54, right: 16, top: 18, bottom: 64 };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+    const maxValue = Math.max(...positive, ...negative, 1);
+    const step = innerWidth / centers.length;
+    const barWidth = Math.max(2, step * 0.34);
+    const ticks = 4;
+    const grid = Array.from({ length: ticks + 1 }, (_, index) => {
+      const value = (maxValue / ticks) * index;
+      const y = margin.top + innerHeight - (value / maxValue) * innerHeight;
+      return `<line x1="${margin.left}" y1="${y}" x2="${width - margin.right}" y2="${y}" stroke="rgba(139,160,181,.12)" />
+        <text x="${margin.left - 8}" y="${y + 3}" fill="#62788f" font-size="9" text-anchor="end">${fmtInt(Math.round(value))}</text>`;
+    }).join("");
+    const bars = centers.map((center, index) => {
+      const x = margin.left + index * step + step * 0.15;
+      const positiveHeight = (positive[index] / maxValue) * innerHeight;
+      const negativeHeight = (negative[index] / maxValue) * innerHeight;
+      const label = distribution.x_transform === "log1p" ? `log1p ${Number(center).toFixed(2)}` : Number(center).toFixed(2);
+      return `<rect x="${x}" y="${margin.top + innerHeight - positiveHeight}" width="${barWidth}" height="${positiveHeight}" fill="#22c55e" opacity=".8"><title>positive: ${fmtInt(positive[index])}</title></rect>
+        <rect x="${x + barWidth}" y="${margin.top + innerHeight - negativeHeight}" width="${barWidth}" height="${negativeHeight}" fill="#f87171" opacity=".65"><title>negative: ${fmtInt(negative[index])}</title></rect>
+        <text x="${x + barWidth}" y="${height - margin.bottom + 13}" fill="#8ba0b5" font-size="8" text-anchor="end" transform="rotate(-45 ${x + barWidth} ${height - margin.bottom + 13})">${label}</text>`;
+    }).join("");
+    container.innerHTML = `<div class="legend" style="margin-bottom:4px"><span><span class="swatch" style="background:#22c55e"></span>actual positive edges</span><span><span class="swatch" style="background:#f87171"></span>sampled negatives</span></div>
+      <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Score distribution">
+        ${grid}${bars}
+        <line x1="${margin.left}" y1="${margin.top + innerHeight}" x2="${width - margin.right}" y2="${margin.top + innerHeight}" stroke="rgba(139,160,181,.3)" />
+        <text x="${margin.left + innerWidth / 2}" y="${height - 8}" fill="#62788f" font-size="9" text-anchor="middle">${distribution.x_transform === "log1p" ? "log1p score" : "score"}</text>
+        <text x="12" y="${margin.top + innerHeight / 2}" fill="#62788f" font-size="9" transform="rotate(-90 12 ${margin.top + innerHeight / 2})" text-anchor="middle">count</text>
+      </svg>`;
+  }
+
+  function renderConfusionMatrix(container, matrix, labels = ["negative", "positive"]) {
+    if (!container) return;
+    if (!matrix || matrix.length !== 2) { container.innerHTML = chartEmpty("No confusion matrix available."); return; }
+    const [[tn, fp], [fn, tp]] = matrix;
+    container.innerHTML = `<div class="matrix">
+      <div class="head"></div><div class="head">pred ${escapeHtml(labels[0])}</div><div class="head">pred ${escapeHtml(labels[1])}</div>
+      <div class="head">actual ${escapeHtml(labels[0])}</div>
+      <div class="cell tn"><div><strong>${fmtInt(tn)}</strong><span>true negative</span></div></div>
+      <div class="cell fp"><div><strong>${fmtInt(fp)}</strong><span>false positive</span></div></div>
+      <div class="head">actual ${escapeHtml(labels[1])}</div>
+      <div class="cell fn"><div><strong>${fmtInt(fn)}</strong><span>false negative</span></div></div>
+      <div class="cell tp"><div><strong>${fmtInt(tp)}</strong><span>true positive</span></div></div>
+    </div>`;
+  }
+
+  function metricCard(label, value, sub = "") {
+    return `<div class="metric-card"><div class="metric-label">${escapeHtml(label)}</div><div class="metric-value">${escapeHtml(value)}</div>${sub ? `<div class="metric-sub">${escapeHtml(sub)}</div>` : ""}</div>`;
+  }
+
+  function metricsCards(metrics) {
+    return `<div class="metric-grid">
+      ${metricCard("ROC-AUC", fmtNum(metrics.roc_auc, 4))}
+      ${metricCard("Average precision", fmtNum(metrics.average_precision, 4))}
+      ${metricCard("Precision", fmtNum(metrics.precision, 4))}
+      ${metricCard("Recall", fmtNum(metrics.recall, 4))}
+      ${metricCard("F1", fmtNum(metrics.f1, 4))}
+      ${metricCard("Threshold", fmtNum(metrics.threshold, 4), "validation-selected")}
+    </div>`;
+  }
+
+  function renderArtifactTable(container, artifacts) {
+    if (!container) return;
+    container.innerHTML = `<div class="table-wrap"><table>
+      <thead><tr><th>Artifact</th><th>Path</th><th>Status</th><th class="num">Bytes</th></tr></thead>
+      <tbody>${artifacts.map((artifact) => `
+        <tr>
+          <td>${escapeHtml(artifact.label)}</td>
+          <td class="mono tiny">${escapeHtml(artifact.path)}</td>
+          <td><span class="badge ${artifact.exists ? "good" : "bad"}">${artifact.exists ? "present" : "missing"}</span></td>
+          <td class="num">${artifact.exists ? fmtBytes(artifact.bytes) : "—"}</td>
+        </tr>
+      `).join("")}</tbody>
+    </table></div>`;
+  }
+
+  function renderTraining() {
+    const experiment = state.experiment;
+    if (!experiment) return;
+    const gnn = experiment.gnn;
+    const config = experiment.config || {};
+    const metadata = experiment.dataset_metadata || {};
+    $("#trainingStatus").innerHTML = gnn.available
+      ? `<div class="banner good"><strong>GraphSAGE checkpoint available.</strong> Training history and GNN metrics were loaded from the experiment directory.</div>`
+      : `<div class="banner warn"><strong>GraphSAGE is not trained.</strong> ${escapeHtml(gnn.reason)} The table below shows the planned protocol, not results.</div>`;
+    $("#trainingStats").innerHTML = [
+      statCard("Experiment status", escapeHtml(gnn.status), gnn.available ? "artifacts loaded" : "no checkpoint"),
+      statCard("Checkpoint", gnn.checkpoint_exists ? "present" : "missing", gnn.checkpoint_path),
+      statCard("Feature input", fmtInt(config.architecture?.in_channels ?? config.features?.used_node_feature_dim), `${fmtInt(config.features?.excluded_features?.length)} graph-derived features excluded`),
+      statCard("Message passing", "train edges only", `${fmtInt(metadata.edge_split_sizes?.train)} train edges`),
+    ].join("");
+    $("#trainingConfig").innerHTML = kvRows([
+      ["Task", escapeHtml(config.task || "directed link prediction")],
+      ["Model", `${escapeHtml(config.model || "GraphSAGE")} · ${escapeHtml(config.model_class || "AtmoGraphSAGE")}`],
+      ["Architecture", `${fmtInt(config.architecture?.layers)} layers · hidden ${fmtInt(config.architecture?.hidden_channels)} · out ${fmtInt(config.architecture?.out_channels)} · dropout ${fmtNum(config.architecture?.dropout, 2)}`],
+      ["Node feature input", `${fmtInt(config.features?.used_node_feature_dim)} selected / ${fmtInt(config.features?.total_node_feature_dim)} total`],
+      ["Excluded features", escapeHtml((config.features?.excluded_features || []).join(", ") || "—")],
+      ["Message passing", escapeHtml(config.graph_protocol?.message_passing_edges || "train split only")],
+      ["Negative sampling", escapeHtml(config.graph_protocol?.negative_sampling || "uniform directed non-edges; observed edges excluded")],
+      ["Threshold", escapeHtml(config.graph_protocol?.threshold_selection || "validation-only maximum F1")],
+      ["Test protocol", escapeHtml(config.graph_protocol?.test_protocol || "evaluate once after early stopping")],
+      ["Loss / optimizer", `${escapeHtml(config.training?.loss || "BCEWithLogitsLoss")} · ${escapeHtml(config.training?.optimizer || "Adam")} · lr ${escapeHtml(config.training?.learning_rate ?? "—")}`],
+    ]);
+    const splits = metadata.edge_split_sizes || {};
+    const nodeSplits = metadata.node_split_sizes || {};
+    $("#trainingSplits").innerHTML = `<table>
+      <thead><tr><th>Split</th><th class="num">Node split</th><th class="num">Edge split</th></tr></thead>
+      <tbody>${["train", "val", "test"].map((split) => `<tr><td>${split}</td><td class="num">${fmtInt(nodeSplits[split])}</td><td class="num">${fmtInt(splits[split])}</td></tr>`).join("")}</tbody>
+    </table>
+    <p class="muted small" style="margin:9px 0 0">Node split sizes come from <code>dataset_splits.json</code>; edge split sizes come from <code>edge_index.csv</code>.</p>`;
+    renderArtifactTable($("#trainingArtifacts"), experiment.artifacts || []);
+    $("#trainingHistory").innerHTML = gnn.available && gnn.history
+      ? `<div id="trainingLossChart" class="chart"></div><div id="trainingQualityChart" class="chart" style="margin-top:8px"></div>`
+      : chartEmpty("Not available — no training history. The PyG smoke test is not a training run.");
+    if (gnn.available && gnn.history) {
+      const history = gnn.history.history || [];
+      renderLineChart($("#trainingLossChart"), [
+        { name: "train loss", x: history.map((row) => row.epoch), y: history.map((row) => row.train_loss), color: "#4fd1c5" },
+        { name: "validation loss", x: history.map((row) => row.epoch), y: history.map((row) => row.validation_loss), color: "#fbbf24" },
+      ], { xMin: 0, xMax: Math.max(1, history.length), yMin: 0, yMax: Math.max(...history.map((row) => Math.max(row.train_loss, row.validation_loss)), 1), xLabel: "epoch", yLabel: "loss" });
+      renderLineChart($("#trainingQualityChart"), [
+        { name: "validation ROC-AUC", x: history.map((row) => row.epoch), y: history.map((row) => row.validation_roc_auc), color: "#4fd1c5" },
+        { name: "validation average precision", x: history.map((row) => row.epoch), y: history.map((row) => row.validation_average_precision), color: "#38bdf8" },
+      ], { xMin: 0, xMax: Math.max(1, history.length), yMin: 0, yMax: 1, xLabel: "epoch", yLabel: "score" });
+    }
+    $("#trainingCommand").textContent = config.training_command || ".venv/bin/python -m ml.training.train_graphsage_link_prediction";
+  }
+
+  function renderEvaluation() {
+    const experiment = state.experiment;
+    if (!experiment) return;
+    const gnn = experiment.gnn;
+    const baseline = experiment.baseline;
+    $("#evaluationStatus").innerHTML = gnn.available
+      ? `<div class="banner good"><strong>GraphSAGE evaluation available.</strong> Metrics below come from <code>ml/experiments/graphsage_link_prediction/metrics.json</code>.</div>`
+      : `<div class="banner warn"><strong>GraphSAGE metrics are not available.</strong> ${escapeHtml(gnn.reason)} Only the structural baseline is shown as a real result.</div>`;
+
+    if (gnn.available && gnn.metrics) {
+      const metrics = gnn.metrics.test;
+      const validation = gnn.metrics.validation;
+      $("#gnnEvaluation").innerHTML = `${metricsCards(metrics)}
+        <div class="muted small">Validation ROC-AUC ${fmtNum(validation.roc_auc, 4)} · validation AP ${fmtNum(validation.average_precision, 4)} · threshold ${fmtNum(metrics.threshold, 4)}</div>
+        <div id="gnnRoc" class="chart" style="margin-top:8px"></div>
+        <div id="gnnPr" class="chart" style="margin-top:8px"></div>
+        <div id="gnnMatrix" style="margin-top:8px"></div>`;
+      renderLineChart($("#gnnRoc"), [{ name: "GraphSAGE ROC", x: metrics.curves?.roc?.fpr || [], y: metrics.curves?.roc?.tpr || [], color: "#22c55e" }], { diagonal: true, xLabel: "false positive rate", yLabel: "true positive rate" });
+      renderLineChart($("#gnnPr"), [{ name: "GraphSAGE PR", x: metrics.curves?.pr?.recall || [], y: metrics.curves?.pr?.precision || [], color: "#22c55e" }], { xLabel: "recall", yLabel: "precision" });
+      renderConfusionMatrix($("#gnnMatrix"), metrics.confusion_matrix, metrics.confusion_matrix_labels);
+    } else {
+      $("#gnnEvaluation").innerHTML = `${emptyState("Not available — model not trained yet.")}
+        <div class="banner info" style="margin-top:9px">The GNN evaluation section stays empty until a real checkpoint and <code>metrics.json</code> exist. The PyG smoke test only validated graph loading and a forward pass.</div>`;
+    }
+
+    if (baseline) {
+      const selected = baseline.baseline || {};
+      const test = selected.test || {};
+      $("#baselineEvaluation").innerHTML = `
+        <div class="banner info"><strong>${escapeHtml(baseline.selected_baseline || "baseline")}</strong> · real structural link-prediction baseline · <strong>not a GNN</strong></div>
+        ${metricsCards(test)}
+        <div id="baselineMatrix"></div>
+        <div class="muted small" style="margin-top:8px">Threshold policy: ${escapeHtml(selected.threshold_selection?.criterion || "validation-selected")} · selected threshold ${fmtNum(test.threshold, 4)}.</div>
+        <h3>Alternative baseline</h3>
+        ${(baseline.alternatives || []).map((alternative) => `<div class="muted small">${escapeHtml(alternative.name)} · test ROC-AUC ${fmtNum(alternative.test?.roc_auc, 4)} · AP ${fmtNum(alternative.test?.average_precision, 4)}</div>`).join("") || `<div class="muted small">No alternative baseline stored.</div>`}
+      `;
+      renderConfusionMatrix($("#baselineMatrix"), test.confusion_matrix, test.confusion_matrix_labels);
+      renderLineChart($("#baselineRoc"), [{ name: baseline.selected_baseline, x: test.curves?.roc?.fpr || [], y: test.curves?.roc?.tpr || [], color: "#4fd1c5" }], { diagonal: true, xLabel: "false positive rate", yLabel: "true positive rate" });
+      renderLineChart($("#baselinePr"), [{ name: baseline.selected_baseline, x: test.curves?.pr?.recall || [], y: test.curves?.pr?.precision || [], color: "#38bdf8" }], { xLabel: "recall", yLabel: "precision" });
+      renderGroupedBars($("#baselineScores"), test.score_distribution);
+      const gnnRow = gnn.available && gnn.metrics
+        ? `<tr><td>GraphSAGE (GNN)</td><td class="num">${fmtNum(gnn.metrics.test.roc_auc, 4)}</td><td class="num">${fmtNum(gnn.metrics.test.average_precision, 4)}</td><td class="num">${fmtNum(gnn.metrics.test.f1, 4)}</td><td class="num">${fmtNum(gnn.metrics.test.threshold, 4)}</td></tr>`
+        : `<tr><td>GraphSAGE (GNN)</td><td colspan="4" class="muted">Not trained — no metrics available</td></tr>`;
+      $("#modelComparison").innerHTML = `<table>
+        <thead><tr><th>Model</th><th class="num">ROC-AUC</th><th class="num">AP</th><th class="num">F1</th><th class="num">Threshold</th></tr></thead>
+        <tbody>
+          <tr><td>${escapeHtml(baseline.selected_baseline)} (structural baseline)</td><td class="num">${fmtNum(test.roc_auc, 4)}</td><td class="num">${fmtNum(test.average_precision, 4)}</td><td class="num">${fmtNum(test.f1, 4)}</td><td class="num">${fmtNum(test.threshold, 4)}</td></tr>
+          ${gnnRow}
+        </tbody>
+      </table>`;
+    } else {
+      $("#baselineEvaluation").innerHTML = emptyState("No structural baseline artifact available.");
+      $("#baselineRoc").innerHTML = chartEmpty("No baseline ROC data.");
+      $("#baselinePr").innerHTML = chartEmpty("No baseline PR data.");
+      $("#baselineScores").innerHTML = chartEmpty("No baseline score distribution.");
+      $("#modelComparison").innerHTML = emptyState("No baseline comparison available.");
+    }
+  }
+
+  function renderMiniNode(container, node, slot) {
+    if (!container) return;
+    if (!node) {
+      container.className = "mini-node empty-state";
+      container.textContent = `No ${slot === "A" ? "source" : "target"} node selected.`;
+      return;
+    }
+    container.className = "mini-node";
+    container.innerHTML = `<div class="mini-title"><strong>${escapeHtml(node.label)}</strong>${badge(node.source)}</div>
+      <div class="mini-id">${escapeHtml(node.id)}</div>
+      <div class="tiny muted">degree ${fmtInt(node.degree)} · component ${fmtInt(node.component_size)}</div>`;
+  }
+
+  function renderPredictionTab() {
+    if (!state.experiment) return;
+    const gnn = state.experiment.gnn;
+    $("#predictionModelPill").textContent = gnn.available ? "checkpoint available" : "checkpoint missing";
+    $("#predictionAvailability").innerHTML = gnn.available
+      ? `<div class="banner good"><strong>Inference enabled.</strong> A checkpoint and metrics are present. Scores are link-prediction probabilities, not risk scores.</div>`
+      : `<div class="banner warn"><strong>Inference disabled: no trained GraphSAGE checkpoint exists.</strong> ${escapeHtml(gnn.reason)} The button below is disabled until a real training run produces <code>checkpoint.pt</code> and <code>metrics.json</code>.</div>`;
+    renderMiniNode($("#predictNodeA"), state.pair.A, "A");
+    renderMiniNode($("#predictNodeB"), state.pair.B, "B");
+    const ready = Boolean(state.pair.A && state.pair.B && gnn.available);
+    $("#runPredictionButton").disabled = !ready;
+    $("#runPredictionButton").title = ready ? "Run GraphSAGE link prediction" : "A trained checkpoint is required";
+    if (!state.pair.A || !state.pair.B) {
+      $("#predictionRunStatus").textContent = "Select both nodes from search or set them in Graph Explorer.";
+    } else if (!gnn.available) {
+      $("#predictionRunStatus").textContent = "Prediction is unavailable because the experiment is not trained.";
+    } else {
+      $("#predictionRunStatus").textContent = "Ready to score this directed pair.";
+    }
+  }
+
+  function setupPrediction() {
+    const setupSearch = (inputSelector, resultsSelector, slot) => {
+      const input = $(inputSelector);
+      const results = $(resultsSelector);
+      const search = debounce(async () => {
+        const query = input.value.trim();
+        if (!query) { results.innerHTML = ""; return; }
+        try {
+          const data = await fetchJSON(`/api/search?q=${encodeURIComponent(query)}&limit=16`);
+          results.innerHTML = data.results.map((result) => `
+            <button class="search-result" data-predict-node="${escapeHtml(result.id)}">
+              <div class="result-title"><span>${escapeHtml(result.label)}</span>${badge(result.source)}</div>
+              <div class="result-id">${escapeHtml(result.id)} · degree ${fmtInt(result.degree)}</div>
+            </button>
+          `).join("") || `<div class="muted tiny">No matching nodes.</div>`;
+        } catch (error) {
+          results.innerHTML = `<div class="muted tiny">${escapeHtml(error.message)}</div>`;
+        }
+      });
+      input.addEventListener("input", search);
+      results.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-predict-node]");
+        if (!button) return;
+        const node = state.graph?.nodeById?.get(button.dataset.predictNode);
+        if (node) setPair(slot, node);
+        else {
+          fetchJSON(`/api/node_summary?id=${encodeURIComponent(button.dataset.predictNode)}`)
+            .then((summary) => setPair(slot, summary))
+            .catch((error) => { $("#predictionRunStatus").textContent = error.message; });
+        }
+        input.value = "";
+        results.innerHTML = "";
+      });
+    };
+    setupSearch("#predictSearchA", "#predictResultsA", "A");
+    setupSearch("#predictSearchB", "#predictResultsB", "B");
+    $("#clearPredictionPair").addEventListener("click", () => {
+      state.pair = { A: null, B: null };
+      updatePairStrip();
+      renderPredictionTab();
+      $("#predictionResult").className = "empty-state";
+      $("#predictionResult").textContent = "No prediction run.";
+    });
+    $("#runPredictionButton").addEventListener("click", async () => {
+      if (!state.pair.A || !state.pair.B) return;
+      $("#predictionRunStatus").textContent = "Running inference…";
+      $("#predictionResult").className = "empty-state";
+      $("#predictionResult").textContent = "Running…";
+      try {
+        const result = await fetchJSON("/api/predict", {
+          method: "POST",
+          body: JSON.stringify({ source_id: state.pair.A.id, target_id: state.pair.B.id }),
+        });
+        $("#predictionRunStatus").textContent = "Inference complete.";
+        $("#predictionResult").className = "";
+        $("#predictionResult").innerHTML = `
+          <div class="score-big">${fmtNum(result.score, 4)}</div>
+          <div class="score-note">predicted link probability · threshold ${fmtNum(result.threshold, 4)} · ${result.above_threshold ? "above threshold" : "below threshold"}</div>
+          <div class="banner info" style="margin-top:10px">${escapeHtml(result.disclaimer)}</div>
+          ${kvRows([
+            ["Source", `${escapeHtml(result.source.label)}<br><span class="mono tiny">${escapeHtml(result.source.id)}</span>`],
+            ["Target", `${escapeHtml(result.target.label)}<br><span class="mono tiny">${escapeHtml(result.target.id)}</span>`],
+            ["Model", `${escapeHtml(result.model.model_class)} · ${fmtInt(result.model.feature_count)} features`],
+            ["Checkpoint", escapeHtml(result.model.checkpoint_path), true],
+            ["Best epoch", fmtInt(result.model.best_epoch)],
+            ["Dataset version", escapeHtml(result.model.dataset_version || "—"), true],
+          ])}`;
+      } catch (error) {
+        $("#predictionRunStatus").textContent = error.message;
+        $("#predictionResult").className = "empty-state";
+        $("#predictionResult").textContent = error.payload?.available === false
+          ? `Inference unavailable: ${error.message}`
+          : `Prediction failed: ${error.message}`;
+      }
+    });
+  }
+
+  function renderExperimentDetails() {
+    const experiment = state.experiment;
+    if (!experiment) return;
+    const metadata = experiment.dataset_metadata || {};
+    const meta = experiment.experiment || {};
+    $("#detailsDataPill").textContent = `Dataset ${metadata.version || "unknown"}`;
+    const fileRows = Object.entries(metadata.files || {}).map(([key, value]) => [
+      key,
+      `<span class="mono tiny">${escapeHtml(value.path)}</span><br><span class="muted tiny">SHA-256 ${escapeHtml(String(value.sha256).slice(0, 16))}… · ${fmtBytes(value.bytes)}</span>`,
+    ]);
+    $("#datasetDetails").innerHTML = kvRows([
+      ["Dataset version", escapeHtml(metadata.version || "—"), true],
+      ["Generated at", escapeHtml(metadata.generated_at || "—")],
+      ["Nodes", fmtInt(metadata.node_count)],
+      ["Edges", fmtInt(metadata.edge_count)],
+      ["Node feature dim", fmtInt(metadata.node_feature_dim)],
+      ["Edge feature dim", fmtInt(metadata.edge_feature_dim)],
+      ["Node splits", `train ${fmtInt(metadata.node_split_sizes?.train)} · val ${fmtInt(metadata.node_split_sizes?.val)} · test ${fmtInt(metadata.node_split_sizes?.test)}`],
+      ["Edge splits", `train ${fmtInt(metadata.edge_split_sizes?.train)} · val ${fmtInt(metadata.edge_split_sizes?.val)} · test ${fmtInt(metadata.edge_split_sizes?.test)}`],
+      ["Seed", fmtInt(metadata.seed)],
+      ...fileRows,
+    ]);
+    $("#experimentStatusDetails").innerHTML = kvRows([
+      ["Experiment id", escapeHtml(meta.experiment_id || "—"), true],
+      ["Task", escapeHtml(meta.task || "—")],
+      ["Status", `<span class="badge ${experiment.gnn.available ? "good" : "bad"}">${escapeHtml(meta.status || experiment.gnn.status)}</span>`],
+      ["Checkpoint exists", experiment.gnn.checkpoint_exists ? "yes" : "no"],
+      ["GNN results available", experiment.gnn.available ? "yes" : "no"],
+      ["Checkpoint path", escapeHtml(experiment.gnn.checkpoint_path), true],
+      ["Missing artifacts", escapeHtml((meta.missing_artifacts || []).join(", ") || "none")],
+      ["Notes", escapeHtml((meta.notes || []).join(" "))],
+    ]);
+    $("#configJson").textContent = JSON.stringify(experiment.config || {}, null, 2);
+    renderArtifactTable($("#artifactTable"), experiment.artifacts || []);
+    $("#integrityNotes").innerHTML = `<ul class="list">
+      ${(experiment.warnings || []).map((warning) => `<li>${escapeHtml(warning)}</li>`).join("")}
+      <li>The Week 1 showcase report is preserved separately as <code>ml/reports/week1_showcase.html</code>.</li>
+      <li>The dashboard server reads local CSV and JSON artifacts only; it does not call external APIs.</li>
+      <li>Node and edge display counts at the top of Graph Explorer distinguish the full graph, selected neighborhood, and filtered view.</li>
+      <li>The GraphSAGE smoke test verified data loading and a forward pass, not training quality.</li>
+    </ul>`;
+    $("#trainingCommand").textContent = experiment.config?.training_command || ".venv/bin/python -m ml.training.train_graphsage_link_prediction";
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>

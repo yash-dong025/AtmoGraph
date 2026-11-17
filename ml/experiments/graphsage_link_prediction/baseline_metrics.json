@@ -1,0 +1,527 @@
+{
+  "experiment": "graphsage_link_prediction",
+  "artifact": "structural_link_prediction_baseline",
+  "status": "baseline_complete",
+  "generated_at": "2026-11-12T16:56:04.901402+00:00",
+  "seed": 42,
+  "dataset_version": "atmo_graph_v1_015d0c924af0",
+  "dataset": {
+    "version": "atmo_graph_v1_015d0c924af0",
+    "generated_at": "2026-11-12T16:56:04.896393+00:00",
+    "seed": 42,
+    "node_count": 130020,
+    "edge_count": 166690,
+    "node_feature_dim": 146,
+    "raw_node_feature_columns": 22,
+    "edge_feature_dim": 12,
+    "node_split_sizes": {
+      "train": 91014,
+      "val": 19503,
+      "test": 19503
+    },
+    "edge_split_sizes": {
+      "train": 133352,
+      "val": 16669,
+      "test": 16669
+    },
+    "source_counts": {
+      "ic_splc": 109403,
+      "sampoq": 13372,
+      "anonnet": 7245
+    },
+    "relationship_counts": {
+      "supplies_product_to": 106683,
+      "supply_relationship_anonymised": 43922,
+      "supplier_to_customer": 16085
+    },
+    "files": {
+      "nodes": {
+        "path": "datasets/processed/graph/nodes.csv",
+        "bytes": 16985281,
+        "sha256": "9dbd7c871a4930b2b88b7686530dbac11073eaddc307ba2658ff574e6a1d7e7a"
+      },
+      "edges": {
+        "path": "datasets/processed/graph/edges.csv",
+        "bytes": 17169567,
+        "sha256": "c5e46c481026939c756ed1a242a90f23e399841a9f6f5a31f416fb472acaf11a"
+      },
+      "edge_index": {
+        "path": "datasets/training/edge_index.csv",
+        "bytes": 16772211,
+        "sha256": "9f0c1581a8faf18f8b7880942dc7fb5ce7602733b5018093cbd88e2e4d4a42bf"
+      },
+      "node_index_mapping": {
+        "path": "datasets/training/node_index_mapping.csv",
+        "bytes": 2982791,
+        "sha256": "343594cc725a2ddaa422695b071d4909a3d9f4fc210409d8dd4c892237338caf"
+      },
+      "node_features": {
+        "path": "datasets/processed/graph/node_features.csv",
+        "bytes": 10332500,
+        "sha256": "c2149400eeaf66070a4ebbeb06612d7451d509cae2a66f56ac586395c7a51ac3"
+      }
+    }
+  },
+  "protocol": {
+    "task": "directed link prediction",
+    "train_graph": "structural scores use only train-split edges",
+    "positives": "validation/test positives come from their own split",
+    "negatives": "equal number per positive, sampled uniformly from directed non-edges",
+    "negative_exclusion": "all 166,690 observed directed edges are excluded",
+    "threshold": "selected on validation by maximum F1 among non-trivial thresholds, then applied once to test",
+    "threshold_note": "the trivial all-positive threshold is excluded when a higher threshold exists",
+    "common_neighbors_graph": "train edges treated as undirected for common-neighbor counting",
+    "preferential_attachment_graph": "undirected train degree product",
+    "not_a_risk_model": "link prediction is not disruption-risk prediction",
+    "negative_sampling_seed": 42
+  },
+  "selected_baseline": "common_neighbors",
+  "selection_criterion": "highest validation ROC-AUC, then validation average precision",
+  "validation_aucs": {
+    "common_neighbors": 0.6238725288640165,
+    "preferential_attachment": 0.5497591696572164
+  },
+  "baseline": {
+    "name": "common_neighbors",
+    "validation": {
+      "roc_auc": 0.6238725288640165,
+      "average_precision": 0.6239100363768686,
+      "precision": 0.9973493975903615,
+      "recall": 0.24830523726678266,
+      "f1": 0.3976175608818867,
+      "threshold": 1.0,
+      "confusion_matrix": [
+        [
+          16658,
+          11
+        ],
+        [
+          12530,
+          4139
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "negative",
+        "positive"
+      ],
+      "counts": {
+        "positive": 16669,
+        "negative": 16669,
+        "true_positive": 4139,
+        "true_negative": 16658,
+        "false_positive": 11,
+        "false_negative": 12530
+      }
+    },
+    "test": {
+      "roc_auc": 0.6183503611792027,
+      "average_precision": 0.6183849193028406,
+      "precision": 0.997226424609178,
+      "recall": 0.23726678265042894,
+      "f1": 0.38332929488732737,
+      "threshold": 1.0,
+      "confusion_matrix": [
+        [
+          16658,
+          11
+        ],
+        [
+          12714,
+          3955
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "negative",
+        "positive"
+      ],
+      "counts": {
+        "positive": 16669,
+        "negative": 16669,
+        "true_positive": 3955,
+        "true_negative": 16658,
+        "false_positive": 11,
+        "false_negative": 12714
+      },
+      "curves": {
+        "roc": {
+          "fpr": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.9991601175835386e-05,
+            0.0006599076129341892,
+            1.0
+          ],
+          "tpr": [
+            0.0,
+            5.9991601175835386e-05,
+            0.00041994120823084767,
+            0.0005399244105825184,
+            0.0008998740176375307,
+            0.0010198572199892014,
+            0.0011398404223408724,
+            0.0014997900293958846,
+            0.001739756434099226,
+            0.0020997060411542382,
+            0.0023996640470334155,
+            0.0028795968564400984,
+            0.0030595716599676045,
+            0.003299538064670946,
+            0.004139420481132641,
+            0.004319395284660147,
+            0.0050392944987701725,
+            0.0056992021117043615,
+            0.0070190173375727395,
+            0.00791889135521027,
+            0.008878756974023636,
+            0.010618513408122863,
+            0.012118303437518747,
+            0.013738076669266302,
+            0.0155978163057172,
+            0.018537404763333133,
+            0.02195692603035575,
+            0.027776111344411783,
+            0.034135221069050335,
+            0.0430739696442498,
+            0.052792609034735136,
+            0.06593076969224308,
+            0.08356830043793868,
+            0.11092447057411962,
+            0.15369848221249025,
+            0.23726678265042894,
+            1.0
+          ]
+        },
+        "pr": {
+          "recall": [
+            0.0,
+            5.9991601175835386e-05,
+            0.00011998320235167077,
+            0.00017997480352750615,
+            0.00023996640470334154,
+            0.00029995800587917694,
+            0.0003599496070550123,
+            0.00041994120823084767,
+            0.0005399244105825184,
+            0.0005999160117583539,
+            0.0006599076129341892,
+            0.0007198992141100246,
+            0.00077989081528586,
+            0.0008398824164616953,
+            0.0008998740176375307,
+            0.0010198572199892014,
+            0.0010798488211650368,
+            0.0011398404223408724,
+            0.0013198152258683785,
+            0.0014997900293958846,
+            0.001739756434099226,
+            0.0019197312376267324,
+            0.0020997060411542382,
+            0.0023996640470334155,
+            0.002639630451736757,
+            0.0028795968564400984,
+            0.0030595716599676045,
+            0.003299538064670946,
+            0.0037194792729017935,
+            0.004139420481132641,
+            0.004319395284660147,
+            0.0050392944987701725,
+            0.0056992021117043615,
+            0.0070190173375727395,
+            0.00791889135521027,
+            0.008878756974023636,
+            0.010618513408122863,
+            0.012118303437518747,
+            0.013738076669266302,
+            0.0155978163057172,
+            0.018537404763333133,
+            0.02195692603035575,
+            0.027776111344411783,
+            0.034135221069050335,
+            0.0430739696442498,
+            0.052792609034735136,
+            0.06593076969224308,
+            0.08356830043793868,
+            0.11092447057411962,
+            0.15369848221249025,
+            0.23726678265042894,
+            1.0
+          ],
+          "precision": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.9996098322278579,
+            0.997226424609178,
+            0.5
+          ]
+        }
+      },
+      "score_distribution": {
+        "x_transform": "none",
+        "bin_edges": [
+          0.0,
+          4.70000000005,
+          9.4000000001,
+          14.10000000015,
+          18.8000000002,
+          23.50000000025,
+          28.2000000003,
+          32.900000000350005,
+          37.6000000004,
+          42.30000000045,
+          47.0000000005,
+          51.700000000550006,
+          56.4000000006,
+          61.10000000065,
+          65.80000000070001,
+          70.50000000075,
+          75.2000000008,
+          79.90000000085,
+          84.6000000009,
+          89.30000000095,
+          94.000000001
+        ],
+        "bin_centers": [
+          2.350000000025,
+          7.050000000075,
+          11.750000000125,
+          16.450000000175002,
+          21.150000000225,
+          25.850000000275003,
+          30.550000000325003,
+          35.250000000375,
+          39.950000000425,
+          44.650000000475,
+          49.350000000525,
+          54.050000000575004,
+          58.750000000625,
+          63.450000000675004,
+          68.15000000072502,
+          72.850000000775,
+          77.55000000082501,
+          82.25000000087499,
+          86.950000000925,
+          91.65000000097501
+        ],
+        "positive_counts": [
+          15570,
+          733,
+          189,
+          82,
+          40,
+          20,
+          13,
+          7,
+          5,
+          3,
+          1,
+          3,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "negative_counts": [
+          16669,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "positive_stats": {
+          "min": 0.0,
+          "max": 94.0,
+          "mean": 0.9879416881636571
+        },
+        "negative_stats": {
+          "min": 0.0,
+          "max": 2.0,
+          "mean": 0.0007198992141100246
+        }
+      }
+    },
+    "threshold_selection": {
+      "source": "validation",
+      "criterion": "maximum F1 among thresholds that predict at least one negative",
+      "selected_threshold": 1.0,
+      "validation_f1_at_selection": 0.3976175608818867,
+      "non_trivial_threshold": true
+    }
+  },
+  "alternatives": [
+    {
+      "name": "preferential_attachment",
+      "validation": {
+        "roc_auc": 0.5497591696572164,
+        "average_precision": 0.7254779826790259,
+        "precision": 0.8919504271447479,
+        "recall": 0.4447177395164677,
+        "f1": 0.5935148118494796,
+        "threshold": 10.0,
+        "confusion_matrix": [
+          [
+            15771,
+            898
+          ],
+          [
+            9256,
+            7413
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negative",
+          "positive"
+        ],
+        "counts": {
+          "positive": 16669,
+          "negative": 16669,
+          "true_positive": 7413,
+          "true_negative": 15771,
+          "false_positive": 898,
+          "false_negative": 9256
+        }
+      },
+      "test": {
+        "roc_auc": 0.5436039662348164,
+        "average_precision": 0.7220655052617706,
+        "precision": 0.8935725697431486,
+        "recall": 0.43619893214949906,
+        "f1": 0.5862291381117472,
+        "threshold": 10.0,
+        "confusion_matrix": [
+          [
+            15803,
+            866
+          ],
+          [
+            9398,
+            7271
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negative",
+          "positive"
+        ],
+        "counts": {
+          "positive": 16669,
+          "negative": 16669,
+          "true_positive": 7271,
+          "true_negative": 15803,
+          "false_positive": 866,
+          "false_negative": 9398
+        }
+      },
+      "threshold_selection": {
+        "source": "validation",
+        "criterion": "maximum F1 among thresholds that predict at least one negative",
+        "selected_threshold": 10.0,
+        "validation_f1_at_selection": 0.5935148118494796,
+        "non_trivial_threshold": true
+      }
+    }
+  ],
+  "comparison": {
+    "graphsage_link_prediction": {
+      "status": "not_trained",
+      "reason": "No trained GraphSAGE checkpoint exists in this experiment directory."
+    },
+    "baseline_is_not_gnn": true
+  }
+}

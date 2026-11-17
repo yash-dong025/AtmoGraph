@@ -1,0 +1,5892 @@
+{
+  "generated_at": "2026-11-13T04:04:26.035657+00:00",
+  "dataset_version": "atmo_graph_v1_015d0c924af0",
+  "input": "datasets/processed/graph/nodes.csv",
+  "total_nodes": 130020,
+  "root_cause": {
+    "source_file": "datasets/raw/ic_splc/extracted_csv/ic_splc_nodes.csv",
+    "columns": [
+      "country",
+      "industry_1st",
+      "category_1st"
+    ],
+    "explanation": "IC-SPLC categorical values are anonymized frequency-ranked codes. The publisher does not provide a mapping to real countries or industries. preprocess_ic_splc.py preserves them, build_graph_dataset.py combines them with AnonNet/SAMPOQ nodes, and the dashboard previously aggregated them without source context.",
+    "metadata": "datasets/raw/ic_splc/mendeley_metadata.json"
+  },
+  "before_fix": {
+    "country_top_mixed": {
+      "C": 6117,
+      "B": 5158,
+      "D": 2835,
+      "F": 1865,
+      "E": 1865,
+      "Japan": 1099,
+      "China": 1086,
+      "H": 933,
+      "United States": 720,
+      "G": 595,
+      "South Korea": 481,
+      "L": 465
+    },
+    "industry_top_codes": {
+      "A": 3476,
+      "C": 2054,
+      "B": 1891,
+      "D": 974,
+      "F": 316,
+      "H": 292,
+      "E": 283,
+      "G": 245,
+      "L": 211,
+      "K": 183,
+      "J": 171,
+      "I": 143
+    }
+  },
+  "fields": {
+    "country": {
+      "field": "country",
+      "label": "Country",
+      "total_nodes": 130020,
+      "counts": {
+        "total": 130020,
+        "verified": 5755,
+        "anonymized": 25122,
+        "missing": 99143,
+        "unknown": 0
+      },
+      "distinct": {
+        "verified": 102,
+        "anonymized": 179,
+        "missing": 0,
+        "unknown": 0
+      },
+      "top_verified": [
+        {
+          "raw_value": "Japan",
+          "normalized_value": "Japan",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1099,
+          "share_of_total": 0.00845255,
+          "share_of_type": 0.19096438
+        },
+        {
+          "raw_value": "China",
+          "normalized_value": "China",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1086,
+          "share_of_total": 0.00835256,
+          "share_of_type": 0.18870547
+        },
+        {
+          "raw_value": "United States",
+          "normalized_value": "United States",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 720,
+          "share_of_total": 0.00553761,
+          "share_of_type": 0.1251086
+        },
+        {
+          "raw_value": "South Korea",
+          "normalized_value": "South Korea",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 481,
+          "share_of_total": 0.00369943,
+          "share_of_type": 0.0835795
+        },
+        {
+          "raw_value": "Taiwan",
+          "normalized_value": "Taiwan",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 300,
+          "share_of_total": 0.00230734,
+          "share_of_type": 0.05212858
+        },
+        {
+          "raw_value": "India",
+          "normalized_value": "India",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 249,
+          "share_of_total": 0.00191509,
+          "share_of_type": 0.04326672
+        },
+        {
+          "raw_value": "Germany",
+          "normalized_value": "Germany",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 154,
+          "share_of_total": 0.00118443,
+          "share_of_type": 0.02675934
+        },
+        {
+          "raw_value": "Indonesia",
+          "normalized_value": "Indonesia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 129,
+          "share_of_total": 0.00099216,
+          "share_of_type": 0.02241529
+        },
+        {
+          "raw_value": "United Kingdom",
+          "normalized_value": "United Kingdom",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 119,
+          "share_of_total": 0.00091524,
+          "share_of_type": 0.02067767
+        },
+        {
+          "raw_value": "Australia",
+          "normalized_value": "Australia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 106,
+          "share_of_total": 0.00081526,
+          "share_of_type": 0.01841877
+        },
+        {
+          "raw_value": "Canada",
+          "normalized_value": "Canada",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 99,
+          "share_of_total": 0.00076142,
+          "share_of_type": 0.01720243
+        },
+        {
+          "raw_value": "Spain",
+          "normalized_value": "Spain",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 97,
+          "share_of_total": 0.00074604,
+          "share_of_type": 0.01685491
+        },
+        {
+          "raw_value": "Vietnam",
+          "normalized_value": "Vietnam",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 83,
+          "share_of_total": 0.00063836,
+          "share_of_type": 0.01442224
+        },
+        {
+          "raw_value": "Russian Federation",
+          "normalized_value": "Russian Federation",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 78,
+          "share_of_total": 0.00059991,
+          "share_of_type": 0.01355343
+        },
+        {
+          "raw_value": "France",
+          "normalized_value": "France",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 62,
+          "share_of_total": 0.00047685,
+          "share_of_type": 0.01077324
+        },
+        {
+          "raw_value": "Cayman Islands",
+          "normalized_value": "Cayman Islands",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 61,
+          "share_of_total": 0.00046916,
+          "share_of_type": 0.01059948
+        },
+        {
+          "raw_value": "Netherlands",
+          "normalized_value": "Netherlands",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 46,
+          "share_of_total": 0.00035379,
+          "share_of_type": 0.00799305
+        },
+        {
+          "raw_value": "Malaysia",
+          "normalized_value": "Malaysia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 45,
+          "share_of_total": 0.0003461,
+          "share_of_type": 0.00781929
+        },
+        {
+          "raw_value": "Italy",
+          "normalized_value": "Italy",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 39,
+          "share_of_total": 0.00029995,
+          "share_of_type": 0.00677672
+        },
+        {
+          "raw_value": "Mexico",
+          "normalized_value": "Mexico",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 39,
+          "share_of_total": 0.00029995,
+          "share_of_type": 0.00677672
+        },
+        {
+          "raw_value": "Singapore",
+          "normalized_value": "Singapore",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 39,
+          "share_of_total": 0.00029995,
+          "share_of_type": 0.00677672
+        },
+        {
+          "raw_value": "Thailand",
+          "normalized_value": "Thailand",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 39,
+          "share_of_total": 0.00029995,
+          "share_of_type": 0.00677672
+        },
+        {
+          "raw_value": "Brazil",
+          "normalized_value": "Brazil",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 36,
+          "share_of_total": 0.00027688,
+          "share_of_type": 0.00625543
+        },
+        {
+          "raw_value": "Chile",
+          "normalized_value": "Chile",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 35,
+          "share_of_total": 0.00026919,
+          "share_of_type": 0.00608167
+        },
+        {
+          "raw_value": "Hong Kong",
+          "normalized_value": "Hong Kong",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 34,
+          "share_of_total": 0.0002615,
+          "share_of_type": 0.00590791
+        }
+      ],
+      "top_anonymized": [
+        {
+          "raw_value": "C",
+          "normalized_value": "Country Code C",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 6117,
+          "share_of_total": 0.04704661,
+          "share_of_type": 0.24349176
+        },
+        {
+          "raw_value": "B",
+          "normalized_value": "Country Code B",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 5158,
+          "share_of_total": 0.03967082,
+          "share_of_type": 0.20531805
+        },
+        {
+          "raw_value": "D",
+          "normalized_value": "Country Code D",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2835,
+          "share_of_total": 0.02180434,
+          "share_of_type": 0.1128493
+        },
+        {
+          "raw_value": "E",
+          "normalized_value": "Country Code E",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1865,
+          "share_of_total": 0.01434395,
+          "share_of_type": 0.07423772
+        },
+        {
+          "raw_value": "F",
+          "normalized_value": "Country Code F",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1865,
+          "share_of_total": 0.01434395,
+          "share_of_type": 0.07423772
+        },
+        {
+          "raw_value": "H",
+          "normalized_value": "Country Code H",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 933,
+          "share_of_total": 0.00717582,
+          "share_of_type": 0.03713876
+        },
+        {
+          "raw_value": "G",
+          "normalized_value": "Country Code G",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 595,
+          "share_of_total": 0.00457622,
+          "share_of_type": 0.02368442
+        },
+        {
+          "raw_value": "L",
+          "normalized_value": "Country Code L",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 465,
+          "share_of_total": 0.00357637,
+          "share_of_type": 0.01850967
+        },
+        {
+          "raw_value": "P",
+          "normalized_value": "Country Code P",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 404,
+          "share_of_total": 0.00310721,
+          "share_of_type": 0.01608152
+        },
+        {
+          "raw_value": "N",
+          "normalized_value": "Country Code N",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 370,
+          "share_of_total": 0.00284572,
+          "share_of_type": 0.01472813
+        },
+        {
+          "raw_value": "I",
+          "normalized_value": "Country Code I",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 359,
+          "share_of_total": 0.00276111,
+          "share_of_type": 0.01429026
+        },
+        {
+          "raw_value": "Y",
+          "normalized_value": "Country Code Y",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 322,
+          "share_of_total": 0.00247654,
+          "share_of_type": 0.01281745
+        },
+        {
+          "raw_value": "O",
+          "normalized_value": "Country Code O",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 293,
+          "share_of_total": 0.0022535,
+          "share_of_type": 0.01166308
+        },
+        {
+          "raw_value": "AE",
+          "normalized_value": "Country Code AE",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 205,
+          "share_of_total": 0.00157668,
+          "share_of_type": 0.00816018
+        },
+        {
+          "raw_value": "J",
+          "normalized_value": "Country Code J",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 201,
+          "share_of_total": 0.00154592,
+          "share_of_type": 0.00800096
+        },
+        {
+          "raw_value": "M",
+          "normalized_value": "Country Code M",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 199,
+          "share_of_total": 0.00153053,
+          "share_of_type": 0.00792134
+        },
+        {
+          "raw_value": "W",
+          "normalized_value": "Country Code W",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 195,
+          "share_of_total": 0.00149977,
+          "share_of_type": 0.00776212
+        },
+        {
+          "raw_value": "AO",
+          "normalized_value": "Country Code AO",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 155,
+          "share_of_total": 0.00119212,
+          "share_of_type": 0.00616989
+        },
+        {
+          "raw_value": "S",
+          "normalized_value": "Country Code S",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 146,
+          "share_of_total": 0.0011229,
+          "share_of_type": 0.00581164
+        },
+        {
+          "raw_value": "T",
+          "normalized_value": "Country Code T",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 128,
+          "share_of_total": 0.00098446,
+          "share_of_type": 0.00509514
+        },
+        {
+          "raw_value": "AB",
+          "normalized_value": "Country Code AB",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 121,
+          "share_of_total": 0.00093063,
+          "share_of_type": 0.0048165
+        },
+        {
+          "raw_value": "AH",
+          "normalized_value": "Country Code AH",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 119,
+          "share_of_total": 0.00091524,
+          "share_of_type": 0.00473688
+        },
+        {
+          "raw_value": "AA",
+          "normalized_value": "Country Code AA",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 104,
+          "share_of_total": 0.00079988,
+          "share_of_type": 0.0041398
+        },
+        {
+          "raw_value": "AJ",
+          "normalized_value": "Country Code AJ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 101,
+          "share_of_total": 0.0007768,
+          "share_of_type": 0.00402038
+        },
+        {
+          "raw_value": "AG",
+          "normalized_value": "Country Code AG",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 96,
+          "share_of_total": 0.00073835,
+          "share_of_type": 0.00382135
+        }
+      ],
+      "top_unknown": [],
+      "missing_by_source": {
+        "anonnet": 1490,
+        "ic_splc": 84281,
+        "sampoq": 13372
+      },
+      "by_source": {
+        "anonnet": {
+          "total": 7245,
+          "verified": 5755,
+          "anonymized": 0,
+          "missing": 1490,
+          "unknown": 0
+        },
+        "ic_splc": {
+          "total": 109403,
+          "verified": 0,
+          "anonymized": 25122,
+          "missing": 84281,
+          "unknown": 0
+        },
+        "sampoq": {
+          "total": 13372,
+          "verified": 0,
+          "anonymized": 0,
+          "missing": 13372,
+          "unknown": 0
+        }
+      },
+      "notes": [
+        "IC-SPLC country values are anonymized frequency-ranked codes; their mapping to real countries is not published.",
+        "AnonNet location values are preserved as source-provided country names.",
+        "SAMPOQ has no country field in the acquired source."
+      ],
+      "raw_distinct_values": [
+        {
+          "raw_value": "C",
+          "count": 6117,
+          "sources": {
+            "ic_splc": 6117
+          }
+        },
+        {
+          "raw_value": "B",
+          "count": 5158,
+          "sources": {
+            "ic_splc": 5158
+          }
+        },
+        {
+          "raw_value": "D",
+          "count": 2835,
+          "sources": {
+            "ic_splc": 2835
+          }
+        },
+        {
+          "raw_value": "E",
+          "count": 1865,
+          "sources": {
+            "ic_splc": 1865
+          }
+        },
+        {
+          "raw_value": "F",
+          "count": 1865,
+          "sources": {
+            "ic_splc": 1865
+          }
+        },
+        {
+          "raw_value": "Japan",
+          "count": 1099,
+          "sources": {
+            "anonnet": 1099
+          }
+        },
+        {
+          "raw_value": "China",
+          "count": 1086,
+          "sources": {
+            "anonnet": 1086
+          }
+        },
+        {
+          "raw_value": "H",
+          "count": 933,
+          "sources": {
+            "ic_splc": 933
+          }
+        },
+        {
+          "raw_value": "United States",
+          "count": 720,
+          "sources": {
+            "anonnet": 720
+          }
+        },
+        {
+          "raw_value": "G",
+          "count": 595,
+          "sources": {
+            "ic_splc": 595
+          }
+        },
+        {
+          "raw_value": "South Korea",
+          "count": 481,
+          "sources": {
+            "anonnet": 481
+          }
+        },
+        {
+          "raw_value": "L",
+          "count": 465,
+          "sources": {
+            "ic_splc": 465
+          }
+        },
+        {
+          "raw_value": "P",
+          "count": 404,
+          "sources": {
+            "ic_splc": 404
+          }
+        },
+        {
+          "raw_value": "N",
+          "count": 370,
+          "sources": {
+            "ic_splc": 370
+          }
+        },
+        {
+          "raw_value": "I",
+          "count": 359,
+          "sources": {
+            "ic_splc": 359
+          }
+        },
+        {
+          "raw_value": "Y",
+          "count": 322,
+          "sources": {
+            "ic_splc": 322
+          }
+        },
+        {
+          "raw_value": "Taiwan",
+          "count": 300,
+          "sources": {
+            "anonnet": 300
+          }
+        },
+        {
+          "raw_value": "O",
+          "count": 293,
+          "sources": {
+            "ic_splc": 293
+          }
+        },
+        {
+          "raw_value": "India",
+          "count": 249,
+          "sources": {
+            "anonnet": 249
+          }
+        },
+        {
+          "raw_value": "AE",
+          "count": 205,
+          "sources": {
+            "ic_splc": 205
+          }
+        },
+        {
+          "raw_value": "J",
+          "count": 201,
+          "sources": {
+            "ic_splc": 201
+          }
+        },
+        {
+          "raw_value": "M",
+          "count": 199,
+          "sources": {
+            "ic_splc": 199
+          }
+        },
+        {
+          "raw_value": "W",
+          "count": 195,
+          "sources": {
+            "ic_splc": 195
+          }
+        },
+        {
+          "raw_value": "AO",
+          "count": 155,
+          "sources": {
+            "ic_splc": 155
+          }
+        },
+        {
+          "raw_value": "Germany",
+          "count": 154,
+          "sources": {
+            "anonnet": 154
+          }
+        },
+        {
+          "raw_value": "S",
+          "count": 146,
+          "sources": {
+            "ic_splc": 146
+          }
+        },
+        {
+          "raw_value": "Indonesia",
+          "count": 129,
+          "sources": {
+            "anonnet": 129
+          }
+        },
+        {
+          "raw_value": "T",
+          "count": 128,
+          "sources": {
+            "ic_splc": 128
+          }
+        },
+        {
+          "raw_value": "AB",
+          "count": 121,
+          "sources": {
+            "ic_splc": 121
+          }
+        },
+        {
+          "raw_value": "AH",
+          "count": 119,
+          "sources": {
+            "ic_splc": 119
+          }
+        },
+        {
+          "raw_value": "United Kingdom",
+          "count": 119,
+          "sources": {
+            "anonnet": 119
+          }
+        },
+        {
+          "raw_value": "Australia",
+          "count": 106,
+          "sources": {
+            "anonnet": 106
+          }
+        },
+        {
+          "raw_value": "AA",
+          "count": 104,
+          "sources": {
+            "ic_splc": 104
+          }
+        },
+        {
+          "raw_value": "AJ",
+          "count": 101,
+          "sources": {
+            "ic_splc": 101
+          }
+        },
+        {
+          "raw_value": "Canada",
+          "count": 99,
+          "sources": {
+            "anonnet": 99
+          }
+        },
+        {
+          "raw_value": "Spain",
+          "count": 97,
+          "sources": {
+            "anonnet": 97
+          }
+        },
+        {
+          "raw_value": "AG",
+          "count": 96,
+          "sources": {
+            "ic_splc": 96
+          }
+        },
+        {
+          "raw_value": "Q",
+          "count": 94,
+          "sources": {
+            "ic_splc": 94
+          }
+        },
+        {
+          "raw_value": "Vietnam",
+          "count": 83,
+          "sources": {
+            "anonnet": 83
+          }
+        },
+        {
+          "raw_value": "Z",
+          "count": 82,
+          "sources": {
+            "ic_splc": 82
+          }
+        },
+        {
+          "raw_value": "R",
+          "count": 81,
+          "sources": {
+            "ic_splc": 81
+          }
+        },
+        {
+          "raw_value": "AI",
+          "count": 79,
+          "sources": {
+            "ic_splc": 79
+          }
+        },
+        {
+          "raw_value": "Russian Federation",
+          "count": 78,
+          "sources": {
+            "anonnet": 78
+          }
+        },
+        {
+          "raw_value": "AC",
+          "count": 76,
+          "sources": {
+            "ic_splc": 76
+          }
+        },
+        {
+          "raw_value": "France",
+          "count": 62,
+          "sources": {
+            "anonnet": 62
+          }
+        },
+        {
+          "raw_value": "Cayman Islands",
+          "count": 61,
+          "sources": {
+            "anonnet": 61
+          }
+        },
+        {
+          "raw_value": "V",
+          "count": 61,
+          "sources": {
+            "ic_splc": 61
+          }
+        },
+        {
+          "raw_value": "U",
+          "count": 60,
+          "sources": {
+            "ic_splc": 60
+          }
+        },
+        {
+          "raw_value": "AD",
+          "count": 59,
+          "sources": {
+            "ic_splc": 59
+          }
+        },
+        {
+          "raw_value": "BF",
+          "count": 58,
+          "sources": {
+            "ic_splc": 58
+          }
+        },
+        {
+          "raw_value": "BH",
+          "count": 48,
+          "sources": {
+            "ic_splc": 48
+          }
+        },
+        {
+          "raw_value": "Netherlands",
+          "count": 46,
+          "sources": {
+            "anonnet": 46
+          }
+        },
+        {
+          "raw_value": "Malaysia",
+          "count": 45,
+          "sources": {
+            "anonnet": 45
+          }
+        },
+        {
+          "raw_value": "BR",
+          "count": 41,
+          "sources": {
+            "ic_splc": 41
+          }
+        },
+        {
+          "raw_value": "Italy",
+          "count": 39,
+          "sources": {
+            "anonnet": 39
+          }
+        },
+        {
+          "raw_value": "Mexico",
+          "count": 39,
+          "sources": {
+            "anonnet": 39
+          }
+        },
+        {
+          "raw_value": "Singapore",
+          "count": 39,
+          "sources": {
+            "anonnet": 39
+          }
+        },
+        {
+          "raw_value": "Thailand",
+          "count": 39,
+          "sources": {
+            "anonnet": 39
+          }
+        },
+        {
+          "raw_value": "AR",
+          "count": 37,
+          "sources": {
+            "ic_splc": 37
+          }
+        },
+        {
+          "raw_value": "Brazil",
+          "count": 36,
+          "sources": {
+            "anonnet": 36
+          }
+        },
+        {
+          "raw_value": "AN",
+          "count": 35,
+          "sources": {
+            "ic_splc": 35
+          }
+        },
+        {
+          "raw_value": "BK",
+          "count": 35,
+          "sources": {
+            "ic_splc": 35
+          }
+        },
+        {
+          "raw_value": "Chile",
+          "count": 35,
+          "sources": {
+            "anonnet": 35
+          }
+        },
+        {
+          "raw_value": "BV",
+          "count": 34,
+          "sources": {
+            "ic_splc": 34
+          }
+        },
+        {
+          "raw_value": "Hong Kong",
+          "count": 34,
+          "sources": {
+            "anonnet": 34
+          }
+        },
+        {
+          "raw_value": "BL",
+          "count": 33,
+          "sources": {
+            "ic_splc": 33
+          }
+        },
+        {
+          "raw_value": "BQ",
+          "count": 32,
+          "sources": {
+            "ic_splc": 32
+          }
+        },
+        {
+          "raw_value": "AK",
+          "count": 31,
+          "sources": {
+            "ic_splc": 31
+          }
+        },
+        {
+          "raw_value": "Switzerland",
+          "count": 30,
+          "sources": {
+            "anonnet": 30
+          }
+        },
+        {
+          "raw_value": "BU",
+          "count": 27,
+          "sources": {
+            "ic_splc": 27
+          }
+        },
+        {
+          "raw_value": "Turkey",
+          "count": 27,
+          "sources": {
+            "anonnet": 27
+          }
+        },
+        {
+          "raw_value": "Norway",
+          "count": 26,
+          "sources": {
+            "anonnet": 26
+          }
+        },
+        {
+          "raw_value": "Sweden",
+          "count": 26,
+          "sources": {
+            "anonnet": 26
+          }
+        },
+        {
+          "raw_value": "CC",
+          "count": 25,
+          "sources": {
+            "ic_splc": 25
+          }
+        },
+        {
+          "raw_value": "CJ",
+          "count": 23,
+          "sources": {
+            "ic_splc": 23
+          }
+        },
+        {
+          "raw_value": "Austria",
+          "count": 20,
+          "sources": {
+            "anonnet": 20
+          }
+        },
+        {
+          "raw_value": "Philippines",
+          "count": 20,
+          "sources": {
+            "anonnet": 20
+          }
+        },
+        {
+          "raw_value": "Bermuda",
+          "count": 19,
+          "sources": {
+            "anonnet": 19
+          }
+        },
+        {
+          "raw_value": "CK",
+          "count": 19,
+          "sources": {
+            "ic_splc": 19
+          }
+        },
+        {
+          "raw_value": "CM",
+          "count": 19,
+          "sources": {
+            "ic_splc": 19
+          }
+        },
+        {
+          "raw_value": "BB",
+          "count": 18,
+          "sources": {
+            "ic_splc": 18
+          }
+        },
+        {
+          "raw_value": "Finland",
+          "count": 18,
+          "sources": {
+            "anonnet": 18
+          }
+        },
+        {
+          "raw_value": "CN",
+          "count": 17,
+          "sources": {
+            "ic_splc": 17
+          }
+        },
+        {
+          "raw_value": "CT",
+          "count": 17,
+          "sources": {
+            "ic_splc": 17
+          }
+        },
+        {
+          "raw_value": "CY",
+          "count": 17,
+          "sources": {
+            "ic_splc": 17
+          }
+        },
+        {
+          "raw_value": "DA",
+          "count": 17,
+          "sources": {
+            "ic_splc": 17
+          }
+        },
+        {
+          "raw_value": "Ireland",
+          "count": 17,
+          "sources": {
+            "anonnet": 17
+          }
+        },
+        {
+          "raw_value": "South Africa",
+          "count": 17,
+          "sources": {
+            "anonnet": 17
+          }
+        },
+        {
+          "raw_value": "CL",
+          "count": 16,
+          "sources": {
+            "ic_splc": 16
+          }
+        },
+        {
+          "raw_value": "Luxembourg",
+          "count": 16,
+          "sources": {
+            "anonnet": 16
+          }
+        },
+        {
+          "raw_value": "Russia",
+          "count": 16,
+          "sources": {
+            "anonnet": 16
+          }
+        },
+        {
+          "raw_value": "AT",
+          "count": 15,
+          "sources": {
+            "ic_splc": 15
+          }
+        },
+        {
+          "raw_value": "CP",
+          "count": 15,
+          "sources": {
+            "ic_splc": 15
+          }
+        },
+        {
+          "raw_value": "CZ",
+          "count": 15,
+          "sources": {
+            "ic_splc": 15
+          }
+        },
+        {
+          "raw_value": "Saudi Arabia",
+          "count": 15,
+          "sources": {
+            "anonnet": 15
+          }
+        },
+        {
+          "raw_value": "United Arab Emirates",
+          "count": 15,
+          "sources": {
+            "anonnet": 15
+          }
+        },
+        {
+          "raw_value": "CQ",
+          "count": 14,
+          "sources": {
+            "ic_splc": 14
+          }
+        },
+        {
+          "raw_value": "CR",
+          "count": 14,
+          "sources": {
+            "ic_splc": 14
+          }
+        },
+        {
+          "raw_value": "CV",
+          "count": 14,
+          "sources": {
+            "ic_splc": 14
+          }
+        },
+        {
+          "raw_value": "DJ",
+          "count": 14,
+          "sources": {
+            "ic_splc": 14
+          }
+        },
+        {
+          "raw_value": "DK",
+          "count": 14,
+          "sources": {
+            "ic_splc": 14
+          }
+        },
+        {
+          "raw_value": "Israel",
+          "count": 14,
+          "sources": {
+            "anonnet": 14
+          }
+        },
+        {
+          "raw_value": "Belgium",
+          "count": 13,
+          "sources": {
+            "anonnet": 13
+          }
+        },
+        {
+          "raw_value": "CU",
+          "count": 13,
+          "sources": {
+            "ic_splc": 13
+          }
+        },
+        {
+          "raw_value": "CW",
+          "count": 13,
+          "sources": {
+            "ic_splc": 13
+          }
+        },
+        {
+          "raw_value": "Argentina",
+          "count": 12,
+          "sources": {
+            "anonnet": 12
+          }
+        },
+        {
+          "raw_value": "DL",
+          "count": 12,
+          "sources": {
+            "ic_splc": 12
+          }
+        },
+        {
+          "raw_value": "DO",
+          "count": 12,
+          "sources": {
+            "ic_splc": 12
+          }
+        },
+        {
+          "raw_value": "DR",
+          "count": 12,
+          "sources": {
+            "ic_splc": 12
+          }
+        },
+        {
+          "raw_value": "Pakistan",
+          "count": 12,
+          "sources": {
+            "anonnet": 12
+          }
+        },
+        {
+          "raw_value": "Poland",
+          "count": 12,
+          "sources": {
+            "anonnet": 12
+          }
+        },
+        {
+          "raw_value": "DP",
+          "count": 11,
+          "sources": {
+            "ic_splc": 11
+          }
+        },
+        {
+          "raw_value": "AQ",
+          "count": 10,
+          "sources": {
+            "ic_splc": 10
+          }
+        },
+        {
+          "raw_value": "DI",
+          "count": 10,
+          "sources": {
+            "ic_splc": 10
+          }
+        },
+        {
+          "raw_value": "DU",
+          "count": 10,
+          "sources": {
+            "ic_splc": 10
+          }
+        },
+        {
+          "raw_value": "DZ",
+          "count": 10,
+          "sources": {
+            "ic_splc": 10
+          }
+        },
+        {
+          "raw_value": "EA",
+          "count": 10,
+          "sources": {
+            "ic_splc": 10
+          }
+        },
+        {
+          "raw_value": "Qatar",
+          "count": 10,
+          "sources": {
+            "anonnet": 10
+          }
+        },
+        {
+          "raw_value": "DF",
+          "count": 9,
+          "sources": {
+            "ic_splc": 9
+          }
+        },
+        {
+          "raw_value": "DM",
+          "count": 9,
+          "sources": {
+            "ic_splc": 9
+          }
+        },
+        {
+          "raw_value": "EB",
+          "count": 9,
+          "sources": {
+            "ic_splc": 9
+          }
+        },
+        {
+          "raw_value": "BC",
+          "count": 8,
+          "sources": {
+            "ic_splc": 8
+          }
+        },
+        {
+          "raw_value": "DY",
+          "count": 8,
+          "sources": {
+            "ic_splc": 8
+          }
+        },
+        {
+          "raw_value": "ED",
+          "count": 8,
+          "sources": {
+            "ic_splc": 8
+          }
+        },
+        {
+          "raw_value": "EE",
+          "count": 8,
+          "sources": {
+            "ic_splc": 8
+          }
+        },
+        {
+          "raw_value": "EH",
+          "count": 8,
+          "sources": {
+            "ic_splc": 8
+          }
+        },
+        {
+          "raw_value": "Romania",
+          "count": 8,
+          "sources": {
+            "anonnet": 8
+          }
+        },
+        {
+          "raw_value": "Colombia",
+          "count": 7,
+          "sources": {
+            "anonnet": 7
+          }
+        },
+        {
+          "raw_value": "DQ",
+          "count": 7,
+          "sources": {
+            "ic_splc": 7
+          }
+        },
+        {
+          "raw_value": "DX",
+          "count": 7,
+          "sources": {
+            "ic_splc": 7
+          }
+        },
+        {
+          "raw_value": "ET",
+          "count": 7,
+          "sources": {
+            "ic_splc": 7
+          }
+        },
+        {
+          "raw_value": "Peru",
+          "count": 7,
+          "sources": {
+            "anonnet": 7
+          }
+        },
+        {
+          "raw_value": "EF",
+          "count": 6,
+          "sources": {
+            "ic_splc": 6
+          }
+        },
+        {
+          "raw_value": "EN",
+          "count": 6,
+          "sources": {
+            "ic_splc": 6
+          }
+        },
+        {
+          "raw_value": "EO",
+          "count": 6,
+          "sources": {
+            "ic_splc": 6
+          }
+        },
+        {
+          "raw_value": "ES",
+          "count": 6,
+          "sources": {
+            "ic_splc": 6
+          }
+        },
+        {
+          "raw_value": "EX",
+          "count": 6,
+          "sources": {
+            "ic_splc": 6
+          }
+        },
+        {
+          "raw_value": "EY",
+          "count": 6,
+          "sources": {
+            "ic_splc": 6
+          }
+        },
+        {
+          "raw_value": "K",
+          "count": 6,
+          "sources": {
+            "ic_splc": 6
+          }
+        },
+        {
+          "raw_value": "Virgin Islands, British",
+          "count": 6,
+          "sources": {
+            "anonnet": 6
+          }
+        },
+        {
+          "raw_value": "Algeria",
+          "count": 5,
+          "sources": {
+            "anonnet": 5
+          }
+        },
+        {
+          "raw_value": "EG",
+          "count": 5,
+          "sources": {
+            "ic_splc": 5
+          }
+        },
+        {
+          "raw_value": "FA",
+          "count": 5,
+          "sources": {
+            "ic_splc": 5
+          }
+        },
+        {
+          "raw_value": "FD",
+          "count": 5,
+          "sources": {
+            "ic_splc": 5
+          }
+        },
+        {
+          "raw_value": "FF",
+          "count": 5,
+          "sources": {
+            "ic_splc": 5
+          }
+        },
+        {
+          "raw_value": "FG",
+          "count": 5,
+          "sources": {
+            "ic_splc": 5
+          }
+        },
+        {
+          "raw_value": "FH",
+          "count": 5,
+          "sources": {
+            "ic_splc": 5
+          }
+        },
+        {
+          "raw_value": "FN",
+          "count": 5,
+          "sources": {
+            "ic_splc": 5
+          }
+        },
+        {
+          "raw_value": "New Zealand",
+          "count": 5,
+          "sources": {
+            "anonnet": 5
+          }
+        },
+        {
+          "raw_value": "Panama",
+          "count": 5,
+          "sources": {
+            "anonnet": 5
+          }
+        },
+        {
+          "raw_value": "Denmark",
+          "count": 4,
+          "sources": {
+            "anonnet": 4
+          }
+        },
+        {
+          "raw_value": "EP",
+          "count": 4,
+          "sources": {
+            "ic_splc": 4
+          }
+        },
+        {
+          "raw_value": "FK",
+          "count": 4,
+          "sources": {
+            "ic_splc": 4
+          }
+        },
+        {
+          "raw_value": "FS",
+          "count": 4,
+          "sources": {
+            "ic_splc": 4
+          }
+        },
+        {
+          "raw_value": "FT",
+          "count": 4,
+          "sources": {
+            "ic_splc": 4
+          }
+        },
+        {
+          "raw_value": "FV",
+          "count": 4,
+          "sources": {
+            "ic_splc": 4
+          }
+        },
+        {
+          "raw_value": "FY",
+          "count": 4,
+          "sources": {
+            "ic_splc": 4
+          }
+        },
+        {
+          "raw_value": "GA",
+          "count": 4,
+          "sources": {
+            "ic_splc": 4
+          }
+        },
+        {
+          "raw_value": "GB",
+          "count": 4,
+          "sources": {
+            "ic_splc": 4
+          }
+        },
+        {
+          "raw_value": "GD",
+          "count": 4,
+          "sources": {
+            "ic_splc": 4
+          }
+        },
+        {
+          "raw_value": "Jordan",
+          "count": 4,
+          "sources": {
+            "anonnet": 4
+          }
+        },
+        {
+          "raw_value": "Bulgaria",
+          "count": 3,
+          "sources": {
+            "anonnet": 3
+          }
+        },
+        {
+          "raw_value": "Egypt",
+          "count": 3,
+          "sources": {
+            "anonnet": 3
+          }
+        },
+        {
+          "raw_value": "FE",
+          "count": 3,
+          "sources": {
+            "ic_splc": 3
+          }
+        },
+        {
+          "raw_value": "FI",
+          "count": 3,
+          "sources": {
+            "ic_splc": 3
+          }
+        },
+        {
+          "raw_value": "FJ",
+          "count": 3,
+          "sources": {
+            "ic_splc": 3
+          }
+        },
+        {
+          "raw_value": "FL",
+          "count": 3,
+          "sources": {
+            "ic_splc": 3
+          }
+        },
+        {
+          "raw_value": "FM",
+          "count": 3,
+          "sources": {
+            "ic_splc": 3
+          }
+        },
+        {
+          "raw_value": "GC",
+          "count": 3,
+          "sources": {
+            "ic_splc": 3
+          }
+        },
+        {
+          "raw_value": "GH",
+          "count": 3,
+          "sources": {
+            "ic_splc": 3
+          }
+        },
+        {
+          "raw_value": "GL",
+          "count": 3,
+          "sources": {
+            "ic_splc": 3
+          }
+        },
+        {
+          "raw_value": "GN",
+          "count": 3,
+          "sources": {
+            "ic_splc": 3
+          }
+        },
+        {
+          "raw_value": "GO",
+          "count": 3,
+          "sources": {
+            "ic_splc": 3
+          }
+        },
+        {
+          "raw_value": "GS",
+          "count": 3,
+          "sources": {
+            "ic_splc": 3
+          }
+        },
+        {
+          "raw_value": "GV",
+          "count": 3,
+          "sources": {
+            "ic_splc": 3
+          }
+        },
+        {
+          "raw_value": "GW",
+          "count": 3,
+          "sources": {
+            "ic_splc": 3
+          }
+        },
+        {
+          "raw_value": "Mauritius",
+          "count": 3,
+          "sources": {
+            "anonnet": 3
+          }
+        },
+        {
+          "raw_value": "Oman",
+          "count": 3,
+          "sources": {
+            "anonnet": 3
+          }
+        },
+        {
+          "raw_value": "Sri Lanka",
+          "count": 3,
+          "sources": {
+            "anonnet": 3
+          }
+        },
+        {
+          "raw_value": "Costa Rica",
+          "count": 2,
+          "sources": {
+            "anonnet": 2
+          }
+        },
+        {
+          "raw_value": "Croatia",
+          "count": 2,
+          "sources": {
+            "anonnet": 2
+          }
+        },
+        {
+          "raw_value": "Curacao",
+          "count": 2,
+          "sources": {
+            "anonnet": 2
+          }
+        },
+        {
+          "raw_value": "Cyprus",
+          "count": 2,
+          "sources": {
+            "anonnet": 2
+          }
+        },
+        {
+          "raw_value": "Czech Republic",
+          "count": 2,
+          "sources": {
+            "anonnet": 2
+          }
+        },
+        {
+          "raw_value": "Ecuador",
+          "count": 2,
+          "sources": {
+            "anonnet": 2
+          }
+        },
+        {
+          "raw_value": "El Salvador",
+          "count": 2,
+          "sources": {
+            "anonnet": 2
+          }
+        },
+        {
+          "raw_value": "Ethiopia",
+          "count": 2,
+          "sources": {
+            "anonnet": 2
+          }
+        },
+        {
+          "raw_value": "FW",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "FX",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "FZ",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "GI",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "GJ",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "GM",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "GP",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "GR",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "Greece",
+          "count": 2,
+          "sources": {
+            "anonnet": 2
+          }
+        },
+        {
+          "raw_value": "GT",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "GU",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "HA",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "HC",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "HK",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "HM",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "HN",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "HO",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "HP",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "HQ",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "HR",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "HS",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "HT",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "HY",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IB",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IC",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IE",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IF",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IG",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IH",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "II",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IJ",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IK",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IL",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IM",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IN",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IQ",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IR",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IT",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IV",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IW",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IX",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IY",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "IZ",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "JA",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "Kuwait",
+          "count": 2,
+          "sources": {
+            "anonnet": 2
+          }
+        },
+        {
+          "raw_value": "Libyan Arab Jamahiriya",
+          "count": 2,
+          "sources": {
+            "anonnet": 2
+          }
+        },
+        {
+          "raw_value": "Madagascar",
+          "count": 2,
+          "sources": {
+            "anonnet": 2
+          }
+        },
+        {
+          "raw_value": "Nigeria",
+          "count": 2,
+          "sources": {
+            "anonnet": 2
+          }
+        },
+        {
+          "raw_value": "Slovakia",
+          "count": 2,
+          "sources": {
+            "anonnet": 2
+          }
+        },
+        {
+          "raw_value": "Uzbekistan",
+          "count": 2,
+          "sources": {
+            "anonnet": 2
+          }
+        },
+        {
+          "raw_value": "Venezuela",
+          "count": 2,
+          "sources": {
+            "anonnet": 2
+          }
+        },
+        {
+          "raw_value": "Azerbaijan",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Bahrain",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Bangladesh",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Belarus",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Bhutan",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Bosnia And Herzegovina",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Brasil",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Burkina Faso",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Estonia",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "GK",
+          "count": 1,
+          "sources": {
+            "ic_splc": 1
+          }
+        },
+        {
+          "raw_value": "GQ",
+          "count": 1,
+          "sources": {
+            "ic_splc": 1
+          }
+        },
+        {
+          "raw_value": "HB",
+          "count": 1,
+          "sources": {
+            "ic_splc": 1
+          }
+        },
+        {
+          "raw_value": "HF",
+          "count": 1,
+          "sources": {
+            "ic_splc": 1
+          }
+        },
+        {
+          "raw_value": "HG",
+          "count": 1,
+          "sources": {
+            "ic_splc": 1
+          }
+        },
+        {
+          "raw_value": "HL",
+          "count": 1,
+          "sources": {
+            "ic_splc": 1
+          }
+        },
+        {
+          "raw_value": "Hungary",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "HV",
+          "count": 1,
+          "sources": {
+            "ic_splc": 1
+          }
+        },
+        {
+          "raw_value": "HW",
+          "count": 1,
+          "sources": {
+            "ic_splc": 1
+          }
+        },
+        {
+          "raw_value": "HX",
+          "count": 1,
+          "sources": {
+            "ic_splc": 1
+          }
+        },
+        {
+          "raw_value": "HZ",
+          "count": 1,
+          "sources": {
+            "ic_splc": 1
+          }
+        },
+        {
+          "raw_value": "IA",
+          "count": 1,
+          "sources": {
+            "ic_splc": 1
+          }
+        },
+        {
+          "raw_value": "Iceland",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "ID",
+          "count": 1,
+          "sources": {
+            "ic_splc": 1
+          }
+        },
+        {
+          "raw_value": "IO",
+          "count": 1,
+          "sources": {
+            "ic_splc": 1
+          }
+        },
+        {
+          "raw_value": "IP",
+          "count": 1,
+          "sources": {
+            "ic_splc": 1
+          }
+        },
+        {
+          "raw_value": "IS",
+          "count": 1,
+          "sources": {
+            "ic_splc": 1
+          }
+        },
+        {
+          "raw_value": "Kenya",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Kyrgyzstan",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Lao People\"s Democratic Republic",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Lebanon",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Lithuania",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Moldova",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Mozambique",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Myanmar",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Philipines",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Portugal",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Serbia",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Slovenia",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Tunisia",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Uganda",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "Ukraine",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        },
+        {
+          "raw_value": "X",
+          "count": 1,
+          "sources": {
+            "ic_splc": 1
+          }
+        },
+        {
+          "raw_value": "Zambia",
+          "count": 1,
+          "sources": {
+            "anonnet": 1
+          }
+        }
+      ],
+      "normalized_distinct_values": [
+        {
+          "raw_value": "Japan",
+          "normalized_value": "Japan",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1099,
+          "share_of_total": 0.00845255,
+          "share_of_type": 0.19096438
+        },
+        {
+          "raw_value": "China",
+          "normalized_value": "China",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1086,
+          "share_of_total": 0.00835256,
+          "share_of_type": 0.18870547
+        },
+        {
+          "raw_value": "United States",
+          "normalized_value": "United States",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 720,
+          "share_of_total": 0.00553761,
+          "share_of_type": 0.1251086
+        },
+        {
+          "raw_value": "South Korea",
+          "normalized_value": "South Korea",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 481,
+          "share_of_total": 0.00369943,
+          "share_of_type": 0.0835795
+        },
+        {
+          "raw_value": "Taiwan",
+          "normalized_value": "Taiwan",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 300,
+          "share_of_total": 0.00230734,
+          "share_of_type": 0.05212858
+        },
+        {
+          "raw_value": "India",
+          "normalized_value": "India",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 249,
+          "share_of_total": 0.00191509,
+          "share_of_type": 0.04326672
+        },
+        {
+          "raw_value": "Germany",
+          "normalized_value": "Germany",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 154,
+          "share_of_total": 0.00118443,
+          "share_of_type": 0.02675934
+        },
+        {
+          "raw_value": "Indonesia",
+          "normalized_value": "Indonesia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 129,
+          "share_of_total": 0.00099216,
+          "share_of_type": 0.02241529
+        },
+        {
+          "raw_value": "United Kingdom",
+          "normalized_value": "United Kingdom",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 119,
+          "share_of_total": 0.00091524,
+          "share_of_type": 0.02067767
+        },
+        {
+          "raw_value": "Australia",
+          "normalized_value": "Australia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 106,
+          "share_of_total": 0.00081526,
+          "share_of_type": 0.01841877
+        },
+        {
+          "raw_value": "Canada",
+          "normalized_value": "Canada",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 99,
+          "share_of_total": 0.00076142,
+          "share_of_type": 0.01720243
+        },
+        {
+          "raw_value": "Spain",
+          "normalized_value": "Spain",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 97,
+          "share_of_total": 0.00074604,
+          "share_of_type": 0.01685491
+        },
+        {
+          "raw_value": "Vietnam",
+          "normalized_value": "Vietnam",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 83,
+          "share_of_total": 0.00063836,
+          "share_of_type": 0.01442224
+        },
+        {
+          "raw_value": "Russian Federation",
+          "normalized_value": "Russian Federation",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 78,
+          "share_of_total": 0.00059991,
+          "share_of_type": 0.01355343
+        },
+        {
+          "raw_value": "France",
+          "normalized_value": "France",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 62,
+          "share_of_total": 0.00047685,
+          "share_of_type": 0.01077324
+        },
+        {
+          "raw_value": "Cayman Islands",
+          "normalized_value": "Cayman Islands",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 61,
+          "share_of_total": 0.00046916,
+          "share_of_type": 0.01059948
+        },
+        {
+          "raw_value": "Netherlands",
+          "normalized_value": "Netherlands",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 46,
+          "share_of_total": 0.00035379,
+          "share_of_type": 0.00799305
+        },
+        {
+          "raw_value": "Malaysia",
+          "normalized_value": "Malaysia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 45,
+          "share_of_total": 0.0003461,
+          "share_of_type": 0.00781929
+        },
+        {
+          "raw_value": "Italy",
+          "normalized_value": "Italy",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 39,
+          "share_of_total": 0.00029995,
+          "share_of_type": 0.00677672
+        },
+        {
+          "raw_value": "Mexico",
+          "normalized_value": "Mexico",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 39,
+          "share_of_total": 0.00029995,
+          "share_of_type": 0.00677672
+        },
+        {
+          "raw_value": "Singapore",
+          "normalized_value": "Singapore",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 39,
+          "share_of_total": 0.00029995,
+          "share_of_type": 0.00677672
+        },
+        {
+          "raw_value": "Thailand",
+          "normalized_value": "Thailand",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 39,
+          "share_of_total": 0.00029995,
+          "share_of_type": 0.00677672
+        },
+        {
+          "raw_value": "Brazil",
+          "normalized_value": "Brazil",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 36,
+          "share_of_total": 0.00027688,
+          "share_of_type": 0.00625543
+        },
+        {
+          "raw_value": "Chile",
+          "normalized_value": "Chile",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 35,
+          "share_of_total": 0.00026919,
+          "share_of_type": 0.00608167
+        },
+        {
+          "raw_value": "Hong Kong",
+          "normalized_value": "Hong Kong",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 34,
+          "share_of_total": 0.0002615,
+          "share_of_type": 0.00590791
+        },
+        {
+          "raw_value": "Switzerland",
+          "normalized_value": "Switzerland",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 30,
+          "share_of_total": 0.00023073,
+          "share_of_type": 0.00521286
+        },
+        {
+          "raw_value": "Turkey",
+          "normalized_value": "Turkey",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 27,
+          "share_of_total": 0.00020766,
+          "share_of_type": 0.00469157
+        },
+        {
+          "raw_value": "Norway",
+          "normalized_value": "Norway",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 26,
+          "share_of_total": 0.00019997,
+          "share_of_type": 0.00451781
+        },
+        {
+          "raw_value": "Sweden",
+          "normalized_value": "Sweden",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 26,
+          "share_of_total": 0.00019997,
+          "share_of_type": 0.00451781
+        },
+        {
+          "raw_value": "Austria",
+          "normalized_value": "Austria",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 20,
+          "share_of_total": 0.00015382,
+          "share_of_type": 0.00347524
+        },
+        {
+          "raw_value": "Philippines",
+          "normalized_value": "Philippines",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 20,
+          "share_of_total": 0.00015382,
+          "share_of_type": 0.00347524
+        },
+        {
+          "raw_value": "Bermuda",
+          "normalized_value": "Bermuda",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 19,
+          "share_of_total": 0.00014613,
+          "share_of_type": 0.00330148
+        },
+        {
+          "raw_value": "Finland",
+          "normalized_value": "Finland",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 18,
+          "share_of_total": 0.00013844,
+          "share_of_type": 0.00312772
+        },
+        {
+          "raw_value": "Ireland",
+          "normalized_value": "Ireland",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 17,
+          "share_of_total": 0.00013075,
+          "share_of_type": 0.00295395
+        },
+        {
+          "raw_value": "South Africa",
+          "normalized_value": "South Africa",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 17,
+          "share_of_total": 0.00013075,
+          "share_of_type": 0.00295395
+        },
+        {
+          "raw_value": "Luxembourg",
+          "normalized_value": "Luxembourg",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 16,
+          "share_of_total": 0.00012306,
+          "share_of_type": 0.00278019
+        },
+        {
+          "raw_value": "Russia",
+          "normalized_value": "Russia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 16,
+          "share_of_total": 0.00012306,
+          "share_of_type": 0.00278019
+        },
+        {
+          "raw_value": "Saudi Arabia",
+          "normalized_value": "Saudi Arabia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 15,
+          "share_of_total": 0.00011537,
+          "share_of_type": 0.00260643
+        },
+        {
+          "raw_value": "United Arab Emirates",
+          "normalized_value": "United Arab Emirates",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 15,
+          "share_of_total": 0.00011537,
+          "share_of_type": 0.00260643
+        },
+        {
+          "raw_value": "Israel",
+          "normalized_value": "Israel",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 14,
+          "share_of_total": 0.00010768,
+          "share_of_type": 0.00243267
+        },
+        {
+          "raw_value": "Belgium",
+          "normalized_value": "Belgium",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 13,
+          "share_of_total": 9.998e-05,
+          "share_of_type": 0.00225891
+        },
+        {
+          "raw_value": "Argentina",
+          "normalized_value": "Argentina",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 12,
+          "share_of_total": 9.229e-05,
+          "share_of_type": 0.00208514
+        },
+        {
+          "raw_value": "Pakistan",
+          "normalized_value": "Pakistan",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 12,
+          "share_of_total": 9.229e-05,
+          "share_of_type": 0.00208514
+        },
+        {
+          "raw_value": "Poland",
+          "normalized_value": "Poland",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 12,
+          "share_of_total": 9.229e-05,
+          "share_of_type": 0.00208514
+        },
+        {
+          "raw_value": "Qatar",
+          "normalized_value": "Qatar",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 10,
+          "share_of_total": 7.691e-05,
+          "share_of_type": 0.00173762
+        },
+        {
+          "raw_value": "Romania",
+          "normalized_value": "Romania",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 8,
+          "share_of_total": 6.153e-05,
+          "share_of_type": 0.0013901
+        },
+        {
+          "raw_value": "Colombia",
+          "normalized_value": "Colombia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 7,
+          "share_of_total": 5.384e-05,
+          "share_of_type": 0.00121633
+        },
+        {
+          "raw_value": "Peru",
+          "normalized_value": "Peru",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 7,
+          "share_of_total": 5.384e-05,
+          "share_of_type": 0.00121633
+        },
+        {
+          "raw_value": "Virgin Islands, British",
+          "normalized_value": "Virgin Islands, British",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 6,
+          "share_of_total": 4.615e-05,
+          "share_of_type": 0.00104257
+        },
+        {
+          "raw_value": "Algeria",
+          "normalized_value": "Algeria",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 5,
+          "share_of_total": 3.846e-05,
+          "share_of_type": 0.00086881
+        },
+        {
+          "raw_value": "New Zealand",
+          "normalized_value": "New Zealand",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 5,
+          "share_of_total": 3.846e-05,
+          "share_of_type": 0.00086881
+        },
+        {
+          "raw_value": "Panama",
+          "normalized_value": "Panama",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 5,
+          "share_of_total": 3.846e-05,
+          "share_of_type": 0.00086881
+        },
+        {
+          "raw_value": "Denmark",
+          "normalized_value": "Denmark",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 4,
+          "share_of_total": 3.076e-05,
+          "share_of_type": 0.00069505
+        },
+        {
+          "raw_value": "Jordan",
+          "normalized_value": "Jordan",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 4,
+          "share_of_total": 3.076e-05,
+          "share_of_type": 0.00069505
+        },
+        {
+          "raw_value": "Bulgaria",
+          "normalized_value": "Bulgaria",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00052129
+        },
+        {
+          "raw_value": "Egypt",
+          "normalized_value": "Egypt",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00052129
+        },
+        {
+          "raw_value": "Mauritius",
+          "normalized_value": "Mauritius",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00052129
+        },
+        {
+          "raw_value": "Oman",
+          "normalized_value": "Oman",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00052129
+        },
+        {
+          "raw_value": "Sri Lanka",
+          "normalized_value": "Sri Lanka",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00052129
+        },
+        {
+          "raw_value": "Costa Rica",
+          "normalized_value": "Costa Rica",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.00034752
+        },
+        {
+          "raw_value": "Croatia",
+          "normalized_value": "Croatia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.00034752
+        },
+        {
+          "raw_value": "Curacao",
+          "normalized_value": "Curacao",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.00034752
+        },
+        {
+          "raw_value": "Cyprus",
+          "normalized_value": "Cyprus",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.00034752
+        },
+        {
+          "raw_value": "Czech Republic",
+          "normalized_value": "Czech Republic",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.00034752
+        },
+        {
+          "raw_value": "Ecuador",
+          "normalized_value": "Ecuador",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.00034752
+        },
+        {
+          "raw_value": "El Salvador",
+          "normalized_value": "El Salvador",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.00034752
+        },
+        {
+          "raw_value": "Ethiopia",
+          "normalized_value": "Ethiopia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.00034752
+        },
+        {
+          "raw_value": "Greece",
+          "normalized_value": "Greece",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.00034752
+        },
+        {
+          "raw_value": "Kuwait",
+          "normalized_value": "Kuwait",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.00034752
+        },
+        {
+          "raw_value": "Libyan Arab Jamahiriya",
+          "normalized_value": "Libyan Arab Jamahiriya",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.00034752
+        },
+        {
+          "raw_value": "Madagascar",
+          "normalized_value": "Madagascar",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.00034752
+        },
+        {
+          "raw_value": "Nigeria",
+          "normalized_value": "Nigeria",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.00034752
+        },
+        {
+          "raw_value": "Slovakia",
+          "normalized_value": "Slovakia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.00034752
+        },
+        {
+          "raw_value": "Uzbekistan",
+          "normalized_value": "Uzbekistan",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.00034752
+        },
+        {
+          "raw_value": "Venezuela",
+          "normalized_value": "Venezuela",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.00034752
+        },
+        {
+          "raw_value": "Azerbaijan",
+          "normalized_value": "Azerbaijan",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Bahrain",
+          "normalized_value": "Bahrain",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Bangladesh",
+          "normalized_value": "Bangladesh",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Belarus",
+          "normalized_value": "Belarus",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Bhutan",
+          "normalized_value": "Bhutan",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Bosnia And Herzegovina",
+          "normalized_value": "Bosnia And Herzegovina",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Brasil",
+          "normalized_value": "Brasil",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Burkina Faso",
+          "normalized_value": "Burkina Faso",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Estonia",
+          "normalized_value": "Estonia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Hungary",
+          "normalized_value": "Hungary",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Iceland",
+          "normalized_value": "Iceland",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Kenya",
+          "normalized_value": "Kenya",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Kyrgyzstan",
+          "normalized_value": "Kyrgyzstan",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Lao People\"s Democratic Republic",
+          "normalized_value": "Lao People\"s Democratic Republic",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Lebanon",
+          "normalized_value": "Lebanon",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Lithuania",
+          "normalized_value": "Lithuania",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Moldova",
+          "normalized_value": "Moldova",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Mozambique",
+          "normalized_value": "Mozambique",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Myanmar",
+          "normalized_value": "Myanmar",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Philipines",
+          "normalized_value": "Philipines",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Portugal",
+          "normalized_value": "Portugal",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Serbia",
+          "normalized_value": "Serbia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Slovenia",
+          "normalized_value": "Slovenia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Tunisia",
+          "normalized_value": "Tunisia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Uganda",
+          "normalized_value": "Uganda",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Ukraine",
+          "normalized_value": "Ukraine",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "Zambia",
+          "normalized_value": "Zambia",
+          "category_type": "verified",
+          "source": "anonnet",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 0.00017376
+        },
+        {
+          "raw_value": "C",
+          "normalized_value": "Country Code C",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 6117,
+          "share_of_total": 0.04704661,
+          "share_of_type": 0.24349176
+        },
+        {
+          "raw_value": "B",
+          "normalized_value": "Country Code B",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 5158,
+          "share_of_total": 0.03967082,
+          "share_of_type": 0.20531805
+        },
+        {
+          "raw_value": "D",
+          "normalized_value": "Country Code D",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2835,
+          "share_of_total": 0.02180434,
+          "share_of_type": 0.1128493
+        },
+        {
+          "raw_value": "E",
+          "normalized_value": "Country Code E",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1865,
+          "share_of_total": 0.01434395,
+          "share_of_type": 0.07423772
+        },
+        {
+          "raw_value": "F",
+          "normalized_value": "Country Code F",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1865,
+          "share_of_total": 0.01434395,
+          "share_of_type": 0.07423772
+        },
+        {
+          "raw_value": "H",
+          "normalized_value": "Country Code H",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 933,
+          "share_of_total": 0.00717582,
+          "share_of_type": 0.03713876
+        },
+        {
+          "raw_value": "G",
+          "normalized_value": "Country Code G",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 595,
+          "share_of_total": 0.00457622,
+          "share_of_type": 0.02368442
+        },
+        {
+          "raw_value": "L",
+          "normalized_value": "Country Code L",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 465,
+          "share_of_total": 0.00357637,
+          "share_of_type": 0.01850967
+        },
+        {
+          "raw_value": "P",
+          "normalized_value": "Country Code P",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 404,
+          "share_of_total": 0.00310721,
+          "share_of_type": 0.01608152
+        },
+        {
+          "raw_value": "N",
+          "normalized_value": "Country Code N",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 370,
+          "share_of_total": 0.00284572,
+          "share_of_type": 0.01472813
+        },
+        {
+          "raw_value": "I",
+          "normalized_value": "Country Code I",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 359,
+          "share_of_total": 0.00276111,
+          "share_of_type": 0.01429026
+        },
+        {
+          "raw_value": "Y",
+          "normalized_value": "Country Code Y",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 322,
+          "share_of_total": 0.00247654,
+          "share_of_type": 0.01281745
+        },
+        {
+          "raw_value": "O",
+          "normalized_value": "Country Code O",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 293,
+          "share_of_total": 0.0022535,
+          "share_of_type": 0.01166308
+        },
+        {
+          "raw_value": "AE",
+          "normalized_value": "Country Code AE",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 205,
+          "share_of_total": 0.00157668,
+          "share_of_type": 0.00816018
+        },
+        {
+          "raw_value": "J",
+          "normalized_value": "Country Code J",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 201,
+          "share_of_total": 0.00154592,
+          "share_of_type": 0.00800096
+        },
+        {
+          "raw_value": "M",
+          "normalized_value": "Country Code M",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 199,
+          "share_of_total": 0.00153053,
+          "share_of_type": 0.00792134
+        },
+        {
+          "raw_value": "W",
+          "normalized_value": "Country Code W",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 195,
+          "share_of_total": 0.00149977,
+          "share_of_type": 0.00776212
+        },
+        {
+          "raw_value": "AO",
+          "normalized_value": "Country Code AO",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 155,
+          "share_of_total": 0.00119212,
+          "share_of_type": 0.00616989
+        },
+        {
+          "raw_value": "S",
+          "normalized_value": "Country Code S",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 146,
+          "share_of_total": 0.0011229,
+          "share_of_type": 0.00581164
+        },
+        {
+          "raw_value": "T",
+          "normalized_value": "Country Code T",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 128,
+          "share_of_total": 0.00098446,
+          "share_of_type": 0.00509514
+        },
+        {
+          "raw_value": "AB",
+          "normalized_value": "Country Code AB",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 121,
+          "share_of_total": 0.00093063,
+          "share_of_type": 0.0048165
+        },
+        {
+          "raw_value": "AH",
+          "normalized_value": "Country Code AH",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 119,
+          "share_of_total": 0.00091524,
+          "share_of_type": 0.00473688
+        },
+        {
+          "raw_value": "AA",
+          "normalized_value": "Country Code AA",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 104,
+          "share_of_total": 0.00079988,
+          "share_of_type": 0.0041398
+        },
+        {
+          "raw_value": "AJ",
+          "normalized_value": "Country Code AJ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 101,
+          "share_of_total": 0.0007768,
+          "share_of_type": 0.00402038
+        },
+        {
+          "raw_value": "AG",
+          "normalized_value": "Country Code AG",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 96,
+          "share_of_total": 0.00073835,
+          "share_of_type": 0.00382135
+        },
+        {
+          "raw_value": "Q",
+          "normalized_value": "Country Code Q",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 94,
+          "share_of_total": 0.00072297,
+          "share_of_type": 0.00374174
+        },
+        {
+          "raw_value": "Z",
+          "normalized_value": "Country Code Z",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 82,
+          "share_of_total": 0.00063067,
+          "share_of_type": 0.00326407
+        },
+        {
+          "raw_value": "R",
+          "normalized_value": "Country Code R",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 81,
+          "share_of_total": 0.00062298,
+          "share_of_type": 0.00322427
+        },
+        {
+          "raw_value": "AI",
+          "normalized_value": "Country Code AI",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 79,
+          "share_of_total": 0.0006076,
+          "share_of_type": 0.00314465
+        },
+        {
+          "raw_value": "AC",
+          "normalized_value": "Country Code AC",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 76,
+          "share_of_total": 0.00058453,
+          "share_of_type": 0.00302524
+        },
+        {
+          "raw_value": "V",
+          "normalized_value": "Country Code V",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 61,
+          "share_of_total": 0.00046916,
+          "share_of_type": 0.00242815
+        },
+        {
+          "raw_value": "U",
+          "normalized_value": "Country Code U",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 60,
+          "share_of_total": 0.00046147,
+          "share_of_type": 0.00238834
+        },
+        {
+          "raw_value": "AD",
+          "normalized_value": "Country Code AD",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 59,
+          "share_of_total": 0.00045378,
+          "share_of_type": 0.00234854
+        },
+        {
+          "raw_value": "BF",
+          "normalized_value": "Country Code BF",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 58,
+          "share_of_total": 0.00044609,
+          "share_of_type": 0.00230873
+        },
+        {
+          "raw_value": "BH",
+          "normalized_value": "Country Code BH",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 48,
+          "share_of_total": 0.00036917,
+          "share_of_type": 0.00191068
+        },
+        {
+          "raw_value": "BR",
+          "normalized_value": "Country Code BR",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 41,
+          "share_of_total": 0.00031534,
+          "share_of_type": 0.00163204
+        },
+        {
+          "raw_value": "AR",
+          "normalized_value": "Country Code AR",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 37,
+          "share_of_total": 0.00028457,
+          "share_of_type": 0.00147281
+        },
+        {
+          "raw_value": "AN",
+          "normalized_value": "Country Code AN",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 35,
+          "share_of_total": 0.00026919,
+          "share_of_type": 0.0013932
+        },
+        {
+          "raw_value": "BK",
+          "normalized_value": "Country Code BK",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 35,
+          "share_of_total": 0.00026919,
+          "share_of_type": 0.0013932
+        },
+        {
+          "raw_value": "BV",
+          "normalized_value": "Country Code BV",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 34,
+          "share_of_total": 0.0002615,
+          "share_of_type": 0.0013534
+        },
+        {
+          "raw_value": "BL",
+          "normalized_value": "Country Code BL",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 33,
+          "share_of_total": 0.00025381,
+          "share_of_type": 0.00131359
+        },
+        {
+          "raw_value": "BQ",
+          "normalized_value": "Country Code BQ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 32,
+          "share_of_total": 0.00024612,
+          "share_of_type": 0.00127378
+        },
+        {
+          "raw_value": "AK",
+          "normalized_value": "Country Code AK",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 31,
+          "share_of_total": 0.00023842,
+          "share_of_type": 0.00123398
+        },
+        {
+          "raw_value": "BU",
+          "normalized_value": "Country Code BU",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 27,
+          "share_of_total": 0.00020766,
+          "share_of_type": 0.00107476
+        },
+        {
+          "raw_value": "CC",
+          "normalized_value": "Country Code CC",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 25,
+          "share_of_total": 0.00019228,
+          "share_of_type": 0.00099514
+        },
+        {
+          "raw_value": "CJ",
+          "normalized_value": "Country Code CJ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 23,
+          "share_of_total": 0.0001769,
+          "share_of_type": 0.00091553
+        },
+        {
+          "raw_value": "CK",
+          "normalized_value": "Country Code CK",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 19,
+          "share_of_total": 0.00014613,
+          "share_of_type": 0.00075631
+        },
+        {
+          "raw_value": "CM",
+          "normalized_value": "Country Code CM",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 19,
+          "share_of_total": 0.00014613,
+          "share_of_type": 0.00075631
+        },
+        {
+          "raw_value": "BB",
+          "normalized_value": "Country Code BB",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 18,
+          "share_of_total": 0.00013844,
+          "share_of_type": 0.0007165
+        },
+        {
+          "raw_value": "CN",
+          "normalized_value": "Country Code CN",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 17,
+          "share_of_total": 0.00013075,
+          "share_of_type": 0.0006767
+        },
+        {
+          "raw_value": "CT",
+          "normalized_value": "Country Code CT",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 17,
+          "share_of_total": 0.00013075,
+          "share_of_type": 0.0006767
+        },
+        {
+          "raw_value": "CY",
+          "normalized_value": "Country Code CY",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 17,
+          "share_of_total": 0.00013075,
+          "share_of_type": 0.0006767
+        },
+        {
+          "raw_value": "DA",
+          "normalized_value": "Country Code DA",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 17,
+          "share_of_total": 0.00013075,
+          "share_of_type": 0.0006767
+        },
+        {
+          "raw_value": "CL",
+          "normalized_value": "Country Code CL",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 16,
+          "share_of_total": 0.00012306,
+          "share_of_type": 0.00063689
+        },
+        {
+          "raw_value": "AT",
+          "normalized_value": "Country Code AT",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 15,
+          "share_of_total": 0.00011537,
+          "share_of_type": 0.00059709
+        },
+        {
+          "raw_value": "CP",
+          "normalized_value": "Country Code CP",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 15,
+          "share_of_total": 0.00011537,
+          "share_of_type": 0.00059709
+        },
+        {
+          "raw_value": "CZ",
+          "normalized_value": "Country Code CZ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 15,
+          "share_of_total": 0.00011537,
+          "share_of_type": 0.00059709
+        },
+        {
+          "raw_value": "CQ",
+          "normalized_value": "Country Code CQ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 14,
+          "share_of_total": 0.00010768,
+          "share_of_type": 0.00055728
+        },
+        {
+          "raw_value": "CR",
+          "normalized_value": "Country Code CR",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 14,
+          "share_of_total": 0.00010768,
+          "share_of_type": 0.00055728
+        },
+        {
+          "raw_value": "CV",
+          "normalized_value": "Country Code CV",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 14,
+          "share_of_total": 0.00010768,
+          "share_of_type": 0.00055728
+        },
+        {
+          "raw_value": "DJ",
+          "normalized_value": "Country Code DJ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 14,
+          "share_of_total": 0.00010768,
+          "share_of_type": 0.00055728
+        },
+        {
+          "raw_value": "DK",
+          "normalized_value": "Country Code DK",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 14,
+          "share_of_total": 0.00010768,
+          "share_of_type": 0.00055728
+        },
+        {
+          "raw_value": "CU",
+          "normalized_value": "Country Code CU",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 13,
+          "share_of_total": 9.998e-05,
+          "share_of_type": 0.00051747
+        },
+        {
+          "raw_value": "CW",
+          "normalized_value": "Country Code CW",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 13,
+          "share_of_total": 9.998e-05,
+          "share_of_type": 0.00051747
+        },
+        {
+          "raw_value": "DL",
+          "normalized_value": "Country Code DL",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 12,
+          "share_of_total": 9.229e-05,
+          "share_of_type": 0.00047767
+        },
+        {
+          "raw_value": "DO",
+          "normalized_value": "Country Code DO",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 12,
+          "share_of_total": 9.229e-05,
+          "share_of_type": 0.00047767
+        },
+        {
+          "raw_value": "DR",
+          "normalized_value": "Country Code DR",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 12,
+          "share_of_total": 9.229e-05,
+          "share_of_type": 0.00047767
+        },
+        {
+          "raw_value": "DP",
+          "normalized_value": "Country Code DP",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 11,
+          "share_of_total": 8.46e-05,
+          "share_of_type": 0.00043786
+        },
+        {
+          "raw_value": "AQ",
+          "normalized_value": "Country Code AQ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 10,
+          "share_of_total": 7.691e-05,
+          "share_of_type": 0.00039806
+        },
+        {
+          "raw_value": "DI",
+          "normalized_value": "Country Code DI",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 10,
+          "share_of_total": 7.691e-05,
+          "share_of_type": 0.00039806
+        },
+        {
+          "raw_value": "DU",
+          "normalized_value": "Country Code DU",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 10,
+          "share_of_total": 7.691e-05,
+          "share_of_type": 0.00039806
+        },
+        {
+          "raw_value": "DZ",
+          "normalized_value": "Country Code DZ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 10,
+          "share_of_total": 7.691e-05,
+          "share_of_type": 0.00039806
+        },
+        {
+          "raw_value": "EA",
+          "normalized_value": "Country Code EA",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 10,
+          "share_of_total": 7.691e-05,
+          "share_of_type": 0.00039806
+        },
+        {
+          "raw_value": "DF",
+          "normalized_value": "Country Code DF",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 9,
+          "share_of_total": 6.922e-05,
+          "share_of_type": 0.00035825
+        },
+        {
+          "raw_value": "DM",
+          "normalized_value": "Country Code DM",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 9,
+          "share_of_total": 6.922e-05,
+          "share_of_type": 0.00035825
+        },
+        {
+          "raw_value": "EB",
+          "normalized_value": "Country Code EB",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 9,
+          "share_of_total": 6.922e-05,
+          "share_of_type": 0.00035825
+        },
+        {
+          "raw_value": "BC",
+          "normalized_value": "Country Code BC",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 8,
+          "share_of_total": 6.153e-05,
+          "share_of_type": 0.00031845
+        },
+        {
+          "raw_value": "DY",
+          "normalized_value": "Country Code DY",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 8,
+          "share_of_total": 6.153e-05,
+          "share_of_type": 0.00031845
+        },
+        {
+          "raw_value": "ED",
+          "normalized_value": "Country Code ED",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 8,
+          "share_of_total": 6.153e-05,
+          "share_of_type": 0.00031845
+        },
+        {
+          "raw_value": "EE",
+          "normalized_value": "Country Code EE",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 8,
+          "share_of_total": 6.153e-05,
+          "share_of_type": 0.00031845
+        },
+        {
+          "raw_value": "EH",
+          "normalized_value": "Country Code EH",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 8,
+          "share_of_total": 6.153e-05,
+          "share_of_type": 0.00031845
+        },
+        {
+          "raw_value": "DQ",
+          "normalized_value": "Country Code DQ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 7,
+          "share_of_total": 5.384e-05,
+          "share_of_type": 0.00027864
+        },
+        {
+          "raw_value": "DX",
+          "normalized_value": "Country Code DX",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 7,
+          "share_of_total": 5.384e-05,
+          "share_of_type": 0.00027864
+        },
+        {
+          "raw_value": "ET",
+          "normalized_value": "Country Code ET",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 7,
+          "share_of_total": 5.384e-05,
+          "share_of_type": 0.00027864
+        },
+        {
+          "raw_value": "EF",
+          "normalized_value": "Country Code EF",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 6,
+          "share_of_total": 4.615e-05,
+          "share_of_type": 0.00023883
+        },
+        {
+          "raw_value": "EN",
+          "normalized_value": "Country Code EN",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 6,
+          "share_of_total": 4.615e-05,
+          "share_of_type": 0.00023883
+        },
+        {
+          "raw_value": "EO",
+          "normalized_value": "Country Code EO",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 6,
+          "share_of_total": 4.615e-05,
+          "share_of_type": 0.00023883
+        },
+        {
+          "raw_value": "ES",
+          "normalized_value": "Country Code ES",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 6,
+          "share_of_total": 4.615e-05,
+          "share_of_type": 0.00023883
+        },
+        {
+          "raw_value": "EX",
+          "normalized_value": "Country Code EX",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 6,
+          "share_of_total": 4.615e-05,
+          "share_of_type": 0.00023883
+        },
+        {
+          "raw_value": "EY",
+          "normalized_value": "Country Code EY",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 6,
+          "share_of_total": 4.615e-05,
+          "share_of_type": 0.00023883
+        },
+        {
+          "raw_value": "K",
+          "normalized_value": "Country Code K",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 6,
+          "share_of_total": 4.615e-05,
+          "share_of_type": 0.00023883
+        },
+        {
+          "raw_value": "EG",
+          "normalized_value": "Country Code EG",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 5,
+          "share_of_total": 3.846e-05,
+          "share_of_type": 0.00019903
+        },
+        {
+          "raw_value": "FA",
+          "normalized_value": "Country Code FA",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 5,
+          "share_of_total": 3.846e-05,
+          "share_of_type": 0.00019903
+        },
+        {
+          "raw_value": "FD",
+          "normalized_value": "Country Code FD",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 5,
+          "share_of_total": 3.846e-05,
+          "share_of_type": 0.00019903
+        },
+        {
+          "raw_value": "FF",
+          "normalized_value": "Country Code FF",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 5,
+          "share_of_total": 3.846e-05,
+          "share_of_type": 0.00019903
+        },
+        {
+          "raw_value": "FG",
+          "normalized_value": "Country Code FG",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 5,
+          "share_of_total": 3.846e-05,
+          "share_of_type": 0.00019903
+        },
+        {
+          "raw_value": "FH",
+          "normalized_value": "Country Code FH",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 5,
+          "share_of_total": 3.846e-05,
+          "share_of_type": 0.00019903
+        },
+        {
+          "raw_value": "FN",
+          "normalized_value": "Country Code FN",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 5,
+          "share_of_total": 3.846e-05,
+          "share_of_type": 0.00019903
+        },
+        {
+          "raw_value": "EP",
+          "normalized_value": "Country Code EP",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 4,
+          "share_of_total": 3.076e-05,
+          "share_of_type": 0.00015922
+        },
+        {
+          "raw_value": "FK",
+          "normalized_value": "Country Code FK",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 4,
+          "share_of_total": 3.076e-05,
+          "share_of_type": 0.00015922
+        },
+        {
+          "raw_value": "FS",
+          "normalized_value": "Country Code FS",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 4,
+          "share_of_total": 3.076e-05,
+          "share_of_type": 0.00015922
+        },
+        {
+          "raw_value": "FT",
+          "normalized_value": "Country Code FT",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 4,
+          "share_of_total": 3.076e-05,
+          "share_of_type": 0.00015922
+        },
+        {
+          "raw_value": "FV",
+          "normalized_value": "Country Code FV",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 4,
+          "share_of_total": 3.076e-05,
+          "share_of_type": 0.00015922
+        },
+        {
+          "raw_value": "FY",
+          "normalized_value": "Country Code FY",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 4,
+          "share_of_total": 3.076e-05,
+          "share_of_type": 0.00015922
+        },
+        {
+          "raw_value": "GA",
+          "normalized_value": "Country Code GA",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 4,
+          "share_of_total": 3.076e-05,
+          "share_of_type": 0.00015922
+        },
+        {
+          "raw_value": "GB",
+          "normalized_value": "Country Code GB",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 4,
+          "share_of_total": 3.076e-05,
+          "share_of_type": 0.00015922
+        },
+        {
+          "raw_value": "GD",
+          "normalized_value": "Country Code GD",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 4,
+          "share_of_total": 3.076e-05,
+          "share_of_type": 0.00015922
+        },
+        {
+          "raw_value": "FE",
+          "normalized_value": "Country Code FE",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00011942
+        },
+        {
+          "raw_value": "FI",
+          "normalized_value": "Country Code FI",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00011942
+        },
+        {
+          "raw_value": "FJ",
+          "normalized_value": "Country Code FJ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00011942
+        },
+        {
+          "raw_value": "FL",
+          "normalized_value": "Country Code FL",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00011942
+        },
+        {
+          "raw_value": "FM",
+          "normalized_value": "Country Code FM",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00011942
+        },
+        {
+          "raw_value": "GC",
+          "normalized_value": "Country Code GC",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00011942
+        },
+        {
+          "raw_value": "GH",
+          "normalized_value": "Country Code GH",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00011942
+        },
+        {
+          "raw_value": "GL",
+          "normalized_value": "Country Code GL",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00011942
+        },
+        {
+          "raw_value": "GN",
+          "normalized_value": "Country Code GN",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00011942
+        },
+        {
+          "raw_value": "GO",
+          "normalized_value": "Country Code GO",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00011942
+        },
+        {
+          "raw_value": "GS",
+          "normalized_value": "Country Code GS",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00011942
+        },
+        {
+          "raw_value": "GV",
+          "normalized_value": "Country Code GV",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00011942
+        },
+        {
+          "raw_value": "GW",
+          "normalized_value": "Country Code GW",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 3,
+          "share_of_total": 2.307e-05,
+          "share_of_type": 0.00011942
+        },
+        {
+          "raw_value": "FW",
+          "normalized_value": "Country Code FW",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "FX",
+          "normalized_value": "Country Code FX",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "FZ",
+          "normalized_value": "Country Code FZ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "GI",
+          "normalized_value": "Country Code GI",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "GJ",
+          "normalized_value": "Country Code GJ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "GM",
+          "normalized_value": "Country Code GM",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "GP",
+          "normalized_value": "Country Code GP",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "GR",
+          "normalized_value": "Country Code GR",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "GT",
+          "normalized_value": "Country Code GT",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "GU",
+          "normalized_value": "Country Code GU",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "HA",
+          "normalized_value": "Country Code HA",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "HC",
+          "normalized_value": "Country Code HC",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "HK",
+          "normalized_value": "Country Code HK",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "HM",
+          "normalized_value": "Country Code HM",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "HN",
+          "normalized_value": "Country Code HN",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "HO",
+          "normalized_value": "Country Code HO",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "HP",
+          "normalized_value": "Country Code HP",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "HQ",
+          "normalized_value": "Country Code HQ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "HR",
+          "normalized_value": "Country Code HR",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "HS",
+          "normalized_value": "Country Code HS",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "HT",
+          "normalized_value": "Country Code HT",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "HY",
+          "normalized_value": "Country Code HY",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IB",
+          "normalized_value": "Country Code IB",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IC",
+          "normalized_value": "Country Code IC",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IE",
+          "normalized_value": "Country Code IE",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IF",
+          "normalized_value": "Country Code IF",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IG",
+          "normalized_value": "Country Code IG",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IH",
+          "normalized_value": "Country Code IH",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "II",
+          "normalized_value": "Country Code II",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IJ",
+          "normalized_value": "Country Code IJ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IK",
+          "normalized_value": "Country Code IK",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IL",
+          "normalized_value": "Country Code IL",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IM",
+          "normalized_value": "Country Code IM",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IN",
+          "normalized_value": "Country Code IN",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IQ",
+          "normalized_value": "Country Code IQ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IR",
+          "normalized_value": "Country Code IR",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IT",
+          "normalized_value": "Country Code IT",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IV",
+          "normalized_value": "Country Code IV",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IW",
+          "normalized_value": "Country Code IW",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IX",
+          "normalized_value": "Country Code IX",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IY",
+          "normalized_value": "Country Code IY",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "IZ",
+          "normalized_value": "Country Code IZ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "JA",
+          "normalized_value": "Country Code JA",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 7.961e-05
+        },
+        {
+          "raw_value": "GK",
+          "normalized_value": "Country Code GK",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 3.981e-05
+        },
+        {
+          "raw_value": "GQ",
+          "normalized_value": "Country Code GQ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 3.981e-05
+        },
+        {
+          "raw_value": "HB",
+          "normalized_value": "Country Code HB",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 3.981e-05
+        },
+        {
+          "raw_value": "HF",
+          "normalized_value": "Country Code HF",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 3.981e-05
+        },
+        {
+          "raw_value": "HG",
+          "normalized_value": "Country Code HG",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 3.981e-05
+        },
+        {
+          "raw_value": "HL",
+          "normalized_value": "Country Code HL",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 3.981e-05
+        },
+        {
+          "raw_value": "HV",
+          "normalized_value": "Country Code HV",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 3.981e-05
+        },
+        {
+          "raw_value": "HW",
+          "normalized_value": "Country Code HW",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 3.981e-05
+        },
+        {
+          "raw_value": "HX",
+          "normalized_value": "Country Code HX",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 3.981e-05
+        },
+        {
+          "raw_value": "HZ",
+          "normalized_value": "Country Code HZ",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 3.981e-05
+        },
+        {
+          "raw_value": "IA",
+          "normalized_value": "Country Code IA",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 3.981e-05
+        },
+        {
+          "raw_value": "ID",
+          "normalized_value": "Country Code ID",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 3.981e-05
+        },
+        {
+          "raw_value": "IO",
+          "normalized_value": "Country Code IO",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 3.981e-05
+        },
+        {
+          "raw_value": "IP",
+          "normalized_value": "Country Code IP",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 3.981e-05
+        },
+        {
+          "raw_value": "IS",
+          "normalized_value": "Country Code IS",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 3.981e-05
+        },
+        {
+          "raw_value": "X",
+          "normalized_value": "Country Code X",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1,
+          "share_of_total": 7.69e-06,
+          "share_of_type": 3.981e-05
+        }
+      ]
+    },
+    "industry": {
+      "field": "industry",
+      "label": "Industry",
+      "total_nodes": 130020,
+      "counts": {
+        "total": 130020,
+        "verified": 0,
+        "anonymized": 10565,
+        "missing": 119455,
+        "unknown": 0
+      },
+      "distinct": {
+        "verified": 0,
+        "anonymized": 22,
+        "missing": 0,
+        "unknown": 0
+      },
+      "top_verified": [],
+      "top_anonymized": [
+        {
+          "raw_value": "A",
+          "normalized_value": "Industry Code A",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 3476,
+          "share_of_total": 0.02673435,
+          "share_of_type": 0.32901088
+        },
+        {
+          "raw_value": "C",
+          "normalized_value": "Industry Code C",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2054,
+          "share_of_total": 0.01579757,
+          "share_of_type": 0.19441552
+        },
+        {
+          "raw_value": "B",
+          "normalized_value": "Industry Code B",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1891,
+          "share_of_total": 0.01454392,
+          "share_of_type": 0.17898722
+        },
+        {
+          "raw_value": "D",
+          "normalized_value": "Industry Code D",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 974,
+          "share_of_total": 0.00749116,
+          "share_of_type": 0.0921912
+        },
+        {
+          "raw_value": "F",
+          "normalized_value": "Industry Code F",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 316,
+          "share_of_total": 0.0024304,
+          "share_of_type": 0.02991008
+        },
+        {
+          "raw_value": "H",
+          "normalized_value": "Industry Code H",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 292,
+          "share_of_total": 0.00224581,
+          "share_of_type": 0.02763843
+        },
+        {
+          "raw_value": "E",
+          "normalized_value": "Industry Code E",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 283,
+          "share_of_total": 0.00217659,
+          "share_of_type": 0.02678656
+        },
+        {
+          "raw_value": "G",
+          "normalized_value": "Industry Code G",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 245,
+          "share_of_total": 0.00188433,
+          "share_of_type": 0.02318978
+        },
+        {
+          "raw_value": "L",
+          "normalized_value": "Industry Code L",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 211,
+          "share_of_total": 0.00162283,
+          "share_of_type": 0.0199716
+        },
+        {
+          "raw_value": "K",
+          "normalized_value": "Industry Code K",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 183,
+          "share_of_total": 0.00140748,
+          "share_of_type": 0.01732134
+        },
+        {
+          "raw_value": "J",
+          "normalized_value": "Industry Code J",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 171,
+          "share_of_total": 0.00131518,
+          "share_of_type": 0.01618552
+        },
+        {
+          "raw_value": "I",
+          "normalized_value": "Industry Code I",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 143,
+          "share_of_total": 0.00109983,
+          "share_of_type": 0.01353526
+        },
+        {
+          "raw_value": "M",
+          "normalized_value": "Industry Code M",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 99,
+          "share_of_total": 0.00076142,
+          "share_of_type": 0.00937056
+        },
+        {
+          "raw_value": "N",
+          "normalized_value": "Industry Code N",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 68,
+          "share_of_total": 0.000523,
+          "share_of_type": 0.00643635
+        },
+        {
+          "raw_value": "O",
+          "normalized_value": "Industry Code O",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 47,
+          "share_of_total": 0.00036148,
+          "share_of_type": 0.00444865
+        },
+        {
+          "raw_value": "P",
+          "normalized_value": "Industry Code P",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 35,
+          "share_of_total": 0.00026919,
+          "share_of_type": 0.00331283
+        },
+        {
+          "raw_value": "R",
+          "normalized_value": "Industry Code R",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 33,
+          "share_of_total": 0.00025381,
+          "share_of_type": 0.00312352
+        },
+        {
+          "raw_value": "Q",
+          "normalized_value": "Industry Code Q",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 20,
+          "share_of_total": 0.00015382,
+          "share_of_type": 0.00189304
+        },
+        {
+          "raw_value": "S",
+          "normalized_value": "Industry Code S",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 12,
+          "share_of_total": 9.229e-05,
+          "share_of_type": 0.00113583
+        },
+        {
+          "raw_value": "T",
+          "normalized_value": "Industry Code T",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 8,
+          "share_of_total": 6.153e-05,
+          "share_of_type": 0.00075722
+        },
+        {
+          "raw_value": "U",
+          "normalized_value": "Industry Code U",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.0001893
+        },
+        {
+          "raw_value": "W",
+          "normalized_value": "Industry Code W",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.0001893
+        }
+      ],
+      "top_unknown": [],
+      "missing_by_source": {
+        "anonnet": 7245,
+        "ic_splc": 98838,
+        "sampoq": 13372
+      },
+      "by_source": {
+        "anonnet": {
+          "total": 7245,
+          "verified": 0,
+          "anonymized": 0,
+          "missing": 7245,
+          "unknown": 0
+        },
+        "ic_splc": {
+          "total": 109403,
+          "verified": 0,
+          "anonymized": 10565,
+          "missing": 98838,
+          "unknown": 0
+        },
+        "sampoq": {
+          "total": 13372,
+          "verified": 0,
+          "anonymized": 0,
+          "missing": 13372,
+          "unknown": 0
+        }
+      },
+      "notes": [
+        "IC-SPLC industry values are anonymized frequency-ranked codes; their mapping to real industries is not published.",
+        "AnonNet and SAMPOQ have no industry field in the acquired sources.",
+        "No verified industry names exist in the current graph."
+      ],
+      "raw_distinct_values": [
+        {
+          "raw_value": "A",
+          "count": 3476,
+          "sources": {
+            "ic_splc": 3476
+          }
+        },
+        {
+          "raw_value": "C",
+          "count": 2054,
+          "sources": {
+            "ic_splc": 2054
+          }
+        },
+        {
+          "raw_value": "B",
+          "count": 1891,
+          "sources": {
+            "ic_splc": 1891
+          }
+        },
+        {
+          "raw_value": "D",
+          "count": 974,
+          "sources": {
+            "ic_splc": 974
+          }
+        },
+        {
+          "raw_value": "F",
+          "count": 316,
+          "sources": {
+            "ic_splc": 316
+          }
+        },
+        {
+          "raw_value": "H",
+          "count": 292,
+          "sources": {
+            "ic_splc": 292
+          }
+        },
+        {
+          "raw_value": "E",
+          "count": 283,
+          "sources": {
+            "ic_splc": 283
+          }
+        },
+        {
+          "raw_value": "G",
+          "count": 245,
+          "sources": {
+            "ic_splc": 245
+          }
+        },
+        {
+          "raw_value": "L",
+          "count": 211,
+          "sources": {
+            "ic_splc": 211
+          }
+        },
+        {
+          "raw_value": "K",
+          "count": 183,
+          "sources": {
+            "ic_splc": 183
+          }
+        },
+        {
+          "raw_value": "J",
+          "count": 171,
+          "sources": {
+            "ic_splc": 171
+          }
+        },
+        {
+          "raw_value": "I",
+          "count": 143,
+          "sources": {
+            "ic_splc": 143
+          }
+        },
+        {
+          "raw_value": "M",
+          "count": 99,
+          "sources": {
+            "ic_splc": 99
+          }
+        },
+        {
+          "raw_value": "N",
+          "count": 68,
+          "sources": {
+            "ic_splc": 68
+          }
+        },
+        {
+          "raw_value": "O",
+          "count": 47,
+          "sources": {
+            "ic_splc": 47
+          }
+        },
+        {
+          "raw_value": "P",
+          "count": 35,
+          "sources": {
+            "ic_splc": 35
+          }
+        },
+        {
+          "raw_value": "R",
+          "count": 33,
+          "sources": {
+            "ic_splc": 33
+          }
+        },
+        {
+          "raw_value": "Q",
+          "count": 20,
+          "sources": {
+            "ic_splc": 20
+          }
+        },
+        {
+          "raw_value": "S",
+          "count": 12,
+          "sources": {
+            "ic_splc": 12
+          }
+        },
+        {
+          "raw_value": "T",
+          "count": 8,
+          "sources": {
+            "ic_splc": 8
+          }
+        },
+        {
+          "raw_value": "U",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        },
+        {
+          "raw_value": "W",
+          "count": 2,
+          "sources": {
+            "ic_splc": 2
+          }
+        }
+      ],
+      "normalized_distinct_values": [
+        {
+          "raw_value": "A",
+          "normalized_value": "Industry Code A",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 3476,
+          "share_of_total": 0.02673435,
+          "share_of_type": 0.32901088
+        },
+        {
+          "raw_value": "C",
+          "normalized_value": "Industry Code C",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2054,
+          "share_of_total": 0.01579757,
+          "share_of_type": 0.19441552
+        },
+        {
+          "raw_value": "B",
+          "normalized_value": "Industry Code B",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 1891,
+          "share_of_total": 0.01454392,
+          "share_of_type": 0.17898722
+        },
+        {
+          "raw_value": "D",
+          "normalized_value": "Industry Code D",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 974,
+          "share_of_total": 0.00749116,
+          "share_of_type": 0.0921912
+        },
+        {
+          "raw_value": "F",
+          "normalized_value": "Industry Code F",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 316,
+          "share_of_total": 0.0024304,
+          "share_of_type": 0.02991008
+        },
+        {
+          "raw_value": "H",
+          "normalized_value": "Industry Code H",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 292,
+          "share_of_total": 0.00224581,
+          "share_of_type": 0.02763843
+        },
+        {
+          "raw_value": "E",
+          "normalized_value": "Industry Code E",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 283,
+          "share_of_total": 0.00217659,
+          "share_of_type": 0.02678656
+        },
+        {
+          "raw_value": "G",
+          "normalized_value": "Industry Code G",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 245,
+          "share_of_total": 0.00188433,
+          "share_of_type": 0.02318978
+        },
+        {
+          "raw_value": "L",
+          "normalized_value": "Industry Code L",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 211,
+          "share_of_total": 0.00162283,
+          "share_of_type": 0.0199716
+        },
+        {
+          "raw_value": "K",
+          "normalized_value": "Industry Code K",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 183,
+          "share_of_total": 0.00140748,
+          "share_of_type": 0.01732134
+        },
+        {
+          "raw_value": "J",
+          "normalized_value": "Industry Code J",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 171,
+          "share_of_total": 0.00131518,
+          "share_of_type": 0.01618552
+        },
+        {
+          "raw_value": "I",
+          "normalized_value": "Industry Code I",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 143,
+          "share_of_total": 0.00109983,
+          "share_of_type": 0.01353526
+        },
+        {
+          "raw_value": "M",
+          "normalized_value": "Industry Code M",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 99,
+          "share_of_total": 0.00076142,
+          "share_of_type": 0.00937056
+        },
+        {
+          "raw_value": "N",
+          "normalized_value": "Industry Code N",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 68,
+          "share_of_total": 0.000523,
+          "share_of_type": 0.00643635
+        },
+        {
+          "raw_value": "O",
+          "normalized_value": "Industry Code O",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 47,
+          "share_of_total": 0.00036148,
+          "share_of_type": 0.00444865
+        },
+        {
+          "raw_value": "P",
+          "normalized_value": "Industry Code P",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 35,
+          "share_of_total": 0.00026919,
+          "share_of_type": 0.00331283
+        },
+        {
+          "raw_value": "R",
+          "normalized_value": "Industry Code R",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 33,
+          "share_of_total": 0.00025381,
+          "share_of_type": 0.00312352
+        },
+        {
+          "raw_value": "Q",
+          "normalized_value": "Industry Code Q",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 20,
+          "share_of_total": 0.00015382,
+          "share_of_type": 0.00189304
+        },
+        {
+          "raw_value": "S",
+          "normalized_value": "Industry Code S",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 12,
+          "share_of_total": 9.229e-05,
+          "share_of_type": 0.00113583
+        },
+        {
+          "raw_value": "T",
+          "normalized_value": "Industry Code T",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 8,
+          "share_of_total": 6.153e-05,
+          "share_of_type": 0.00075722
+        },
+        {
+          "raw_value": "U",
+          "normalized_value": "Industry Code U",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.0001893
+        },
+        {
+          "raw_value": "W",
+          "normalized_value": "Industry Code W",
+          "category_type": "anonymized",
+          "source": "ic_splc",
+          "count": 2,
+          "share_of_total": 1.538e-05,
+          "share_of_type": 0.0001893
+        }
+      ]
+    }
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "check": "country: category-type counts sum to total nodes",
+        "expected": 130020,
+        "actual": 130020,
+        "passed": true
+      },
+      {
+        "check": "country: per-source totals match processed nodes.csv",
+        "expected": {
+          "ic_splc": 109403,
+          "sampoq": 13372,
+          "anonnet": 7245
+        },
+        "actual": {
+          "anonnet": 7245,
+          "ic_splc": 109403,
+          "sampoq": 13372
+        },
+        "passed": true
+      },
+      {
+        "check": "country: raw distinct-value counts sum to non-missing nodes",
+        "expected": 30877,
+        "actual": 30877,
+        "passed": true
+      },
+      {
+        "check": "country: distinct raw values match direct pandas value_counts",
+        "expected": 281,
+        "actual": 281,
+        "passed": true
+      },
+      {
+        "check": "country: top displayed values match direct raw counts",
+        "expected": {
+          "Japan": 1099,
+          "China": 1086,
+          "United States": 720,
+          "South Korea": 481,
+          "Taiwan": 300,
+          "India": 249,
+          "Germany": 154,
+          "Indonesia": 129,
+          "United Kingdom": 119,
+          "Australia": 106,
+          "Canada": 99,
+          "Spain": 97,
+          "Vietnam": 83,
+          "Russian Federation": 78,
+          "France": 62,
+          "Cayman Islands": 61,
+          "Netherlands": 46,
+          "Malaysia": 45,
+          "Italy": 39,
+          "Mexico": 39,
+          "Singapore": 39,
+          "Thailand": 39,
+          "Brazil": 36,
+          "Chile": 35,
+          "Hong Kong": 34,
+          "C": 6117,
+          "B": 5158,
+          "D": 2835,
+          "E": 1865,
+          "F": 1865,
+          "H": 933,
+          "G": 595,
+          "L": 465,
+          "P": 404,
+          "N": 370,
+          "I": 359,
+          "Y": 322,
+          "O": 293,
+          "AE": 205,
+          "J": 201,
+          "M": 199,
+          "W": 195,
+          "AO": 155,
+          "S": 146,
+          "T": 128,
+          "AB": 121,
+          "AH": 119,
+          "AA": 104,
+          "AJ": 101,
+          "AG": 96
+        },
+        "actual": {
+          "Japan": 1099,
+          "China": 1086,
+          "United States": 720,
+          "South Korea": 481,
+          "Taiwan": 300,
+          "India": 249,
+          "Germany": 154,
+          "Indonesia": 129,
+          "United Kingdom": 119,
+          "Australia": 106,
+          "Canada": 99,
+          "Spain": 97,
+          "Vietnam": 83,
+          "Russian Federation": 78,
+          "France": 62,
+          "Cayman Islands": 61,
+          "Netherlands": 46,
+          "Malaysia": 45,
+          "Italy": 39,
+          "Mexico": 39,
+          "Singapore": 39,
+          "Thailand": 39,
+          "Brazil": 36,
+          "Chile": 35,
+          "Hong Kong": 34,
+          "C": 6117,
+          "B": 5158,
+          "D": 2835,
+          "E": 1865,
+          "F": 1865,
+          "H": 933,
+          "G": 595,
+          "L": 465,
+          "P": 404,
+          "N": 370,
+          "I": 359,
+          "Y": 322,
+          "O": 293,
+          "AE": 205,
+          "J": 201,
+          "M": 199,
+          "W": 195,
+          "AO": 155,
+          "S": 146,
+          "T": 128,
+          "AB": 121,
+          "AH": 119,
+          "AA": 104,
+          "AJ": 101,
+          "AG": 96
+        },
+        "passed": true
+      },
+      {
+        "check": "industry: category-type counts sum to total nodes",
+        "expected": 130020,
+        "actual": 130020,
+        "passed": true
+      },
+      {
+        "check": "industry: per-source totals match processed nodes.csv",
+        "expected": {
+          "ic_splc": 109403,
+          "sampoq": 13372,
+          "anonnet": 7245
+        },
+        "actual": {
+          "anonnet": 7245,
+          "ic_splc": 109403,
+          "sampoq": 13372
+        },
+        "passed": true
+      },
+      {
+        "check": "industry: raw distinct-value counts sum to non-missing nodes",
+        "expected": 10565,
+        "actual": 10565,
+        "passed": true
+      },
+      {
+        "check": "industry: distinct raw values match direct pandas value_counts",
+        "expected": 22,
+        "actual": 22,
+        "passed": true
+      },
+      {
+        "check": "industry: top displayed values match direct raw counts",
+        "expected": {
+          "A": 3476,
+          "C": 2054,
+          "B": 1891,
+          "D": 974,
+          "F": 316,
+          "H": 292,
+          "E": 283,
+          "G": 245,
+          "L": 211,
+          "K": 183,
+          "J": 171,
+          "I": 143,
+          "M": 99,
+          "N": 68,
+          "O": 47,
+          "P": 35,
+          "R": 33,
+          "Q": 20,
+          "S": 12,
+          "T": 8,
+          "U": 2,
+          "W": 2
+        },
+        "actual": {
+          "A": 3476,
+          "C": 2054,
+          "B": 1891,
+          "D": 974,
+          "F": 316,
+          "H": 292,
+          "E": 283,
+          "G": 245,
+          "L": 211,
+          "K": 183,
+          "J": 171,
+          "I": 143,
+          "M": 99,
+          "N": 68,
+          "O": 47,
+          "P": 35,
+          "R": 33,
+          "Q": 20,
+          "S": 12,
+          "T": 8,
+          "U": 2,
+          "W": 2
+        },
+        "passed": true
+      }
+    ]
+  }
+}

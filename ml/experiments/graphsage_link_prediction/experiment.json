@@ -1,0 +1,35 @@
+{
+  "experiment_id": "graphsage_link_prediction",
+  "task": "directed_link_prediction",
+  "status": "not_trained",
+  "created_at": "2026-11-12T00:00:00Z",
+  "updated_at": "2026-11-12T00:00:00Z",
+  "dataset_version": "atmo_graph_v1_015d0c924af0",
+  "random_seed": 42,
+  "checkpoint_exists": false,
+  "checkpoint_path": "ml/experiments/graphsage_link_prediction/checkpoint.pt",
+  "config_path": "ml/experiments/graphsage_link_prediction/config.json",
+  "baseline_metrics_path": "ml/experiments/graphsage_link_prediction/baseline_metrics.json",
+  "dataset_metadata_path": "ml/experiments/graphsage_link_prediction/dataset_metadata.json",
+  "gnn_results_available": false,
+  "missing_artifacts": [
+    "checkpoint.pt",
+    "history.json",
+    "metrics.json",
+    "test_predictions.csv",
+    "run_summary.json"
+  ],
+  "available_artifacts": [
+    "config.json",
+    "experiment.json",
+    "baseline_metrics.json",
+    "baseline_test_predictions.csv",
+    "dataset_metadata.json"
+  ],
+  "notes": [
+    "GraphSAGE training has not been run.",
+    "The PyG smoke test verified graph loading and a forward pass only.",
+    "The structural baseline is a real link-prediction baseline and is not a GNN result.",
+    "Link prediction is not disruption-risk prediction; no risk labels are available."
+  ]
+}
