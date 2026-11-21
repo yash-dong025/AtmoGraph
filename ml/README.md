@@ -1,24 +1,28 @@
-# AtmoGraph ML / GNN Foundation
+# AtmoGraph ML
 
-Week 1 ML/GNN foundation for the AtmoGraph supply-chain risk project.
+ML/GNN research layer for the AtmoGraph supply-chain graph. It covers dataset analysis, graph preprocessing, link-prediction baselines, GraphSAGE experiments, a local dashboard, and contract tests.
 
-This is an inspection and prototyping layer. It is **not** a production GNN, it does not claim real-world risk accuracy, and it does not replace the existing dataset pipeline, backend, frontend, or NLP work.
+This is a research prototype. It is **not** a production GNN, it does not claim real-world risk accuracy, and it does not replace the existing dataset pipeline, backend, frontend, or NLP work.
 
 ## Scope and status
 
-- Member 3 scope: ML/GNN foundation, dataset analysis, graph preprocessing, PyG loading test, baseline feasibility, and documentation.
+- Scope: dataset analysis, graph preprocessing, PyG loading, link-prediction baselines, GraphSAGE experiments, output contracts, and documentation.
 - Existing `config/`, `scripts/`, and `datasets/` outputs remain the source of truth.
-- Work is additive under `ml/` plus reports under `datasets/reports/`, with a local dashboard under `ml/reports/`.
-- No branch change, commit, or push was performed.
+- Work is additive under `ml/`, with a local dashboard and reports under `ml/reports/`.
+- Phase 1 diagnostic audit: complete.
+- Original GraphSAGE link-prediction experiment: complete and preserved.
+- Phase 2 protocol and feature ablations: complete and preserved.
+- Phase 3 foundation cleanup: contracts, metadata, portability, tests, and documentation.
 - No company-level risk model was trained because no verified risk labels exist.
 - No fabricated data, labels, predictions, or metrics are used.
+- No commit or push is performed automatically.
 
 ## Repository architecture inspection
 
 - `origin/main` and `origin/Yash` contain `config/`, `datasets/`, and `scripts/`.
 - `origin/Aiman`, `origin/Supraja`, and `origin/Vidhi` contain no backend, frontend, NLP, or ML service directories at inspection time.
 - No pre-existing `backend/`, `frontend/`, `nlp/`, or `ml/` implementation was found.
-- `README.md` is only `# AtmoGraph`; `README_DATASETS.md` documents the dataset pipeline.
+- `README.md` documents the project; `README_DATASETS.md` documents the dataset pipeline.
 - Integration approach: add `ml/` at the repository root and reuse existing processed datasets rather than duplicating or restructuring them.
 
 ## ML folder layout
@@ -29,21 +33,24 @@ ml/
 ├── .gitignore
 ├── README.md
 ├── requirements-ml.txt
-├── artifacts/                 # ignored; local metrics
-├── saved_models/              # ignored; model weights
-├── notebooks/                 # optional local notebooks
+├── requirements-test.txt
+├── experiments/               # original and Phase 2 artifacts
 ├── inference/
 │   ├── __init__.py
-│   └── predict.py             # prediction output contract
+│   └── predict.py             # link-prediction output contract
 ├── models/
 │   ├── __init__.py
 │   ├── baseline_model.py      # scikit-learn delay baselines
-│   └── gcn_model.py           # GCN/GraphSAGE/GAT prototypes
-└── preprocessing/
-    ├── __init__.py
-    ├── dataset_analysis.py    # dataset/report generator
-    ├── feature_engineering.py # node/edge feature construction
-    └── graph_preprocessing.py # PyG Data builder and smoke test
+│   ├── gcn_model.py           # GCN/GraphSAGE/GAT prototypes
+│   └── phase2_graphsage.py    # source-aware Phase 2 GraphSAGE
+├── preprocessing/
+│   ├── __init__.py
+│   ├── dataset_analysis.py    # dataset/report generator
+│   ├── feature_engineering.py # node/edge feature construction
+│   └── graph_preprocessing.py # PyG Data builder and smoke test
+├── reports/                   # dashboard, catalog, audits, reports
+├── tests/                     # synthetic ML contract and integrity tests
+└── training/                  # original and Phase 2 training/evaluation
 ```
 
 Generated reports:
@@ -57,15 +64,19 @@ Generated reports:
 - Python 3.13.15, macOS arm64.
 - Local virtual environment: `.venv/` (ignored by Git).
 - Installed: `torch 2.15.0`, `torch-geometric 2.8.1`, `pandas 3.1.1`, `numpy 2.5.4`, `scikit-learn 1.9.1`, `pyarrow 26.0.1`.
-- PyTorch MPS is available; the smoke test used CPU for deterministic preprocessing checks.
+- Tests: `pytest 8.4.2`.
+- PyTorch MPS is available; training and deterministic preprocessing checks used CPU.
 - Existing `requirements-data.txt` was not modified.
 
 Install ML dependencies:
 
 ```bash
 python -m venv .venv
-.venv/bin/python -m pip install -r ml/requirements-ml.txt
+uv pip install --python .venv/bin/python -r ml/requirements-ml.txt
+uv pip install --python .venv/bin/python -r ml/requirements-test.txt
 ```
+
+If `uv` is unavailable, run `.venv/bin/python -m ensurepip --upgrade` once and use `.venv/bin/python -m pip` with the same requirements files.
 
 ## Data used and exclusions
 
@@ -125,7 +136,9 @@ Node features (`feature_engineering.py`):
   - country (23 categories)
   - product category (617 categories)
 - 128 IC-SPLC embedding dimensions, zero-filled when unavailable, with `embedding_available` mask.
-- Total model input: **146 dimensions** (18 numeric + 128 embeddings).
+- Full engineered model input: **146 dimensions** (18 numeric + 128 embeddings).
+- The original GraphSAGE checkpoint uses only **136 dimensions**: 8 static flags plus 128 embeddings. It excludes graph-derived structural features and does not use the 3 categorical codes or 12 edge features.
+- Phase 2 evaluates the 136-d contract, flags-only, train-only structural features, source-specific categorical embeddings, and combined configurations.
 
 Edge features:
 
@@ -244,37 +257,49 @@ Interpretation:
 - The SynDelay baseline uses only latitude/longitude and predicts the majority class for almost every row. It is a pipeline-gap check, not a usable delay model.
 - No company risk baseline was run because there are no verified risk labels.
 
-## Prediction output contract
+## Link-prediction output contract
 
-`ml/inference/predict.py` defines the backend-facing record:
+`ml/inference/predict.py` defines a link-prediction record, not a disruption-risk record:
 
 ```json
 {
-  "company_id": "sampoq:0000320193",
-  "risk_score": 0.82,
-  "risk_level": "HIGH",
-  "prediction_type": "disruption_risk",
-  "model_version": "gcn_v1",
-  "prediction_status": "experimental"
+  "task": "link_prediction",
+  "source_id": "icsplc:123",
+  "target_id": "sampoq:0000320193",
+  "link_score": 0.81,
+  "score_type": "model_score",
+  "score_semantics": "Uncalibrated GraphSAGE score ...",
+  "probability_calibrated": false,
+  "prediction_status": "experimental",
+  "source": { "id": "icsplc:123", "source_dataset": "ic_splc" },
+  "target": { "id": "sampoq:0000320193", "source_dataset": "sampoq" },
+  "model": {
+    "name": "GraphSAGE",
+    "type": "AtmoGraphSAGE",
+    "version": "graphsage_link_prediction",
+    "dataset_version": "atmo_graph_v1_015d0c924af0",
+    "protocol": "original_random_split",
+    "feature_config": "c1_current_136",
+    "checkpoint_path": "ml/experiments/graphsage_link_prediction/checkpoint.pt"
+  },
+  "warnings": [
+    "This is a directed supplier/customer link score, not a disruption-risk prediction.",
+    "The link score is uncalibrated and must not be interpreted as a verified probability."
+  ]
 }
 ```
 
 Rules:
 
-- `risk_score` must be in `[0, 1]`.
-- `risk_level` must be `LOW`, `MEDIUM`, or `HIGH`.
-- `prediction_status` must remain `experimental` until a labelled evaluation is completed and approved.
-- The caller must supply a score from a trained model; the contract does not generate predictions.
+- `task` must be `link_prediction`.
+- `link_score` must be a finite model score in `[0, 1]`; it is not a calibrated probability.
+- `source_id` and `target_id` must be different, and source/model metadata is required.
+- `prediction_status` remains `experimental`.
+- No `risk_score`, `risk_level`, `LOW`/`MEDIUM`/`HIGH`, or `disruption_risk` fields are part of this contract.
+- `build_risk_prediction_record()` raises `RiskPredictionUnsupportedError`; disruption risk requires verified labels and a dedicated model.
+- Missing checkpoints raise `CheckpointUnavailableError` with an explicit no-score message.
 
-Suggested backend integration, after Member 1 confirms the API shape:
-
-```text
-POST /predict
-request:  { "company_id": "sampoq:0000320193" }
-response: { "company_id": "...", "risk_score": 0.82, "risk_level": "HIGH",
-            "prediction_type": "disruption_risk", "model_version": "gcn_v1",
-            "prediction_status": "experimental" }
-```
+The local dashboard endpoint `POST /api/predict` keeps its existing `score`, `logit`, and `threshold` fields for compatibility and adds `link_score`, `task`, `score_type`, `probability_calibrated`, and `link_prediction_record`.
 
 ## Known limitations and blockers
 
@@ -289,10 +314,13 @@ response: { "company_id": "...", "risk_score": 0.82, "risk_level": "HIGH",
 - AnonNet and SynDelay lack a LICENSE file; confirm rights before redistribution.
 - Restricted CC BY-NC disruption data requires permission and remains excluded.
 - A local dashboard exists under `ml/reports/`; it is not a production backend/frontend.
-- One experimental GraphSAGE link-prediction run has been trained and evaluated; no production GNN exists.
-- The current branch is ahead of `origin/Yash` by one commit; no commit or push was performed for this work.
+- The original GraphSAGE run and the Phase 2 protocol/feature suite are experimental link-prediction results; no production GNN exists.
+- SAMPOQ has one unique 136-d feature row and AnonNet has four; their embeddings are collapsed.
+- IC-SPLC embedding coverage is 28.5% in the original 136-d contract, so most nodes are zero-filled.
+- Link scores are uncalibrated; original-checkpoint ECE is 0.3253 and Brier score is 0.3354.
+- Reverse-edge leakage remains in Protocol A and is controlled in B/C; it is not fully removable from historical data without changing the original split.
 
-## Week 1 deliverables checklist
+## Deliverables checklist
 
 - [x] Repository and architecture inspection
 - [x] ML folder integration without restructuring existing work
@@ -303,30 +331,26 @@ response: { "company_id": "...", "risk_score": 0.82, "risk_level": "HIGH",
 - [x] GNN architecture recommendation
 - [x] Baseline feasibility report
 - [x] ML documentation
-- [ ] Production GNN training and evaluation (out of Week 1 scope)
+- [x] Original GraphSAGE link-prediction training and evaluation
+- [x] Phase 2 protocol and feature ablations
+- [x] Link-prediction inference contract and synthetic test suite
+- [ ] Production GNN training and evaluation
+- [ ] Disruption-risk model and verified labels
 
 ## Commands
 
 ```bash
 cd /Users/yash/Desktop/Infotact
 
+.venv/bin/python -m pytest
 .venv/bin/python -m compileall -q ml
 .venv/bin/python ml/preprocessing/dataset_analysis.py
 .venv/bin/python ml/preprocessing/graph_preprocessing.py --smoke-test
 .venv/bin/python ml/models/baseline_model.py
 ```
 
-## Suggested Git commands
+Do not retrain or overwrite experiment artifacts merely to run tests. Tests use synthetic fixtures and real split-integrity checks.
 
-Do not commit `.venv/` or `datasets/raw/`; both are already ignored.
+## Git hygiene
 
-```bash
-git status --short
-git add ml DATASET_INSPECTION.md DATASET_DOWNLOAD_PLAN.md \
-  datasets/reports/ml_dataset_analysis.md \
-  datasets/reports/ml_dataset_analysis.json \
-  datasets/reports/ml_baseline_report.md
-git commit -m "Add ML/GNN Week 1 foundation"
-```
-
-No commit or push was executed automatically.
+Do not commit `.venv/`, `datasets/raw/`, or generated `__pycache__` directories; these are ignored. Review `git status --short` before staging. No commit or push is performed automatically.
