@@ -59,6 +59,17 @@ def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
+def portable_path(path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(PROJECT_ROOT))
+    except ValueError:
+        return str(path)
+
+
+def portable_command(command: str) -> str:
+    return command.replace(f"{PROJECT_ROOT}/", "")
+
+
 def load_json(path: Path, default: object) -> object:
     if not path.exists():
         return default
@@ -585,7 +596,7 @@ def main() -> int:
         "experiment": "graphsage_link_prediction",
         "generated_at": utc_now(),
         "duration_seconds": time.time() - started_at,
-        "command": " ".join(sys.argv),
+        "command": portable_command(" ".join(sys.argv)),
         "summary": summary,
         "model": model_config,
         "best_epoch": best_epoch,
@@ -642,7 +653,7 @@ def main() -> int:
             "dataset_version": dataset_version,
             "random_seed": args.seed,
             "checkpoint_exists": True,
-            "checkpoint_path": str(checkpoint_path),
+            "checkpoint_path": portable_path(checkpoint_path),
             "gnn_results_available": True,
             "missing_artifacts": [],
             "available_artifacts": [

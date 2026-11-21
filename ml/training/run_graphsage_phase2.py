@@ -123,11 +123,22 @@ def protocol_view(protocol: dict[str, Any]) -> dict[str, Any]:
     return view
 
 
+def portable_path(path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(PROJECT_ROOT))
+    except ValueError:
+        return str(path)
+
+
+def portable_command(command: str) -> str:
+    return command.replace(f"{PROJECT_ROOT}/", "")
+
+
 def run_manifest(args: argparse.Namespace, data: Phase2Data, protocols: dict[str, Any]) -> dict[str, Any]:
     return {
         "experiment": PHASE2_EXPERIMENT_NAME,
         "generated_at": utc_now(),
-        "command": " ".join(sys.argv),
+        "command": portable_command(" ".join(sys.argv)),
         "git": {
             "branch": git_value(["rev-parse", "--abbrev-ref", "HEAD"]),
             "commit": git_value(["rev-parse", "HEAD"]),
@@ -161,12 +172,13 @@ def run_manifest(args: argparse.Namespace, data: Phase2Data, protocols: dict[str
             name: protocol_view(protocol) for name, protocol in protocols.items()
         },
         "configs": CONFIG_SPECS,
-        "original_experiment_dir": str(ORIGINAL_EXPERIMENT_DIR),
+        "original_experiment_dir": portable_path(ORIGINAL_EXPERIMENT_DIR),
         "original_artifacts_read_only": True,
         "notes": [
             "Original graphsage_link_prediction artifacts are never overwritten.",
             "All new outputs are written under ml/experiments/graphsage_phase2/.",
             "Full protocol split assignments are stored in config/protocol_splits.csv.",
+            "Paths are written repository-relative for portability.",
         ],
     }
 
@@ -859,7 +871,7 @@ def run_original_checkpoint_reference(
             "model_config": model_config,
             "feature_names": checkpoint_features,
             "feature_dim": int(len(checkpoint_features)),
-            "checkpoint_path": str(checkpoint_path),
+            "checkpoint_path": portable_path(checkpoint_path),
             "checkpoint_best_epoch": checkpoint.get("best_epoch"),
             "checkpoint_threshold": checkpoint.get("threshold"),
             "counts": {
