@@ -16,6 +16,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
+from ml.inference.predict import build_link_prediction_record
 from ml.reports.category_normalization import aggregate_categories, classify_category
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -40,6 +41,25 @@ HISTORY_PATH = EXPERIMENT_DIR / "history.json"
 METRICS_PATH = EXPERIMENT_DIR / "metrics.json"
 TEST_PREDICTIONS_PATH = EXPERIMENT_DIR / "test_predictions.csv"
 RUN_SUMMARY_PATH = EXPERIMENT_DIR / "run_summary.json"
+
+PHASE2_DIR = PROJECT_ROOT / "ml" / "experiments" / "graphsage_phase2"
+PHASE2_SUMMARY_PATH = PHASE2_DIR / "summary.json"
+EXPERIMENT_CATALOG_VERSION = 1
+CATALOG_METRIC_FIELDS = (
+    "roc_auc",
+    "average_precision",
+    "precision_at_100",
+    "precision_at_500",
+    "precision",
+    "recall",
+    "f1",
+    "threshold",
+    "positive_count",
+    "negative_count",
+    "brier",
+    "log_loss",
+    "ece_10_bins",
+)
 
 DEFAULT_SEED = "sampoq:ticker:TSM"
 DEFAULT_MAX_NODES = 250
@@ -132,6 +152,157 @@ def artifact_record(path: Path, label: str) -> dict[str, Any]:
     }
 
 
+def _display_path(path: Path) -> str:
+    try:
+        return str(path.relative_to(PROJECT_ROOT))
+    except ValueError:
+        return str(path)
+
+
+def _catalog_metrics(values: dict[str, Any]) -> dict[str, Any]:
+    return {key: values.get(key) for key in CATALOG_METRIC_FIELDS}
+
+
+def _original_catalog_entry(experiment_dir: Path) -> dict[str, Any] | None:
+    experiment = read_json(experiment_dir / "experiment.json", {}) or {}
+    config = read_json(experiment_dir / "config.json", {}) or {}
+    metrics_payload = read_json(experiment_dir / "metrics.json", {}) or {}
+    if not experiment and not config:
+        return None
+    experiment_id = str(experiment.get("experiment_id") or experiment_dir.name)
+    test_metrics = metrics_payload.get("test", {}) if isinstance(metrics_payload, dict) else {}
+    return {
+        "experiment_id": experiment_id,
+        "experiment_type": "original",
+        "parent_experiment": None,
+        "task": str(experiment.get("task") or config.get("task") or "directed_link_prediction"),
+        "status": str(experiment.get("status") or config.get("status") or "unknown"),
+        "model_type": str(config.get("model") or "GraphSAGE"),
+        "model_name": str(config.get("model_class") or "AtmoGraphSAGE"),
+        "model_version": experiment_id,
+        "protocol": "original_random_split",
+        "protocol_label": "Original 80/10/10 random edge split",
+        "feature_config": "c1_current_136",
+        "feature_config_label": "8 static flags plus 128 IC-SPLC embeddings",
+        "dataset_source": "pooled",
+        "dataset_version": experiment.get("dataset_version"),
+        "metrics": _catalog_metrics(test_metrics if isinstance(test_metrics, dict) else {}),
+        "source_artifact": _display_path(experiment_dir / "metrics.json"),
+    }
+
+
+def _phase2_model_type(model_type: str) -> str:
+    return {
+        "gnn": "GraphSAGE",
+        "baseline": "structural_baseline",
+        "original_artifact": "original_artifact",
+        "original_checkpoint_reference": "original_checkpoint_reference",
+    }.get(model_type, model_type)
+
+
+def _phase2_catalog_entry(
+    row: dict[str, Any],
+    summary: dict[str, Any],
+    summary_path: Path,
+) -> dict[str, Any]:
+    protocol = str(row.get("protocol", ""))
+    source = str(row.get("source", ""))
+    model_name = str(row.get("model_name", ""))
+    raw_model_type = str(row.get("model_type", ""))
+    configs = summary.get("configs", {}) if isinstance(summary.get("configs"), dict) else {}
+    protocols = summary.get("protocols", {}) if isinstance(summary.get("protocols"), dict) else {}
+    config = configs.get(model_name, {}) if isinstance(configs.get(model_name), dict) else {}
+    protocol_payload = protocols.get(protocol, {}) if isinstance(protocols.get(protocol), dict) else {}
+    original = summary.get("original_artifact", {})
+    if raw_model_type == "gnn":
+        feature_config = model_name
+        model_version = str(summary.get("experiment") or "graphsage_phase2")
+    elif raw_model_type in {"original_artifact", "original_checkpoint_reference"}:
+        feature_config = "c1_current_136"
+        model_version = "graphsage_link_prediction"
+    else:
+        feature_config = "not_applicable"
+        model_version = "structural_baseline"
+    return {
+        "experiment_id": f"phase2:{protocol}:{source}:{model_name}",
+        "experiment_type": "phase2",
+        "parent_experiment": str(summary.get("experiment") or "graphsage_phase2"),
+        "task": "directed_link_prediction",
+        "status": str(summary.get("status") or "unknown"),
+        "model_type": _phase2_model_type(raw_model_type),
+        "model_name": model_name,
+        "model_version": model_version,
+        "protocol": protocol,
+        "protocol_label": str(protocol_payload.get("label") or protocol),
+        "feature_config": feature_config,
+        "feature_config_label": str(
+            config.get("label")
+            or ("8 static flags plus 128 IC-SPLC embeddings" if feature_config == "c1_current_136" else "not applicable")
+        ),
+        "dataset_source": source,
+        "dataset_version": original.get("dataset_version") if isinstance(original, dict) else None,
+        "metrics": _catalog_metrics(row),
+        "source_artifact": _display_path(summary_path),
+    }
+
+
+def build_experiment_catalog(
+    original_experiment_dir: Path = EXPERIMENT_DIR,
+    phase2_summary_path: Path = PHASE2_SUMMARY_PATH,
+) -> dict[str, Any]:
+    experiments: list[dict[str, Any]] = []
+    original_entry = _original_catalog_entry(original_experiment_dir)
+    if original_entry is not None:
+        experiments.append(original_entry)
+    summary = read_json(phase2_summary_path, {}) or {}
+    rows = summary.get("comparison", []) if isinstance(summary, dict) else []
+    if isinstance(rows, list):
+        experiments.extend(
+            _phase2_catalog_entry(row, summary, phase2_summary_path)
+            for row in rows
+            if isinstance(row, dict)
+        )
+    filter_fields = (
+        "experiment_type",
+        "protocol",
+        "feature_config",
+        "dataset_source",
+        "model_type",
+    )
+    filters = {
+        field: sorted(
+            {
+                str(experiment[field])
+                for experiment in experiments
+                if experiment.get(field) not in (None, "")
+            }
+        )
+        for field in filter_fields
+    }
+    return {
+        "catalog_version": EXPERIMENT_CATALOG_VERSION,
+        "contract": {
+            "purpose": "Backward-compatible experiment catalog for dashboard consumers.",
+            "required_fields": list(experiments[0]) if experiments else [],
+            "additive": True,
+        },
+        "phase2_available": bool(rows),
+        "experiment_count": len(experiments),
+        "experiments": experiments,
+        "filters": filters,
+        "source_artifacts": {
+            "original": _display_path(original_experiment_dir),
+            "phase2": _display_path(phase2_summary_path),
+        },
+        "warnings": [
+            "The catalog is additive; existing experiment, GNN, and baseline fields are unchanged.",
+            "Phase 2 rows are per-protocol, per-source, per-model comparison records.",
+            "The original experiment is listed separately from Phase 2 experiments.",
+            "No dashboard frontend consumes the catalog yet.",
+        ],
+    }
+
+
 class DashboardData:
     def __init__(self) -> None:
         self._inference_lock = threading.Lock()
@@ -142,6 +313,7 @@ class DashboardData:
         self._build_search_index()
         self.dataset_metadata = read_json(DATASET_METADATA_PATH, {}) or {}
         self.analytics = self._build_analytics()
+        self.experiment_catalog = build_experiment_catalog()
         self.experiment = self._build_experiment()
 
     def _load_nodes(self) -> None:
@@ -727,6 +899,7 @@ class DashboardData:
                 ),
             },
             "artifacts": artifacts,
+            "catalog": self.experiment_catalog,
             "warnings": [
                 "The structural baseline is not a GNN and is not a disruption-risk model.",
                 "No verified company-level risk labels are available.",
@@ -754,6 +927,9 @@ class DashboardData:
                 "gnn_available": self.experiment["gnn"]["available"],
                 "gnn_reason": self.experiment["gnn"]["reason"],
                 "baseline_available": self.experiment["baseline"] is not None,
+                "catalog_version": self.experiment_catalog["catalog_version"],
+                "catalog_experiments": self.experiment_catalog["experiment_count"],
+                "phase2_catalog_available": self.experiment_catalog["phase2_available"],
             },
             "warnings": self.experiment["warnings"],
         }
@@ -832,23 +1008,45 @@ class DashboardData:
         threshold = inference["checkpoint"].get("threshold")
         score_value = float(score.item())
         logit_value = float(logit.item())
+        source_payload = self.node_payload(source_index)
+        target_payload = self.node_payload(target_index)
+        model_payload = {
+            "name": "GraphSAGE",
+            "model_class": "AtmoGraphSAGE",
+            "checkpoint_path": str(CHECKPOINT_PATH.relative_to(PROJECT_ROOT)),
+            "dataset_version": inference["checkpoint"].get("dataset_version"),
+            "seed": inference["checkpoint"].get("seed"),
+            "best_epoch": inference["checkpoint"].get("best_epoch"),
+            "feature_count": len(inference["checkpoint"].get("feature_names", [])),
+        }
+        link_record = build_link_prediction_record(
+            source_id=source_id,
+            target_id=target_id,
+            link_score=score_value,
+            source=source_payload,
+            target=target_payload,
+            model_name="GraphSAGE",
+            model_version="graphsage_link_prediction",
+            model_type="AtmoGraphSAGE",
+            dataset_version=inference["checkpoint"].get("dataset_version"),
+            protocol="original_random_split",
+            feature_config="c1_current_136",
+            checkpoint_path=str(CHECKPOINT_PATH.relative_to(PROJECT_ROOT)),
+        )
         return {
             "available": True,
-            "source": self.node_payload(source_index),
-            "target": self.node_payload(target_index),
+            "source": source_payload,
+            "target": target_payload,
             "score": score_value,
+            "link_score": score_value,
+            "task": link_record["task"],
+            "score_type": link_record["score_type"],
+            "probability_calibrated": False,
             "logit": logit_value,
             "threshold": float(threshold) if threshold is not None else None,
             "above_threshold": bool(threshold is not None and score_value >= float(threshold)),
-            "model": {
-                "name": "GraphSAGE",
-                "model_class": "AtmoGraphSAGE",
-                "checkpoint_path": str(CHECKPOINT_PATH.relative_to(PROJECT_ROOT)),
-                "dataset_version": inference["checkpoint"].get("dataset_version"),
-                "seed": inference["checkpoint"].get("seed"),
-                "best_epoch": inference["checkpoint"].get("best_epoch"),
-                "feature_count": len(inference["checkpoint"].get("feature_names", [])),
-            },
+            "model": model_payload,
+            "link_prediction_record": link_record,
             "disclaimer": (
                 "This is a link-prediction score for whether a directed supplier/customer "
                 "edge is likely to exist. It is not a disruption-risk score."

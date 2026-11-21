@@ -1,1 +1,1 @@
-"""Prediction output contract for future backend integration."""
+"""Link-prediction output contract for future backend integration."""
