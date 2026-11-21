@@ -1,0 +1,43 @@
+# --- Python ------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# --- Virtual environments ----------------------------------------------------
+.venv/
+venv/
+env/
+
+# --- Secrets -----------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+# --- Runtime artefacts -------------------------------------------------------
+logs/
+*.log
+data/processed_articles.json
+data/raw/
+data/cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- ML model caches ---------------------------------------------------------
+.cache/
+models/
+transformers_cache/
+
+# --- OS / editors ------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
