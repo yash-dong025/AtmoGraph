@@ -1682,8 +1682,10 @@
   ],
   "comparison": {
     "graphsage_link_prediction": {
-      "status": "not_trained",
-      "reason": "No trained GraphSAGE checkpoint exists in this experiment directory."
+      "status": "completed",
+      "reason": "A trained GraphSAGE checkpoint and metrics exist in this experiment directory.",
+      "previous_status": "not_trained",
+      "correction_note": "Phase 3 corrected the stale status after verifying checkpoint.pt, metrics.json, and experiment.json. Baseline metrics were not recalculated."
     },
     "baseline_is_not_gnn": true
   }

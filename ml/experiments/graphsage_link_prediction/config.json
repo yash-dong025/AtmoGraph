@@ -1,6 +1,19 @@
 {
   "experiment_id": "graphsage_link_prediction",
-  "status": "planned",
+  "status": "completed",
+  "previous_status": "planned",
+  "metadata_correction": {
+    "corrected_at": "2026-11-21",
+    "corrected_field": "status",
+    "previous_value": "planned",
+    "corrected_value": "completed",
+    "evidence": [
+      "checkpoint.pt",
+      "metrics.json",
+      "experiment.json"
+    ],
+    "note": "The original config declared a planned run; completed artifacts were verified before correcting the status."
+  },
   "task": "directed_link_prediction",
   "model": "GraphSAGE",
   "model_class": "AtmoGraphSAGE",

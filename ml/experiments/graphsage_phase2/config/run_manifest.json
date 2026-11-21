@@ -437,11 +437,12 @@
       "description": "Current inputs plus train-only structural and source-specific categorical embeddings."
     }
   },
-  "original_experiment_dir": "/Users/yash/Desktop/Infotact/ml/experiments/graphsage_link_prediction",
+  "original_experiment_dir": "ml/experiments/graphsage_link_prediction",
   "original_artifacts_read_only": true,
   "notes": [
     "Original graphsage_link_prediction artifacts are never overwritten.",
     "All new outputs are written under ml/experiments/graphsage_phase2/.",
-    "Full protocol split assignments are stored in config/protocol_splits.csv."
+    "Full protocol split assignments are stored in config/protocol_splits.csv.",
+    "Phase 3 made original_experiment_dir repository-relative; no experiment outputs were regenerated."
   ]
 }

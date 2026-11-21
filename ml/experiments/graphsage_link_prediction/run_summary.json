@@ -2,7 +2,8 @@
   "experiment": "graphsage_link_prediction",
   "generated_at": "2026-11-17T04:27:53.782294+00:00",
   "duration_seconds": 53.914833307266235,
-  "command": "/Users/yash/Desktop/Infotact/ml/training/train_graphsage_link_prediction.py --overwrite",
+  "command": ".venv/bin/python -m ml.training.train_graphsage_link_prediction --overwrite",
+  "command_note": "Phase 3 made the recorded command repository-relative; the original run was executed from the repository root.",
   "summary": {
     "num_nodes": 130020,
     "num_edges": 166690,

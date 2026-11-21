@@ -7,7 +7,7 @@
   "dataset_version": "atmo_graph_v1_015d0c924af0",
   "random_seed": 42,
   "checkpoint_exists": true,
-  "checkpoint_path": "/Users/yash/Desktop/Infotact/ml/experiments/graphsage_link_prediction/checkpoint.pt",
+  "checkpoint_path": "ml/experiments/graphsage_link_prediction/checkpoint.pt",
   "config_path": "ml/experiments/graphsage_link_prediction/config.json",
   "baseline_metrics_path": "ml/experiments/graphsage_link_prediction/baseline_metrics.json",
   "dataset_metadata_path": "ml/experiments/graphsage_link_prediction/dataset_metadata.json",
