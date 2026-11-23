@@ -1,0 +1,33 @@
+
+# Python virtual environments
+.venv/
+venv/
+**/.venv/
+**/venv/
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Environment variables and credentials
+.env
+**/.env
+.env.*
+**/.env.*
+!.env.example
+!**/.env.example
+
+# Frontend dependencies
+node_modules/
+**/node_modules/
+dist/
+build/
+
+# Logs
+*.log
+
+# Editor files
+.vscode/
+.idea/
+
