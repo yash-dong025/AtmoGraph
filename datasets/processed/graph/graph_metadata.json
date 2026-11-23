@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-11-10T05:41:04Z",
+  "seed": 42,
+  "node_count": 130020,
+  "source_edge_rows": 175791,
+  "duplicate_edge_ids_merged": 37,
+  "raw_edge_count": 175754,
+  "graph_edge_count": 166690,
+  "duplicate_edge_groups": 9064,
+  "self_loops_removed": 0,
+  "missing_endpoint_edges_removed": 0,
+  "node_source_counts": {
+    "ic_splc": 109403,
+    "sampoq": 13372,
+    "anonnet": 7245
+  },
+  "edge_source_counts": {
+    "ic_splc": 115730,
+    "anonnet": 43922,
+    "sampoq": 16102
+  },
+  "relationship_type_counts": {
+    "supplies_product_to": 106683,
+    "supply_relationship_anonymised": 43922,
+    "supplier_to_customer": 16085
+  },
+  "node_type_counts": {
+    "company": 130020
+  },
+  "isolated_nodes": 16,
+  "weakly_connected_components": 23198,
+  "largest_component_size": 52473,
+  "largest_component_share": 0.4036,
+  "degree_stats": {
+    "min": 0,
+    "max": 1402,
+    "mean": 2.564,
+    "median": 1.0,
+    "p90": 3.0,
+    "p99": 28.0,
+    "zero_degree_nodes": 16
+  },
+  "year_range": [
+    2004,
+    2026
+  ],
+  "embedding": {
+    "dim": 128,
+    "nodes_with_embedding": 31182,
+    "coverage": 0.2398,
+    "source": "IC-SPLC 128-d node embeddings; other nodes are zero-filled with an explicit mask in training/node_embeddings.parquet"
+  },
+  "direction_notes": {
+    "sampoq": "Supplier -> Customer (derived from filing relationship type)",
+    "ic_splc": "Supplier -> Customer (per dataset card; LLM-extracted)",
+    "anonnet": "As provided (source -> target); direction not formally documented"
+  },
+  "label_availability": {
+    "company_risk": "not available",
+    "shipment_delay": "available for 156,488 shipments (SynDelay synthetic 3-class, Smart Logistics binary)"
+  },
+  "known_limitations": [
+    "Company identities are not cross-source resolved; IC-SPLC and AnonNet entities are anonymised.",
+    "No verified company-level risk labels exist in the acquired sources.",
+    "AnonNet direction is not formally documented.",
+    "SynDelay label semantics are undocumented; do not interpret classes as delay severity.",
+    "Restricted CC BY-NC disruption monitoring data is excluded from this graph and from training.",
+    "GDELT records are unverified news mentions, not confirmed disruptions."
+  ],
+  "license_notes": {
+    "sampoq": "CC BY 4.0",
+    "ic_splc": "CC BY 4.0",
+    "anonnet": "No LICENSE file; rights unspecified",
+    "syndelay": "No LICENSE file; rights unspecified",
+    "smart_logistics": "Provenance unverified",
+    "disruption_monitoring": "CC BY-NC 4.0; excluded from main graph",
+    "gdelt": "GDELT public data; check GDELT terms"
+  }
+}

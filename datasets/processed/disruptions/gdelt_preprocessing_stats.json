@@ -1,0 +1,37 @@
+{
+  "news_articles": 847,
+  "disruption_events": 866,
+  "unique_domains": 493,
+  "date_range": [
+    "2026-11-03",
+    "2026-11-10"
+  ],
+  "collection_methods": {
+    "gdelt_doc_api": 340,
+    "gdelt_gkg_sample": 507
+  },
+  "disruption_type_counts": {
+    "logistics_disruption": 218,
+    "natural_disaster": 10,
+    "port_congestion": 51,
+    "port_strike": 174,
+    "shipping_delay": 42,
+    "supplier_disruption": 21,
+    "supply_chain_disruption": 39,
+    "transport_infrastructure_disruption": 184,
+    "supply_shortage": 51,
+    "transport_disruption": 23,
+    "labour_strike": 51,
+    "transport_cost_disruption": 2
+  },
+  "query_counts": {
+    "logistics disruption": 22,
+    "natural disaster supply chain": 10,
+    "port congestion": 51,
+    "port strike": 174,
+    "shipping delay": 42,
+    "supplier disruption": 21,
+    "supply chain disruption": 39
+  },
+  "verification_note": "All GDELT records are unverified news mentions, not confirmed disruption events or shipment delays."
+}

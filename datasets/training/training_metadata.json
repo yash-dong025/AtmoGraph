@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-11-10T05:41:04Z",
+  "seed": 42,
+  "tasks": {
+    "link_prediction": {
+      "edge_index": "datasets/training/edge_index.csv",
+      "edge_count": 166690,
+      "splits": {
+        "train": 133352,
+        "val": 16669,
+        "test": 16669
+      }
+    },
+    "node_risk_prediction": {
+      "labels": "datasets/training/risk_labels.csv",
+      "label_status": "not_available",
+      "do_not_train": true,
+      "reason": "No verified company-level risk labels were found."
+    },
+    "shipment_delay_classification": {
+      "labels": "datasets/training/delay_labels.csv",
+      "rows": 6,
+      "tasks": {
+        "delay_classification_3class": {
+          "train": 108841,
+          "val": 23323,
+          "test": 23324
+        },
+        "delay_classification_binary": {
+          "train": 700,
+          "val": 150,
+          "test": 150
+        }
+      },
+      "label_semantics": "SynDelay classes 0/1/2 are undocumented; Smart Logistics binary is direct."
+    }
+  },
+  "features": {
+    "node_features": "datasets/training/node_features.csv",
+    "graph_node_features": "datasets/processed/graph/node_features.csv",
+    "columns": [
+      "node_id",
+      "node_type",
+      "node_type_code",
+      "degree",
+      "in_degree",
+      "out_degree",
+      "raw_degree",
+      "component_id",
+      "component_size",
+      "is_isolated",
+      "source_sampoq",
+      "source_ic_splc",
+      "source_anonnet",
+      "country_code",
+      "industry_code",
+      "product_category_code",
+      "has_country",
+      "has_industry",
+      "has_product_category",
+      "embedding_available",
+      "first_edge_year",
+      "last_edge_year",
+      "is_anonymised"
+    ],
+    "category_mappings": "datasets/training/category_mappings.json",
+    "embeddings": "datasets/training/node_embeddings.parquet"
+  },
+  "node_index": "datasets/training/node_index_mapping.csv",
+  "splits": "datasets/training/dataset_splits.json",
+  "known_limitations": [
+    "Company identities are not cross-source resolved; IC-SPLC and AnonNet entities are anonymised.",
+    "No verified company-level risk labels exist in the acquired sources.",
+    "AnonNet direction is not formally documented.",
+    "SynDelay label semantics are undocumented; do not interpret classes as delay severity.",
+    "Restricted CC BY-NC disruption monitoring data is excluded from this graph and from training.",
+    "GDELT records are unverified news mentions, not confirmed disruptions."
+  ]
+}

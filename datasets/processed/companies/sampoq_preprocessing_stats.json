@@ -1,0 +1,23 @@
+{
+  "input_rows": 16102,
+  "companies": 13372,
+  "edges": 16102,
+  "dropped_self_loop": 0,
+  "dropped_unknown_relation": 0,
+  "duplicate_endpoint_date_pairs": 4,
+  "date_range": [
+    "2004-03-29",
+    "2026-10-27"
+  ],
+  "relation_type_counts": {
+    "customer": 10270,
+    "supplier": 5832
+  },
+  "direction_logic": {
+    "supplier": "related_name is the filer's supplier: edge related -> filer",
+    "customer": "related_name is the filer's customer: edge filer -> related",
+    "output": "All edges are Supplier -> Customer."
+  },
+  "entity_id_logic": "ticker > unambiguous name-to-ticker resolution > CIK > hashed normalised name",
+  "confidence_note": "0.9 reflects source-reported relationships; not independently verified against SEC filings."
+}

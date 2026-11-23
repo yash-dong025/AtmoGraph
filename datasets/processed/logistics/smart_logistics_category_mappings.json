@@ -1,0 +1,19 @@
+{
+  "traffic_status": {
+    "Clear": 0,
+    "Detour": 1,
+    "Heavy": 2
+  },
+  "asset_id": {
+    "Truck_1": 0,
+    "Truck_10": 1,
+    "Truck_2": 2,
+    "Truck_3": 3,
+    "Truck_4": 4,
+    "Truck_5": 5,
+    "Truck_6": 6,
+    "Truck_7": 7,
+    "Truck_8": 8,
+    "Truck_9": 9
+  }
+}

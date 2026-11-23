@@ -1,0 +1,23 @@
+{
+  "rows": 155488,
+  "delays_written": 155488,
+  "features_written": 155488,
+  "labels_written": 155488,
+  "label_distribution": {
+    "0": 36724,
+    "1": 29055,
+    "2": 89709
+  },
+  "label_semantics": "Repository does not document class meanings; 0/1/2 kept verbatim and flagged as unverified.",
+  "excluded_features": [
+    "label",
+    "order_status",
+    "order_date",
+    "shipping_date",
+    "order_id",
+    "order_item_id"
+  ],
+  "exclusion_reason": "label is the target; order_status is a direct status proxy; dates are not used for advance prediction; IDs are identifiers.",
+  "categorical_encoding": "sorted category value -> integer code; -1 for missing/unknown",
+  "synthetic_note": "SynDelay is synthetic. Records must not be presented as real shipment outcomes."
+}

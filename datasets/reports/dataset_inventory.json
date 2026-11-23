@@ -1,0 +1,1065 @@
+{
+  "generated_at": "2026-11-10T05:41:08Z",
+  "datasets_dir": "datasets",
+  "tables": [
+    {
+      "name": "companies_sampoq",
+      "path": "datasets/processed/companies/companies_sampoq.csv",
+      "format": "csv",
+      "bytes": 2391361,
+      "restricted": false,
+      "status": "ok",
+      "rows": 13372,
+      "columns": [
+        "company_id",
+        "company_name",
+        "original_company_name",
+        "ticker",
+        "country",
+        "industry",
+        "product_category",
+        "source_dataset",
+        "source_record_id",
+        "cik",
+        "id_method",
+        "name_variants",
+        "mention_count",
+        "first_seen_filing_date",
+        "last_seen_filing_date"
+      ],
+      "column_count": 15,
+      "missing_top": {
+        "country": 13372,
+        "industry": 13372,
+        "product_category": 13372,
+        "cik": 10710,
+        "ticker": 9999
+      },
+      "key": "company_id",
+      "duplicate_key_rows": 0,
+      "value_counts_source_dataset": {
+        "sampoq": 13372
+      }
+    },
+    {
+      "name": "companies_ic_splc",
+      "path": "datasets/processed/companies/companies_ic_splc.csv",
+      "format": "csv",
+      "bytes": 9273724,
+      "restricted": false,
+      "status": "ok",
+      "rows": 109403,
+      "columns": [
+        "company_id",
+        "company_name",
+        "original_company_name",
+        "ticker",
+        "country",
+        "industry",
+        "product_category",
+        "source_dataset",
+        "source_record_id",
+        "industry_2nd",
+        "category_2nd",
+        "category_3rd",
+        "other_possible_industry_2",
+        "other_possible_category_3rd",
+        "embedding_available",
+        "name_is_anonymised",
+        "id_method"
+      ],
+      "column_count": 17,
+      "missing_top": {
+        "original_company_name": 109403,
+        "ticker": 109403,
+        "other_possible_category_3rd": 107644,
+        "category_3rd": 107573,
+        "category_2nd": 107565,
+        "product_category": 107558,
+        "other_possible_industry_2": 103125,
+        "industry_2nd": 99269
+      },
+      "key": "company_id",
+      "duplicate_key_rows": 0,
+      "value_counts_source_dataset": {
+        "ic_splc": 109403
+      },
+      "value_counts_embedding_available": {
+        "0": 78221,
+        "1": 31182
+      }
+    },
+    {
+      "name": "companies_anonnet",
+      "path": "datasets/processed/companies/companies_anonnet.csv",
+      "format": "csv",
+      "bytes": 1225554,
+      "restricted": false,
+      "status": "ok",
+      "rows": 7245,
+      "columns": [
+        "company_id",
+        "company_name",
+        "original_company_name",
+        "ticker",
+        "country",
+        "industry",
+        "product_category",
+        "source_dataset",
+        "source_record_id",
+        "products",
+        "product_count",
+        "name_is_anonymised",
+        "id_method"
+      ],
+      "column_count": 13,
+      "missing_top": {
+        "original_company_name": 7245,
+        "ticker": 7245,
+        "industry": 7245,
+        "country": 1490,
+        "product_category": 537,
+        "products": 537,
+        "product_count": 537
+      },
+      "key": "company_id",
+      "duplicate_key_rows": 0,
+      "value_counts_source_dataset": {
+        "anonnet": 7245
+      }
+    },
+    {
+      "name": "companies_combined",
+      "path": "datasets/processed/companies/companies.csv",
+      "format": "csv",
+      "bytes": 13856224,
+      "restricted": false,
+      "status": "ok",
+      "rows": 130020,
+      "columns": [
+        "company_id",
+        "company_name",
+        "original_company_name",
+        "ticker",
+        "country",
+        "industry",
+        "product_category",
+        "source_dataset",
+        "source_record_id",
+        "name_is_anonymised",
+        "id_method",
+        "cik",
+        "name_variants",
+        "mention_count",
+        "first_seen_filing_date",
+        "last_seen_filing_date",
+        "industry_2nd",
+        "category_2nd",
+        "category_3rd",
+        "other_possible_industry_2",
+        "other_possible_category_3rd",
+        "embedding_available",
+        "products",
+        "product_count"
+      ],
+      "column_count": 24,
+      "missing_top": {
+        "other_possible_category_3rd": 128261,
+        "category_3rd": 128190,
+        "category_2nd": 128182,
+        "cik": 127358,
+        "ticker": 126647,
+        "other_possible_industry_2": 123742,
+        "product_count": 123312,
+        "products": 123312
+      },
+      "key": "company_id",
+      "duplicate_key_rows": 0,
+      "value_counts_source_dataset": {
+        "ic_splc": 109403,
+        "sampoq": 13372,
+        "anonnet": 7245
+      },
+      "value_counts_embedding_available": {
+        "0": 78221,
+        "1": 31182,
+        "": 20617
+      }
+    },
+    {
+      "name": "edges_sampoq",
+      "path": "datasets/processed/relationships/supply_chain_edges_sampoq.csv",
+      "format": "csv",
+      "bytes": 3594546,
+      "restricted": false,
+      "status": "ok",
+      "rows": 16102,
+      "columns": [
+        "edge_id",
+        "source_company_id",
+        "target_company_id",
+        "relationship_type",
+        "product_category",
+        "year",
+        "filing_date",
+        "source_dataset",
+        "source_record_id",
+        "confidence",
+        "relationship_direction",
+        "source_relation_type",
+        "source_ticker",
+        "related_ticker",
+        "filing_accession",
+        "duplicate_relationship"
+      ],
+      "column_count": 16,
+      "missing_top": {
+        "product_category": 16102,
+        "related_ticker": 12554
+      },
+      "key": "edge_id",
+      "duplicate_key_rows": 0,
+      "value_counts_source_dataset": {
+        "sampoq": 16102
+      },
+      "value_counts_relationship_type": {
+        "supplier_to_customer": 16102
+      }
+    },
+    {
+      "name": "edges_ic_splc",
+      "path": "datasets/processed/relationships/supply_chain_edges_ic_splc.csv",
+      "format": "csv",
+      "bytes": 15256062,
+      "restricted": false,
+      "status": "ok",
+      "rows": 115767,
+      "columns": [
+        "edge_id",
+        "source_company_id",
+        "target_company_id",
+        "relationship_type",
+        "product_category",
+        "year",
+        "filing_date",
+        "source_dataset",
+        "source_record_id",
+        "confidence",
+        "relationship_direction"
+      ],
+      "column_count": 11,
+      "missing_top": {
+        "filing_date": 115767,
+        "product_category": 96831
+      },
+      "key": "edge_id",
+      "duplicate_key_rows": 37,
+      "value_counts_source_dataset": {
+        "ic_splc": 115767
+      },
+      "value_counts_relationship_type": {
+        "supplies_product_to": 115767
+      }
+    },
+    {
+      "name": "edges_anonnet",
+      "path": "datasets/processed/relationships/supply_chain_edges_anonnet.csv",
+      "format": "csv",
+      "bytes": 8665497,
+      "restricted": false,
+      "status": "ok",
+      "rows": 43922,
+      "columns": [
+        "edge_id",
+        "source_company_id",
+        "target_company_id",
+        "relationship_type",
+        "product_category",
+        "year",
+        "filing_date",
+        "source_dataset",
+        "source_record_id",
+        "confidence",
+        "relationship_direction"
+      ],
+      "column_count": 11,
+      "missing_top": {
+        "year": 43922,
+        "filing_date": 43922,
+        "product_category": 1307
+      },
+      "key": "edge_id",
+      "duplicate_key_rows": 0,
+      "value_counts_source_dataset": {
+        "anonnet": 43922
+      },
+      "value_counts_relationship_type": {
+        "supply_relationship_anonymised": 43922
+      }
+    },
+    {
+      "name": "edges_combined",
+      "path": "datasets/processed/relationships/supply_chain_edges.csv",
+      "format": "csv",
+      "bytes": 28309235,
+      "restricted": false,
+      "status": "ok",
+      "rows": 175754,
+      "columns": [
+        "edge_id",
+        "source_company_id",
+        "target_company_id",
+        "relationship_type",
+        "product_category",
+        "year",
+        "filing_date",
+        "source_dataset",
+        "source_record_id",
+        "confidence",
+        "relationship_direction",
+        "source_relation_type",
+        "source_ticker",
+        "related_ticker",
+        "filing_accession",
+        "duplicate_relationship"
+      ],
+      "column_count": 16,
+      "missing_top": {
+        "related_ticker": 172206,
+        "filing_date": 159652,
+        "source_relation_type": 159652,
+        "source_ticker": 159652,
+        "filing_accession": 159652,
+        "duplicate_relationship": 159652,
+        "product_category": 114218,
+        "year": 43922
+      },
+      "key": "edge_id",
+      "duplicate_key_rows": 0,
+      "value_counts_source_dataset": {
+        "ic_splc": 115730,
+        "anonnet": 43922,
+        "sampoq": 16102
+      },
+      "value_counts_relationship_type": {
+        "supplies_product_to": 115730,
+        "supply_relationship_anonymised": 43922,
+        "supplier_to_customer": 16102
+      }
+    },
+    {
+      "name": "graph_nodes",
+      "path": "datasets/processed/graph/nodes.csv",
+      "format": "csv",
+      "bytes": 16985281,
+      "restricted": false,
+      "status": "ok",
+      "rows": 130020,
+      "columns": [
+        "company_id",
+        "company_name",
+        "original_company_name",
+        "ticker",
+        "country",
+        "industry",
+        "product_category",
+        "source_dataset",
+        "source_record_id",
+        "name_is_anonymised",
+        "id_method",
+        "cik",
+        "name_variants",
+        "mention_count",
+        "first_seen_filing_date",
+        "last_seen_filing_date",
+        "industry_2nd",
+        "category_2nd",
+        "category_3rd",
+        "other_possible_industry_2",
+        "other_possible_category_3rd",
+        "embedding_available",
+        "products",
+        "product_count",
+        "node_type",
+        "degree",
+        "in_degree",
+        "out_degree",
+        "raw_degree",
+        "component_id",
+        "component_size"
+      ],
+      "column_count": 31,
+      "missing_top": {
+        "other_possible_category_3rd": 128261,
+        "category_3rd": 128190,
+        "category_2nd": 128182,
+        "cik": 127358,
+        "ticker": 126647,
+        "other_possible_industry_2": 123742,
+        "product_count": 123312,
+        "products": 123312
+      },
+      "key": "company_id",
+      "duplicate_key_rows": 0,
+      "value_counts_source_dataset": {
+        "ic_splc": 109403,
+        "sampoq": 13372,
+        "anonnet": 7245
+      },
+      "value_counts_embedding_available": {
+        "0": 78221,
+        "1": 31182,
+        "": 20617
+      }
+    },
+    {
+      "name": "graph_edges",
+      "path": "datasets/processed/graph/edges.csv",
+      "format": "csv",
+      "bytes": 17169567,
+      "restricted": false,
+      "status": "ok",
+      "rows": 166690,
+      "columns": [
+        "edge_id",
+        "source_company_id",
+        "target_company_id",
+        "relationship_type",
+        "edge_count",
+        "source_datasets",
+        "first_year",
+        "last_year",
+        "confidence"
+      ],
+      "column_count": 9,
+      "missing_top": {
+        "first_year": 43922,
+        "last_year": 43922
+      },
+      "key": "edge_id",
+      "duplicate_key_rows": 0,
+      "value_counts_relationship_type": {
+        "supplies_product_to": 106683,
+        "supply_relationship_anonymised": 43922,
+        "supplier_to_customer": 16085
+      }
+    },
+    {
+      "name": "graph_node_features",
+      "path": "datasets/processed/graph/node_features.csv",
+      "format": "csv",
+      "bytes": 10332500,
+      "restricted": false,
+      "status": "ok",
+      "rows": 130020,
+      "columns": [
+        "node_id",
+        "node_type",
+        "node_type_code",
+        "degree",
+        "in_degree",
+        "out_degree",
+        "raw_degree",
+        "component_id",
+        "component_size",
+        "is_isolated",
+        "source_sampoq",
+        "source_ic_splc",
+        "source_anonnet",
+        "country_code",
+        "industry_code",
+        "product_category_code",
+        "has_country",
+        "has_industry",
+        "has_product_category",
+        "embedding_available",
+        "first_edge_year",
+        "last_edge_year",
+        "is_anonymised"
+      ],
+      "column_count": 23,
+      "missing_top": {
+        "last_edge_year": 7261,
+        "first_edge_year": 7261
+      },
+      "key": "node_id",
+      "duplicate_key_rows": 0,
+      "value_counts_embedding_available": {
+        "0": 98838,
+        "1": 31182
+      },
+      "value_counts_is_isolated": {
+        "0": 130004,
+        "1": 16
+      }
+    },
+    {
+      "name": "training_node_features",
+      "path": "datasets/training/node_features.csv",
+      "format": "csv",
+      "bytes": 10332500,
+      "restricted": false,
+      "status": "ok",
+      "rows": 130020,
+      "columns": [
+        "node_id",
+        "node_type",
+        "node_type_code",
+        "degree",
+        "in_degree",
+        "out_degree",
+        "raw_degree",
+        "component_id",
+        "component_size",
+        "is_isolated",
+        "source_sampoq",
+        "source_ic_splc",
+        "source_anonnet",
+        "country_code",
+        "industry_code",
+        "product_category_code",
+        "has_country",
+        "has_industry",
+        "has_product_category",
+        "embedding_available",
+        "first_edge_year",
+        "last_edge_year",
+        "is_anonymised"
+      ],
+      "column_count": 23,
+      "missing_top": {
+        "last_edge_year": 7261,
+        "first_edge_year": 7261
+      },
+      "key": "node_id",
+      "duplicate_key_rows": 0,
+      "value_counts_embedding_available": {
+        "0": 98838,
+        "1": 31182
+      },
+      "value_counts_is_isolated": {
+        "0": 130004,
+        "1": 16
+      }
+    },
+    {
+      "name": "shipment_delays",
+      "path": "datasets/processed/logistics/shipment_delays.csv",
+      "format": "csv",
+      "bytes": 23577551,
+      "restricted": false,
+      "status": "ok",
+      "rows": 156488,
+      "columns": [
+        "shipment_id",
+        "asset_id",
+        "timestamp",
+        "latitude",
+        "longitude",
+        "shipment_status",
+        "traffic_status",
+        "waiting_time",
+        "logistics_delay",
+        "logistics_delay_reason",
+        "source_dataset",
+        "is_synthetic",
+        "data_origin",
+        "delay_class",
+        "label_semantics"
+      ],
+      "column_count": 15,
+      "missing_top": {
+        "traffic_status": 155488,
+        "waiting_time": 155488,
+        "logistics_delay_reason": 155488,
+        "is_synthetic": 1000
+      },
+      "key": "shipment_id",
+      "duplicate_key_rows": 0,
+      "value_counts_source_dataset": {
+        "syndelay": 155488,
+        "smart_logistics": 1000
+      },
+      "value_counts_is_synthetic": {
+        "1": 155488,
+        "": 1000
+      }
+    },
+    {
+      "name": "logistics_features",
+      "path": "datasets/processed/logistics/logistics_features.csv",
+      "format": "csv",
+      "bytes": 12189683,
+      "restricted": false,
+      "status": "ok",
+      "rows": 156488,
+      "columns": [
+        "shipment_id",
+        "source_dataset",
+        "latitude",
+        "longitude",
+        "waiting_time",
+        "inventory_level",
+        "temperature",
+        "humidity",
+        "asset_utilization",
+        "demand_forecast",
+        "traffic_status_code",
+        "asset_id_code",
+        "is_synthetic",
+        "data_origin"
+      ],
+      "column_count": 14,
+      "missing_top": {
+        "waiting_time": 155488,
+        "inventory_level": 155488,
+        "temperature": 155488,
+        "humidity": 155488,
+        "asset_utilization": 155488,
+        "demand_forecast": 155488,
+        "traffic_status_code": 155488,
+        "asset_id_code": 155488
+      },
+      "key": "shipment_id",
+      "duplicate_key_rows": 0,
+      "value_counts_source_dataset": {
+        "syndelay": 155488,
+        "smart_logistics": 1000
+      },
+      "value_counts_is_synthetic": {
+        "1": 155488,
+        "": 1000
+      }
+    },
+    {
+      "name": "news_articles",
+      "path": "datasets/processed/disruptions/news_articles.csv",
+      "format": "csv",
+      "bytes": 278951,
+      "restricted": false,
+      "status": "ok",
+      "rows": 847,
+      "columns": [
+        "article_id",
+        "title",
+        "url",
+        "domain",
+        "seendate",
+        "language",
+        "source_country",
+        "query_keywords",
+        "collection_method",
+        "source_dataset",
+        "collected_at"
+      ],
+      "column_count": 11,
+      "missing_top": {
+        "source_country": 513,
+        "language": 507,
+        "title": 3
+      },
+      "key": "article_id",
+      "duplicate_key_rows": 0,
+      "value_counts_source_dataset": {
+        "gdelt": 847
+      },
+      "value_counts_collection_method": {
+        "gdelt_gkg_sample": 507,
+        "gdelt_doc_api": 340
+      }
+    },
+    {
+      "name": "disruption_events",
+      "path": "datasets/processed/disruptions/disruption_events.csv",
+      "format": "csv",
+      "bytes": 455875,
+      "restricted": false,
+      "status": "ok",
+      "rows": 866,
+      "columns": [
+        "disruption_id",
+        "event_title",
+        "event_description",
+        "disruption_type",
+        "affected_company",
+        "affected_country",
+        "affected_region",
+        "event_date",
+        "source_url",
+        "source_dataset",
+        "extraction_method",
+        "confidence",
+        "verification_status",
+        "publication_country",
+        "mentioned_locations",
+        "matched_keywords",
+        "article_id"
+      ],
+      "column_count": 17,
+      "missing_top": {
+        "event_description": 866,
+        "affected_company": 866,
+        "affected_country": 866,
+        "affected_region": 866,
+        "publication_country": 513,
+        "mentioned_locations": 414,
+        "event_title": 3
+      },
+      "key": "disruption_id",
+      "duplicate_key_rows": 0,
+      "value_counts_source_dataset": {
+        "gdelt": 866
+      },
+      "value_counts_verification_status": {
+        "unverified_news_mention": 866
+      },
+      "value_counts_disruption_type": {
+        "logistics_disruption": 218,
+        "transport_infrastructure_disruption": 184,
+        "port_strike": 174,
+        "port_congestion": 51,
+        "supply_shortage": 51,
+        "labour_strike": 51,
+        "shipping_delay": 42,
+        "supply_chain_disruption": 39,
+        "transport_disruption": 23,
+        "supplier_disruption": 21,
+        "natural_disaster": 10,
+        "transport_cost_disruption": 2
+      }
+    },
+    {
+      "name": "restricted_companies",
+      "path": "datasets/processed/restricted/disruption_monitoring/companies.csv",
+      "format": "csv",
+      "bytes": 1303493,
+      "restricted": true,
+      "status": "ok",
+      "rows": 6222,
+      "columns": [
+        "company_id",
+        "company_name",
+        "original_company_name",
+        "ticker",
+        "country",
+        "industry",
+        "product_category",
+        "source_dataset",
+        "source_record_id",
+        "id_method"
+      ],
+      "column_count": 10,
+      "missing_top": {
+        "ticker": 6222,
+        "product_category": 6222
+      },
+      "key": "company_id",
+      "duplicate_key_rows": 0,
+      "value_counts_source_dataset": {
+        "disruption_monitoring_restricted": 6222
+      }
+    },
+    {
+      "name": "restricted_edges",
+      "path": "datasets/processed/restricted/disruption_monitoring/edges.csv",
+      "format": "csv",
+      "bytes": 3790169,
+      "restricted": true,
+      "status": "ok",
+      "rows": 16640,
+      "columns": [
+        "edge_id",
+        "source_company_id",
+        "target_company_id",
+        "relationship_type",
+        "product_category",
+        "year",
+        "filing_date",
+        "source_dataset",
+        "source_record_id",
+        "confidence",
+        "relationship_direction"
+      ],
+      "column_count": 11,
+      "missing_top": {
+        "product_category": 16640,
+        "year": 16640,
+        "filing_date": 16640
+      },
+      "key": "edge_id",
+      "duplicate_key_rows": 0,
+      "value_counts_source_dataset": {
+        "disruption_monitoring_restricted": 16640
+      },
+      "value_counts_relationship_type": {
+        "supplies_to": 16640
+      }
+    },
+    {
+      "name": "delay_labels",
+      "path": "datasets/training/delay_labels.csv",
+      "format": "csv",
+      "bytes": 19967849,
+      "restricted": false,
+      "status": "ok",
+      "rows": 156488,
+      "columns": [
+        "shipment_id",
+        "task",
+        "target_name",
+        "target_value",
+        "target_type",
+        "is_synthetic",
+        "label_semantics",
+        "source_dataset"
+      ],
+      "column_count": 8,
+      "missing_top": {
+        "is_synthetic": 1000
+      },
+      "value_counts_source_dataset": {
+        "syndelay": 155488,
+        "smart_logistics": 1000
+      },
+      "value_counts_task": {
+        "delay_classification_3class": 155488,
+        "delay_classification_binary": 1000
+      },
+      "value_counts_target_value": {
+        "2": 89709,
+        "0": 37158,
+        "1": 29621
+      },
+      "value_counts_is_synthetic": {
+        "1": 155488,
+        "": 1000
+      }
+    },
+    {
+      "name": "risk_labels",
+      "path": "datasets/training/risk_labels.csv",
+      "format": "csv",
+      "bytes": 16225970,
+      "restricted": false,
+      "status": "ok",
+      "rows": 130020,
+      "columns": [
+        "node_id",
+        "risk_label",
+        "label_status",
+        "label_source",
+        "label_confidence",
+        "notes"
+      ],
+      "column_count": 6,
+      "missing_top": {
+        "risk_label": 130020,
+        "label_confidence": 130020
+      },
+      "key": "node_id",
+      "duplicate_key_rows": 0,
+      "value_counts_label_status": {
+        "not_available": 130020
+      }
+    },
+    {
+      "name": "node_index",
+      "path": "datasets/training/node_index_mapping.csv",
+      "format": "csv",
+      "bytes": 2982791,
+      "restricted": false,
+      "status": "ok",
+      "rows": 130020,
+      "columns": [
+        "node_id",
+        "node_index"
+      ],
+      "column_count": 2,
+      "missing_top": {},
+      "key": "node_id",
+      "duplicate_key_rows": 0
+    },
+    {
+      "name": "edge_index",
+      "path": "datasets/training/edge_index.csv",
+      "format": "csv",
+      "bytes": 16772211,
+      "restricted": false,
+      "status": "ok",
+      "rows": 166690,
+      "columns": [
+        "edge_id",
+        "source_index",
+        "target_index",
+        "source_company_id",
+        "target_company_id",
+        "relationship_type",
+        "edge_count",
+        "split"
+      ],
+      "column_count": 8,
+      "missing_top": {},
+      "key": "edge_id",
+      "duplicate_key_rows": 0,
+      "value_counts_relationship_type": {
+        "supplies_product_to": 106683,
+        "supply_relationship_anonymised": 43922,
+        "supplier_to_customer": 16085
+      },
+      "value_counts_split": {
+        "train": 133352,
+        "test": 16669,
+        "val": 16669
+      }
+    }
+  ],
+  "raw_assets": [
+    {
+      "name": "sampoq_csv",
+      "path": "datasets/raw/sampoq/supply-chain.csv",
+      "exists": true,
+      "bytes": 2155860
+    },
+    {
+      "name": "ic_splc_zip",
+      "path": "datasets/raw/ic_splc/txh3rrsh89-v2.zip",
+      "exists": true,
+      "bytes": 48300979
+    },
+    {
+      "name": "ic_splc_dump",
+      "path": "datasets/raw/ic_splc/extracted/IC-SPLC-v2 A Supply Chain Structure Neo4j Data/IC-SPLC.dump",
+      "exists": true,
+      "bytes": 48297731
+    },
+    {
+      "name": "ic_splc_nodes",
+      "path": "datasets/raw/ic_splc/extracted_csv/ic_splc_nodes.csv",
+      "exists": true,
+      "bytes": 2056438
+    },
+    {
+      "name": "ic_splc_edges",
+      "path": "datasets/raw/ic_splc/extracted_csv/ic_splc_edges.csv",
+      "exists": true,
+      "bytes": 2004320
+    },
+    {
+      "name": "ic_splc_embeddings",
+      "path": "datasets/raw/ic_splc/extracted_csv/ic_splc_embeddings.parquet",
+      "exists": true,
+      "bytes": 31923710
+    },
+    {
+      "name": "syndelay_csv",
+      "path": "datasets/raw/syndelay/repo/data/syndelay_v1.csv",
+      "exists": true,
+      "bytes": 56309566
+    },
+    {
+      "name": "smart_logistics_csv",
+      "path": "datasets/raw/existing_smart_logistics/smart_logistics_dataset.csv",
+      "exists": true,
+      "bytes": 106483
+    },
+    {
+      "name": "anonnet_nodes",
+      "path": "datasets/raw/anonnet/repo/mim2025_network_challenge/nodes_anon.csv",
+      "exists": true,
+      "bytes": 541801
+    },
+    {
+      "name": "anonnet_edges",
+      "path": "datasets/raw/anonnet/repo/mim2025_network_challenge/edges_anon.csv",
+      "exists": true,
+      "bytes": 514702
+    },
+    {
+      "name": "gdelt_collection_metadata",
+      "path": "datasets/raw/gdelt/collection_metadata.json",
+      "exists": true,
+      "bytes": 5608
+    },
+    {
+      "name": "restricted_kg",
+      "path": "datasets/raw/disruption_monitoring/restricted/repo/dataset/supplychainKG_clean.csv",
+      "exists": true,
+      "bytes": 2041389
+    },
+    {
+      "name": "restricted_scenarios",
+      "path": "datasets/raw/disruption_monitoring/restricted/repo/evaluation/scenarios/multi_company_scenarios.json",
+      "exists": true,
+      "bytes": 56505
+    },
+    {
+      "name": "restricted_ground_truth_index",
+      "path": "datasets/raw/disruption_monitoring/restricted/repo/evaluation/ground_truth_final/index.json",
+      "exists": true,
+      "bytes": 491
+    },
+    {
+      "name": "restricted_benchmark",
+      "path": "datasets/raw/disruption_monitoring/restricted/repo/evaluation/benchmark_v2/items/test/test_set.json",
+      "exists": true,
+      "bytes": 13547
+    }
+  ],
+  "directories": [
+    {
+      "name": "raw",
+      "path": "datasets/raw",
+      "bytes": 351781937
+    },
+    {
+      "name": "processed",
+      "path": "datasets/processed",
+      "bytes": 248735668
+    },
+    {
+      "name": "training",
+      "path": "datasets/training",
+      "bytes": 128371688
+    },
+    {
+      "name": "evaluation",
+      "path": "datasets/evaluation",
+      "bytes": 25014367
+    },
+    {
+      "name": "metadata",
+      "path": "datasets/metadata",
+      "bytes": 106553
+    },
+    {
+      "name": "reports",
+      "path": "datasets/reports",
+      "bytes": 46899
+    },
+    {
+      "name": "gdelt_api",
+      "path": "datasets/raw/gdelt/api",
+      "bytes": 167128
+    },
+    {
+      "name": "gdelt_gkg",
+      "path": "datasets/raw/gdelt/gkg",
+      "bytes": 18696839
+    },
+    {
+      "name": "gdelt_gkg_filtered",
+      "path": "datasets/raw/gdelt/gkg_filtered",
+      "bytes": 841142
+    },
+    {
+      "name": "restricted_repo",
+      "path": "datasets/raw/disruption_monitoring/restricted/repo",
+      "bytes": 122128537
+    }
+  ],
+  "notes": [
+    "Row counts are physical rows in the processed files.",
+    "Duplicate key rows are counted on the listed key column after preprocessing.",
+    "Restricted tables are kept outside the main graph and training pipeline."
+  ]
+}
