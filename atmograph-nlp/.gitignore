@@ -22,6 +22,7 @@ env/
 # --- Runtime artefacts -------------------------------------------------------
 logs/
 *.log
+data/articles.json
 data/processed_articles.json
 data/raw/
 data/cache/

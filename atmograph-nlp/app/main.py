@@ -1,7 +1,8 @@
 """AtmoGraph NLP & News Intelligence API.
 
-Phase 1 exposes only service metadata and a health check.  News, NLP and
-disruption endpoints are added in later phases.
+Phase 2 adds news ingestion, article listing and ingestion statistics.  NLP,
+disruption classification and graph integration endpoints are added in later
+phases.
 """
 
 from __future__ import annotations
@@ -13,6 +14,7 @@ from typing import AsyncIterator
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.news import router as news_router
 from app.config import get_settings
 from app.schemas.health import ComponentStatus, FeatureFlags, HealthResponse
 from app.utils.helpers import utc_now
@@ -68,6 +70,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(news_router, prefix=settings.api_prefix)
 
 
 @app.get("/", include_in_schema=False)

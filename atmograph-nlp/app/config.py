@@ -54,6 +54,8 @@ class Settings(BaseSettings):
     # --- Data / storage ----------------------------------------------------
     data_dir: Path = MODULE_ROOT / "data"
     sample_news_path: Path = MODULE_ROOT / "data" / "sample_news.json"
+    mock_news_path: Path = MODULE_ROOT / "data" / "mock_news.json"
+    articles_store_path: Path = MODULE_ROOT / "data" / "articles.json"
     processed_store_path: Path = MODULE_ROOT / "data" / "processed_articles.json"
 
     # --- NLP models --------------------------------------------------------
@@ -64,10 +66,18 @@ class Settings(BaseSettings):
     classifier_min_confidence: float = Field(default=0.50, ge=0.0, le=1.0)
 
     # --- News ingestion ----------------------------------------------------
-    # Comma-separated list; exposed as a list via ``rss_feed_list``.
+    # Comma-separated list of public RSS URLs (``Name|URL`` is also accepted);
+    # exposed as a list via ``rss_feed_list``. No paid APIs or keys are used.
     rss_feeds: str = (
         "https://feeds.bbci.co.uk/news/business/rss.xml,"
-        "https://www.supplychaindive.com/feeds/news/"
+        "https://feeds.bbci.co.uk/news/world/rss.xml,"
+        "https://www.supplychaindive.com/feeds/news/,"
+        "https://www.manufacturingdive.com/feeds/news/,"
+        "https://gcaptain.com/feed/,"
+        "https://theloadstar.com/feed/,"
+        "https://splash247.com/feed/,"
+        "https://container-news.com/feed/,"
+        "https://www.freightwaves.com/feed"
     )
     rss_timeout_seconds: float = Field(default=10.0, gt=0, le=120)
     rss_max_items_per_feed: int = Field(default=25, ge=1, le=200)
@@ -96,7 +106,15 @@ class Settings(BaseSettings):
     max_batch_size: int = Field(default=50, ge=1, le=500)
 
     # --- Derived helpers ---------------------------------------------------
-    @field_validator("log_dir", "data_dir", "sample_news_path", "processed_store_path", mode="after")
+    @field_validator(
+        "log_dir",
+        "data_dir",
+        "sample_news_path",
+        "mock_news_path",
+        "articles_store_path",
+        "processed_store_path",
+        mode="after",
+    )
     @classmethod
     def _resolve_relative_paths(cls, value: Path) -> Path:
         """Resolve relative paths against the module root, not the CWD."""
