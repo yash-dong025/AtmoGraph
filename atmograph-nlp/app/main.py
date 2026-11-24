@@ -1,7 +1,8 @@
 """AtmoGraph NLP & News Intelligence API.
 
-Phase 2 adds news ingestion, article listing and ingestion statistics.  NLP,
-disruption classification and graph integration endpoints are added in later
+Phase 2 adds news ingestion, article listing and ingestion statistics.  Phase 3
+adds spaCy NER, supply-chain entity extraction and annotation endpoints.
+Disruption classification and graph integration endpoints are added in later
 phases.
 """
 
@@ -14,6 +15,7 @@ from typing import AsyncIterator
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.nlp import router as nlp_router
 from app.api.news import router as news_router
 from app.config import get_settings
 from app.schemas.health import ComponentStatus, FeatureFlags, HealthResponse
@@ -72,6 +74,7 @@ app.add_middleware(
 )
 
 app.include_router(news_router, prefix=settings.api_prefix)
+app.include_router(nlp_router, prefix=settings.api_prefix)
 
 
 @app.get("/", include_in_schema=False)

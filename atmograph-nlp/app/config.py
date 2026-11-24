@@ -57,9 +57,12 @@ class Settings(BaseSettings):
     mock_news_path: Path = MODULE_ROOT / "data" / "mock_news.json"
     articles_store_path: Path = MODULE_ROOT / "data" / "articles.json"
     processed_store_path: Path = MODULE_ROOT / "data" / "processed_articles.json"
+    entity_annotations_path: Path = MODULE_ROOT / "data" / "entity_annotations.json"
 
     # --- NLP models --------------------------------------------------------
     spacy_model: str = "en_core_web_sm"
+    # Optional JSON file with extra PhraseMatcher/Matcher patterns (Phase 3).
+    nlp_patterns_path: Path | None = None
     transformer_model: str = "distilbert-base-uncased"
     enable_transformer: bool = False
     transformer_device: str = "cpu"
@@ -113,11 +116,20 @@ class Settings(BaseSettings):
         "mock_news_path",
         "articles_store_path",
         "processed_store_path",
+        "entity_annotations_path",
         mode="after",
     )
     @classmethod
     def _resolve_relative_paths(cls, value: Path) -> Path:
         """Resolve relative paths against the module root, not the CWD."""
+        return value if value.is_absolute() else (MODULE_ROOT / value).resolve()
+
+    @field_validator("nlp_patterns_path", mode="after")
+    @classmethod
+    def _resolve_optional_pattern_path(cls, value: Path | None) -> Path | None:
+        """Resolve the optional custom pattern file, leaving ``None`` untouched."""
+        if value is None:
+            return None
         return value if value.is_absolute() else (MODULE_ROOT / value).resolve()
 
     @property

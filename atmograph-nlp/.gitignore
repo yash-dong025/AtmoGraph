@@ -23,6 +23,7 @@ env/
 logs/
 *.log
 data/articles.json
+data/entity_annotations.json
 data/processed_articles.json
 data/raw/
 data/cache/
