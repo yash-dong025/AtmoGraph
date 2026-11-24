@@ -1,0 +1,18 @@
+id,name,kind,city,country,risk_score
+supplier_india,India Electronics Supplier,SUPPLIER,Pune,India,0
+supplier_europe,Europe Components Supplier,SUPPLIER,Hamburg,Germany,0
+manufacturer_pune,Pune Electronics Factory,MANUFACTURER,Pune,India,0
+manufacturer_sg,Singapore Assembly Plant,MANUFACTURER,Singapore,Singapore,0
+mumbai_port,Mumbai Port,PORT,Mumbai,India,0
+singapore_port,Singapore Port,PORT,Singapore,Singapore,0
+hamburg_port,Hamburg Port,PORT,Hamburg,Germany,0
+bengaluru_warehouse,Bengaluru Warehouse,WAREHOUSE,Bengaluru,India,0
+delhi_warehouse,Delhi Warehouse,WAREHOUSE,Delhi,India,0
+singapore_warehouse,Singapore Warehouse,WAREHOUSE,Singapore,Singapore,0
+retailer_north,Retailer North,RETAILER,Delhi,India,0
+retailer_south,Retailer South,RETAILER,Chennai,India,0
+retailer_east,Retailer East,RETAILER,Kolkata,India,0
+retailer_west,Retailer West,RETAILER,Mumbai,India,0
+retailer_central,Retailer Central,RETAILER,Nagpur,India,0
+retailer_europe,Retailer Europe,RETAILER,Berlin,Germany,0
+retailer_japan,Retailer Japan,RETAILER,Tokyo,Japan,0

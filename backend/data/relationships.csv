@@ -1,0 +1,17 @@
+source_id,target_id,kind,transit_days
+supplier_india,manufacturer_pune,SUPPLIES_TO,2
+supplier_europe,hamburg_port,SHIPS_TO,2
+hamburg_port,manufacturer_sg,SHIPS_TO,12
+manufacturer_pune,mumbai_port,SHIPS_TO,2
+manufacturer_sg,singapore_port,SHIPS_TO,1
+singapore_port,singapore_warehouse,SHIPS_TO,1
+mumbai_port,bengaluru_warehouse,SHIPS_TO,3
+mumbai_port,delhi_warehouse,SHIPS_TO,4
+mumbai_port,singapore_warehouse,SHIPS_TO,7
+bengaluru_warehouse,retailer_north,DISTRIBUTES_TO,2
+bengaluru_warehouse,retailer_south,DISTRIBUTES_TO,2
+bengaluru_warehouse,retailer_east,DISTRIBUTES_TO,4
+delhi_warehouse,retailer_west,DISTRIBUTES_TO,3
+delhi_warehouse,retailer_central,DISTRIBUTES_TO,2
+singapore_warehouse,retailer_europe,DISTRIBUTES_TO,12
+singapore_warehouse,retailer_japan,DISTRIBUTES_TO,8
